@@ -70,7 +70,7 @@ AVAudioPlayer *player;
 //    
 //    LockComplete = 0;
 //    LockState=0;
-    NSLog(@"ViewDidLoad called!");
+    //NSLog(@"ViewDidLoad called!");
 }
 
 
@@ -219,7 +219,7 @@ AVAudioPlayer *player;
     
     [stopButton setEnabled:NO];
     [playButton setEnabled:YES];
-    NSLog(@"audioRecorderDidFinishRecording called!");
+    NSLog(@"🔕audioRecorderDidFinishRecording called!🔕");
 }
 
 - (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
