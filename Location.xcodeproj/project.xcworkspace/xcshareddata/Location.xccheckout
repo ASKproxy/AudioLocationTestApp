@@ -10,29 +10,29 @@
 	<string>Location</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>19719C1C-E68B-45A1-A9F4-926FB1344833</key>
+		<key>27FADA951F5FAE591C85D0B131FD59375A3DB4A1</key>
 		<string>https://github.com/Aaronyoung1987/AudioLocationTestApp.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Location.xcodeproj/project.xcworkspace</string>
+	<string>Location.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>19719C1C-E68B-45A1-A9F4-926FB1344833</key>
+		<key>27FADA951F5FAE591C85D0B131FD59375A3DB4A1</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Aaronyoung1987/AudioLocationTestApp.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>19719C1C-E68B-45A1-A9F4-926FB1344833</string>
+	<string>27FADA951F5FAE591C85D0B131FD59375A3DB4A1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>19719C1C-E68B-45A1-A9F4-926FB1344833</string>
+			<string>27FADA951F5FAE591C85D0B131FD59375A3DB4A1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AudioLocationTestApp</string>
 		</dict>
