@@ -92,6 +92,9 @@ static void displayStatusChanged(CFNotificationCenterRef center,
                 NSLog(@"😡*****It's not recording!*****😡");
             }
         }
+        
+        
+        //hahahaha
 
         // Restore states value
         gLockComplete = 0;
