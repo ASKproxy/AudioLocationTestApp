@@ -18,6 +18,9 @@ AVAudioPlayer *player;
 @synthesize stopButton, playButton, recordPauseButton;
 
 
+AVAudioSession *session;
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,7 +37,8 @@ AVAudioPlayer *player;
     NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
     
     // Setup audio session
-    AVAudioSession *session = [AVAudioSession sharedInstance];
+    //AVAudioSession *session = [AVAudioSession sharedInstance];
+    session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     
     // Define the recorder setting
@@ -109,9 +113,9 @@ AVAudioPlayer *player;
 - (IBAction)stopTapped:(id)sender {
     [recorder stop];//System will call audioRecorderDidFinishRecording method
     
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setActive:NO error:nil];
-    
+    //AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    //[audioSession setActive:NO error:nil];
+    [session setActive:NO error:nil];
     NSLog(@"stopTapped called! =%@", sender);
 }
 

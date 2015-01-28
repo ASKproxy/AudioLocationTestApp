@@ -193,13 +193,16 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 
 }
 
+
+
+
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"kDisplayStatusLocked"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"application has entered foreground again! @pplicationWillEnterForeground");
     
-
+    [recorder stop];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
