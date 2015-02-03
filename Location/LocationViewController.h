@@ -8,38 +8,35 @@
 
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
+#import "StudentLifeBackgroundAudio.h"
+#import "StudentLifeBackgroundAudioRecorder.h"
+#import "FormatFile.h"
 
-IBOutlet UIButton *recordPauseButton;
-IBOutlet UIButton *stopButton;
-IBOutlet UIButton *playButton;
+extern StudentLifeBackgroundAudio *audioPlayer;
+extern StudentLifeBackgroundAudioRecorder *audioRecorder;
 
-extern AVAudioRecorder *recorder;
-extern AVAudioPlayer *player;
-
-
-
-@interface LocationViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>{
-//     NSInteger LockComplete, LockState;
-}
-
-
-
+@interface LocationViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UILabel *duration;
+@property (weak, nonatomic) IBOutlet UILabel *timeElapsed;
+@property (weak, nonatomic) IBOutlet UISlider *currentTimeslider;
 
+@property (strong, nonatomic) NSArray *pathComponents;
+@property (strong, nonatomic) NSURL *outputFileURL;
+@property (strong, nonatomic) NSMutableDictionary *recordSetting;
 
-
+@property BOOL isPaused;
+@property BOOL scrubbing;
 
 @property (strong, nonatomic) NSTimer *timer;
 
 -(IBAction)recordPauseTapped:(id)sender;
 -(IBAction)stopTapped:(id)sender;
 -(IBAction)playTapped:(id)sender;
-
 
 
 @end

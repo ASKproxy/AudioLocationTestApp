@@ -12,6 +12,8 @@
 	<dict>
 		<key>27FADA951F5FAE591C85D0B131FD59375A3DB4A1</key>
 		<string>https://github.com/Aaronyoung1987/AudioLocationTestApp.git</string>
+		<key>BC0D65EFB5C28E749F7B9AF956EFABBD0C2ABFB7</key>
+		<string>https://github.com/ymc-thzi/ios-audio-player.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Location.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>27FADA951F5FAE591C85D0B131FD59375A3DB4A1</key>
 		<string>../..</string>
+		<key>BC0D65EFB5C28E749F7B9AF956EFABBD0C2ABFB7</key>
+		<string>../../../ios-audio-player</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Aaronyoung1987/AudioLocationTestApp.git</string>
@@ -35,6 +39,14 @@
 			<string>27FADA951F5FAE591C85D0B131FD59375A3DB4A1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>AudioLocationTestApp</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BC0D65EFB5C28E749F7B9AF956EFABBD0C2ABFB7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios-audio-player</string>
 		</dict>
 	</array>
 </dict>

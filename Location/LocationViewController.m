@@ -8,14 +8,15 @@
 
 #import "LocationViewController.h"
 
-AVAudioRecorder *recorder;
-AVAudioPlayer *player;
-//NSTimer *timer;
+StudentLifeBackgroundAudio *audioPlayer;
+StudentLifeBackgroundAudioRecorder *audioRecorder;
 
-//NSInteger LockComplete, LockState;
+@interface LocationViewController ()
+
+@end
+
 
 @implementation LocationViewController
-@synthesize stopButton, playButton, recordPauseButton;
 
 
 AVAudioSession *session;
@@ -26,49 +27,186 @@ AVAudioSession *session;
     [super viewDidLoad];
     
     // Disable Stop/Play button when application launches
-    [stopButton setEnabled:YES];
-    [playButton setEnabled:NO];
+    [self.stopButton setEnabled:YES];
+    [self.playButton setEnabled:YES];
     
-    // Set the audio file
-    NSArray *pathComponents = [NSArray arrayWithObjects:
-                               [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
-                               @"MyAudioMemo.m4a",
-                               nil];
-    NSURL *outputFileURL = [NSURL fileURLWithPathComponents:pathComponents];
+    audioPlayer = [[StudentLifeBackgroundAudio alloc] init];
     
-    // Setup audio session
-    //AVAudioSession *session = [AVAudioSession sharedInstance];
-    session = [AVAudioSession sharedInstance];
-    [session setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker error:nil];
-    
-    // Define the recorder setting
-    NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
-    
-    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
-    [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
-    [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
-    
-    // Initiate and prepare the recorder
-    recorder = [[AVAudioRecorder alloc] initWithURL:outputFileURL settings:recordSetting error:NULL];
-    recorder.delegate = self;
-    recorder.meteringEnabled = YES;
-    [recorder prepareToRecord];
+    // Setup recorder
+    audioRecorder = [[StudentLifeBackgroundAudioRecorder alloc]init];
+    [audioRecorder setupAudioSettings];
+    [audioRecorder setupAudioRecorder];
     
     NSLog(@"ViewDidLoad called! @LocationViewController");
+    
 }
 
 
-- (void)didReceiveMemoryWarning
+/*
+ * Hide the statusbar
+ */
+- (BOOL)prefersStatusBarHidden
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return YES;
 }
+
+/*
+ * Setup the AudioPlayer with
+ * Filename and FileExtension like mp3
+ * Loading audioFile and sets the time Labels
+ */
+- (void)setupAudioPlayer
+{
+    [audioPlayer initPlayerWithUrl:[audioRecorder getUrl] error:nil];
+    //init the Player to get file properties to set the time labels
+    self.currentTimeslider.maximumValue = [audioPlayer getAudioDuration];
+    
+    //init the current timedisplay and the labels. if a current time was stored
+    //for this player then take it and update the time display
+    self.timeElapsed.text = @"0:00";
+    
+    self.duration.text = [NSString stringWithFormat:@"-%@",
+                          [FormatFile timeFormat:[audioPlayer getAudioDuration]]];
+    
+    
+}
+
+
+/*
+ * RecordButton is pressed
+ * record or pauses the recorder and sets
+ * the record/pause Text of the Button
+ */
+- (IBAction)recordPauseTapped:(id)sender {
+    // Stop the audio player before recording
+    if ([audioPlayer isPlaying]) {
+        [audioPlayer stopPlaying];
+    }
+    
+    if (![audioRecorder isRecording]) {
+        
+        // Start recording
+        [audioRecorder record];
+        [self.recordPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+        
+    } else {
+        
+        // Pause recording
+        [audioRecorder pause];
+        [self.recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
+    }
+    
+    [self.stopButton setEnabled:YES];
+    [self.playButton setEnabled:NO];
+    
+    
+    NSLog(@"recordPauseTapped called! =%@", sender);
+}
+
+
+
+/*
+ * StopButton is pressed
+ * stop recording audio
+ */
+- (IBAction)stopTapped:(id)sender {
+    [audioRecorder stop];
+    NSLog(@"stopTapped called! =%@", sender);
+
+    [self.playButton setEnabled:YES];
+}
+
+
+/*
+ * PlayButton is pressed
+ * plays or pauses the audio and sets
+ * the play/pause Text of the Button
+ */
+- (IBAction)playTapped:(id)sender {
+    
+    [self.timer invalidate];
+   
+//    if (!recorder.recording){
+    if (![audioRecorder isRecording]){
+        if (!self.isPaused) {
+            [self.playButton setBackgroundImage:[UIImage imageNamed:@"audioplayer_pause.png"]
+                                       forState:UIControlStateNormal];
+            
+            //start a timer to update the time label display
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                          target:self
+                                                        selector:@selector(updateTime:)
+                                                        userInfo:nil
+                                                         repeats:YES];
+            [self setupAudioPlayer];
+            [audioPlayer playAudio];
+            self.isPaused = TRUE;
+        } else {
+            //player is paused and Button is pressed again
+            [self.playButton setBackgroundImage:[UIImage imageNamed:@"audioplayer_play.png"]
+                                       forState:UIControlStateNormal];
+            
+            [audioPlayer pauseAudio];
+            self.isPaused = FALSE;
+        }
+    }
+}
+
+/*
+ * Updates the time label display and
+ * the current value of the slider
+ * while audio is playing
+ */
+- (void)updateTime:(NSTimer *)timer {
+    //to don't update every second. When scrubber is mouseDown the the slider will not set
+    if (!self.scrubbing) {
+        self.currentTimeslider.value = [audioPlayer getCurrentAudioTime];
+    }
+    self.timeElapsed.text = [NSString stringWithFormat:@"%@",
+                             [FormatFile timeFormat:[audioPlayer getCurrentAudioTime]]];
+    
+    self.duration.text = [NSString stringWithFormat:@"-%@",
+                          [FormatFile timeFormat:[audioPlayer getAudioDuration] - [audioPlayer getCurrentAudioTime]]];
+    
+    //When resetted/ended reset the playButton
+    if (![audioPlayer isPlaying]) {
+        [self.playButton setBackgroundImage:[UIImage imageNamed:@"audioplayer_play.png"]
+                                   forState:UIControlStateNormal];
+        [audioPlayer pauseAudio];
+        self.isPaused = FALSE;
+    }
+}
+
+/*
+ * Sets the current value of the slider/scrubber
+ * to the audio file when slider/scrubber is used
+ */
+- (IBAction)setCurrentTime:(id)scrubber {
+    //if scrubbing update the timestate, call updateTime faster not to wait a second and dont repeat it
+    [NSTimer scheduledTimerWithTimeInterval:0.01
+                                     target:self
+                                   selector:@selector(updateTime:)
+                                   userInfo:nil
+                                    repeats:NO];
+    
+    [audioPlayer setCurrentAudioTime:self.currentTimeslider.value];
+    self.scrubbing = FALSE;
+}
+
+/*
+ * Sets if the user is scrubbing right now
+ * to avoid slider update while dragging the slider
+ */
+- (IBAction)userIsScrubbing:(id)sender {
+    self.scrubbing = TRUE;
+}
+
 
 - (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
-    [recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
+    [self.recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
     
-    [stopButton setEnabled:NO];
-    [playButton setEnabled:YES];
+    [self.stopButton setEnabled:NO];
+    [self.playButton setEnabled:YES];
     NSLog(@"🔕audioRecorderDidFinishRecording called!🔕");
 }
 
@@ -82,55 +220,32 @@ AVAudioSession *session;
     NSLog(@"audioPlayerDidFinishPlaying called!");
 }
 
-- (IBAction)recordPauseTapped:(id)sender {
-    // Stop the audio player before recording
-    if (player.playing) {
-        [player stop];
-    }
+
+/*
+ * Format the float time values like duration
+ * to format with minutes and seconds
+ */
+-(NSString*)timeFormat:(float)value{
     
-    if (!recorder.recording) {
-        AVAudioSession *session = [AVAudioSession sharedInstance];
-        [session setActive:YES error:nil];
-        
-        // Start recording
-        [recorder record];
-        [recordPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
-        
-    } else {
-        
-        // Pause recording
-        [recorder pause];
-        [recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
-    }
+    float hours = floor(lroundf(value)/3600);
+    float minutes = floor((lroundf(value) - hours * 3600)/60); //floor(lroundf(value)/60);
+    float seconds = lroundf(value) - (hours * 3600) - (minutes * 60);
     
-    [stopButton setEnabled:YES];
-    [playButton setEnabled:NO];
- 
+    int roundedHours = lroundf(hours);
+    int roundedSeconds = lroundf(seconds);
+    int roundedMinutes = lroundf(minutes);
     
-    NSLog(@"recordPauseTapped called! =%@", sender);
+    NSString *time = [[NSString alloc]
+                      initWithFormat:@"%02d:%02d:%02d", roundedHours,
+                      roundedMinutes, roundedSeconds];
+    return time;
 }
 
-- (IBAction)stopTapped:(id)sender {
-    [recorder stop];//System will call audioRecorderDidFinishRecording method
-    
-    //AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    //[audioSession setActive:NO error:nil];
-    [session setActive:NO error:nil];
-    NSLog(@"stopTapped called! =%@", sender);
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)playTapped:(id)sender {
-    if (!recorder.recording){
-        player = [[AVAudioPlayer alloc] initWithContentsOfURL:recorder.url error:nil];
-        [player setDelegate:self];
-        [player play];
-        
-        
-        NSLog(@"playTapped called! =%@", sender);
-        //Once finished playing, system will call audioPlayerDidFinishPlaying method
-    }
-}
-
 
 
 @end

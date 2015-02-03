@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */; };
+		3FB531061A7FDD9000E1B62C /* audiofile.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB531031A7FDD9000E1B62C /* audiofile.mp3 */; };
+		3FB531071A7FDD9000E1B62C /* audioplayer_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB531041A7FDD9000E1B62C /* audioplayer_pause.png */; };
+		3FB531081A7FDD9000E1B62C /* audioplayer_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB531051A7FDD9000E1B62C /* audioplayer_play.png */; };
+		3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */; };
+		3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531151A80BA1000E1B62C /* FormatFile.m */; };
 		5C90909018B3A66A00510153 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90908F18B3A66A00510153 /* Foundation.framework */; };
 		5C90909218B3A66A00510153 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90909118B3A66A00510153 /* CoreGraphics.framework */; };
 		5C90909418B3A66A00510153 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90909318B3A66A00510153 /* UIKit.framework */; };
@@ -40,6 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
+		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
+		3FB531031A7FDD9000E1B62C /* audiofile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audiofile.mp3; path = "../../ios-audio-player/AudioPlayerTemplate/audiofile.mp3"; sourceTree = "<group>"; };
+		3FB531041A7FDD9000E1B62C /* audioplayer_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = audioplayer_pause.png; path = "../../ios-audio-player/AudioPlayerTemplate/audioplayer_pause.png"; sourceTree = "<group>"; };
+		3FB531051A7FDD9000E1B62C /* audioplayer_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = audioplayer_play.png; path = "../../ios-audio-player/AudioPlayerTemplate/audioplayer_play.png"; sourceTree = "<group>"; };
+		3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLifeBackgroundAudioRecorder.h; sourceTree = "<group>"; };
+		3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLifeBackgroundAudioRecorder.m; sourceTree = "<group>"; };
+		3FB531141A80BA1000E1B62C /* FormatFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatFile.h; sourceTree = "<group>"; };
+		3FB531151A80BA1000E1B62C /* FormatFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatFile.m; sourceTree = "<group>"; };
 		5C90908C18B3A66A00510153 /* Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Location.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C90908F18B3A66A00510153 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5C90909118B3A66A00510153 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +112,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FB530FF1A7DB95000E1B62C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */,
+				3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */,
+				3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */,
+				3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		3FB531131A80B9F500E1B62C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3FB531141A80BA1000E1B62C /* FormatFile.h */,
+				3FB531151A80BA1000E1B62C /* FormatFile.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		5C90908318B3A66A00510153 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +168,8 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				3FB531131A80B9F500E1B62C /* Utilities */,
+				3FB530FF1A7DB95000E1B62C /* Audio */,
 				5C90909E18B3A66A00510153 /* LocationAppDelegate.h */,
 				5C90909F18B3A66A00510153 /* LocationAppDelegate.m */,
 				5C9090A118B3A66A00510153 /* Main.storyboard */,
@@ -153,6 +190,9 @@
 		5C90909618B3A66A00510153 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FB531031A7FDD9000E1B62C /* audiofile.mp3 */,
+				3FB531041A7FDD9000E1B62C /* audioplayer_pause.png */,
+				3FB531051A7FDD9000E1B62C /* audioplayer_play.png */,
 				5C90909718B3A66A00510153 /* Location-Info.plist */,
 				5C90909818B3A66A00510153 /* InfoPlist.strings */,
 				5C90909B18B3A66A00510153 /* main.m */,
@@ -265,7 +305,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9090A818B3A66A00510153 /* Images.xcassets in Resources */,
+				3FB531081A7FDD9000E1B62C /* audioplayer_play.png in Resources */,
+				3FB531061A7FDD9000E1B62C /* audiofile.mp3 in Resources */,
 				5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */,
+				3FB531071A7FDD9000E1B62C /* audioplayer_pause.png in Resources */,
 				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,11 +328,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
 				5C9090A618B3A66A00510153 /* LocationViewController.m in Sources */,
+				3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
+				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
 				5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
