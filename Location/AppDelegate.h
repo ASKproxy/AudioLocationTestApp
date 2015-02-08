@@ -12,7 +12,7 @@
 
 NSInteger gLockComplete, gLockState;
 
-@interface LocationAppDelegate : UIResponder <UIApplicationDelegate,AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 
 @property (strong, nonatomic) UIWindow *window;

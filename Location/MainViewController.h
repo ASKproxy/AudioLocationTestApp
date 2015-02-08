@@ -20,7 +20,7 @@ extern StudentLifeBackgroundAudio *audioPlayer;
 extern StudentLifeBackgroundAudioRecorder *audioRecorder;
 extern EZMicrophone *ezMicrophone;
 
-@interface LocationViewController : UIViewController <EZMicrophoneDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface MainViewController : UIViewController <EZMicrophoneDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;

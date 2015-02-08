@@ -6,19 +6,19 @@
 //
 
 
-#import "LocationViewController.h"
+#import "MainViewController.h"
 
 StudentLifeBackgroundAudio *audioPlayer;
 StudentLifeBackgroundAudioRecorder *audioRecorder;
 EZMicrophone *ezMicrophone;
 
 
-@interface LocationViewController ()
+@interface MainViewController ()
 
 @end
 
 
-@implementation LocationViewController
+@implementation MainViewController
 //@synthesize ezMicrophone;
 
 AVAudioSession *session;

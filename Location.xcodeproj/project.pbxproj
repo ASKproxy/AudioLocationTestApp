@@ -34,9 +34,9 @@
 		5C90909418B3A66A00510153 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90909318B3A66A00510153 /* UIKit.framework */; };
 		5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C90909818B3A66A00510153 /* InfoPlist.strings */; };
 		5C90909C18B3A66A00510153 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909B18B3A66A00510153 /* main.m */; };
-		5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909F18B3A66A00510153 /* LocationAppDelegate.m */; };
+		5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909F18B3A66A00510153 /* AppDelegate.m */; };
 		5C9090A318B3A66A00510153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C9090A118B3A66A00510153 /* Main.storyboard */; };
-		5C9090A618B3A66A00510153 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9090A518B3A66A00510153 /* LocationViewController.m */; };
+		5C9090A618B3A66A00510153 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9090A518B3A66A00510153 /* MainViewController.m */; };
 		5C9090A818B3A66A00510153 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9090A718B3A66A00510153 /* Images.xcassets */; };
 		5C9090AF18B3A66A00510153 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090AE18B3A66A00510153 /* XCTest.framework */; };
 		5C9090B018B3A66A00510153 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90908F18B3A66A00510153 /* Foundation.framework */; };
@@ -62,13 +62,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
-		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
+		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentLifeBackgroundAudio.h; path = ../StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
+		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentLifeBackgroundAudio.m; path = ../StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
 		3FB531031A7FDD9000E1B62C /* audiofile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audiofile.mp3; path = "../../ios-audio-player/AudioPlayerTemplate/audiofile.mp3"; sourceTree = "<group>"; };
 		3FB531041A7FDD9000E1B62C /* audioplayer_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = audioplayer_pause.png; path = "../../ios-audio-player/AudioPlayerTemplate/audioplayer_pause.png"; sourceTree = "<group>"; };
 		3FB531051A7FDD9000E1B62C /* audioplayer_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = audioplayer_play.png; path = "../../ios-audio-player/AudioPlayerTemplate/audioplayer_play.png"; sourceTree = "<group>"; };
-		3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLifeBackgroundAudioRecorder.h; sourceTree = "<group>"; };
-		3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLifeBackgroundAudioRecorder.m; sourceTree = "<group>"; };
+		3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentLifeBackgroundAudioRecorder.h; path = ../StudentLifeBackgroundAudioRecorder.h; sourceTree = "<group>"; };
+		3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentLifeBackgroundAudioRecorder.m; path = ../StudentLifeBackgroundAudioRecorder.m; sourceTree = "<group>"; };
 		3FB531141A80BA1000E1B62C /* FormatFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatFile.h; sourceTree = "<group>"; };
 		3FB531151A80BA1000E1B62C /* FormatFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatFile.m; sourceTree = "<group>"; };
 		3FDA7CC81A86CE9A00A4EE58 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -106,11 +106,11 @@
 		5C90909918B3A66A00510153 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C90909B18B3A66A00510153 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C90909D18B3A66A00510153 /* Location-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Location-Prefix.pch"; sourceTree = "<group>"; };
-		5C90909E18B3A66A00510153 /* LocationAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationAppDelegate.h; sourceTree = "<group>"; };
-		5C90909F18B3A66A00510153 /* LocationAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationAppDelegate.m; sourceTree = "<group>"; };
+		5C90909E18B3A66A00510153 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5C90909F18B3A66A00510153 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5C9090A218B3A66A00510153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5C9090A418B3A66A00510153 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
-		5C9090A518B3A66A00510153 /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		5C9090A418B3A66A00510153 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		5C9090A518B3A66A00510153 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		5C9090A718B3A66A00510153 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C9090AD18B3A66A00510153 /* LocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9090AE18B3A66A00510153 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -158,20 +158,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FB530FF1A7DB95000E1B62C /* Audio */ = {
+		3F1C4C4E1A87D8BB000F5ABB /* StudengLifeLocation */ = {
 			isa = PBXGroup;
 			children = (
-				3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */,
-				3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */,
-				3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */,
-				3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */,
+				5C9090C418B3A75400510153 /* LocationTracker.h */,
+				5C9090C518B3A75400510153 /* LocationTracker.m */,
+				5C9090C718B3A78800510153 /* LocationShareModel.h */,
+				5C9090C818B3A78800510153 /* LocationShareModel.m */,
 			);
-			name = Audio;
+			name = StudengLifeLocation;
 			sourceTree = "<group>";
 		};
 		3FB531131A80B9F500E1B62C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5C9090CA18B3A7FC00510153 /* BackgroundTaskManager.h */,
+				5C9090CB18B3A7FC00510153 /* BackgroundTaskManager.m */,
 				3FB531141A80BA1000E1B62C /* FormatFile.h */,
 				3FB531151A80BA1000E1B62C /* FormatFile.m */,
 			);
@@ -203,6 +205,10 @@
 				3FDA7CE41A86CF8700A4EE58 /* EZRecorder.m */,
 				3FDA7CE51A86CF8700A4EE58 /* TPCircularBuffer.c */,
 				3FDA7CE61A86CF8700A4EE58 /* TPCircularBuffer.h */,
+				3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */,
+				3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */,
+				3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */,
+				3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */,
 				3FDA7CE71A86CF8700A4EE58 /* VERSION */,
 			);
 			path = EZAudio;
@@ -256,20 +262,14 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				3F1C4C4E1A87D8BB000F5ABB /* StudengLifeLocation */,
 				3FDA7CCE1A86CF8700A4EE58 /* EZAudio */,
 				3FB531131A80B9F500E1B62C /* Utilities */,
-				3FB530FF1A7DB95000E1B62C /* Audio */,
-				5C90909E18B3A66A00510153 /* LocationAppDelegate.h */,
-				5C90909F18B3A66A00510153 /* LocationAppDelegate.m */,
+				5C90909E18B3A66A00510153 /* AppDelegate.h */,
+				5C90909F18B3A66A00510153 /* AppDelegate.m */,
 				5C9090A118B3A66A00510153 /* Main.storyboard */,
-				5C9090A418B3A66A00510153 /* LocationViewController.h */,
-				5C9090A518B3A66A00510153 /* LocationViewController.m */,
-				5C9090C418B3A75400510153 /* LocationTracker.h */,
-				5C9090C518B3A75400510153 /* LocationTracker.m */,
-				5C9090CA18B3A7FC00510153 /* BackgroundTaskManager.h */,
-				5C9090CB18B3A7FC00510153 /* BackgroundTaskManager.m */,
-				5C9090C718B3A78800510153 /* LocationShareModel.h */,
-				5C9090C818B3A78800510153 /* LocationShareModel.m */,
+				5C9090A418B3A66A00510153 /* MainViewController.h */,
+				5C9090A518B3A66A00510153 /* MainViewController.m */,
 				5C9090A718B3A66A00510153 /* Images.xcassets */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
 			);
@@ -424,7 +424,7 @@
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
-				5C9090A618B3A66A00510153 /* LocationViewController.m in Sources */,
+				5C9090A618B3A66A00510153 /* MainViewController.m in Sources */,
 				3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */,
 				3FDA7CEF1A86CF8700A4EE58 /* EZAudioPlotGL.m in Sources */,
 				3FDA7CF01A86CF8700A4EE58 /* EZAudioPlotGLKViewController.m in Sources */,
@@ -438,7 +438,7 @@
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
 				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,
 				3FDA7CF31A86CF8700A4EE58 /* EZPlot.m in Sources */,
-				5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */,
+				5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

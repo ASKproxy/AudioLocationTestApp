@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Location. All rights reserved.
 //
 
-#import "LocationAppDelegate.h"
-#import "LocationViewController.h"
+#import "AppDelegate.h"
+#import "MainViewController.h"
 
-@implementation LocationAppDelegate
+@implementation AppDelegate
 //@synthesize gLockComplete, gLockState;
 
 /*
