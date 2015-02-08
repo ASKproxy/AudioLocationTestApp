@@ -38,30 +38,10 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     if(gLockComplete && gLockState){
         NSLog(@"🔔*****Start recording!*****🔔");
         
-////         Start recording
-        AVAudioSession *callBackSession = [AVAudioSession sharedInstance];
-        BOOL success = [callBackSession setActive:YES error:nil];
-//        BOOL success = [audioRecorder.session setActive:YES error:nil];
-//        [audioRecorder record];
-        
-        
-        
-        
-        [ezMicrophone startFetchingAudio];
-        NSLog(@"******************Microphone is %i******************* in appdelegate", ezMicrophone.microphoneOn);
+        [setupSensors.ezMicrophone startFetchingAudio];
+        NSLog(@"******************Microphone is %i******************* in appdelegate", setupSensors.ezMicrophone.microphoneOn);
 
-        
-        if(!success) {
-            NSLog(@"😡*****AVAudioSession not active*****😡");
-        }
-        
         NSLog(@"📀LockState: %i, LockComplete: %i📀", gLockState, gLockComplete);
-        if([audioRecorder isRecording]){
-            NSLog(@"😄*****It's recording!*****😄");
-            
-        }else{
-            NSLog(@"😡*****It's not recording!*****😡");
-        }
 
         // Restore states value
         gLockComplete = 0;
@@ -69,22 +49,11 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         
     }else if(!gLockComplete && gLockState){
         NSLog(@"🔕Phone wake up, ready to stop recording!🔕");
-    
-//        [audioRecorder pause];//System will call audioaudioRecorderDidFinishRecording method
-//        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-//        [audioSession setActive:NO error:nil];
-//        [audioRecorder.session setActive:NO error:nil];
         
-        [ezMicrophone stopFetchingAudio];
-        NSLog(@"******************Microphone is %i******************* in appdelegate", ezMicrophone.microphoneOn);
+        [setupSensors.ezMicrophone stopFetchingAudio];
+        NSLog(@"******************Microphone is %i******************* in appdelegate", setupSensors.ezMicrophone.microphoneOn);
         
         NSLog(@"📀LockState: %i, LockComplete: %i📀", gLockState, gLockComplete);
-        
-        if([audioRecorder isRecording]){
-            NSLog(@"😄*****IT'S RECORDING!*****😄");
-        }else{
-            NSLog(@"😡*****IT'S NOT RECORDING!*****😡");
-        }
         
         // Restore states value
         gLockState = 0;
@@ -105,9 +74,16 @@ static void displayStatusChanged(CFNotificationCenterRef center,
  */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
-    self.locationTracker = [[LocationTracker alloc]init];
-    [self.locationTracker startLocationTracking];
+    //---------------------------------------
+    // Setup sensors
+    setupSensors = [SetupSensors setup];
+    //---------------------------------------
     
+    //---------------------------------------
+    // Initial value to indicate lock status
+    gLockComplete = 0;
+    gLockState=0;
+    //---------------------------------------
     
     // Add lockstate notification observer
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
@@ -137,10 +113,6 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     
     NSLog(@"application has become active again!! @didFinishLaunchingWithOptions");
     
-    // Initial value to indicate lock status
-    gLockComplete = 0;
-    gLockState=0;
-    
     return YES;
 
 }
@@ -161,11 +133,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 {
     [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"kDisplayStatusLocked"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    NSLog(@"application has entered foreground again! @pplicationWillEnterForeground");
-    
-    // When the app is lauched again, stop recording
-    [audioRecorder stop];
-    
+    NSLog(@"application has entered foreground again! @pplicationWillEnterForeground");    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

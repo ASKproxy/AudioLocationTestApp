@@ -222,6 +222,8 @@ static OSStatus inputCallback(void                          *inRefCon,
   dispatch_once(&onceToken, ^{
     _sharedMicrophone = [[EZMicrophone alloc] init];
   });
+    
+    NSLog(@"microphone singleton initiated!");
   return _sharedMicrophone;
 }
 

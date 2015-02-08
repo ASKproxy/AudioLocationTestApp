@@ -29,6 +29,7 @@
 		3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA7CE51A86CF8700A4EE58 /* TPCircularBuffer.c */; };
 		3FDA7CF61A86CF8700A4EE58 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 3FDA7CE81A86CF8700A4EE58 /* CHANGELOG */; };
 		3FDA7CF71A86CF8700A4EE58 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 3FDA7CE91A86CF8700A4EE58 /* VERSION */; };
+		3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */; };
 		5C90909018B3A66A00510153 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90908F18B3A66A00510153 /* Foundation.framework */; };
 		5C90909218B3A66A00510153 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90909118B3A66A00510153 /* CoreGraphics.framework */; };
 		5C90909418B3A66A00510153 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90909318B3A66A00510153 /* UIKit.framework */; };
@@ -98,6 +99,8 @@
 		3FDA7CE61A86CF8700A4EE58 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
 		3FDA7CE81A86CF8700A4EE58 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 		3FDA7CE91A86CF8700A4EE58 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		3FF1C8B71A87F50300E4FA6F /* SetupSensors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupSensors.h; sourceTree = "<group>"; };
+		3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupSensors.m; sourceTree = "<group>"; };
 		5C90908C18B3A66A00510153 /* Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Location.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C90908F18B3A66A00510153 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5C90909118B3A66A00510153 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,6 +179,8 @@
 				5C9090CB18B3A7FC00510153 /* BackgroundTaskManager.m */,
 				3FB531141A80BA1000E1B62C /* FormatFile.h */,
 				3FB531151A80BA1000E1B62C /* FormatFile.m */,
+				3FF1C8B71A87F50300E4FA6F /* SetupSensors.h */,
+				3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
 				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
+				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,
 				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
 				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,

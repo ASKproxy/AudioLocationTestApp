@@ -202,6 +202,7 @@
  */
 +(EZMicrophone*)sharedMicrophone;
 
+
 #pragma mark - Events
 ///-----------------------------------------------------------
 /// @name Starting/Stopping The Microphone

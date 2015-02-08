@@ -1,16 +1,23 @@
 //
-//  LocationViewController.m
-//  Location
-//
+//  MainViewController.m
+//  StudentLife
+//  
+//  Created by Aaron Jun Yang
 //  Copyright (c) 2014 Location. All rights reserved.
 //
+//  The MainViewController sets up sensor instances including GPS, Bluetooth, Microphone,
+//  Accelerameter, and other house keeping instances including Lock&Unlock state, database, server,
+//  and PAM study. It automatically starts all event in the background once the app is launched. The
+//  app continuously senses in the background and check each instance every certain time period. For
+//  audio input, the App does the realtime processing and only store the classifier results with are
+//  integer values. Every time when the user charges the phone, it pushes all the data to the cloud.
 
 
 #import "MainViewController.h"
 
 StudentLifeBackgroundAudio *audioPlayer;
 StudentLifeBackgroundAudioRecorder *audioRecorder;
-EZMicrophone *ezMicrophone;
+//EZMicrophone *ezMicrophone;
 
 
 @interface MainViewController ()
@@ -24,6 +31,7 @@ EZMicrophone *ezMicrophone;
 AVAudioSession *session;
 
 
+#pragma mark - Setup passive sensing
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,12 +58,8 @@ AVAudioSession *session;
                                              selector:@selector(applicationEnteredForeground:)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
-    
-    ezMicrophone = [EZMicrophone microphoneWithDelegate:self startsImmediately:YES];
-    
-    NSLog(@"******************Microphone is %i*******************", ezMicrophone.microphoneOn);
-    
 }
+
 
 
 - (void)appplicationIsActive:(NSNotification *)notification {
@@ -73,6 +77,9 @@ AVAudioSession *session;
 {
     return YES;
 }
+
+
+#pragma mark - Audio
 
 /*
  * Setup the AudioPlayer with
@@ -250,6 +257,7 @@ AVAudioSession *session;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - EZMicrophoneDelegate
 -(void)    microphone:(EZMicrophone *)microphone
