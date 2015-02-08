@@ -21,7 +21,6 @@
 @property (strong, nonatomic) AVAudioSession *session;
 @property (readonly) NSURL *url;
 
-- (void)setupAudioSettings;
 - (void)setupAudioRecorder;
 - (BOOL)isRecording;
 - (NSURL *)getUrl;

@@ -10,11 +10,12 @@
 
 @implementation StudentLifeBackgroundAudioRecorder
 
+
 /*
- * Setup settings for Audio
+ * Setup the AudioRecorder
  * including pathComponents, url, audio session, and basic settings
  */
-- (void)setupAudioSettings{
+- (void)setupAudioRecorder{
     // Set the audio file
     self.pathComponents = [NSArray arrayWithObjects:
                            [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject],
@@ -33,12 +34,6 @@
     [self.recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
     [self.recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
     
-}
-
-/*
- * Setup the AudioRecorder
- */
-- (void)setupAudioRecorder{
     self.recorder = [[AVAudioRecorder alloc] initWithURL:self.outputFileURL settings:self.recordSetting error:NULL];
     self.recorder.delegate = self;
     self.recorder.meteringEnabled = YES;
@@ -82,6 +77,10 @@
  */
 - (NSURL *)getUrl{
     return self.outputFileURL;
+}
+
+- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+      NSLog(@"🔕audioRecorderDidFinishRecording called!🔕");
 }
 
 @end

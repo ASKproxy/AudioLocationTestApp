@@ -12,11 +12,15 @@
 #import "StudentLifeBackgroundAudio.h"
 #import "StudentLifeBackgroundAudioRecorder.h"
 #import "FormatFile.h"
+#import "EZMicrophone.h"
+#import "EZAudio.h"
+#import <Accelerate/Accelerate.h>
 
 extern StudentLifeBackgroundAudio *audioPlayer;
 extern StudentLifeBackgroundAudioRecorder *audioRecorder;
+extern EZMicrophone *ezMicrophone;
 
-@interface LocationViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface LocationViewController : UIViewController <EZMicrophoneDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
@@ -28,6 +32,9 @@ extern StudentLifeBackgroundAudioRecorder *audioRecorder;
 @property (strong, nonatomic) NSArray *pathComponents;
 @property (strong, nonatomic) NSURL *outputFileURL;
 @property (strong, nonatomic) NSMutableDictionary *recordSetting;
+
+//@property (nonatomic,strong) EZMicrophone *ezMicrophone;
+
 
 @property BOOL isPaused;
 @property BOOL scrubbing;

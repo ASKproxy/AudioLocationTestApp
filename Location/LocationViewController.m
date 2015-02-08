@@ -10,6 +10,8 @@
 
 StudentLifeBackgroundAudio *audioPlayer;
 StudentLifeBackgroundAudioRecorder *audioRecorder;
+EZMicrophone *ezMicrophone;
+
 
 @interface LocationViewController ()
 
@@ -17,7 +19,7 @@ StudentLifeBackgroundAudioRecorder *audioRecorder;
 
 
 @implementation LocationViewController
-
+//@synthesize ezMicrophone;
 
 AVAudioSession *session;
 
@@ -34,13 +36,35 @@ AVAudioSession *session;
     
     // Setup recorder
     audioRecorder = [[StudentLifeBackgroundAudioRecorder alloc]init];
-    [audioRecorder setupAudioSettings];
+//    [audioRecorder setupAudioSettings];
     [audioRecorder setupAudioRecorder];
     
     NSLog(@"ViewDidLoad called! @LocationViewController");
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(appplicationIsActive:)
+                                                 name:UIApplicationDidBecomeActiveNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationEnteredForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+    
+    ezMicrophone = [EZMicrophone microphoneWithDelegate:self startsImmediately:YES];
+    
+    NSLog(@"******************Microphone is %i*******************", ezMicrophone.microphoneOn);
+    
 }
 
+
+- (void)appplicationIsActive:(NSNotification *)notification {
+    NSLog(@"🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶Application Did Become Active🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶");
+}
+
+- (void)applicationEnteredForeground:(NSNotification *)notification {
+    NSLog(@"🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶Application Entered Foreground🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶🐶");
+}
 
 /*
  * Hide the statusbar
@@ -202,44 +226,24 @@ AVAudioSession *session;
 }
 
 
-- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
-    [self.recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
-    
-    [self.stopButton setEnabled:NO];
-    [self.playButton setEnabled:YES];
-    NSLog(@"🔕audioRecorderDidFinishRecording called!🔕");
-}
+//- (void) audioRecorderDidFinishRecording:(AVAudioRecorder *)avrecorder successfully:(BOOL)flag{
+//    [self.recordPauseButton setTitle:@"Record" forState:UIControlStateNormal];
+//    
+//    [self.stopButton setEnabled:NO];
+//    [self.playButton setEnabled:YES];
+//    NSLog(@"🔕audioRecorderDidFinishRecording called!🔕");
+//}
+//
+//- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
+//                                                    message: @"Finish playing the recording!"
+//                                                   delegate: nil
+//                                          cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil];
+//    [alert show];
+//    NSLog(@"audioPlayerDidFinishPlaying called!");
+//}
 
-- (void) audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
-                                                    message: @"Finish playing the recording!"
-                                                   delegate: nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
-    NSLog(@"audioPlayerDidFinishPlaying called!");
-}
-
-
-/*
- * Format the float time values like duration
- * to format with minutes and seconds
- */
--(NSString*)timeFormat:(float)value{
-    
-    float hours = floor(lroundf(value)/3600);
-    float minutes = floor((lroundf(value) - hours * 3600)/60); //floor(lroundf(value)/60);
-    float seconds = lroundf(value) - (hours * 3600) - (minutes * 60);
-    
-    int roundedHours = lroundf(hours);
-    int roundedSeconds = lroundf(seconds);
-    int roundedMinutes = lroundf(minutes);
-    
-    NSString *time = [[NSString alloc]
-                      initWithFormat:@"%02d:%02d:%02d", roundedHours,
-                      roundedMinutes, roundedSeconds];
-    return time;
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -247,5 +251,15 @@ AVAudioSession *session;
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - EZMicrophoneDelegate
+-(void)    microphone:(EZMicrophone *)microphone
+     hasAudioReceived:(float **)buffer
+       withBufferSize:(UInt32)bufferSize
+ withNumberOfChannels:(UInt32)numberOfChannels {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+      
+    });
+}
 
 @end

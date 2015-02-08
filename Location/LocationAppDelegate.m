@@ -40,9 +40,20 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         
 ////         Start recording
         AVAudioSession *callBackSession = [AVAudioSession sharedInstance];
-        [callBackSession setActive:YES error:nil];
-//        [audioRecorder.session setActive:YES error:nil];
-        [audioRecorder record];
+        BOOL success = [callBackSession setActive:YES error:nil];
+//        BOOL success = [audioRecorder.session setActive:YES error:nil];
+//        [audioRecorder record];
+        
+        
+        
+        
+        [ezMicrophone startFetchingAudio];
+        NSLog(@"******************Microphone is %i******************* in appdelegate", ezMicrophone.microphoneOn);
+
+        
+        if(!success) {
+            NSLog(@"😡*****AVAudioSession not active*****😡");
+        }
         
         NSLog(@"📀LockState: %i, LockComplete: %i📀", gLockState, gLockComplete);
         if([audioRecorder isRecording]){
@@ -59,10 +70,13 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     }else if(!gLockComplete && gLockState){
         NSLog(@"🔕Phone wake up, ready to stop recording!🔕");
     
-        [audioRecorder pause];//System will call audioaudioRecorderDidFinishRecording method
+//        [audioRecorder pause];//System will call audioaudioRecorderDidFinishRecording method
 //        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
 //        [audioSession setActive:NO error:nil];
 //        [audioRecorder.session setActive:NO error:nil];
+        
+        [ezMicrophone stopFetchingAudio];
+        NSLog(@"******************Microphone is %i******************* in appdelegate", ezMicrophone.microphoneOn);
         
         NSLog(@"📀LockState: %i, LockComplete: %i📀", gLockState, gLockComplete);
         
@@ -151,6 +165,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     
     // When the app is lauched again, stop recording
     [audioRecorder stop];
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
