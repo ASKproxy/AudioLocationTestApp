@@ -1,13 +1,15 @@
 //
 //  LocationAppDelegate.m
-//  Location
+//  StudentLife
 //
-//  Created by Rick
+//  Created by Aaron Jun Yang
 //  Copyright (c) 2014 Location. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "PamSurveyViewController.h"
+
 
 @implementation AppDelegate
 //@synthesize gLockComplete, gLockState;
@@ -41,7 +43,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         [setupSensors.ezMicrophone startFetchingAudio];
         NSLog(@"******************Microphone is %i******************* in appdelegate", setupSensors.ezMicrophone.microphoneOn);
 
-        NSLog(@"📀LockState: %i, LockComplete: %i📀", gLockState, gLockComplete);
+        NSLog(@"📀LockState: %li, LockComplete: %li📀", (long)gLockState, (long)gLockComplete);
 
         // Restore states value
         gLockComplete = 0;
@@ -53,7 +55,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         [setupSensors.ezMicrophone stopFetchingAudio];
         NSLog(@"******************Microphone is %i******************* in appdelegate", setupSensors.ezMicrophone.microphoneOn);
         
-        NSLog(@"📀LockState: %i, LockComplete: %i📀", gLockState, gLockComplete);
+        NSLog(@"📀LockState: %li, LockComplete: %li📀", (long)gLockState, (long)gLockComplete);
         
         // Restore states value
         gLockState = 0;
@@ -76,7 +78,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 {    
     //---------------------------------------
     // Setup sensors
-    setupSensors = [SetupSensors setup];
+    setupSensors = [SetupSensors sharedSetupSensors];
     //---------------------------------------
     
     //---------------------------------------
@@ -111,6 +113,23 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kDisplayStatusLocked"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    
+    // Handle launching from a notification
+    UILocalNotification *localNotification =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotification) {
+        // Set icon badge number to zero
+//        application.applicationIconBadgeNumber = 0;
+        application.applicationIconBadgeNumber = 0;
+        
+        //Direct to PAM survey view
+        PamSurveyViewController *PamViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"PamSurveyViewController"];
+        [self.window setRootViewController:PamViewController];
+//        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        
+    }
+    
+   
     NSLog(@"application has become active again!! @didFinishLaunchingWithOptions");
     
     return YES;
@@ -119,7 +138,9 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    
+    [setupSensors.ezMicrophone stopFetchingAudio];
+    NSLog(@"********Microphone is %i in applicationWillResignActive*****************", setupSensors.ezMicrophone.microphoneOn);
+
     NSLog(@"locked! @applicationWillResignActive");
 }
 
@@ -146,6 +167,20 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     NSLog(@"application will terminate! @applicationWillTerminate:");
+}
+
+/**
+ Handling a local notification when an app is already running
+ */
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    //My_specificViewController
+    PamSurveyViewController *PamViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"PamSurveyViewController"];
+    [self.window setRootViewController:PamViewController];
+    
+    // Set icon badge number to zero
+    application.applicationIconBadgeNumber = 0;
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 

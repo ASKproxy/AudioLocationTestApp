@@ -1,102 +1,233 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hEB-6o-b6P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RcF-qT-jan">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--LocationViewController-->
+        <!--Main View Controller-->
         <scene sceneID="oXd-bS-j9m">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="hEB-6o-b6P" customClass="MainViewController" sceneMemberID="viewController">
+                    <value key="contentSizeForViewInPopover" type="size" width="768" height="1024"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1152" y="-23"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="qAt-f6-DG1">
+            <objects>
+                <viewController id="nHb-tM-Dmo" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qLl-wX-xhb"/>
-                        <viewControllerLayoutGuide type="bottom" id="d32-vb-rAk"/>
+                        <viewControllerLayoutGuide type="top" id="ZT2-Zf-1J3"/>
+                        <viewControllerLayoutGuide type="bottom" id="EAl-kg-mYt"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Grz-Wo-9as">
+                    <view key="view" contentMode="scaleToFill" id="rx0-aa-mFw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4k-Bx-kIq">
-                                <rect key="frame" x="47" y="181" width="50" height="30"/>
-                                <state key="normal" title="Record">
-                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="recordPauseTapped:" destination="hEB-6o-b6P" eventType="touchUpInside" id="6vN-BI-YnO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ6-na-2yo">
-                                <rect key="frame" x="236" y="181" width="46" height="30"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopTapped:" destination="hEB-6o-b6P" eventType="touchUpInside" id="ylz-Lk-54V"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-lH-jCt">
-                                <rect key="frame" x="-7" y="89" width="46" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrb-Fs-ApS">
+                                <rect key="frame" x="139" y="273" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" backgroundImage="audioplayer_play.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="playTapped:" destination="hEB-6o-b6P" eventType="touchUpInside" id="4Qz-8m-2xd"/>
-                                </connections>
-                            </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0LT-D2-D6G">
-                                <rect key="frame" x="104" y="89" width="136" height="31"/>
-                                <connections>
-                                    <action selector="setCurrentTime:" destination="hEB-6o-b6P" eventType="valueChanged" id="0E1-iK-8Uq"/>
-                                    <action selector="userIsScrubbing:" destination="hEB-6o-b6P" eventType="valueChanged" id="Wf9-kL-Uvj"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXp-km-JmP" userLabel="timeElapsed">
-                                <rect key="frame" x="33" y="95" width="78" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rw0-jU-U6n" userLabel="timeDuration">
-                                <rect key="frame" x="236" y="95" width="84" height="21"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="w0v-8m-JHg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzc-EZ-KvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="316" y="1530"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="tAr-An-IEq">
+            <objects>
+                <viewController id="ziJ-Zz-Xds" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Shf-cI-hPD"/>
+                        <viewControllerLayoutGuide type="bottom" id="fdN-WV-2kb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mDq-xc-Jn0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzb-1K-k57">
+                                <rect key="frame" x="139" y="273" width="10" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="MicSignal" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29m-sm-p3Q">
-                                <rect key="frame" x="47" y="325" width="235" height="30"/>
-                                <color key="backgroundColor" red="0.61067242170000002" green="0.79661023620000004" blue="0.45824665530000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="MicSignal">
-                                    <color key="titleShadowColor" red="0.61067242170000002" green="0.79661023620000004" blue="0.45824665530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="EaU-7Q-vjE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="21m-kV-Vev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="1530"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="gY2-7A-31Y">
+            <objects>
+                <viewController id="cfS-bo-sB5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RMl-ii-KuY"/>
+                        <viewControllerLayoutGuide type="bottom" id="7B3-qo-7Qj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="95I-Wk-KE6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUT-Tw-GqI">
+                                <rect key="frame" x="139" y="273" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="6tz-QZ-PhF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5QR-cP-Vp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="1530"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="VEz-dr-B1S">
+            <objects>
+                <viewController id="cah-g1-nH2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U2a-iC-kHq"/>
+                        <viewControllerLayoutGuide type="bottom" id="5BS-1B-2mg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O6b-4w-eBP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DsU-rG-fnE">
+                                <rect key="frame" x="139" y="273" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="qeY-Bo-6e9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-ez-b1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-32" y="1530"/>
+        </scene>
+        <!--Data Tab View Controller-->
+        <scene sceneID="6Xu-Te-5k8">
+            <objects>
+                <tabBarController id="RcF-qT-jan" customClass="DataTabViewController" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="lPj-0i-JeR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cah-g1-nH2" kind="relationship" relationship="viewControllers" id="yYf-bA-XVP"/>
+                        <segue destination="nHb-tM-Dmo" kind="relationship" relationship="viewControllers" id="7wD-GF-sEx"/>
+                        <segue destination="ziJ-Zz-Xds" kind="relationship" relationship="viewControllers" id="5qa-LY-tci"/>
+                        <segue destination="cfS-bo-sB5" kind="relationship" relationship="viewControllers" id="wOT-bT-P2m"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ma3-Qc-brg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="820"/>
+        </scene>
+        <!--Pam Survey View Controller-->
+        <scene sceneID="zMo-ac-5LE">
+            <objects>
+                <viewController storyboardIdentifier="PamSurveyViewController" id="FQM-Rd-FFh" customClass="PamSurveyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s6I-YI-eko"/>
+                        <viewControllerLayoutGuide type="bottom" id="alU-Qe-KzL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="G6D-xu-0Vp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
+                                <rect key="frame" x="127" y="49" width="80" height="30"/>
+                                <state key="normal" title="Happy">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="DLB-bi-qH5"/>
+                                    <segue destination="RcF-qT-jan" kind="modal" id="uJd-ya-AB6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
+                                <rect key="frame" x="57" y="139" width="70" height="30"/>
+                                <state key="normal" title="Neutral">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="xrj-Ax-Hua"/>
+                                    <segue destination="RcF-qT-jan" kind="modal" id="gVM-wR-qNS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAH-ox-Dy5">
+                                <rect key="frame" x="16" y="232" width="78" height="30"/>
+                                <state key="normal" title="Stressed">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="jGj-nq-PIE"/>
+                                    <segue destination="RcF-qT-jan" kind="modal" id="JzI-Ah-NHT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
+                                <rect key="frame" x="57" y="319" width="70" height="30"/>
+                                <state key="normal" title="Stressed2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="YMw-wk-Ba9"/>
+                                    <segue destination="RcF-qT-jan" kind="modal" id="oTM-x8-M84"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
+                                <rect key="frame" x="127" y="407" width="80" height="30"/>
+                                <state key="normal" title="Stressed3">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="ifp-Wm-Mgi"/>
+                                    <segue destination="RcF-qT-jan" kind="modal" id="pIy-Wd-Msq"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="LocationViewController" id="OKL-MW-Pfb"/>
                     <connections>
-                        <outlet property="currentTimeslider" destination="0LT-D2-D6G" id="tKI-N1-015"/>
-                        <outlet property="duration" destination="Rw0-jU-U6n" id="dst-jT-CqY"/>
-                        <outlet property="playButton" destination="KE7-lH-jCt" id="uVC-yf-JSy"/>
-                        <outlet property="recordPauseButton" destination="J4k-Bx-kIq" id="ozb-sY-LCx"/>
-                        <outlet property="stopButton" destination="ZJ6-na-2yo" id="sUB-AH-Gfl"/>
-                        <outlet property="timeElapsed" destination="UXp-km-JmP" id="HnG-Om-59r"/>
+                        <outletCollection property="PamStressButtons" destination="lsk-8m-c6Q" id="zct-Vg-RXO"/>
+                        <outletCollection property="PamStressButtons" destination="TK3-86-vUt" id="nU5-0h-cQt"/>
+                        <outletCollection property="PamStressButtons" destination="oAH-ox-Dy5" id="62b-ht-NAP"/>
+                        <outletCollection property="PamStressButtons" destination="e0M-4y-W5N" id="9LL-cI-WYz"/>
+                        <outletCollection property="PamStressButtons" destination="9NF-Bz-8ZV" id="uXm-vn-Fyf"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lb9-lo-Sd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="-67"/>
+            <point key="canvasLocation" x="1042" y="820"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="audioplayer_play.png" width="66" height="65"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="uJd-ya-AB6"/>
+    </inferredMetricsTieBreakers>
 </document>

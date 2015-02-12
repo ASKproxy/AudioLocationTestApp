@@ -1,5 +1,6 @@
 //
 //  BackgroundTaskManager.m
+//  StudentLife
 //
 //  Created by Puru Shukla on 20/02/13.
 //  Copyright (c) 2013 Puru Shukla. All rights reserved.
@@ -41,17 +42,17 @@
    UIBackgroundTaskIdentifier bgTaskId = UIBackgroundTaskInvalid;
    if([application respondsToSelector:@selector(beginBackgroundTaskWithExpirationHandler:)]){
         bgTaskId = [application beginBackgroundTaskWithExpirationHandler:^{
-           NSLog(@"background task %d expired", bgTaskId);
+           NSLog(@"background task %lu expired", (unsigned long)bgTaskId);
         }];
         if ( self.masterTaskId == UIBackgroundTaskInvalid )
         {
             self.masterTaskId = bgTaskId;
-            NSLog(@"started master task %d", self.masterTaskId);
+            NSLog(@"started master task %lu", (unsigned long)self.masterTaskId);
         }
         else
         {
             //add this id to our list
-            NSLog(@"started background task %d", bgTaskId);
+            NSLog(@"started background task %lu", (unsigned long)bgTaskId);
             [self.bgTaskIdList addObject:@(bgTaskId)];
             [self endBackgroundTasks];
         }
@@ -79,7 +80,7 @@
       for ( NSUInteger i=(all?0:1); i<count; i++ )
       {
          UIBackgroundTaskIdentifier bgTaskId = [[self.bgTaskIdList objectAtIndex:0] integerValue];
-         NSLog(@"ending background task with id -%d", bgTaskId);
+         NSLog(@"ending background task with id -%lu", (unsigned long)bgTaskId);
          [application endBackgroundTask:bgTaskId];
          [self.bgTaskIdList removeObjectAtIndex:0];
       }
@@ -95,7 +96,7 @@
       }
       else
       {
-          NSLog(@"kept master background task id %d", self.masterTaskId);
+          NSLog(@"kept master background task id %lu", (unsigned long)self.masterTaskId);
       }
    }
 }

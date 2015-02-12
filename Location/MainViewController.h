@@ -16,64 +16,87 @@
 
 
 #import <UIKit/UIKit.h>
-#import <CoreAudio/CoreAudioTypes.h>
-#import "StudentLifeBackgroundAudio.h"
-#import "StudentLifeBackgroundAudioRecorder.h"
 #import "FormatFile.h"
-#import "EZMicrophone.h"
 #import "EZAudio.h"
 #import <Accelerate/Accelerate.h>
 #import "SetupSensors.h"
 
+//#import <CoreAudio/CoreAudioTypes.h>
+//#import "StudentLifeBackgroundAudio.h"
+//#import "StudentLifeBackgroundAudioRecorder.h"
+//#import "EZMicrophone.h"
 
-extern StudentLifeBackgroundAudio *audioPlayer;
-extern StudentLifeBackgroundAudioRecorder *audioRecorder;
-//extern EZMicrophone *ezMicrophone;
 
+/**
+ The FFTViewController demonstrates how to use the Accelerate framework to calculate the real-time FFT of audio data provided by an EZAudioMicrophone.
+ */
 @interface MainViewController : UIViewController <EZMicrophoneDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
+#pragma mark - Components
+/**
+ EZAudioPlot for frequency plot
+ */
+//@property (nonatomic,weak) IBOutlet EZAudioPlot *audioPlotFreq;
+@property (weak, nonatomic) IBOutlet EZAudioPlot *audioPlotFreq;
 
+/**
+ EZAudioPlot for time plot
+ */
+//@property (nonatomic,weak) IBOutlet EZAudioPlotGL *audioPlotTime;
+@property (weak, nonatomic) IBOutlet EZAudioPlotGL *audioPlotTime;
 
-#pragma mark - Property
+/**
+ Microphone
+ */
+@property (nonatomic,strong) EZMicrophone *microphone;
 
-@property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
-@property (weak, nonatomic) IBOutlet UIButton *stopButton;
-@property (weak, nonatomic) IBOutlet UIButton *playButton;
-@property (weak, nonatomic) IBOutlet UILabel *duration;
-@property (weak, nonatomic) IBOutlet UILabel *timeElapsed;
-@property (weak, nonatomic) IBOutlet UISlider *currentTimeslider;
-
-@property (strong, nonatomic) NSArray *pathComponents;
-@property (strong, nonatomic) NSURL *outputFileURL;
-@property (strong, nonatomic) NSMutableDictionary *recordSetting;
-
-//@property (nonatomic,strong) EZMicrophone *ezMicrophone;
-
+/**
+ SetupSensors
+ */
 @property (strong, nonatomic) SetupSensors *setupSensors;
-@property BOOL isPaused;
-@property BOOL scrubbing;
-
-@property (strong, nonatomic) NSTimer *timer;
 
 
-#pragma mark - Audio
 
--(IBAction)recordPauseTapped:(id)sender;
--(IBAction)stopTapped:(id)sender;
--(IBAction)playTapped:(id)sender;
-
-#pragma mark - GPS
-
-#pragma mark - Bluetooth
-
-#pragma mark - Accelerameter
-
-#pragma mark - Lock & Unlock
-
-#pragma mark - Pam
-
-#pragma mark - Database
-
-#pragma mark - Server
+//#pragma mark - Property
+//
+//@property (weak, nonatomic) IBOutlet UIButton *recordPauseButton;
+//@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+//@property (weak, nonatomic) IBOutlet UIButton *playButton;
+//@property (weak, nonatomic) IBOutlet UILabel *duration;
+//@property (weak, nonatomic) IBOutlet UILabel *timeElapsed;
+//@property (weak, nonatomic) IBOutlet UISlider *currentTimeslider;
+//
+//@property (strong, nonatomic) NSArray *pathComponents;
+//@property (strong, nonatomic) NSURL *outputFileURL;
+//@property (strong, nonatomic) NSMutableDictionary *recordSetting;
+//
+//@property (nonatomic,strong) EZMicrophone *ezMicrophone;
+//
+//
+//@property BOOL isPaused;
+//@property BOOL scrubbing;
+//
+//@property (strong, nonatomic) NSTimer *timer;
+//
+//
+//#pragma mark - Audio
+//
+//-(IBAction)recordPauseTapped:(id)sender;
+//-(IBAction)stopTapped:(id)sender;
+//-(IBAction)playTapped:(id)sender;
+//
+//#pragma mark - GPS
+//
+//#pragma mark - Bluetooth
+//
+//#pragma mark - Accelerameter
+//
+//#pragma mark - Lock & Unlock
+//
+//#pragma mark - Pam
+//
+//#pragma mark - Database
+//
+//#pragma mark - Server
 
 @end

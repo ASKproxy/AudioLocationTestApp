@@ -1,8 +1,8 @@
 //
 //  LocationAppDelegate.h
-//  Location
+//  StudentLife
 //
-//  Created by Rick
+//  Created by Aaron Jun Yang
 //  Copyright (c) 2014 Location. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ SetupSensors *setupSensors;
 
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 
 @property (strong, nonatomic) UIWindow *window;
