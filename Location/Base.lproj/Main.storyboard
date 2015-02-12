@@ -15,7 +15,7 @@
             </objects>
             <point key="canvasLocation" x="1152" y="-23"/>
         </scene>
-        <!--Item 2-->
+        <!--Sleep-->
         <scene sceneID="qAt-f6-DG1">
             <objects>
                 <viewController id="nHb-tM-Dmo" sceneMemberID="viewController">
@@ -36,13 +36,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="w0v-8m-JHg"/>
+                    <tabBarItem key="tabBarItem" title="Sleep" id="w0v-8m-JHg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzc-EZ-KvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="316" y="1530"/>
         </scene>
-        <!--Item-->
+        <!--Activity-->
         <scene sceneID="tAr-An-IEq">
             <objects>
                 <viewController id="ziJ-Zz-Xds" sceneMemberID="viewController">
@@ -63,13 +63,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="EaU-7Q-vjE"/>
+                    <tabBarItem key="tabBarItem" title="Activity" id="EaU-7Q-vjE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21m-kV-Vev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="679" y="1530"/>
         </scene>
-        <!--Item-->
+        <!--Social-->
         <scene sceneID="gY2-7A-31Y">
             <objects>
                 <viewController id="cfS-bo-sB5" sceneMemberID="viewController">
@@ -90,13 +90,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="6tz-QZ-PhF"/>
+                    <tabBarItem key="tabBarItem" title="Social" id="6tz-QZ-PhF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QR-cP-Vp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1042" y="1530"/>
         </scene>
-        <!--Item 1-->
+        <!--Stress-->
         <scene sceneID="VEz-dr-B1S">
             <objects>
                 <viewController id="cah-g1-nH2" sceneMemberID="viewController">
@@ -117,7 +117,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="qeY-Bo-6e9"/>
+                    <tabBarItem key="tabBarItem" title="Stress" id="qeY-Bo-6e9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-ez-b1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
