@@ -24,6 +24,9 @@
     
     NSLog(@"ViewDidLoad called! @LocationViewController");
     
+    [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                            withAnimation:UIStatusBarAnimationFade];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(appplicationIsActive:)
                                                  name:UIApplicationDidBecomeActiveNotification
@@ -56,7 +59,7 @@
  */
 - (BOOL)prefersStatusBarHidden
 {
-    return NO;
+    return YES;
 }
 
 

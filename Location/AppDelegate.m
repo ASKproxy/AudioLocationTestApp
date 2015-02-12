@@ -87,6 +87,23 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     gLockState=0;
     //---------------------------------------
     
+    
+    //---------------------------------------
+    // Handle launching from a notification
+    UILocalNotification *localNotification =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotification) {
+        // Set icon badge number to zero
+        application.applicationIconBadgeNumber = 0;
+        
+        //Direct to PAM survey view
+        PamSurveyViewController *PamViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"PamSurveyViewController"];
+        [self.window setRootViewController:PamViewController];
+        //        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+    //---------------------------------------
+
+    
     // Add lockstate notification observer
     CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),
                                     NULL,
@@ -112,23 +129,6 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kDisplayStatusLocked"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    
-    // Handle launching from a notification
-    UILocalNotification *localNotification =
-    [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if (localNotification) {
-        // Set icon badge number to zero
-//        application.applicationIconBadgeNumber = 0;
-        application.applicationIconBadgeNumber = 0;
-        
-        //Direct to PAM survey view
-        PamSurveyViewController *PamViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"PamSurveyViewController"];
-        [self.window setRootViewController:PamViewController];
-//        [[UIApplication sharedApplication] cancelAllLocalNotifications];
-        
-    }
-    
    
     NSLog(@"application has become active again!! @didFinishLaunchingWithOptions");
     

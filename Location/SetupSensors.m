@@ -27,8 +27,8 @@
 @synthesize audioPlotFreq;
 @synthesize audioPlotTime;
 
-static int _NotificationFireTimeOfDay[] = {7, 20, 18};
-static int _NotificationFireMinOfDay[] = {30 , 31};
+static int _NotificationFireTimeOfDay[] = {7, 16, 18};
+static int _NotificationFireMinOfDay[] = {24 , 26};
 
 -(id)init {
     self = [super init];
