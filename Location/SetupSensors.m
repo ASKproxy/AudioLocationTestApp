@@ -27,8 +27,8 @@
 @synthesize audioPlotFreq;
 @synthesize audioPlotTime;
 
-static int _NotificationFireTimeOfDay[] = {7, 16, 18};
-static int _NotificationFireMinOfDay[] = {24 , 26};
+static int _NotificationFireTimeOfDay[] = {7, 17, 18};
+static int _NotificationFireMinOfDay[] = {35 , 37};
 
 -(id)init {
     self = [super init];
@@ -152,6 +152,9 @@ static int _NotificationFireMinOfDay[] = {24 , 26};
         // Update time domain plot
         [self.audioPlotTime updateBuffer:buffer[0]
                           withBufferSize:bufferSize];
+        
+        NSLog(@"buffer size is : %lu", sizeof(buffer)/sizeof(float));
+        NSLog(@"buffer size of first pointer is : %lu", sizeof(buffer[0])/sizeof(float));
         
         // Setup the FFT if it's not already setup
         if( !_isFFTSetup ){

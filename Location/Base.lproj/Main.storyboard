@@ -117,7 +117,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stress" id="qeY-Bo-6e9"/>
+                    <tabBarItem key="tabBarItem" title="Stress" image="Stress" selectedImage="Stress" id="qeY-Bo-6e9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-ez-b1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,8 +157,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
-                                <rect key="frame" x="127" y="49" width="80" height="30"/>
-                                <state key="normal" title="Happy">
+                                <rect key="frame" x="127" y="20" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Pufferfish_1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -167,8 +167,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
-                                <rect key="frame" x="57" y="139" width="70" height="30"/>
-                                <state key="normal" title="Neutral">
+                                <rect key="frame" x="57" y="110" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Pufferfish_2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -177,8 +177,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAH-ox-Dy5">
-                                <rect key="frame" x="16" y="232" width="78" height="30"/>
-                                <state key="normal" title="Stressed">
+                                <rect key="frame" x="16" y="210" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Pufferfish_3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -187,8 +187,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
-                                <rect key="frame" x="57" y="319" width="70" height="30"/>
-                                <state key="normal" title="Stressed2">
+                                <rect key="frame" x="57" y="300" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Pufferfish_4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -197,8 +197,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
-                                <rect key="frame" x="127" y="407" width="80" height="30"/>
-                                <state key="normal" title="Stressed3">
+                                <rect key="frame" x="127" y="380" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Pufferfish_5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -207,7 +207,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.090196080505847931" green="0.77647066116333008" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <connections>
                         <outletCollection property="PamStressButtons" destination="lsk-8m-c6Q" id="zct-Vg-RXO"/>
@@ -222,6 +222,14 @@
             <point key="canvasLocation" x="1042" y="820"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Pufferfish_1" width="1500" height="1500"/>
+        <image name="Pufferfish_2" width="1500" height="1500"/>
+        <image name="Pufferfish_3" width="1500" height="1500"/>
+        <image name="Pufferfish_4" width="1500" height="1500"/>
+        <image name="Pufferfish_5" width="1500" height="1500"/>
+        <image name="Stress" width="180" height="148"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
