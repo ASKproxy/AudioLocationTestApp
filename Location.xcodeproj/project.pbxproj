@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */; };
+		3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */; };
 		3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */; };
 		3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */; };
 		3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531151A80BA1000E1B62C /* FormatFile.m */; };
@@ -75,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		3F2EE7BA1A92C9B8002C0054 /* LocalData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalData.xcdatamodel; sourceTree = "<group>"; };
+		3F2EE7BC1A930AF5002C0054 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
+		3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentLifeBackgroundAudio.h; path = ../StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
 		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentLifeBackgroundAudio.m; path = ../StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
 		3FB531031A7FDD9000E1B62C /* audiofile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audiofile.mp3; path = "../../ios-audio-player/AudioPlayerTemplate/audiofile.mp3"; sourceTree = "<group>"; };
@@ -206,14 +209,13 @@
 			children = (
 				5C9090C418B3A75400510153 /* LocationTracker.h */,
 				5C9090C518B3A75400510153 /* LocationTracker.m */,
-				3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */,
 				5C9090C718B3A78800510153 /* LocationShareModel.h */,
 				5C9090C818B3A78800510153 /* LocationShareModel.m */,
 			);
 			name = StudengLifeLocation;
 			sourceTree = "<group>";
 		};
-		3FB531131A80B9F500E1B62C /* Utilities */ = {
+		3FB531131A80B9F500E1B62C /* StudentLifeUtilities */ = {
 			isa = PBXGroup;
 			children = (
 				5C9090CA18B3A7FC00510153 /* BackgroundTaskManager.h */,
@@ -223,7 +225,7 @@
 				3FF1C8B71A87F50300E4FA6F /* SetupSensors.h */,
 				3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */,
 			);
-			name = Utilities;
+			name = StudentLifeUtilities;
 			sourceTree = "<group>";
 		};
 		3FDA7CCE1A86CF8700A4EE58 /* EZAudio */ = {
@@ -269,7 +271,7 @@
 			path = VERSION;
 			sourceTree = "<group>";
 		};
-		3FE0FD551A8BC78400A8B992 /* ViewController */ = {
+		3FE0FD551A8BC78400A8B992 /* StudentLifeViewController */ = {
 			isa = PBXGroup;
 			children = (
 				5C9090A418B3A66A00510153 /* MainViewController.h */,
@@ -278,8 +280,10 @@
 				3FE0FD531A8AC1A500A8B992 /* PamSurveyViewController.m */,
 				3FE0FD561A8C28A700A8B992 /* DataTabViewController.h */,
 				3FE0FD571A8C28A700A8B992 /* DataTabViewController.m */,
+				3F2EE7BC1A930AF5002C0054 /* LandingViewController.h */,
+				3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */,
 			);
-			name = ViewController;
+			name = StudentLifeViewController;
 			sourceTree = "<group>";
 		};
 		5C90908318B3A66A00510153 = {
@@ -324,14 +328,14 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				A45E5EBD1A91D9210048FEB5 /* Bluetooth */,
-				A45E5EBC1A91D8FC0048FEB5 /* CoreData */,
-				A45E5EB51A91D8C00048FEB5 /* Accelerometer */,
-				3FE0FD551A8BC78400A8B992 /* ViewController */,
+				A45E5EBD1A91D9210048FEB5 /* StudentLifeBluetooth */,
+				A45E5EBC1A91D8FC0048FEB5 /* StudentLifeCoreData */,
+				A45E5EB51A91D8C00048FEB5 /* StudentLifeAccelerometer */,
+				3FE0FD551A8BC78400A8B992 /* StudentLifeViewController */,
 				3F1C4C4E1A87D8BB000F5ABB /* StudengLifeLocation */,
 				3FDA7CCE1A86CF8700A4EE58 /* EZAudio */,
-				A45E5EB11A91CCA40048FEB5 /* AudioProcessing */,
-				3FB531131A80B9F500E1B62C /* Utilities */,
+				A45E5EB11A91CCA40048FEB5 /* StudentLifeAudioProcessing */,
+				3FB531131A80B9F500E1B62C /* StudentLifeUtilities */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
 				5C90909E18B3A66A00510153 /* AppDelegate.h */,
 				5C90909F18B3A66A00510153 /* AppDelegate.m */,
@@ -373,7 +377,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A45E5EB11A91CCA40048FEB5 /* AudioProcessing */ = {
+		A45E5EB11A91CCA40048FEB5 /* StudentLifeAudioProcessing */ = {
 			isa = PBXGroup;
 			children = (
 				A47DEEF81A92C27200D1B5DE /* viterbi.c */,
@@ -389,34 +393,35 @@
 				A45D14471A906CD1002AEAD9 /* AudioProcessing.h */,
 				A45D14481A906CD1002AEAD9 /* AudioProcessing.m */,
 			);
-			name = AudioProcessing;
+			name = StudentLifeAudioProcessing;
 			sourceTree = "<group>";
 		};
-		A45E5EB51A91D8C00048FEB5 /* Accelerometer */ = {
+		A45E5EB51A91D8C00048FEB5 /* StudentLifeAccelerometer */ = {
 			isa = PBXGroup;
 			children = (
 				A47DEF011A92C2F300D1B5DE /* AccelerometerTracker.h */,
 				A47DEF021A92C2F300D1B5DE /* AccelerometerTracker.m */,
 			);
-			name = Accelerometer;
+			name = StudentLifeAccelerometer;
 			sourceTree = "<group>";
 		};
-		A45E5EBC1A91D8FC0048FEB5 /* CoreData */ = {
+		A45E5EBC1A91D8FC0048FEB5 /* StudentLifeCoreData */ = {
 			isa = PBXGroup;
 			children = (
+				3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */,
 				A47DEEFE1A92C2CF00D1B5DE /* DataManager.h */,
 				A47DEEFF1A92C2CF00D1B5DE /* DataManager.m */,
 			);
-			name = CoreData;
+			name = StudentLifeCoreData;
 			sourceTree = "<group>";
 		};
-		A45E5EBD1A91D9210048FEB5 /* Bluetooth */ = {
+		A45E5EBD1A91D9210048FEB5 /* StudentLifeBluetooth */ = {
 			isa = PBXGroup;
 			children = (
 				A47DEEFB1A92C2B100D1B5DE /* BluetoothTracker.h */,
 				A47DEEFC1A92C2B100D1B5DE /* BluetoothTracker.m */,
 			);
-			name = Bluetooth;
+			name = StudentLifeBluetooth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,6 +536,7 @@
 				A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */,
 				3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */,
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
+				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,
 				3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */,
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,

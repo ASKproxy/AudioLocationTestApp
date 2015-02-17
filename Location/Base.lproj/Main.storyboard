@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RcF-qT-jan">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DZV-ce-TmA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -12,7 +13,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1152" y="-23"/>
+            <point key="canvasLocation" x="1820" y="-207"/>
         </scene>
         <!--Sleep-->
         <scene sceneID="qAt-f6-DG1">
@@ -122,6 +123,62 @@
             </objects>
             <point key="canvasLocation" x="-32" y="1530"/>
         </scene>
+        <!--Landing View Controller-->
+        <scene sceneID="KMr-E5-yvp">
+            <objects>
+                <viewController id="DZV-ce-TmA" customClass="LandingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Cz-an-Nvd"/>
+                        <viewControllerLayoutGuide type="bottom" id="rlh-3O-Vhe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pXH-Dj-a31">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8t-E0-il3">
+                                <rect key="frame" x="46" y="55" width="86" height="96"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ziJ-Zz-Xds" kind="modal" id="mfo-Ro-K61"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-gO-RcO">
+                                <rect key="frame" x="172" y="162" width="86" height="96"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cfS-bo-sB5" kind="modal" id="1TB-hZ-udV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0t-Qx-MGm">
+                                <rect key="frame" x="172" y="384" width="86" height="96"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cah-g1-nH2" kind="modal" id="EcP-pi-yjK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-xz-nQN">
+                                <rect key="frame" x="46" y="277" width="86" height="96"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="nHb-tM-Dmo" kind="modal" id="bVM-aF-i4V"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rfz-0b-WPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232" y="71"/>
+        </scene>
         <!--Data Tab View Controller-->
         <scene sceneID="6Xu-Te-5k8">
             <objects>
@@ -156,55 +213,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
-                                <rect key="frame" x="127" y="49" width="80" height="30"/>
-                                <state key="normal" title="Happy">
+                                <rect key="frame" x="120" y="30" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Happy">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="DLB-bi-qH5"/>
-                                    <segue destination="RcF-qT-jan" kind="modal" id="uJd-ya-AB6"/>
+                                    <segue destination="DZV-ce-TmA" kind="modal" id="U7a-Vw-WeZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
-                                <rect key="frame" x="57" y="139" width="70" height="30"/>
-                                <state key="normal" title="Neutral">
+                                <rect key="frame" x="50" y="110" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Neutral">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="xrj-Ax-Hua"/>
-                                    <segue destination="RcF-qT-jan" kind="modal" id="gVM-wR-qNS"/>
+                                    <segue destination="DZV-ce-TmA" kind="modal" id="MsJ-PG-XZV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAH-ox-Dy5">
-                                <rect key="frame" x="16" y="232" width="78" height="30"/>
-                                <state key="normal" title="Stressed">
+                                <rect key="frame" x="15" y="200" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Stressed">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="jGj-nq-PIE"/>
-                                    <segue destination="RcF-qT-jan" kind="modal" id="JzI-Ah-NHT"/>
+                                    <segue destination="DZV-ce-TmA" kind="modal" id="ZVU-xl-we2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
-                                <rect key="frame" x="57" y="319" width="70" height="30"/>
-                                <state key="normal" title="Stressed2">
+                                <rect key="frame" x="50" y="290" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Stressed2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="YMw-wk-Ba9"/>
-                                    <segue destination="RcF-qT-jan" kind="modal" id="oTM-x8-M84"/>
+                                    <segue destination="DZV-ce-TmA" kind="modal" id="IUi-q0-vcN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
-                                <rect key="frame" x="127" y="407" width="80" height="30"/>
-                                <state key="normal" title="Stressed3">
+                                <rect key="frame" x="120" y="380" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Stressed3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="ifp-Wm-Mgi"/>
-                                    <segue destination="RcF-qT-jan" kind="modal" id="pIy-Wd-Msq"/>
+                                    <segue destination="DZV-ce-TmA" kind="modal" id="VpW-Kf-vEN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOW STRESSED ARE YOU?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-Hw-OFz">
+                                <rect key="frame" x="123" y="224" width="141" height="52"/>
+                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -218,15 +281,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lb9-lo-Sd2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="820"/>
+            <point key="canvasLocation" x="1036" y="71"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Happy" width="1500" height="1500"/>
+        <image name="Neutral" width="1500" height="1500"/>
+        <image name="Stressed" width="1500" height="1500"/>
+        <image name="Stressed2" width="1500" height="1500"/>
+        <image name="Stressed3" width="1500" height="1500"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="uJd-ya-AB6"/>
+        <segue reference="wOT-bT-P2m"/>
+        <segue reference="5qa-LY-tci"/>
+        <segue reference="7wD-GF-sEx"/>
+        <segue reference="yYf-bA-XVP"/>
+        <segue reference="ZVU-xl-we2"/>
     </inferredMetricsTieBreakers>
 </document>
