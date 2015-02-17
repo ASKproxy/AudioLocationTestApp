@@ -28,7 +28,7 @@
 @synthesize audioPlotTime;
 
 static int _NotificationFireTimeOfDay[] = {7, 17, 18};
-static int _NotificationFireMinOfDay[] = {35 , 37};
+static int _NotificationFireMinOfDay[] = {19 , 22};
 
 -(id)init {
     self = [super init];

@@ -8,10 +8,10 @@
         <!--Main View Controller-->
         <scene sceneID="oXd-bS-j9m">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="hEB-6o-b6P" customClass="MainViewController" sceneMemberID="viewController">
                     <value key="contentSizeForViewInPopover" type="size" width="768" height="1024"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-23"/>
         </scene>
@@ -115,7 +115,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.090196080505847931" green="0.77647066116333008" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stress" image="Stress" selectedImage="Stress" id="qeY-Bo-6e9"/>
                 </viewController>
