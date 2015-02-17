@@ -29,8 +29,8 @@
 @synthesize audioPlotTime;
 
 
-static int _NotificationFireTimeOfDay[] = {7, 16, 18};
-static int _NotificationFireMinOfDay[] = {24 , 26};
+static int _NotificationFireTimeOfDay[] = {9, 16, 18};
+static int _NotificationFireMinOfDay[] = {18, 24 , 26};
 static int count=0;
 float frame_buffer[FRAME_LENGTH];
 
