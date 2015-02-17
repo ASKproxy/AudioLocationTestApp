@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "LocationShareModel.h"
 #import "DataManager.h"
+#import "SocialViewController.h"
 
 @interface LocationTracker : NSObject <CLLocationManagerDelegate>
 
@@ -22,6 +23,8 @@
 @property (strong,nonatomic) NSString * name;
 @property (strong,nonatomic) NSString * profilePicURL;
 @property (strong,nonatomic) NSNumber * userid;
+@property (strong, nonatomic) UIWindow *window;
+
 
 @property (strong,nonatomic) LocationShareModel * shareModel;
 @property (strong,nonatomic) DataManager * dataManager;

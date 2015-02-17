@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */; };
 		3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */; };
+		3F2EE7C11A93132C002C0054 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7C01A93132C002C0054 /* SocialViewController.m */; };
 		3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */; };
 		3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */; };
 		3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531151A80BA1000E1B62C /* FormatFile.m */; };
@@ -78,6 +79,8 @@
 		3F2EE7BA1A92C9B8002C0054 /* LocalData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalData.xcdatamodel; sourceTree = "<group>"; };
 		3F2EE7BC1A930AF5002C0054 /* LandingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandingViewController.h; sourceTree = "<group>"; };
 		3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
+		3F2EE7BF1A93132C002C0054 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
+		3F2EE7C01A93132C002C0054 /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
 		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentLifeBackgroundAudio.h; path = ../StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
 		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentLifeBackgroundAudio.m; path = ../StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
 		3FB531031A7FDD9000E1B62C /* audiofile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audiofile.mp3; path = "../../ios-audio-player/AudioPlayerTemplate/audiofile.mp3"; sourceTree = "<group>"; };
@@ -282,6 +285,8 @@
 				3FE0FD571A8C28A700A8B992 /* DataTabViewController.m */,
 				3F2EE7BC1A930AF5002C0054 /* LandingViewController.h */,
 				3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */,
+				3F2EE7BF1A93132C002C0054 /* SocialViewController.h */,
+				3F2EE7C01A93132C002C0054 /* SocialViewController.m */,
 			);
 			name = StudentLifeViewController;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
 				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,
 				3FDA7CF31A86CF8700A4EE58 /* EZPlot.m in Sources */,
+				3F2EE7C11A93132C002C0054 /* SocialViewController.m in Sources */,
 				A47DEEF51A92C25000D1B5DE /* kiss_fft.c in Sources */,
 				5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */,
 			);

@@ -156,6 +156,7 @@
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataManager.managedObjectContext];
             [fetchRequest setEntity:entity];
             
+            
             NSError *error3 = nil;
             NSUInteger count = [self.dataManager.managedObjectContext countForFetchRequest: fetchRequest error: &error3];
             
@@ -171,7 +172,17 @@
                 {
                     
                     NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
-                    //                NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
+                    NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
+                    
+                    //-----------------------------------------------------------------
+                    //Test code to pass location data to viewController
+                    SocialViewController *socialViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"SocialViewController"];
+                    socialViewController.GPSLat.text = @"HAHA";
+                    
+                    
+                    //-----------------------------------------------------------------
+                    
+
                 }
             }
             //Add the vallid location with good accuracy into an array
