@@ -41,7 +41,7 @@
 
 -(void) storeAccelerationData:(CMAcceleration)acceleration
 {
-    //create the entity over here
+    //create the entity over here and save it
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Accelerometer" inManagedObjectContext:self.dataManager.managedObjectContext];
     
     NSManagedObject *latestAccelerometer = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
@@ -49,8 +49,17 @@
     [latestAccelerometer setValue:[NSNumber numberWithDouble:acceleration.y] forKey:@"y_axis"];
     [latestAccelerometer setValue:[NSNumber numberWithDouble:acceleration.z] forKey:@"z_axis"];
     
-    NSLog(@"Stored the accelerometer data");
+    NSError *error1 = nil;
     
+    if (![latestAccelerometer.managedObjectContext save:&error1]) {
+        NSLog(@"Unable to save managed object context.");
+        NSLog(@"%@, %@", error1, error1.localizedDescription);
+    }
+    
+    NSLog(@"Stored the accelerometer data");
+   
+    
+    //retreive the data and print it in the log
     NSError *error = nil;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     

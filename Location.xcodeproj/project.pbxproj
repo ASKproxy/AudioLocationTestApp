@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */; };
 		3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */; };
 		3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */; };
 		3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531151A80BA1000E1B62C /* FormatFile.m */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F2EE7BA1A92C9B8002C0054 /* LocalData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalData.xcdatamodel; sourceTree = "<group>"; };
 		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentLifeBackgroundAudio.h; path = ../StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
 		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentLifeBackgroundAudio.m; path = ../StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
 		3FB531031A7FDD9000E1B62C /* audiofile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audiofile.mp3; path = "../../ios-audio-player/AudioPlayerTemplate/audiofile.mp3"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			children = (
 				5C9090C418B3A75400510153 /* LocationTracker.h */,
 				5C9090C518B3A75400510153 /* LocationTracker.m */,
+				3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */,
 				5C9090C718B3A78800510153 /* LocationShareModel.h */,
 				5C9090C818B3A78800510153 /* LocationShareModel.m */,
 			);
@@ -543,6 +546,7 @@
 				3FDA7CEB1A86CF8700A4EE58 /* EZAudio.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
+				3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */,
 				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
 				3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */,
 				A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */,
@@ -781,6 +785,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F2EE7BA1A92C9B8002C0054 /* LocalData.xcdatamodel */,
+			);
+			currentVersion = 3F2EE7BA1A92C9B8002C0054 /* LocalData.xcdatamodel */;
+			path = LocalData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5C90908418B3A66A00510153 /* Project object */;
 }

@@ -28,6 +28,8 @@
         self.shareModel = [LocationShareModel sharedModel];
         self.shareModel.myLocationArray = [[NSMutableArray alloc]init];
         
+        //
+        self.dataManager = [DataManager sharedInstance];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
 	}
 	return self;
@@ -131,6 +133,47 @@
             [dict setObject:[NSNumber numberWithFloat:theLocation.longitude] forKey:@"longitude"];
             [dict setObject:[NSNumber numberWithFloat:theAccuracy] forKey:@"theAccuracy"];
             
+            
+            //create the entity over here
+            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataManager.managedObjectContext];
+            
+            NSManagedObject *latestLocation = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
+            
+            [latestLocation setValue:[NSNumber numberWithFloat:theLocation.latitude] forKey:@"latitude"];
+            [latestLocation setValue:[NSNumber numberWithFloat:theLocation.longitude] forKey:@"longitude"];
+            [latestLocation setValue:[NSNumber numberWithFloat:theAccuracy] forKey:@"accuracy"];
+            [latestLocation setValue:[newLocation timestamp] forKey:@"timestamp"];
+            
+            NSError *error = nil;
+            
+            if (![latestLocation.managedObjectContext save:&error]) {
+                NSLog(@"Unable to save managed object context.");
+                NSLog(@"%@, %@", error, error.localizedDescription);
+            }
+            
+            NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+            
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataManager.managedObjectContext];
+            [fetchRequest setEntity:entity];
+            
+            NSError *error3 = nil;
+            NSUInteger count = [self.dataManager.managedObjectContext countForFetchRequest: fetchRequest error: &error3];
+            
+            NSError *error2 = nil;
+            NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
+            
+            if (error) {
+                NSLog(@"Unable to execute fetch request.");
+                NSLog(@"%@, %@", error2, error2.localizedDescription);
+                
+            } else {
+                if(result.count > 0 )
+                {
+                    
+                    NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
+                    //                NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
+                }
+            }
             //Add the vallid location with good accuracy into an array
             //Every 1 minute, I will select the best location based on accuracy and send to server
             [self.shareModel.myLocationArray addObject:dict];

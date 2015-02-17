@@ -15,6 +15,9 @@
 #import <Accelerate/Accelerate.h>
 #import "LocationTracker.h"
 #import "AudioProcessing.h"
+#import "AccelerometerTracker.h"
+#import "BluetoothTracker.h"
+
 //#import <Foundation/Foundation.h>
 //#import "StudentLifeBackgroundAudio.h"
 //#import "StudentLifeBackgroundAudioRecorder.h"
@@ -49,6 +52,8 @@
  */
 @property LocationTracker * locationTracker;
 @property AudioProcessing *audioProcessing;
+@property AccelerometerTracker *accelerometerTracker;
+@property BluetoothTracker *bluetoothTracker;
 
 
 

@@ -58,6 +58,8 @@ float frame_buffer[FRAME_LENGTH];
     [_setupSensors setupAudioMicrophone];
     [_setupSensors setupLocationGPS];
     [_setupSensors setupNotifications];
+    [_setupSensors setupBluetooth];
+    [_setupSensors setupAccelerometer];
     
     //set up hamming factors for the AudioProcessing
     //done here because it needs to be initialized only
@@ -227,6 +229,22 @@ Input from the microphone is in the buffer array :
 }
 
 
+/**
+ Setup LocationTracker singleton object
+ */
+- (void)setupAccelerometer{
+    self.accelerometerTracker = [[AccelerometerTracker alloc]init];
+    [self.accelerometerTracker startAccelerometerTracking];
+}
+
+
+/**
+ Setup LocationTracker singleton object
+ */
+- (void)setupBluetooth{
+    self.bluetoothTracker = [[BluetoothTracker alloc]init];
+    [self.bluetoothTracker startBluetoothTracking: self.bluetoothTracker.centralManager];
+}
 #pragma mark - Setup Local Notifications
 
 
