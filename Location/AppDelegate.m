@@ -130,7 +130,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kDisplayStatusLocked"];
     [[NSUserDefaults standardUserDefaults] synchronize];
    
-    NSLog(@"application has become active again!! @didFinishLaunchingWithOptions");
+//    NSLog(@"application has become active again!! @didFinishLaunchingWithOptions");
     
     return YES;
 

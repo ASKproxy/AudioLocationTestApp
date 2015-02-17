@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RcF-qT-jan">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="RcF-qT-jan">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="oXd-bS-j9m">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="hEB-6o-b6P" customClass="MainViewController" sceneMemberID="viewController">
                     <value key="contentSizeForViewInPopover" type="size" width="768" height="1024"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="-23"/>
         </scene>

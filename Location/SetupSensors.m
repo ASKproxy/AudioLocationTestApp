@@ -10,6 +10,8 @@
 //  singleton object for each sensor.
 
 #import "SetupSensors.h"
+#define FRAME_LENGTH 256
+
 
 @interface SetupSensors(){
     COMPLEX_SPLIT _A;
@@ -19,7 +21,6 @@
 }
 
 
-
 @end
 
 
@@ -27,13 +28,17 @@
 @synthesize audioPlotFreq;
 @synthesize audioPlotTime;
 
+
 static int _NotificationFireTimeOfDay[] = {7, 16, 18};
 static int _NotificationFireMinOfDay[] = {24 , 26};
+static int count=0;
+float frame_buffer[FRAME_LENGTH];
+
 
 -(id)init {
     self = [super init];
-    return self;
     NSLog(@"sharedSetupSensors initialized!");
+    return self;
 }
 
 #pragma mark - Main Method
@@ -54,10 +59,21 @@ static int _NotificationFireMinOfDay[] = {24 , 26};
     [_setupSensors setupLocationGPS];
     [_setupSensors setupNotifications];
     
+    //set up hamming factors for the AudioProcessing
+    //done here because it needs to be initialized only
+    //once
+//    [_setupSensors setUpHammingFactors];
     return _setupSensors;
 }
 
 
+
+-(void) setUpAudioProcessing
+{
+
+//    self.audioProcessing= [[AudioProcessing alloc]init];
+    
+}
 #pragma mark - Setup Audio
 
 /**
@@ -67,7 +83,7 @@ static int _NotificationFireMinOfDay[] = {24 , 26};
     self.ezMicrophone = [EZMicrophone sharedMicrophone];
     [self.ezMicrophone initWithMicrophoneDelegate:self startsImmediately:YES];
     
-    NSLog(@"******************Microphone is %i in setupSensors*******************", self.ezMicrophone.microphoneOn);
+//    NSLog(@"******************Microphone is %i in setupSensors*******************", self.ezMicrophone.microphoneOn);
 }
 
 #pragma mark - FFT
@@ -129,8 +145,8 @@ static int _NotificationFireMinOfDay[] = {24 , 26};
         amp[i] = [EZAudio MAP:mag leftMin:0.0 leftMax:maxMag rightMin:0.0 rightMax:1.0];
     }
     
-    NSLog(@"amp length is : %lu", sizeof(amp)/sizeof(amp[0]));
-    NSLog(@"amp value at position nOver2/2 is %f", amp[nOver2/2]);
+//    NSLog(@"amp length is : %lu", sizeof(amp)/sizeof(amp[0]));
+//    NSLog(@"amp value at position nOver2/2 is %f", amp[nOver2/2]);
     
     // Update the frequency domain plot
     [self.audioPlotFreq updateBuffer:amp
@@ -138,17 +154,41 @@ static int _NotificationFireMinOfDay[] = {24 , 26};
     
 }
 
-#pragma mark - EZMicrophoneDelegate
+#pragma mark - EZMicrophoneDelegates
 
 /**
  Do signal processing converting from time domain to frequency domain
+Input from the microphone is in the buffer array :
+
+ BUFFER : an array of float values with the audio recieved.
+          buffer[0] - value in left channel
+          buffer[1] - value in right channel
+ 
  */
 -(void)    microphone:(EZMicrophone *)microphone
      hasAudioReceived:(float **)buffer
        withBufferSize:(UInt32)bufferSize
  withNumberOfChannels:(UInt32)numberOfChannels {
+
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         
+      //every time we get 256 frames, process the frames immediately.
+        if(count == FRAME_LENGTH)
+        {
+            NSLog(@"reached here!!!");
+            AudioProcessing *new =[[AudioProcessing alloc]init];
+            [new processAudio:frame_buffer];
+            count=0;
+        }
+        else if(count < FRAME_LENGTH)
+        {
+            frame_buffer[count++]=*buffer[0];
+//            NSLog(@"reached here!!!");
+
+        }
+        
+
         // Update time domain plot
         [self.audioPlotTime updateBuffer:buffer[0]
                           withBufferSize:bufferSize];
@@ -166,6 +206,15 @@ static int _NotificationFireMinOfDay[] = {24 , 26};
 }
 
 
+/**
+ Contains AudioBufferlist from which we will take out 256 frames at a time so that we can feed it into the classifer.
+ */
+- (void)microphone:(EZMicrophone *)microphone hasBufferList:(AudioBufferList *)bufferList withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels
+{
+    
+    
+
+}
 
 #pragma mark - Setup LocationGPS
 
@@ -261,5 +310,9 @@ static int _NotificationFireMinOfDay[] = {24 , 26};
     
     NSLog(@"Local Notifications scheduled!");
 }
+
+
+
+
 
 @end

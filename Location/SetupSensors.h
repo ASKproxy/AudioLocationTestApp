@@ -14,6 +14,7 @@
 #import "EZAudio.h"
 #import <Accelerate/Accelerate.h>
 #import "LocationTracker.h"
+#import "AudioProcessing.h"
 //#import <Foundation/Foundation.h>
 //#import "StudentLifeBackgroundAudio.h"
 //#import "StudentLifeBackgroundAudioRecorder.h"
@@ -23,7 +24,6 @@
 //extern EZMicrophone *ezMicrophone;
 
 @interface SetupSensors : NSObject<EZMicrophoneDelegate, UIApplicationDelegate>
-
 
 #pragma mark - Components
 /**
@@ -48,8 +48,12 @@
  The project only keeps one EZMicrophone object
  */
 @property LocationTracker * locationTracker;
+@property AudioProcessing *audioProcessing;
+
+
 
 
 + (SetupSensors *)sharedSetupSensors;
+
 
 @end

@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */; };
-		3FB531061A7FDD9000E1B62C /* audiofile.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB531031A7FDD9000E1B62C /* audiofile.mp3 */; };
-		3FB531071A7FDD9000E1B62C /* audioplayer_pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB531041A7FDD9000E1B62C /* audioplayer_pause.png */; };
-		3FB531081A7FDD9000E1B62C /* audioplayer_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB531051A7FDD9000E1B62C /* audioplayer_play.png */; };
 		3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */; };
 		3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531151A80BA1000E1B62C /* FormatFile.m */; };
 		3FDA7CC91A86CE9A00A4EE58 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDA7CC81A86CE9A00A4EE58 /* Accelerate.framework */; };
@@ -52,6 +49,17 @@
 		5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090CD18B3AB2100510153 /* CoreLocation.framework */; };
 		886A402F1A13FD0C001A35BB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A402E1A13FD0C001A35BB /* CoreAudio.framework */; };
 		886A40311A13FD1F001A35BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A40301A13FD1F001A35BB /* AVFoundation.framework */; };
+		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
+		A45D144C1A90930A002AEAD9 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = A45D144A1A90930A002AEAD9 /* kiss_fft.c */; };
+		A45D144F1A909317002AEAD9 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = A45D144D1A909317002AEAD9 /* kiss_fftr.c */; };
+		A45E5EAD1A91B7D80048FEB5 /* viterbi.c in Sources */ = {isa = PBXBuildFile; fileRef = A45E5EAB1A91B7D80048FEB5 /* viterbi.c */; };
+		A45E5EB01A91B7EB0048FEB5 /* mvnpdf.c in Sources */ = {isa = PBXBuildFile; fileRef = A45E5EAE1A91B7EB0048FEB5 /* mvnpdf.c */; };
+		A45E5EB81A91D8D00048FEB5 /* AccelerometerTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E5EB71A91D8D00048FEB5 /* AccelerometerTracker.m */; };
+		A45E5EBB1A91D8F60048FEB5 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E5EBA1A91D8F60048FEB5 /* DataManager.m */; };
+		A45E5EC01A91D92D0048FEB5 /* BluetoothTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A45E5EBF1A91D92D0048FEB5 /* BluetoothTracker.m */; };
+		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
+		A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */; };
+		A45E5EC61A91D96A0048FEB5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC51A91D96A0048FEB5 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +143,27 @@
 		5C9090CD18B3AB2100510153 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		886A402E1A13FD0C001A35BB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		886A40301A13FD1F001A35BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
+		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
+		A45D144A1A90930A002AEAD9 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fft.c; path = ../../../../../Downloads/kiss_fft130/kiss_fft.c; sourceTree = "<group>"; };
+		A45D144B1A90930A002AEAD9 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fft.h; path = ../../../../../Downloads/kiss_fft130/kiss_fft.h; sourceTree = "<group>"; };
+		A45D144D1A909317002AEAD9 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fftr.c; path = ../../../../../Downloads/kiss_fft130/tools/kiss_fftr.c; sourceTree = "<group>"; };
+		A45D144E1A909317002AEAD9 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fftr.h; path = ../../../../../Downloads/kiss_fft130/tools/kiss_fftr.h; sourceTree = "<group>"; };
+		A45E5EA91A91B6580048FEB5 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = _kiss_fft_guts.h; path = ../../../../../Downloads/kiss_fft130/_kiss_fft_guts.h; sourceTree = "<group>"; };
+		A45E5EAA1A91B7B50048FEB5 /* voicing_parameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = voicing_parameters.h; path = ../../../funbewell/jni/computeFeatures/voicing_parameters.h; sourceTree = "<group>"; };
+		A45E5EAB1A91B7D80048FEB5 /* viterbi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = viterbi.c; path = ../../../funbewell/jni/computeFeatures/viterbi.c; sourceTree = "<group>"; };
+		A45E5EAC1A91B7D80048FEB5 /* viterbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = viterbi.h; path = ../../../funbewell/jni/computeFeatures/viterbi.h; sourceTree = "<group>"; };
+		A45E5EAE1A91B7EB0048FEB5 /* mvnpdf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mvnpdf.c; path = ../../../funbewell/jni/computeFeatures/mvnpdf.c; sourceTree = "<group>"; };
+		A45E5EAF1A91B7EB0048FEB5 /* mvnpdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mvnpdf.h; path = ../../../funbewell/jni/computeFeatures/mvnpdf.h; sourceTree = "<group>"; };
+		A45E5EB61A91D8D00048FEB5 /* AccelerometerTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccelerometerTracker.h; path = ../../location/LocationSensing/Location/AccelerometerTracker.h; sourceTree = "<group>"; };
+		A45E5EB71A91D8D00048FEB5 /* AccelerometerTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccelerometerTracker.m; path = ../../location/LocationSensing/Location/AccelerometerTracker.m; sourceTree = "<group>"; };
+		A45E5EB91A91D8F60048FEB5 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = ../../location/LocationSensing/DataManager.h; sourceTree = "<group>"; };
+		A45E5EBA1A91D8F60048FEB5 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = ../../location/LocationSensing/DataManager.m; sourceTree = "<group>"; };
+		A45E5EBE1A91D92D0048FEB5 /* BluetoothTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BluetoothTracker.h; path = ../../location/LocationSensing/Bluetooth/BluetoothTracker.h; sourceTree = "<group>"; };
+		A45E5EBF1A91D92D0048FEB5 /* BluetoothTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BluetoothTracker.m; path = ../../location/LocationSensing/Bluetooth/BluetoothTracker.m; sourceTree = "<group>"; };
+		A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A45E5EC51A91D96A0048FEB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +171,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A45E5EC61A91D96A0048FEB5 /* CoreData.framework in Frameworks */,
+				A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */,
+				A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */,
 				3FDA7CCD1A86CEAC00A4EE58 /* GLKit.framework in Frameworks */,
 				3FDA7CCB1A86CEA300A4EE58 /* AudioToolbox.framework in Frameworks */,
 				3FDA7CC91A86CE9A00A4EE58 /* Accelerate.framework in Frameworks */,
@@ -269,6 +301,9 @@
 		5C90908E18B3A66A00510153 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A45E5EC51A91D96A0048FEB5 /* CoreData.framework */,
+				A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */,
+				A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */,
 				3FDA7CCC1A86CEAC00A4EE58 /* GLKit.framework */,
 				3FDA7CCA1A86CEA300A4EE58 /* AudioToolbox.framework */,
 				3FDA7CC81A86CE9A00A4EE58 /* Accelerate.framework */,
@@ -286,9 +321,13 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				A45E5EBD1A91D9210048FEB5 /* Bluetooth */,
+				A45E5EBC1A91D8FC0048FEB5 /* CoreData */,
+				A45E5EB51A91D8C00048FEB5 /* Accelerometer */,
 				3FE0FD551A8BC78400A8B992 /* ViewController */,
 				3F1C4C4E1A87D8BB000F5ABB /* StudengLifeLocation */,
 				3FDA7CCE1A86CF8700A4EE58 /* EZAudio */,
+				A45E5EB11A91CCA40048FEB5 /* AudioProcessing */,
 				3FB531131A80B9F500E1B62C /* Utilities */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
 				5C90909E18B3A66A00510153 /* AppDelegate.h */,
@@ -329,6 +368,52 @@
 				5C9090B718B3A66A00510153 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A45E5EB11A91CCA40048FEB5 /* AudioProcessing */ = {
+			isa = PBXGroup;
+			children = (
+				A45E5EAA1A91B7B50048FEB5 /* voicing_parameters.h */,
+				A45E5EAE1A91B7EB0048FEB5 /* mvnpdf.c */,
+				A45E5EAF1A91B7EB0048FEB5 /* mvnpdf.h */,
+				A45E5EA91A91B6580048FEB5 /* _kiss_fft_guts.h */,
+				A45D144A1A90930A002AEAD9 /* kiss_fft.c */,
+				A45D144B1A90930A002AEAD9 /* kiss_fft.h */,
+				A45D144D1A909317002AEAD9 /* kiss_fftr.c */,
+				A45E5EAB1A91B7D80048FEB5 /* viterbi.c */,
+				A45E5EAC1A91B7D80048FEB5 /* viterbi.h */,
+				A45D144E1A909317002AEAD9 /* kiss_fftr.h */,
+				A45D14471A906CD1002AEAD9 /* AudioProcessing.h */,
+				A45D14481A906CD1002AEAD9 /* AudioProcessing.m */,
+			);
+			name = AudioProcessing;
+			sourceTree = "<group>";
+		};
+		A45E5EB51A91D8C00048FEB5 /* Accelerometer */ = {
+			isa = PBXGroup;
+			children = (
+				A45E5EB61A91D8D00048FEB5 /* AccelerometerTracker.h */,
+				A45E5EB71A91D8D00048FEB5 /* AccelerometerTracker.m */,
+			);
+			name = Accelerometer;
+			sourceTree = "<group>";
+		};
+		A45E5EBC1A91D8FC0048FEB5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A45E5EB91A91D8F60048FEB5 /* DataManager.h */,
+				A45E5EBA1A91D8F60048FEB5 /* DataManager.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		A45E5EBD1A91D9210048FEB5 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				A45E5EBE1A91D92D0048FEB5 /* BluetoothTracker.h */,
+				A45E5EBF1A91D92D0048FEB5 /* BluetoothTracker.m */,
+			);
+			name = Bluetooth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,12 +502,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9090A818B3A66A00510153 /* Images.xcassets in Resources */,
-				3FB531081A7FDD9000E1B62C /* audioplayer_play.png in Resources */,
 				3FDA7CF61A86CF8700A4EE58 /* CHANGELOG in Resources */,
-				3FB531061A7FDD9000E1B62C /* audiofile.mp3 in Resources */,
 				5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */,
 				3FDA7CF71A86CF8700A4EE58 /* VERSION in Resources */,
-				3FB531071A7FDD9000E1B62C /* audioplayer_pause.png in Resources */,
 				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,11 +524,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A45E5EB01A91B7EB0048FEB5 /* mvnpdf.c in Sources */,
+				A45E5EBB1A91D8F60048FEB5 /* DataManager.m in Sources */,
 				3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */,
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
 				3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */,
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
+				A45D144C1A90930A002AEAD9 /* kiss_fft.c in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
 				5C9090A618B3A66A00510153 /* MainViewController.m in Sources */,
 				3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */,
@@ -454,13 +539,18 @@
 				3FDA7CF01A86CF8700A4EE58 /* EZAudioPlotGLKViewController.m in Sources */,
 				3FDA7CEA1A86CF8700A4EE58 /* AEFloatConverter.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
+				A45E5EAD1A91B7D80048FEB5 /* viterbi.c in Sources */,
 				3FDA7CEB1A86CF8700A4EE58 /* EZAudio.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
+				A45E5EB81A91D8D00048FEB5 /* AccelerometerTracker.m in Sources */,
 				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
 				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
 				3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */,
+				A45E5EC01A91D92D0048FEB5 /* BluetoothTracker.m in Sources */,
 				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,
+				A45D144F1A909317002AEAD9 /* kiss_fftr.c in Sources */,
 				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
+				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
 				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,
 				3FDA7CF31A86CF8700A4EE58 /* EZPlot.m in Sources */,
@@ -594,7 +684,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -612,7 +702,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

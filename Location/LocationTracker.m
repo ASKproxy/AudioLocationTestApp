@@ -102,7 +102,7 @@
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     
-    NSLog(@"locationManager didUpdateLocations");
+//    NSLog(@"locationManager didUpdateLocations");
     
     for(int i=0;i<locations.count;i++){
         CLLocation * newLocation = [locations objectAtIndex:i];
@@ -167,7 +167,7 @@
     CLLocationManager *locationManager = [LocationTracker sharedLocationManager];
     [locationManager stopUpdatingLocation];
     
-    NSLog(@"locationManager stop Updating after 10 seconds");
+//    NSLog(@"locationManager stop Updating after 10 seconds");
 }
 
 
