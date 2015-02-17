@@ -17,7 +17,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.GPSLat.text = @"haha";
+    
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLabelValue:) name:@"sendLocationDataUpdateUI" object:nil];
+
 }
+
+
+//-(void)changeLabelValue(NSNotification *)iRecognizer {
+//    
+//    UITextField *myTextField = iRecognizer object];
+//    
+//    //Here You can change the value of label
+//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

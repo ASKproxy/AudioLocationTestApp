@@ -176,10 +176,13 @@
                     
                     //-----------------------------------------------------------------
                     //Test code to pass location data to viewController
-                    SocialViewController *socialViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"SocialViewController"];
-                    socialViewController.GPSLat.text = @"HAHA";
-                    
-                    
+//                    SocialViewController *socialViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"SocialViewController"];
+//                    socialViewController.GPSLat.text = @"HAHA";
+//
+//                    
+
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"sendLocationDataUpdateUI" object:[r valueForKey:@"latitude"] userInfo:nil];
+
                     //-----------------------------------------------------------------
                     
 
