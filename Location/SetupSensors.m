@@ -175,16 +175,16 @@ Input from the microphone is in the buffer array :
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
+    
+        NSLog(@"BUFFER right channel at 1024 is : %f", (buffer[1])[1023]);
+        NSLog(@"BUFFER left channel at 1024 is : %f", (buffer[0])[1023]);
+
         
-//        NSLog(@"BUFFER 0 IS: %f", (buffer[0])[0]);
-//        NSLog(@"BUFFER 0 IS: %f", (buffer[1])[0]);
-//        NSLog(@"BUFFER 1 IS: %f", (buffer[0])[1]);
-//        NSLog(@"BUFFER 1 IS: %f", (buffer[1])[1]);
-//        NSLog(@"BUFFER 2 IS: %f", (buffer[0])[2]);
-//        NSLog(@"BUFFER 2 IS: %f", (buffer[1])[2]);
-//        NSLog(@"BUFFER 3 IS: %f", (buffer[0])[3]);
-//        NSLog(@"BUFFER 3 IS: %f", (buffer[1])[1000]);
-//        NSLog(@"BUFFER size IS: %f", (buffer[0][1]));
+        NSLog(@"BUFFER right channel at 1025 is : %f", (buffer[1])[1024]);
+        NSLog(@"BUFFER left channel at 1025 is : %f", (buffer[0])[1024]);
+        
+        
+        NSLog(@"BUFFER size IS: %lu", sizeof(buffer[0])/ sizeof(buffer[0][0]));
 
       //every time we get 256 frames, process the frames immediately.
         if(count == FRAME_LENGTH)
