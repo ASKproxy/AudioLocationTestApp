@@ -9,16 +9,23 @@
 #import "AudioProcessing.h"
 #include "viterbi.h"
 
-#define FRAME_LENGTH 256
-#define HALF_FRAME_LENGTH 128
-#define FFT_LENGTH 129 //FRAME_LENGTH/2+1
+//#define FRAME_LENGTH 256
+//#define HALF_FRAME_LENGTH 128
+//#define FFT_LENGTH 129 //FRAME_LENGTH/2+1
+//#define PI 3.14159265
+//#define REL_SPEC_WINDOW 200
+//#define NOISE_LEVEL 420   // == (0.01^2 * 32768^2) / 256
+//#define NOISE_LEVEL_RIGHT 420
+//#define LOOK_BACK_LENGTH 20
+
+#define FRAME_LENGTH 512
+#define HALF_FRAME_LENGTH 256
+#define FFT_LENGTH 257 //FRAME_LENGTH/2+1
 #define PI 3.14159265
 #define REL_SPEC_WINDOW 200
-#define NOISE_LEVEL 420   // == (0.01^2 * 32768^2) / 256
-#define NOISE_LEVEL_RIGHT 420
+#define NOISE_LEVEL 210   // == (0.01^2 * 32768^2) / 256 /2
+#define NOISE_LEVEL_RIGHT 210
 #define LOOK_BACK_LENGTH 20
-
-
 
 #pragma mark - VOICE FEATURES GLOBALS
 //**********************************************************************************
@@ -141,8 +148,10 @@ float frame_buffer[FRAME_LENGTH];
 
 -(void) processAudio:(float *)frameBuffer
 {
-    NSLog(@"reaced process Audio\tframe : %f",frame_buffer[255]);
-    [self normalizeData:frame_buffer];
+    NSLog(@"reaced process Audio\tframe : %f",frameBuffer[1024]);
+    NSLog(@"reaced process Audio\tframe : %lu",sizeof(frameBuffer)/sizeof(frameBuffer[0]));
+
+    [self normalizeData:frameBuffer];
     //apply window
     [self computeHamming];
     

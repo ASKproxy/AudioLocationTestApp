@@ -175,46 +175,39 @@ Input from the microphone is in the buffer array :
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-    
-        NSLog(@"BUFFER right channel at 1024 is : %f", (buffer[1])[1023]);
-        NSLog(@"BUFFER left channel at 1024 is : %f", (buffer[0])[1023]);
-
-        
-        NSLog(@"BUFFER right channel at 1025 is : %f", (buffer[1])[1024]);
-        NSLog(@"BUFFER left channel at 1025 is : %f", (buffer[0])[1024]);
-        
-        
-        NSLog(@"BUFFER size IS: %lu", sizeof(buffer[0])/ sizeof(buffer[0][0]));
-
       //every time we get 256 frames, process the frames immediately.
-        if(count == FRAME_LENGTH)
-        {
-            NSLog(@"reached here!!!");
-            AudioProcessing *new =[[AudioProcessing alloc]init];
-            [new processAudio:frame_buffer];
-            count=0;
-        }
-        else if(count < FRAME_LENGTH)
-        {
-            frame_buffer[count++]=*buffer[0];
+//        if(count == FRAME_LENGTH)
+//        {
 //            NSLog(@"reached here!!!");
-
-        }
+//            AudioProcessing *new =[[AudioProcessing alloc]init];
+//            [new processAudio:frame_buffer];
+//            count=0;
+//        }
+//        else if(count < FRAME_LENGTH)
+//        {
+//            frame_buffer[count++]=*buffer[0];
+////            NSLog(@"reached here!!!");
+//
+//        }
+        
+        AudioProcessing *new =[[AudioProcessing alloc]init];
+        [new processAudio:buffer[0]];
+//
         
 
-        // Update time domain plot
-        [self.audioPlotTime updateBuffer:buffer[0]
-                          withBufferSize:bufferSize];
-        
-        // Setup the FFT if it's not already setup
-        if( !_isFFTSetup ){
-            [self createFFTWithBufferSize:bufferSize withAudioData:buffer[0]];
-            _isFFTSetup = YES;
-        }
-        
-        // Get the FFT data
-        [self updateFFTWithBufferSize:bufferSize withAudioData:buffer[0]];
-        
+//        // Update time domain plot
+//        [self.audioPlotTime updateBuffer:buffer[0]
+//                          withBufferSize:bufferSize];
+//
+//        // Setup the FFT if it's not already setup
+//        if( !_isFFTSetup ){
+//            [self createFFTWithBufferSize:bufferSize withAudioData:buffer[0]];
+//            _isFFTSetup = YES;
+//        }
+//        
+//        // Get the FFT data
+//        [self updateFFTWithBufferSize:bufferSize withAudioData:buffer[0]];
+//        
     });
 }
 
