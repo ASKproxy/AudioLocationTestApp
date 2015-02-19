@@ -18,17 +18,9 @@
 #import "AccelerometerTracker.h"
 #import "BluetoothTracker.h"
 
-//#import <Foundation/Foundation.h>
-//#import "StudentLifeBackgroundAudio.h"
-//#import "StudentLifeBackgroundAudioRecorder.h"
-//#import "EZMicrophone.h"
-//#import <CoreAudio/CoreAudioTypes.h>
-
-//extern EZMicrophone *ezMicrophone;
-
 @interface SetupSensors : NSObject<EZMicrophoneDelegate, UIApplicationDelegate>
 
-#pragma mark - Components
+#pragma mark - Properties
 /**
  A signleton object of EZMicrophone
  The project only keeps one EZMicrophone object
@@ -36,28 +28,39 @@
 @property (strong, nonatomic) EZMicrophone *ezMicrophone;
 
 /**
- EZAudioPlot for frequency plot
- */
-@property (nonatomic,weak) IBOutlet EZAudioPlot *audioPlotFreq;
-
-/**
- EZAudioPlot for time plot
- */
-@property (nonatomic,weak) IBOutlet EZAudioPlotGL *audioPlotTime;
-
-
-/**
- A signleton object of EZMicrophone
- The project only keeps one EZMicrophone object
+ A signleton object of LocationTracker
+ The project only keeps one LocationTracker object
  */
 @property LocationTracker * locationTracker;
+
+/**
+ A signleton object of AudioProcessing classifier which
+ continuously infer the audio class in the background
+ 0: no conversation. 1: conversation. 2: noise
+ The project only keeps one AudioProcessing object
+ */
+
 @property AudioProcessing *audioProcessing;
+
+/**
+ A signleton object of AccelerometerTracker
+ The project only keeps one AccelerometerTracker object
+ */
+
 @property AccelerometerTracker *accelerometerTracker;
+
+/**
+ A signleton object of BluetoothTracker
+ The project only keeps one BluetoothTracker object
+ */
 @property BluetoothTracker *bluetoothTracker;
 
 
-
-
+#pragma mark -
+/**
+ Class method to setup all signelton objects to perform
+ background sensing
+ */
 + (SetupSensors *)sharedSetupSensors;
 
 

@@ -14,10 +14,7 @@
 
 
 @interface SetupSensors(){
-    COMPLEX_SPLIT _A;
-    FFTSetup      _FFTSetup;
-    BOOL          _isFFTSetup;
-    vDSP_Length   _log2n;
+
 }
 
 
@@ -25,23 +22,22 @@
 
 
 @implementation SetupSensors
-@synthesize audioPlotFreq;
-@synthesize audioPlotTime;
 
 
 static int _NotificationFireTimeOfDay[] = {9, 16, 18};
 static int _NotificationFireMinOfDay[] = {24, 28};
-static int count=0;
 float frame_buffer[FRAME_LENGTH];
 
 
+
+#pragma mark - Main Method
 -(id)init {
     self = [super init];
     NSLog(@"sharedSetupSensors initialized!");
     return self;
 }
 
-#pragma mark - Main Method
+
 /**
  Setup methond which calls all the individual helper
  method to initialize sensors
@@ -55,106 +51,31 @@ float frame_buffer[FRAME_LENGTH];
         _setupSensors = [[SetupSensors alloc] init];
     });
     
+    //Singleton objects
     [_setupSensors setupAudioMicrophone];
     [_setupSensors setupLocationGPS];
     [_setupSensors setupNotifications];
     [_setupSensors setupBluetooth];
     [_setupSensors setupAccelerometer];
     
-    //set up hamming factors for the AudioProcessing
-    //done here because it needs to be initialized only
-    //once
-//    [_setupSensors setUpHammingFactors];
     return _setupSensors;
 }
 
 
-
--(void) setUpAudioProcessing
-{
-
-//    self.audioProcessing= [[AudioProcessing alloc]init];
-    
-}
 #pragma mark - Setup Audio
 
 /**
  Setup AudioMicrophone singleton object. This methond should be called only once in the AppDelegate
+ Setup AudioProcessing singleton object.
  */
 - (void)setupAudioMicrophone{
+    
+    self.audioProcessing= [[AudioProcessing alloc]init];
+    
     self.ezMicrophone = [EZMicrophone sharedMicrophone];
     [self.ezMicrophone initWithMicrophoneDelegate:self startsImmediately:YES];
-    
-//    NSLog(@"******************Microphone is %i in setupSensors*******************", self.ezMicrophone.microphoneOn);
 }
 
-#pragma mark - FFT
-/**
- Adapted from http://batmobile.blogs.ilrt.org/fourier-transforms-on-an-iphone/
- */
--(void)createFFTWithBufferSize:(float)bufferSize withAudioData:(float*)data {
-    
-    // Setup the length
-    _log2n = log2f(bufferSize);
-    
-    // Calculate the weights array. This is a one-off operation.
-    _FFTSetup = vDSP_create_fftsetup(_log2n, FFT_RADIX2);
-    
-    // For an FFT, numSamples must be a power of 2, i.e. is always even
-    int nOver2 = bufferSize/2;
-    
-    // Populate *window with the values for a hamming window function
-    float *window = (float *)malloc(sizeof(float)*bufferSize);
-    vDSP_hamm_window(window, bufferSize, 0);
-    // Window the samples
-    vDSP_vmul(data, 1, window, 1, data, 1, bufferSize);
-    free(window);
-    
-    // Define complex buffer
-    _A.realp = (float *) malloc(nOver2*sizeof(float));
-    _A.imagp = (float *) malloc(nOver2*sizeof(float));
-    
-}
-
--(void)updateFFTWithBufferSize:(float)bufferSize withAudioData:(float*)data {
-    
-    // For an FFT, numSamples must be a power of 2, i.e. is always even
-    int nOver2 = bufferSize/2;
-    
-    // Pack samples:
-    // C(re) -> A[n], C(im) -> A[n+1]
-    vDSP_ctoz((COMPLEX*)data, 2, &_A, 1, nOver2);
-    
-    // Perform a forward FFT using fftSetup and A
-    // Results are returned in A
-    vDSP_fft_zrip(_FFTSetup, &_A, 1, _log2n, FFT_FORWARD);
-    
-    // Convert COMPLEX_SPLIT A result to magnitudes
-    float amp[nOver2];
-    float maxMag = 0;
-    //    NSLog(@"amp value at position nOver2/2 is %f", amp[nOver2/2]);
-    
-    
-    for(int i=0; i<nOver2; i++) {
-        // Calculate the magnitude
-        float mag = _A.realp[i]*_A.realp[i]+_A.imagp[i]*_A.imagp[i];
-        maxMag = mag > maxMag ? mag : maxMag;
-    }
-    for(int i=0; i<nOver2; i++) {
-        // Calculate the magnitude
-        float mag = _A.realp[i]*_A.realp[i]+_A.imagp[i]*_A.imagp[i];
-        // Bind the value to be less than 1.0 to fit in the graph
-        amp[i] = [EZAudio MAP:mag leftMin:0.0 leftMax:maxMag rightMin:0.0 rightMax:1.0];
-    }
-    
-//    NSLog(@"amp length is : %lu", sizeof(amp)/sizeof(amp[0]));
-//    NSLog(@"amp value at position nOver2/2 is %f", amp[nOver2/2]);
-    
-    // Update the frequency domain plot
-    [self.audioPlotFreq updateBuffer:amp
-                      withBufferSize:nOver2];
-    
-}
 
 #pragma mark - EZMicrophoneDelegates
 
@@ -165,7 +86,6 @@ Input from the microphone is in the buffer array :
  BUFFER : an array of float values with the audio recieved.
           buffer[0] - value in left channel
           buffer[1] - value in right channel
- 
  */
 -(void)    microphone:(EZMicrophone *)microphone
      hasAudioReceived:(float **)buffer
@@ -174,56 +94,13 @@ Input from the microphone is in the buffer array :
 
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        
-      //every time we get 256 frames, process the frames immediately.
-//        if(count == FRAME_LENGTH)
-//        {
-//            NSLog(@"reached here!!!");
-//            AudioProcessing *new =[[AudioProcessing alloc]init];
-//            [new processAudio:frame_buffer];
-//            count=0;
-//        }
-//        else if(count < FRAME_LENGTH)
-//        {
-//            frame_buffer[count++]=*buffer[0];
-////            NSLog(@"reached here!!!");
-//
-//        }
-        
-        AudioProcessing *new =[[AudioProcessing alloc]init];
-        [new processAudio:buffer[0]];
-//
-        
-
-//        // Update time domain plot
-//        [self.audioPlotTime updateBuffer:buffer[0]
-//                          withBufferSize:bufferSize];
-//
-//        // Setup the FFT if it's not already setup
-//        if( !_isFFTSetup ){
-//            [self createFFTWithBufferSize:bufferSize withAudioData:buffer[0]];
-//            _isFFTSetup = YES;
-//        }
-//        
-//        // Get the FFT data
-//        [self updateFFTWithBufferSize:bufferSize withAudioData:buffer[0]];
-//        
+        [self.audioProcessing processAudio:buffer[0]];
     });
+    
 }
 
-
-/**
- Contains AudioBufferlist from which we will take out 256 frames at a time so that we can feed it into the classifer.
- */
-- (void)microphone:(EZMicrophone *)microphone hasBufferList:(AudioBufferList *)bufferList withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels
-{
-    
-    
-
-}
 
 #pragma mark - Setup LocationGPS
-
 /**
  Setup LocationTracker singleton object
  */
@@ -233,8 +110,9 @@ Input from the microphone is in the buffer array :
 }
 
 
+#pragma mark - Setup Accelerometer
 /**
- Setup LocationTracker singleton object
+ Setup AccelerometerTracker singleton object
  */
 - (void)setupAccelerometer{
     self.accelerometerTracker = [[AccelerometerTracker alloc]init];
@@ -242,26 +120,22 @@ Input from the microphone is in the buffer array :
 }
 
 
+#pragma mark - Setup Bluetooth
 /**
- Setup LocationTracker singleton object
+ Setup BluetoothTracker singleton object
  */
 - (void)setupBluetooth{
     self.bluetoothTracker = [[BluetoothTracker alloc]init];
     [self.bluetoothTracker startBluetoothTracking: self.bluetoothTracker.centralManager];
 }
+
+
+
 #pragma mark - Setup Local Notifications
-
-
 /**
  This method sets up local notifications by calling all the helper methods below
  */
 - (void)setupNotifications{
-//    [self registerNotificationType];
-    
-    //Schedule all notifications according to the time in the array of _NotificationFireTimeOfDay
-//    for (NSInteger i = 0; i < sizeof(_NotificationFireTimeOfDay)/sizeof(int); i++){
-//        [self scheduleNotificationWithItem:_NotificationFireTimeOfDay[i]];
-//    }
 
     for (NSInteger i = 0; i < sizeof(_NotificationFireTimeOfDay)/sizeof(int); i++){
         for(int j = 0; j < sizeof(_NotificationFireMinOfDay)/sizeof(int); j++){
@@ -333,6 +207,74 @@ Input from the microphone is in the buffer array :
     NSLog(@"Local Notifications scheduled!");
 }
 
+
+//#pragma mark - FFT
+///**
+// Adapted from http://batmobile.blogs.ilrt.org/fourier-transforms-on-an-iphone/
+// */
+//-(void)createFFTWithBufferSize:(float)bufferSize withAudioData:(float*)data {
+//
+//    // Setup the length
+//    _log2n = log2f(bufferSize);
+//
+//    // Calculate the weights array. This is a one-off operation.
+//    _FFTSetup = vDSP_create_fftsetup(_log2n, FFT_RADIX2);
+//
+//    // For an FFT, numSamples must be a power of 2, i.e. is always even
+//    int nOver2 = bufferSize/2;
+//
+//    // Populate *window with the values for a hamming window function
+//    float *window = (float *)malloc(sizeof(float)*bufferSize);
+//    vDSP_hamm_window(window, bufferSize, 0);
+//    // Window the samples
+//    vDSP_vmul(data, 1, window, 1, data, 1, bufferSize);
+//    free(window);
+//
+//    // Define complex buffer
+//    _A.realp = (float *) malloc(nOver2*sizeof(float));
+//    _A.imagp = (float *) malloc(nOver2*sizeof(float));
+//
+//}
+
+//-(void)updateFFTWithBufferSize:(float)bufferSize withAudioData:(float*)data {
+//
+//    // For an FFT, numSamples must be a power of 2, i.e. is always even
+//    int nOver2 = bufferSize/2;
+//
+//    // Pack samples:
+//    // C(re) -> A[n], C(im) -> A[n+1]
+//    vDSP_ctoz((COMPLEX*)data, 2, &_A, 1, nOver2);
+//
+//    // Perform a forward FFT using fftSetup and A
+//    // Results are returned in A
+//    vDSP_fft_zrip(_FFTSetup, &_A, 1, _log2n, FFT_FORWARD);
+//
+//    // Convert COMPLEX_SPLIT A result to magnitudes
+//    float amp[nOver2];
+//    float maxMag = 0;
+//    //    NSLog(@"amp value at position nOver2/2 is %f", amp[nOver2/2]);
+//
+//
+//    for(int i=0; i<nOver2; i++) {
+//        // Calculate the magnitude
+//        float mag = _A.realp[i]*_A.realp[i]+_A.imagp[i]*_A.imagp[i];
+//        maxMag = mag > maxMag ? mag : maxMag;
+//    }
+//    for(int i=0; i<nOver2; i++) {
+//        // Calculate the magnitude
+//        float mag = _A.realp[i]*_A.realp[i]+_A.imagp[i]*_A.imagp[i];
+//        // Bind the value to be less than 1.0 to fit in the graph
+//        amp[i] = [EZAudio MAP:mag leftMin:0.0 leftMax:maxMag rightMin:0.0 rightMax:1.0];
+//    }
+//
+////    NSLog(@"amp length is : %lu", sizeof(amp)/sizeof(amp[0]));
+////    NSLog(@"amp value at position nOver2/2 is %f", amp[nOver2/2]);
+//
+//    // Update the frequency domain plot
+////    [self.audioPlotFreq updateBuffer:amp
+////                      withBufferSize:nOver2];
+//
+//}
 
 
 

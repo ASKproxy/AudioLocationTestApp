@@ -12,10 +12,12 @@
 
 
 @implementation AppDelegate
-//@synthesize gLockComplete, gLockState;
-
 /*
- * Call back function to print log for lock event
+ * Callback method of CFNotificationCenter
+ * The method is called automatically when there is a lock or unlock operation
+ * Depending on the "lock state" and "lock complete state" it decides to
+ * start fetching audio form microphone when the phone is locked or stop fetching
+ * audio when the phone is unlocked
  */
 static void displayStatusChanged(CFNotificationCenterRef center,
                                  void *observer,
@@ -23,7 +25,6 @@ static void displayStatusChanged(CFNotificationCenterRef center,
                                  const void *object,
                                  CFDictionaryRef userInfo) {
     
-    // Lock state change
     //"com.apple.springboard.lockcomplete" notification will always come after the "com.apple.springboard.lockstate"
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"kDisplayStatusLocked"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -35,8 +36,8 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         gLockComplete = 1;
     }
     
-    // When lockState and lockComplete are both 1, that is when the phone is locked, then start recording
-    // Otherwise stop recording
+    // When lockState and lockComplete are both 1, that is when the phone is locked
+    // then start recording. Otherwise stop recording when the phone is unlocked
     if(gLockComplete && gLockState){
         NSLog(@"🔔*****Start recording!*****🔔");
         
@@ -59,11 +60,6 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         
         // Restore states value
         gLockState = 0;
-    }
-    
-    
-    if (userInfo != nil) {
-        CFShow(userInfo);
     }
     
 }
