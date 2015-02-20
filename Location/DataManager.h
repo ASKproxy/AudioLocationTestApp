@@ -10,6 +10,8 @@
 // DataManager.h
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import <CoreMotion/CoreMotion.h>
+
 
 extern NSString * const DataManagerDidSaveNotification;
 extern NSString * const DataManagerDidSaveFailedNotification;
@@ -25,6 +27,8 @@ extern NSString * const DataManagerDidSaveFailedNotification;
 + (DataManager*)sharedInstance;
 - (void)save;
 -(void) saveLockData;
+//-(void) saveDataToDatabase:(id)unknownTypeParameter;
+
 
 
 @end

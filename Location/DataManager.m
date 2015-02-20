@@ -49,6 +49,58 @@
     }
 }
 
+//-(void) saveDataToDatabase:(id)unknownTypeParameter {
+//    if( [unknownTypeParameter isKindOfClass:[CMAccelerometerData class]]) {
+//        CMAcceleration *acceleration = (__bridge CMAcceleration*) unknownTypeParameter;
+//        
+//        //create the entity over here and save it
+//        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Accelerometer" inManagedObjectContext:self.managedObjectContext];
+//        
+//        NSManagedObject *latestAccelerometer = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
+//        [latestAccelerometer setValue:[NSNumber numberWithDouble:acceleration->x] forKey:@"x_axis"];
+//        [latestAccelerometer setValue:[NSNumber numberWithDouble:acceleration->y] forKey:@"y_axis"];
+//        [latestAccelerometer setValue:[NSNumber numberWithDouble:acceleration->z] forKey:@"z_axis"];
+//        
+//        NSError *error1 = nil;
+//        
+//        if (![latestAccelerometer.managedObjectContext save:&error1]) {
+//            NSLog(@"Unable to save managed object context.");
+//            NSLog(@"%@, %@", error1, error1.localizedDescription);
+//        }
+//        
+//        NSLog(@"Stored the accelerometer data");
+//        
+//        
+//        //retreive the data and print it in the log
+//        NSError *error = nil;
+//        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//        
+//        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Accelerometer" inManagedObjectContext:self.managedObjectContext];
+//        [fetchRequest setEntity:entity];
+//        
+//        NSArray *result = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//        
+//        if (error) {
+//            NSLog(@"Unable to execute fetch request.");
+//            NSLog(@"%@, %@", error, error.localizedDescription);
+//            
+//        } else {
+//            if(result.count > 0 )
+//            {
+//                
+//                NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
+//                
+//                NSLog(@"x-axis : %@", [r valueForKey:@"x_axis"]);
+//                
+//                //            NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
+//            }
+//        }
+//
+//   
+//    }
+//}
+//
+
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.

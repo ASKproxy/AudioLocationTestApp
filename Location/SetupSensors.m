@@ -24,8 +24,8 @@
 @implementation SetupSensors
 
 
-static int _NotificationFireTimeOfDay[] = {9, 16, 18};
-static int _NotificationFireMinOfDay[] = {24, 28};
+static int _NotificationFireTimeOfDay[] = {9, 15, 20};
+static int _NotificationFireMinOfDay[] = {52, 58};
 float frame_buffer[FRAME_LENGTH];
 
 
@@ -49,14 +49,16 @@ float frame_buffer[FRAME_LENGTH];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _setupSensors = [[SetupSensors alloc] init];
+    
+        
+        //Singleton objects
+        [_setupSensors setupAudioMicrophone];
+        [_setupSensors setupLocationGPS];
+        [_setupSensors setupNotifications];
+        [_setupSensors setupBluetooth];
+        [_setupSensors setupAccelerometer];
     });
     
-    //Singleton objects
-    [_setupSensors setupAudioMicrophone];
-    [_setupSensors setupLocationGPS];
-    [_setupSensors setupNotifications];
-    [_setupSensors setupBluetooth];
-    [_setupSensors setupAccelerometer];
     
     return _setupSensors;
 }
@@ -70,8 +72,9 @@ float frame_buffer[FRAME_LENGTH];
  */
 - (void)setupAudioMicrophone{
     
-    self.audioProcessing= [[AudioProcessing alloc]init];
-    
+    self.audioProcessing = [AudioProcessing sharedAudioProcessing];    
+//    self.audioProcessing= [[AudioProcessing alloc]init];
+   
     self.ezMicrophone = [EZMicrophone sharedMicrophone];
     [self.ezMicrophone initWithMicrophoneDelegate:self startsImmediately:YES];
 }

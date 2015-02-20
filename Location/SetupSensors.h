@@ -40,7 +40,7 @@
  The project only keeps one AudioProcessing object
  */
 
-@property AudioProcessing *audioProcessing;
+@property (strong, nonatomic)AudioProcessing *audioProcessing;
 
 /**
  A signleton object of AccelerometerTracker

@@ -31,6 +31,7 @@
     self.coreMotionManager.gyroUpdateInterval = .2;
     [self.coreMotionManager startAccelerometerUpdatesToQueue:[NSOperationQueue currentQueue]
                                              withHandler:^(CMAccelerometerData  *accelerometerData, NSError *error) {
+//                                                 [self.dataManager saveDataToDatabase:(id)accelerometerData.acceleration];
                                                  [self storeAccelerationData:accelerometerData.acceleration];
                                                  if(error){
                                                      NSLog(@"%@", error);
@@ -83,12 +84,6 @@
 //            NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
         }
     }
-    
-    
-    
-    
-    
-    
 }
 @end
 

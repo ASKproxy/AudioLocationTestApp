@@ -124,6 +124,9 @@ double x[3];
 int inferenceResult;
 
 
+
+
+
 //*************************************************************************************************
 #pragma mark - AudioProcessing Variables
 //float frame_buffer[FRAME_LENGTH];
@@ -145,6 +148,7 @@ int inferenceResult;
 //    });
     return self;
 }
+
 
 -(void) processAudio:(float *)frameBuffer
 {
@@ -209,6 +213,21 @@ int inferenceResult;
             break;
     }
 }
+
+
+#pragma mark - Singleton
++ (AudioProcessing*)sharedAudioProcessing {
+    static AudioProcessing *_sharedAudioProcessing = nil;
+    if(!_sharedAudioProcessing){
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            _sharedAudioProcessing = [[AudioProcessing alloc] init];
+        });
+    }
+    
+    return _sharedAudioProcessing;
+}
+
 
 #pragma mark - Hamming Factor
 -(void) computeHammingFactors

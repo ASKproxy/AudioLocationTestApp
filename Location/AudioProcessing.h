@@ -14,6 +14,9 @@
 @interface AudioProcessing : NSObject
 
 
+#pragma mark - singleton 
++(AudioProcessing*)sharedAudioProcessing;
+
 
 -(void) normalizeData:(float *)buffer;
 

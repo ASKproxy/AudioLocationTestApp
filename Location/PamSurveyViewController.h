@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "DataManager.h"
 
 @interface PamSurveyViewController : UIViewController
 
 @property(strong, nonatomic) UIWindow *window;
+@property (strong,nonatomic) DataManager * dataManager;
+
 - (IBAction)PamStressButton:(id)sender;
 
 @end
