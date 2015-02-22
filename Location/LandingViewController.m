@@ -8,12 +8,15 @@
 
 #import "LandingViewController.h"
 
+
 @interface LandingViewController ()
 
 @end
 
 @implementation LandingViewController
 
+
+#pragma mark - Setup View
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -25,14 +28,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+#pragma mark - Navigation
+/**
+ Open Tab Bar according to the paticular button pressed
+ constant strings and indecis are declared in StudentLifeConstant
+ */
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if([segue.identifier isEqualToString:SegueStress]){
+        [[segue destinationViewController] setSelectedIndex:SegueStressIndex];
+    }else if ([segue.identifier isEqualToString:SegueSleep]){
+        [[segue destinationViewController] setSelectedIndex:SegueSleepIndex];
+    }else if ([segue.identifier isEqualToString:SegueActivity]){
+        [[segue destinationViewController] setSelectedIndex:SegueActivityIndex];
+    }else if ([segue.identifier isEqualToString:SegueSocial]){
+        [[segue destinationViewController] setSelectedIndex:SegueSocialIndex];
+    }
+    
+
 }
-*/
+
+
 
 @end

@@ -20,9 +20,39 @@
 //    self.GPSLat.text = @"haha";
     
 //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeLabelValue:) name:@"sendLocationDataUpdateUI" object:nil];
+    
+    
+    
+    //Add Swipe gesture recognizer
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:swipeLeft];
+    
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:swipeRight];
+    
 
 }
 
+/**
+ Callback action of swipe gesture
+ */
+- (void)didSwipe: (UISwipeGestureRecognizer *) sender{
+    
+    UISwipeGestureRecognizerDirection direction = sender.direction;
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    switch (direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            [self.tabBarController setSelectedIndex:selectedIndex + 1];
+            break;
+            
+        case UISwipeGestureRecognizerDirectionRight:
+            [self.tabBarController setSelectedIndex:selectedIndex - 1];
+            break;
+    }
+}
 
 //-(void)changeLabelValue(NSNotification *)iRecognizer {
 //    

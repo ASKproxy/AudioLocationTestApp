@@ -36,7 +36,16 @@
                                              selector:@selector(applicationEnteredForeground:)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
-    
+
+  
+}
+
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+//    [self.tabBarController.viewControllers objectAtIndex:2];
+   
 }
 
 /**
@@ -59,7 +68,7 @@
  */
 - (BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 

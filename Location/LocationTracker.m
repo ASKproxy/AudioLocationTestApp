@@ -157,8 +157,8 @@
             [fetchRequest setEntity:entity];
             
             
-            NSError *error3 = nil;
-            NSUInteger count = [self.dataManager.managedObjectContext countForFetchRequest: fetchRequest error: &error3];
+//            NSError *error3 = nil;
+//            NSUInteger count = [self.dataManager.managedObjectContext countForFetchRequest: fetchRequest error: &error3];
             
             NSError *error2 = nil;
             NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];

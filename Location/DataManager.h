@@ -26,8 +26,7 @@ extern NSString * const DataManagerDidSaveFailedNotification;
 
 + (DataManager*)sharedInstance;
 - (void)save;
--(void) saveLockData;
-//-(void) saveDataToDatabase:(id)unknownTypeParameter;
+//-(void) saveLockData;
 
 
 

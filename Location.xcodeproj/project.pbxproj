@@ -10,9 +10,33 @@
 		3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7B91A92C9B8002C0054 /* LocalData.xcdatamodeld */; };
 		3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */; };
 		3F2EE7C11A93132C002C0054 /* SocialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2EE7C01A93132C002C0054 /* SocialViewController.m */; };
+		3F699A861A9816F200F81471 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F699A811A9816F200F81471 /* JBBarChartView.m */; };
+		3F699A871A9816F200F81471 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F699A831A9816F200F81471 /* JBChartView.m */; };
+		3F699A881A9816F200F81471 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F699A851A9816F200F81471 /* JBLineChartView.m */; };
 		3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */; };
 		3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */; };
 		3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531151A80BA1000E1B62C /* FormatFile.m */; };
+		3FB8AB891A99609000E432DF /* JBChartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB4C1A99609000E432DF /* JBChartTableCell.m */; };
+		3FB8AB8A1A99609000E432DF /* JBBaseChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB561A99609000E432DF /* JBBaseChartViewController.m */; };
+		3FB8AB8C1A99609000E432DF /* JBBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB5A1A99609000E432DF /* JBBaseTableViewController.m */; };
+		3FB8AB8D1A99609000E432DF /* JBBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB5C1A99609000E432DF /* JBBaseViewController.m */; };
+		3FB8AB941A99609000E432DF /* JBBarChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB6C1A99609000E432DF /* JBBarChartFooterView.m */; };
+		3FB8AB951A99609000E432DF /* JBLineChartFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB6E1A99609000E432DF /* JBLineChartFooterView.m */; };
+		3FB8AB961A99609000E432DF /* JBChartHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB711A99609000E432DF /* JBChartHeaderView.m */; };
+		3FB8AB9A1A99609000E432DF /* JBChartInformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB781A99609000E432DF /* JBChartInformationView.m */; };
+		3FB8AB9B1A99609000E432DF /* JBChartTooltipTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB7A1A99609000E432DF /* JBChartTooltipTipView.m */; };
+		3FB8AB9C1A99609000E432DF /* JBChartTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8AB7C1A99609000E432DF /* JBChartTooltipView.m */; };
+		3FB8AB9D1A99609000E432DF /* icon-area-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB7F1A99609000E432DF /* icon-area-chart.png */; };
+		3FB8AB9E1A99609000E432DF /* icon-area-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB801A99609000E432DF /* icon-area-chart@2x.png */; };
+		3FB8AB9F1A99609000E432DF /* icon-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB811A99609000E432DF /* icon-arrow.png */; };
+		3FB8ABA01A99609000E432DF /* icon-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB821A99609000E432DF /* icon-arrow@2x.png */; };
+		3FB8ABA11A99609000E432DF /* icon-bar-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB831A99609000E432DF /* icon-bar-chart.png */; };
+		3FB8ABA21A99609000E432DF /* icon-bar-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB841A99609000E432DF /* icon-bar-chart@2x.png */; };
+		3FB8ABA31A99609000E432DF /* icon-jawbone-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB851A99609000E432DF /* icon-jawbone-logo.png */; };
+		3FB8ABA41A99609000E432DF /* icon-jawbone-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB861A99609000E432DF /* icon-jawbone-logo@2x.png */; };
+		3FB8ABA51A99609000E432DF /* icon-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB871A99609000E432DF /* icon-line-chart.png */; };
+		3FB8ABA61A99609000E432DF /* icon-line-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB881A99609000E432DF /* icon-line-chart@2x.png */; };
+		3FB8ABAC1A9978B500E432DF /* StressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8ABAB1A9978B500E432DF /* StressViewController.m */; };
 		3FDA7CC91A86CE9A00A4EE58 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDA7CC81A86CE9A00A4EE58 /* Accelerate.framework */; };
 		3FDA7CCB1A86CEA300A4EE58 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDA7CCA1A86CEA300A4EE58 /* AudioToolbox.framework */; };
 		3FDA7CCD1A86CEAC00A4EE58 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDA7CCC1A86CEAC00A4EE58 /* GLKit.framework */; };
@@ -29,6 +53,8 @@
 		3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA7CE51A86CF8700A4EE58 /* TPCircularBuffer.c */; };
 		3FDA7CF61A86CF8700A4EE58 /* CHANGELOG in Resources */ = {isa = PBXBuildFile; fileRef = 3FDA7CE81A86CF8700A4EE58 /* CHANGELOG */; };
 		3FDA7CF71A86CF8700A4EE58 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 3FDA7CE91A86CF8700A4EE58 /* VERSION */; };
+		3FDECA8F1A998D0500B52EE4 /* SleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDECA8E1A998D0500B52EE4 /* SleepViewController.m */; };
+		3FDECA921A998D6300B52EE4 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDECA911A998D6300B52EE4 /* ActivityViewController.m */; };
 		3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0FD531A8AC1A500A8B992 /* PamSurveyViewController.m */; };
 		3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0FD571A8C28A700A8B992 /* DataTabViewController.m */; };
 		3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */; };
@@ -81,15 +107,58 @@
 		3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandingViewController.m; sourceTree = "<group>"; };
 		3F2EE7BF1A93132C002C0054 /* SocialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialViewController.h; sourceTree = "<group>"; };
 		3F2EE7C01A93132C002C0054 /* SocialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialViewController.m; sourceTree = "<group>"; };
-		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentLifeBackgroundAudio.h; path = ../StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
-		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentLifeBackgroundAudio.m; path = ../StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
+		3F699A801A9816F200F81471 /* JBBarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartView.h; sourceTree = "<group>"; };
+		3F699A811A9816F200F81471 /* JBBarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartView.m; sourceTree = "<group>"; };
+		3F699A821A9816F200F81471 /* JBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartView.h; sourceTree = "<group>"; };
+		3F699A831A9816F200F81471 /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
+		3F699A841A9816F200F81471 /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
+		3F699A851A9816F200F81471 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
+		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
+		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
 		3FB531031A7FDD9000E1B62C /* audiofile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audiofile.mp3; path = "../../ios-audio-player/AudioPlayerTemplate/audiofile.mp3"; sourceTree = "<group>"; };
 		3FB531041A7FDD9000E1B62C /* audioplayer_pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = audioplayer_pause.png; path = "../../ios-audio-player/AudioPlayerTemplate/audioplayer_pause.png"; sourceTree = "<group>"; };
 		3FB531051A7FDD9000E1B62C /* audioplayer_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = audioplayer_play.png; path = "../../ios-audio-player/AudioPlayerTemplate/audioplayer_play.png"; sourceTree = "<group>"; };
-		3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StudentLifeBackgroundAudioRecorder.h; path = ../StudentLifeBackgroundAudioRecorder.h; sourceTree = "<group>"; };
-		3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StudentLifeBackgroundAudioRecorder.m; path = ../StudentLifeBackgroundAudioRecorder.m; sourceTree = "<group>"; };
+		3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLifeBackgroundAudioRecorder.h; sourceTree = "<group>"; };
+		3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLifeBackgroundAudioRecorder.m; sourceTree = "<group>"; };
 		3FB531141A80BA1000E1B62C /* FormatFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatFile.h; sourceTree = "<group>"; };
 		3FB531151A80BA1000E1B62C /* FormatFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatFile.m; sourceTree = "<group>"; };
+		3FB8AB481A995ACB00E432DF /* StudentLifeConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StudentLifeConstant.h; sourceTree = "<group>"; };
+		3FB8AB4B1A99609000E432DF /* JBChartTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTableCell.h; sourceTree = "<group>"; };
+		3FB8AB4C1A99609000E432DF /* JBChartTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTableCell.m; sourceTree = "<group>"; };
+		3FB8AB4E1A99609000E432DF /* JBColorConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBColorConstants.h; path = JBChartViewDemo/Constants/JBColorConstants.h; sourceTree = "<group>"; };
+		3FB8AB501A99609000E432DF /* JBFontConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBFontConstants.h; path = JBChartViewDemo/Constants/JBFontConstants.h; sourceTree = "<group>"; };
+		3FB8AB511A99609000E432DF /* JBStringConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBStringConstants.h; path = JBChartViewDemo/Constants/JBStringConstants.h; sourceTree = "<group>"; };
+		3FB8AB521A99609000E432DF /* JBUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBUIConstants.h; path = JBChartViewDemo/Constants/JBUIConstants.h; sourceTree = "<group>"; };
+		3FB8AB551A99609000E432DF /* JBBaseChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBaseChartViewController.h; sourceTree = "<group>"; };
+		3FB8AB561A99609000E432DF /* JBBaseChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBaseChartViewController.m; sourceTree = "<group>"; };
+		3FB8AB591A99609000E432DF /* JBBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBaseTableViewController.h; sourceTree = "<group>"; };
+		3FB8AB5A1A99609000E432DF /* JBBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBaseTableViewController.m; sourceTree = "<group>"; };
+		3FB8AB5B1A99609000E432DF /* JBBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBaseViewController.h; sourceTree = "<group>"; };
+		3FB8AB5C1A99609000E432DF /* JBBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBaseViewController.m; sourceTree = "<group>"; };
+		3FB8AB6B1A99609000E432DF /* JBBarChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBBarChartFooterView.h; sourceTree = "<group>"; };
+		3FB8AB6C1A99609000E432DF /* JBBarChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBBarChartFooterView.m; sourceTree = "<group>"; };
+		3FB8AB6D1A99609000E432DF /* JBLineChartFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartFooterView.h; sourceTree = "<group>"; };
+		3FB8AB6E1A99609000E432DF /* JBLineChartFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartFooterView.m; sourceTree = "<group>"; };
+		3FB8AB701A99609000E432DF /* JBChartHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartHeaderView.h; sourceTree = "<group>"; };
+		3FB8AB711A99609000E432DF /* JBChartHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartHeaderView.m; sourceTree = "<group>"; };
+		3FB8AB771A99609000E432DF /* JBChartInformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartInformationView.h; sourceTree = "<group>"; };
+		3FB8AB781A99609000E432DF /* JBChartInformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartInformationView.m; sourceTree = "<group>"; };
+		3FB8AB791A99609000E432DF /* JBChartTooltipTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipTipView.h; sourceTree = "<group>"; };
+		3FB8AB7A1A99609000E432DF /* JBChartTooltipTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipTipView.m; sourceTree = "<group>"; };
+		3FB8AB7B1A99609000E432DF /* JBChartTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBChartTooltipView.h; sourceTree = "<group>"; };
+		3FB8AB7C1A99609000E432DF /* JBChartTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartTooltipView.m; sourceTree = "<group>"; };
+		3FB8AB7F1A99609000E432DF /* icon-area-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-area-chart.png"; sourceTree = "<group>"; };
+		3FB8AB801A99609000E432DF /* icon-area-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-area-chart@2x.png"; sourceTree = "<group>"; };
+		3FB8AB811A99609000E432DF /* icon-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-arrow.png"; sourceTree = "<group>"; };
+		3FB8AB821A99609000E432DF /* icon-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-arrow@2x.png"; sourceTree = "<group>"; };
+		3FB8AB831A99609000E432DF /* icon-bar-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-chart.png"; sourceTree = "<group>"; };
+		3FB8AB841A99609000E432DF /* icon-bar-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-bar-chart@2x.png"; sourceTree = "<group>"; };
+		3FB8AB851A99609000E432DF /* icon-jawbone-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-jawbone-logo.png"; sourceTree = "<group>"; };
+		3FB8AB861A99609000E432DF /* icon-jawbone-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-jawbone-logo@2x.png"; sourceTree = "<group>"; };
+		3FB8AB871A99609000E432DF /* icon-line-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-line-chart.png"; sourceTree = "<group>"; };
+		3FB8AB881A99609000E432DF /* icon-line-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-line-chart@2x.png"; sourceTree = "<group>"; };
+		3FB8ABAA1A9978B500E432DF /* StressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StressViewController.h; sourceTree = "<group>"; };
+		3FB8ABAB1A9978B500E432DF /* StressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StressViewController.m; sourceTree = "<group>"; };
 		3FDA7CC81A86CE9A00A4EE58 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		3FDA7CCA1A86CEA300A4EE58 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3FDA7CCC1A86CEAC00A4EE58 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -117,6 +186,10 @@
 		3FDA7CE61A86CF8700A4EE58 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
 		3FDA7CE81A86CF8700A4EE58 /* CHANGELOG */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 		3FDA7CE91A86CF8700A4EE58 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		3FDECA8D1A998D0500B52EE4 /* SleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepViewController.h; sourceTree = "<group>"; };
+		3FDECA8E1A998D0500B52EE4 /* SleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepViewController.m; sourceTree = "<group>"; };
+		3FDECA901A998D6300B52EE4 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		3FDECA911A998D6300B52EE4 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		3FE0FD521A8AC1A500A8B992 /* PamSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PamSurveyViewController.h; sourceTree = "<group>"; };
 		3FE0FD531A8AC1A500A8B992 /* PamSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PamSurveyViewController.m; sourceTree = "<group>"; };
 		3FE0FD561A8C28A700A8B992 /* DataTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTabViewController.h; sourceTree = "<group>"; };
@@ -218,6 +291,36 @@
 			name = StudengLifeLocation;
 			sourceTree = "<group>";
 		};
+		3F3821191A982F0100191B95 /* TestPlot */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = TestPlot;
+			sourceTree = "<group>";
+		};
+		3F699A7E1A98018200F81471 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3F699A7F1A9816F200F81471 /* Jawbone - JBChartView */,
+				3FDA7CCE1A86CF8700A4EE58 /* EZAudio */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		3F699A7F1A9816F200F81471 /* Jawbone - JBChartView */ = {
+			isa = PBXGroup;
+			children = (
+				3F699A801A9816F200F81471 /* JBBarChartView.h */,
+				3F699A811A9816F200F81471 /* JBBarChartView.m */,
+				3F699A821A9816F200F81471 /* JBChartView.h */,
+				3F699A831A9816F200F81471 /* JBChartView.m */,
+				3F699A841A9816F200F81471 /* JBLineChartView.h */,
+				3F699A851A9816F200F81471 /* JBLineChartView.m */,
+			);
+			name = "Jawbone - JBChartView";
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		3FB531131A80B9F500E1B62C /* StudentLifeUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +332,120 @@
 				3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */,
 			);
 			name = StudentLifeUtilities;
+			sourceTree = "<group>";
+		};
+		3FB8AB461A995A8900E432DF /* StudentLifeConstant */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB4E1A99609000E432DF /* JBColorConstants.h */,
+				3FB8AB501A99609000E432DF /* JBFontConstants.h */,
+				3FB8AB511A99609000E432DF /* JBStringConstants.h */,
+				3FB8AB521A99609000E432DF /* JBUIConstants.h */,
+				3FB8AB481A995ACB00E432DF /* StudentLifeConstant.h */,
+			);
+			name = StudentLifeConstant;
+			sourceTree = "<group>";
+		};
+		3FB8AB491A99609000E432DF /* JBChartViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB4A1A99609000E432DF /* Cells */,
+				3FB8AB531A99609000E432DF /* Controllers */,
+				3FB8AB6A1A99609000E432DF /* Footers */,
+				3FB8AB6F1A99609000E432DF /* Headers */,
+				3FB8AB761A99609000E432DF /* Misc */,
+				3FB8AB7D1A99609000E432DF /* Resources */,
+			);
+			name = JBChartViewDemo;
+			path = Location/JBChartViewDemo;
+			sourceTree = "<group>";
+		};
+		3FB8AB4A1A99609000E432DF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB4B1A99609000E432DF /* JBChartTableCell.h */,
+				3FB8AB4C1A99609000E432DF /* JBChartTableCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3FB8AB531A99609000E432DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB541A99609000E432DF /* Base */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3FB8AB541A99609000E432DF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB551A99609000E432DF /* JBBaseChartViewController.h */,
+				3FB8AB561A99609000E432DF /* JBBaseChartViewController.m */,
+				3FB8AB591A99609000E432DF /* JBBaseTableViewController.h */,
+				3FB8AB5A1A99609000E432DF /* JBBaseTableViewController.m */,
+				3FB8AB5B1A99609000E432DF /* JBBaseViewController.h */,
+				3FB8AB5C1A99609000E432DF /* JBBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		3FB8AB6A1A99609000E432DF /* Footers */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB6B1A99609000E432DF /* JBBarChartFooterView.h */,
+				3FB8AB6C1A99609000E432DF /* JBBarChartFooterView.m */,
+				3FB8AB6D1A99609000E432DF /* JBLineChartFooterView.h */,
+				3FB8AB6E1A99609000E432DF /* JBLineChartFooterView.m */,
+			);
+			path = Footers;
+			sourceTree = "<group>";
+		};
+		3FB8AB6F1A99609000E432DF /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB701A99609000E432DF /* JBChartHeaderView.h */,
+				3FB8AB711A99609000E432DF /* JBChartHeaderView.m */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		3FB8AB761A99609000E432DF /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB771A99609000E432DF /* JBChartInformationView.h */,
+				3FB8AB781A99609000E432DF /* JBChartInformationView.m */,
+				3FB8AB791A99609000E432DF /* JBChartTooltipTipView.h */,
+				3FB8AB7A1A99609000E432DF /* JBChartTooltipTipView.m */,
+				3FB8AB7B1A99609000E432DF /* JBChartTooltipView.h */,
+				3FB8AB7C1A99609000E432DF /* JBChartTooltipView.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		3FB8AB7D1A99609000E432DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB7E1A99609000E432DF /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3FB8AB7E1A99609000E432DF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3FB8AB7F1A99609000E432DF /* icon-area-chart.png */,
+				3FB8AB801A99609000E432DF /* icon-area-chart@2x.png */,
+				3FB8AB811A99609000E432DF /* icon-arrow.png */,
+				3FB8AB821A99609000E432DF /* icon-arrow@2x.png */,
+				3FB8AB831A99609000E432DF /* icon-bar-chart.png */,
+				3FB8AB841A99609000E432DF /* icon-bar-chart@2x.png */,
+				3FB8AB851A99609000E432DF /* icon-jawbone-logo.png */,
+				3FB8AB861A99609000E432DF /* icon-jawbone-logo@2x.png */,
+				3FB8AB871A99609000E432DF /* icon-line-chart.png */,
+				3FB8AB881A99609000E432DF /* icon-line-chart@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		3FDA7CCE1A86CF8700A4EE58 /* EZAudio */ = {
@@ -256,10 +473,6 @@
 				3FDA7CE41A86CF8700A4EE58 /* EZRecorder.m */,
 				3FDA7CE51A86CF8700A4EE58 /* TPCircularBuffer.c */,
 				3FDA7CE61A86CF8700A4EE58 /* TPCircularBuffer.h */,
-				3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */,
-				3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */,
-				3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */,
-				3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */,
 				3FDA7CE71A86CF8700A4EE58 /* VERSION */,
 			);
 			path = EZAudio;
@@ -274,19 +487,33 @@
 			path = VERSION;
 			sourceTree = "<group>";
 		};
+		3FDECA8C1A997E2900B52EE4 /* TabBatView */ = {
+			isa = PBXGroup;
+			children = (
+				3FE0FD561A8C28A700A8B992 /* DataTabViewController.h */,
+				3FE0FD571A8C28A700A8B992 /* DataTabViewController.m */,
+				3F2EE7BF1A93132C002C0054 /* SocialViewController.h */,
+				3F2EE7C01A93132C002C0054 /* SocialViewController.m */,
+				3FB8ABAA1A9978B500E432DF /* StressViewController.h */,
+				3FB8ABAB1A9978B500E432DF /* StressViewController.m */,
+				3FDECA8D1A998D0500B52EE4 /* SleepViewController.h */,
+				3FDECA8E1A998D0500B52EE4 /* SleepViewController.m */,
+				3FDECA901A998D6300B52EE4 /* ActivityViewController.h */,
+				3FDECA911A998D6300B52EE4 /* ActivityViewController.m */,
+			);
+			name = TabBatView;
+			sourceTree = "<group>";
+		};
 		3FE0FD551A8BC78400A8B992 /* StudentLifeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3FDECA8C1A997E2900B52EE4 /* TabBatView */,
 				5C9090A418B3A66A00510153 /* MainViewController.h */,
 				5C9090A518B3A66A00510153 /* MainViewController.m */,
 				3FE0FD521A8AC1A500A8B992 /* PamSurveyViewController.h */,
 				3FE0FD531A8AC1A500A8B992 /* PamSurveyViewController.m */,
-				3FE0FD561A8C28A700A8B992 /* DataTabViewController.h */,
-				3FE0FD571A8C28A700A8B992 /* DataTabViewController.m */,
 				3F2EE7BC1A930AF5002C0054 /* LandingViewController.h */,
 				3F2EE7BD1A930AF5002C0054 /* LandingViewController.m */,
-				3F2EE7BF1A93132C002C0054 /* SocialViewController.h */,
-				3F2EE7C01A93132C002C0054 /* SocialViewController.m */,
 			);
 			name = StudentLifeViewController;
 			sourceTree = "<group>";
@@ -294,6 +521,7 @@
 		5C90908318B3A66A00510153 = {
 			isa = PBXGroup;
 			children = (
+				3FB8AB491A99609000E432DF /* JBChartViewDemo */,
 				5C90909518B3A66A00510153 /* Location */,
 				5C9090B418B3A66A00510153 /* LocationTests */,
 				5C90908E18B3A66A00510153 /* Frameworks */,
@@ -333,12 +561,14 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				3FB8AB461A995A8900E432DF /* StudentLifeConstant */,
+				3F3821191A982F0100191B95 /* TestPlot */,
+				3F699A7E1A98018200F81471 /* Libraries */,
 				A45E5EBD1A91D9210048FEB5 /* StudentLifeBluetooth */,
 				A45E5EBC1A91D8FC0048FEB5 /* StudentLifeCoreData */,
 				A45E5EB51A91D8C00048FEB5 /* StudentLifeAccelerometer */,
 				3FE0FD551A8BC78400A8B992 /* StudentLifeViewController */,
 				3F1C4C4E1A87D8BB000F5ABB /* StudengLifeLocation */,
-				3FDA7CCE1A86CF8700A4EE58 /* EZAudio */,
 				A45E5EB11A91CCA40048FEB5 /* StudentLifeAudioProcessing */,
 				3FB531131A80B9F500E1B62C /* StudentLifeUtilities */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
@@ -385,6 +615,10 @@
 		A45E5EB11A91CCA40048FEB5 /* StudentLifeAudioProcessing */ = {
 			isa = PBXGroup;
 			children = (
+				3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */,
+				3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */,
+				3FB531091A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.h */,
+				3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */,
 				A47DEEF81A92C27200D1B5DE /* viterbi.c */,
 				A47DEEF91A92C27200D1B5DE /* viterbi.h */,
 				A47DEEF71A92C26100D1B5DE /* _kiss_fft_guts.h */,
@@ -515,10 +749,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9090A818B3A66A00510153 /* Images.xcassets in Resources */,
+				3FB8ABA61A99609000E432DF /* icon-line-chart@2x.png in Resources */,
+				3FB8AB9F1A99609000E432DF /* icon-arrow.png in Resources */,
+				3FB8ABA21A99609000E432DF /* icon-bar-chart@2x.png in Resources */,
+				3FB8ABA31A99609000E432DF /* icon-jawbone-logo.png in Resources */,
+				3FB8ABA51A99609000E432DF /* icon-line-chart.png in Resources */,
+				3FB8AB9E1A99609000E432DF /* icon-area-chart@2x.png in Resources */,
 				3FDA7CF61A86CF8700A4EE58 /* CHANGELOG in Resources */,
+				3FB8AB9D1A99609000E432DF /* icon-area-chart.png in Resources */,
 				5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */,
+				3FB8ABA11A99609000E432DF /* icon-bar-chart.png in Resources */,
 				3FDA7CF71A86CF8700A4EE58 /* VERSION in Resources */,
 				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
+				3FB8ABA01A99609000E432DF /* icon-arrow@2x.png in Resources */,
+				3FB8ABA41A99609000E432DF /* icon-jawbone-logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,11 +782,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A47DEEF01A92C24500D1B5DE /* mvnpdf.c in Sources */,
+				3F699A871A9816F200F81471 /* JBChartView.m in Sources */,
 				A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */,
 				3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */,
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
+				3FB8AB8D1A99609000E432DF /* JBBaseViewController.m in Sources */,
 				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,
+				3FB8AB8A1A99609000E432DF /* JBBaseChartViewController.m in Sources */,
 				3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */,
+				3F699A881A9816F200F81471 /* JBLineChartView.m in Sources */,
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
@@ -551,25 +799,37 @@
 				3FDA7CEF1A86CF8700A4EE58 /* EZAudioPlotGL.m in Sources */,
 				A47DEEFA1A92C27200D1B5DE /* viterbi.c in Sources */,
 				A47DEEF61A92C25000D1B5DE /* kiss_fftr.c in Sources */,
+				3FB8AB961A99609000E432DF /* JBChartHeaderView.m in Sources */,
+				3FDECA921A998D6300B52EE4 /* ActivityViewController.m in Sources */,
+				3FDECA8F1A998D0500B52EE4 /* SleepViewController.m in Sources */,
 				3FDA7CF01A86CF8700A4EE58 /* EZAudioPlotGLKViewController.m in Sources */,
 				3FDA7CEA1A86CF8700A4EE58 /* AEFloatConverter.m in Sources */,
+				3FB8AB9A1A99609000E432DF /* JBChartInformationView.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
+				3FB8AB951A99609000E432DF /* JBLineChartFooterView.m in Sources */,
 				3FDA7CEB1A86CF8700A4EE58 /* EZAudio.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
 				3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */,
+				3FB8AB891A99609000E432DF /* JBChartTableCell.m in Sources */,
+				3F699A861A9816F200F81471 /* JBBarChartView.m in Sources */,
+				3FB8AB941A99609000E432DF /* JBBarChartFooterView.m in Sources */,
 				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
 				3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */,
 				A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */,
+				3FB8AB9C1A99609000E432DF /* JBChartTooltipView.m in Sources */,
 				A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */,
 				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,
+				3FB8AB9B1A99609000E432DF /* JBChartTooltipTipView.m in Sources */,
 				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
+				3FB8AB8C1A99609000E432DF /* JBBaseTableViewController.m in Sources */,
 				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
 				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,
 				3FDA7CF31A86CF8700A4EE58 /* EZPlot.m in Sources */,
 				3F2EE7C11A93132C002C0054 /* SocialViewController.m in Sources */,
 				A47DEEF51A92C25000D1B5DE /* kiss_fft.c in Sources */,
+				3FB8ABAC1A9978B500E432DF /* StressViewController.m in Sources */,
 				5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,7 +960,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -718,7 +978,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

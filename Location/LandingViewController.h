@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StudentLifeConstant.h"
 
 @interface LandingViewController : UIViewController
 

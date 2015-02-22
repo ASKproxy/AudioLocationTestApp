@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LocationTracker.h"
+#import "JBBaseChartViewController.h"
 
 
 #pragma mark - EZMicrophoneDelegate
@@ -61,7 +62,7 @@
 //
 
 
-@interface SocialViewController : UIViewController
+@interface SocialViewController : JBBaseChartViewController
 @property (strong, nonatomic) IBOutlet UILabel *GPSLat;
 @property (strong, nonatomic) IBOutlet UILabel *GPSLon;
 

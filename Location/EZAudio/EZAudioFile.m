@@ -32,7 +32,7 @@
 //------------------------------------------------------------------------------
 
 static OSStatus EZAudioFileReadPermissionFileDoesNotExistCode = -88776;
-static UInt32   EZAudioFileWaveformDefaultResolution          = 1024;
+//static UInt32   EZAudioFileWaveformDefaultResolution          = 1024;
 
 //------------------------------------------------------------------------------
 
