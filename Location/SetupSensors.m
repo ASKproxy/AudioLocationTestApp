@@ -24,8 +24,8 @@
 @implementation SetupSensors
 
 
-static int _NotificationFireTimeOfDay[] = {9, 16, 20};
-static int _NotificationFireMinOfDay[] = {45, 44};
+static int _NotificationFireTimeOfDay[] = {00, 21, 23};
+static int _NotificationFireMinOfDay[] = {03,05, 06};
 float frame_buffer[FRAME_LENGTH];
 
 

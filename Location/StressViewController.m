@@ -154,14 +154,14 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
     self.lineChartView.backgroundColor = kJBColorLineChartBackground;
     
     JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBLineChartViewControllerChartHeaderHeight * 0.5), self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeaderHeight)];
-    headerView.titleLabel.text = [kJBStringLabelAverageDailyRainfall uppercaseString];
+    headerView.titleLabel.text = [NSString stringWithFormat:@"%@ %@", [termWinter uppercaseString], year2015];
     headerView.titleLabel.textColor = kJBColorLineChartHeader;
     headerView.titleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
     headerView.titleLabel.shadowOffset = CGSizeMake(0, 1);
-    headerView.subtitleLabel.text = kJBStringLabel2013;
-    headerView.subtitleLabel.textColor = kJBColorLineChartHeader;
-    headerView.subtitleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
-    headerView.subtitleLabel.shadowOffset = CGSizeMake(0, 1);
+//    headerView.subtitleLabel.text = kJBStringLabel2013;
+//    headerView.subtitleLabel.textColor = kJBColorLineChartHeader;
+//    headerView.subtitleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+//    headerView.subtitleLabel.shadowOffset = CGSizeMake(0, 1);
     headerView.separatorColor = kJBColorLineChartHeaderSeparatorColor;
     self.lineChartView.headerView = headerView;
     
@@ -196,6 +196,54 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
     
     
 }
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
+    self.view.backgroundColor = kJBColorLineChartControllerBackground;
+    self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
+    
+    self.lineChartView = [[JBLineChartView alloc] init];
+    self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeight);
+    self.lineChartView.delegate = self;
+    self.lineChartView.dataSource = self;
+    self.lineChartView.headerPadding = kJBLineChartViewControllerChartHeaderPadding;
+    self.lineChartView.backgroundColor = kJBColorLineChartBackground;
+    
+    JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBLineChartViewControllerChartHeaderHeight * 0.5), self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeaderHeight)];
+    headerView.titleLabel.text = [NSString stringWithFormat:@"%@ %@", [termWinter uppercaseString], year2015];
+    headerView.titleLabel.textColor = kJBColorLineChartHeader;
+    headerView.titleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+    headerView.titleLabel.shadowOffset = CGSizeMake(0, 1);
+    //    headerView.subtitleLabel.text = kJBStringLabel2013;
+    //    headerView.subtitleLabel.textColor = kJBColorLineChartHeader;
+    //    headerView.subtitleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
+    //    headerView.subtitleLabel.shadowOffset = CGSizeMake(0, 1);
+    headerView.separatorColor = kJBColorLineChartHeaderSeparatorColor;
+    self.lineChartView.headerView = headerView;
+    
+    JBLineChartFooterView *footerView = [[JBLineChartFooterView alloc] initWithFrame:CGRectMake(kJBLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBLineChartViewControllerChartFooterHeight * 0.5), self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartFooterHeight)];
+    footerView.backgroundColor = [UIColor clearColor];
+    footerView.leftLabel.text = [[self.daysOfWeek firstObject] uppercaseString];
+    footerView.leftLabel.textColor = [UIColor whiteColor];
+    footerView.rightLabel.text = [[self.daysOfWeek lastObject] uppercaseString];;
+    footerView.rightLabel.textColor = [UIColor whiteColor];
+    footerView.sectionCount = [[self largestLineData] count];
+    self.lineChartView.footerView = footerView;
+    
+    [self.view addSubview:self.lineChartView];
+    
+    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.lineChartView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.lineChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
+    [self.informationView setValueAndUnitTextColor:[UIColor colorWithWhite:1.0 alpha:0.75]];
+    [self.informationView setTitleTextColor:kJBColorLineChartHeader];
+    [self.informationView setTextShadowColor:nil];
+    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
+    [self.view addSubview:self.informationView];
+    
+    [self.lineChartView reloadData];
+
+    
+}
+
 
 /**
  Callback action of swipe gesture

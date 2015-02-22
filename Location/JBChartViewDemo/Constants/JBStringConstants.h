@@ -38,3 +38,12 @@
 #define kJBStringLabelHours localize(@"label.hours", @"h")
 #define kJBStringLabelMoon localize(@"label.moon", @"Moon")
 #define kJBStringLabelSun localize(@"label.sun", @"Sun")
+
+
+#pragma mark - StudentLife String
+
+#define termSpring localize(@"label.spring.term", @"Spring Term")
+#define termWinter localize(@"label.winter.term", @"Winter Term")
+#define termSummer localize(@"label.summer.term", @"Summer Term")
+#define termFall localize(@"label.fall.term", @"Fall Term")
+#define year2015 localize(@"label.2015", @"2015")
