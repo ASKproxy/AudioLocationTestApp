@@ -11,6 +11,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "EZMicrophone.h"
 #import "SetupSensors.h"
+#import "PAM.h"
 
 
 NSInteger gLockComplete, gLockState;
@@ -25,6 +26,7 @@ SetupSensors *setupSensors;
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, assign) NSInteger gLockComplete, gLockState;
 //@property LocationTracker * locationTracker;
+@property PAM * pam;
 
 @end
 

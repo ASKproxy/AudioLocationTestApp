@@ -56,6 +56,55 @@
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
 		A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */; };
 		A45E5EC61A91D96A0048FEB5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC51A91D96A0048FEB5 /* CoreData.framework */; };
+		A46513411A96FA5700E9D725 /* PAM_u00.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513101A96FA5700E9D725 /* PAM_u00.json */; };
+		A46513421A96FA5700E9D725 /* PAM_u01.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513111A96FA5700E9D725 /* PAM_u01.json */; };
+		A46513431A96FA5700E9D725 /* PAM_u02.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513121A96FA5700E9D725 /* PAM_u02.json */; };
+		A46513441A96FA5700E9D725 /* PAM_u03.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513131A96FA5700E9D725 /* PAM_u03.json */; };
+		A46513451A96FA5700E9D725 /* PAM_u04.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513141A96FA5700E9D725 /* PAM_u04.json */; };
+		A46513461A96FA5700E9D725 /* PAM_u05.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513151A96FA5700E9D725 /* PAM_u05.json */; };
+		A46513471A96FA5700E9D725 /* PAM_u07.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513161A96FA5700E9D725 /* PAM_u07.json */; };
+		A46513481A96FA5700E9D725 /* PAM_u08.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513171A96FA5700E9D725 /* PAM_u08.json */; };
+		A46513491A96FA5700E9D725 /* PAM_u09.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513181A96FA5700E9D725 /* PAM_u09.json */; };
+		A465134A1A96FA5700E9D725 /* PAM_u10.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513191A96FA5700E9D725 /* PAM_u10.json */; };
+		A465134B1A96FA5700E9D725 /* PAM_u12.json in Resources */ = {isa = PBXBuildFile; fileRef = A465131A1A96FA5700E9D725 /* PAM_u12.json */; };
+		A465134C1A96FA5700E9D725 /* PAM_u13.json in Resources */ = {isa = PBXBuildFile; fileRef = A465131B1A96FA5700E9D725 /* PAM_u13.json */; };
+		A465134D1A96FA5700E9D725 /* PAM_u14.json in Resources */ = {isa = PBXBuildFile; fileRef = A465131C1A96FA5700E9D725 /* PAM_u14.json */; };
+		A465134E1A96FA5700E9D725 /* PAM_u15.json in Resources */ = {isa = PBXBuildFile; fileRef = A465131D1A96FA5700E9D725 /* PAM_u15.json */; };
+		A465134F1A96FA5700E9D725 /* PAM_u16.json in Resources */ = {isa = PBXBuildFile; fileRef = A465131E1A96FA5700E9D725 /* PAM_u16.json */; };
+		A46513501A96FA5700E9D725 /* PAM_u17.json in Resources */ = {isa = PBXBuildFile; fileRef = A465131F1A96FA5700E9D725 /* PAM_u17.json */; };
+		A46513511A96FA5700E9D725 /* PAM_u18.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513201A96FA5700E9D725 /* PAM_u18.json */; };
+		A46513521A96FA5700E9D725 /* PAM_u19.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513211A96FA5700E9D725 /* PAM_u19.json */; };
+		A46513531A96FA5700E9D725 /* PAM_u20.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513221A96FA5700E9D725 /* PAM_u20.json */; };
+		A46513541A96FA5700E9D725 /* PAM_u22.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513231A96FA5700E9D725 /* PAM_u22.json */; };
+		A46513551A96FA5700E9D725 /* PAM_u23.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513241A96FA5700E9D725 /* PAM_u23.json */; };
+		A46513561A96FA5700E9D725 /* PAM_u24.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513251A96FA5700E9D725 /* PAM_u24.json */; };
+		A46513571A96FA5700E9D725 /* PAM_u25.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513261A96FA5700E9D725 /* PAM_u25.json */; };
+		A46513581A96FA5700E9D725 /* PAM_u27.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513271A96FA5700E9D725 /* PAM_u27.json */; };
+		A46513591A96FA5700E9D725 /* PAM_u30.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513281A96FA5700E9D725 /* PAM_u30.json */; };
+		A465135A1A96FA5700E9D725 /* PAM_u31.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513291A96FA5700E9D725 /* PAM_u31.json */; };
+		A465135B1A96FA5700E9D725 /* PAM_u32.json in Resources */ = {isa = PBXBuildFile; fileRef = A465132A1A96FA5700E9D725 /* PAM_u32.json */; };
+		A465135C1A96FA5700E9D725 /* PAM_u33.json in Resources */ = {isa = PBXBuildFile; fileRef = A465132B1A96FA5700E9D725 /* PAM_u33.json */; };
+		A465135D1A96FA5700E9D725 /* PAM_u34.json in Resources */ = {isa = PBXBuildFile; fileRef = A465132C1A96FA5700E9D725 /* PAM_u34.json */; };
+		A465135E1A96FA5700E9D725 /* PAM_u35.json in Resources */ = {isa = PBXBuildFile; fileRef = A465132D1A96FA5700E9D725 /* PAM_u35.json */; };
+		A465135F1A96FA5700E9D725 /* PAM_u36.json in Resources */ = {isa = PBXBuildFile; fileRef = A465132E1A96FA5700E9D725 /* PAM_u36.json */; };
+		A46513601A96FA5700E9D725 /* PAM_u39.json in Resources */ = {isa = PBXBuildFile; fileRef = A465132F1A96FA5700E9D725 /* PAM_u39.json */; };
+		A46513611A96FA5700E9D725 /* PAM_u41.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513301A96FA5700E9D725 /* PAM_u41.json */; };
+		A46513621A96FA5700E9D725 /* PAM_u42.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513311A96FA5700E9D725 /* PAM_u42.json */; };
+		A46513631A96FA5700E9D725 /* PAM_u43.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513321A96FA5700E9D725 /* PAM_u43.json */; };
+		A46513641A96FA5700E9D725 /* PAM_u44.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513331A96FA5700E9D725 /* PAM_u44.json */; };
+		A46513651A96FA5700E9D725 /* PAM_u45.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513341A96FA5700E9D725 /* PAM_u45.json */; };
+		A46513661A96FA5700E9D725 /* PAM_u46.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513351A96FA5700E9D725 /* PAM_u46.json */; };
+		A46513671A96FA5700E9D725 /* PAM_u47.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513361A96FA5700E9D725 /* PAM_u47.json */; };
+		A46513681A96FA5700E9D725 /* PAM_u49.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513371A96FA5700E9D725 /* PAM_u49.json */; };
+		A46513691A96FA5700E9D725 /* PAM_u50.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513381A96FA5700E9D725 /* PAM_u50.json */; };
+		A465136A1A96FA5700E9D725 /* PAM_u51.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513391A96FA5700E9D725 /* PAM_u51.json */; };
+		A465136B1A96FA5700E9D725 /* PAM_u52.json in Resources */ = {isa = PBXBuildFile; fileRef = A465133A1A96FA5700E9D725 /* PAM_u52.json */; };
+		A465136C1A96FA5700E9D725 /* PAM_u53.json in Resources */ = {isa = PBXBuildFile; fileRef = A465133B1A96FA5700E9D725 /* PAM_u53.json */; };
+		A465136D1A96FA5700E9D725 /* PAM_u54.json in Resources */ = {isa = PBXBuildFile; fileRef = A465133C1A96FA5700E9D725 /* PAM_u54.json */; };
+		A465136E1A96FA5700E9D725 /* PAM_u56.json in Resources */ = {isa = PBXBuildFile; fileRef = A465133D1A96FA5700E9D725 /* PAM_u56.json */; };
+		A465136F1A96FA5700E9D725 /* PAM_u57.json in Resources */ = {isa = PBXBuildFile; fileRef = A465133E1A96FA5700E9D725 /* PAM_u57.json */; };
+		A46513701A96FA5700E9D725 /* PAM_u58.json in Resources */ = {isa = PBXBuildFile; fileRef = A465133F1A96FA5700E9D725 /* PAM_u58.json */; };
+		A46513711A96FA5700E9D725 /* PAM_u59.json in Resources */ = {isa = PBXBuildFile; fileRef = A46513401A96FA5700E9D725 /* PAM_u59.json */; };
 		A47DEEF01A92C24500D1B5DE /* mvnpdf.c in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEEE1A92C24500D1B5DE /* mvnpdf.c */; };
 		A47DEEF51A92C25000D1B5DE /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEF11A92C25000D1B5DE /* kiss_fft.c */; };
 		A47DEEF61A92C25000D1B5DE /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEF31A92C25000D1B5DE /* kiss_fftr.c */; };
@@ -63,6 +112,8 @@
 		A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEFC1A92C2B100D1B5DE /* BluetoothTracker.m */; };
 		A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEFF1A92C2CF00D1B5DE /* DataManager.m */; };
 		A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEF021A92C2F300D1B5DE /* AccelerometerTracker.m */; };
+		A499A1711A9A7C2400AE5D05 /* CampusDaily.m in Sources */ = {isa = PBXBuildFile; fileRef = A499A1701A9A7C2400AE5D05 /* CampusDaily.m */; };
+		A49E03281A96C458000C793B /* PAM.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E03271A96C458000C793B /* PAM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +207,55 @@
 		A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A45E5EC51A91D96A0048FEB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A46513101A96FA5700E9D725 /* PAM_u00.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u00.json; sourceTree = "<group>"; };
+		A46513111A96FA5700E9D725 /* PAM_u01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u01.json; sourceTree = "<group>"; };
+		A46513121A96FA5700E9D725 /* PAM_u02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u02.json; sourceTree = "<group>"; };
+		A46513131A96FA5700E9D725 /* PAM_u03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u03.json; sourceTree = "<group>"; };
+		A46513141A96FA5700E9D725 /* PAM_u04.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u04.json; sourceTree = "<group>"; };
+		A46513151A96FA5700E9D725 /* PAM_u05.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u05.json; sourceTree = "<group>"; };
+		A46513161A96FA5700E9D725 /* PAM_u07.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u07.json; sourceTree = "<group>"; };
+		A46513171A96FA5700E9D725 /* PAM_u08.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u08.json; sourceTree = "<group>"; };
+		A46513181A96FA5700E9D725 /* PAM_u09.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u09.json; sourceTree = "<group>"; };
+		A46513191A96FA5700E9D725 /* PAM_u10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u10.json; sourceTree = "<group>"; };
+		A465131A1A96FA5700E9D725 /* PAM_u12.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u12.json; sourceTree = "<group>"; };
+		A465131B1A96FA5700E9D725 /* PAM_u13.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u13.json; sourceTree = "<group>"; };
+		A465131C1A96FA5700E9D725 /* PAM_u14.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u14.json; sourceTree = "<group>"; };
+		A465131D1A96FA5700E9D725 /* PAM_u15.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u15.json; sourceTree = "<group>"; };
+		A465131E1A96FA5700E9D725 /* PAM_u16.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u16.json; sourceTree = "<group>"; };
+		A465131F1A96FA5700E9D725 /* PAM_u17.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u17.json; sourceTree = "<group>"; };
+		A46513201A96FA5700E9D725 /* PAM_u18.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u18.json; sourceTree = "<group>"; };
+		A46513211A96FA5700E9D725 /* PAM_u19.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u19.json; sourceTree = "<group>"; };
+		A46513221A96FA5700E9D725 /* PAM_u20.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u20.json; sourceTree = "<group>"; };
+		A46513231A96FA5700E9D725 /* PAM_u22.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u22.json; sourceTree = "<group>"; };
+		A46513241A96FA5700E9D725 /* PAM_u23.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u23.json; sourceTree = "<group>"; };
+		A46513251A96FA5700E9D725 /* PAM_u24.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u24.json; sourceTree = "<group>"; };
+		A46513261A96FA5700E9D725 /* PAM_u25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u25.json; sourceTree = "<group>"; };
+		A46513271A96FA5700E9D725 /* PAM_u27.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u27.json; sourceTree = "<group>"; };
+		A46513281A96FA5700E9D725 /* PAM_u30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u30.json; sourceTree = "<group>"; };
+		A46513291A96FA5700E9D725 /* PAM_u31.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u31.json; sourceTree = "<group>"; };
+		A465132A1A96FA5700E9D725 /* PAM_u32.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u32.json; sourceTree = "<group>"; };
+		A465132B1A96FA5700E9D725 /* PAM_u33.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u33.json; sourceTree = "<group>"; };
+		A465132C1A96FA5700E9D725 /* PAM_u34.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u34.json; sourceTree = "<group>"; };
+		A465132D1A96FA5700E9D725 /* PAM_u35.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u35.json; sourceTree = "<group>"; };
+		A465132E1A96FA5700E9D725 /* PAM_u36.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u36.json; sourceTree = "<group>"; };
+		A465132F1A96FA5700E9D725 /* PAM_u39.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u39.json; sourceTree = "<group>"; };
+		A46513301A96FA5700E9D725 /* PAM_u41.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u41.json; sourceTree = "<group>"; };
+		A46513311A96FA5700E9D725 /* PAM_u42.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u42.json; sourceTree = "<group>"; };
+		A46513321A96FA5700E9D725 /* PAM_u43.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u43.json; sourceTree = "<group>"; };
+		A46513331A96FA5700E9D725 /* PAM_u44.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u44.json; sourceTree = "<group>"; };
+		A46513341A96FA5700E9D725 /* PAM_u45.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u45.json; sourceTree = "<group>"; };
+		A46513351A96FA5700E9D725 /* PAM_u46.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u46.json; sourceTree = "<group>"; };
+		A46513361A96FA5700E9D725 /* PAM_u47.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u47.json; sourceTree = "<group>"; };
+		A46513371A96FA5700E9D725 /* PAM_u49.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u49.json; sourceTree = "<group>"; };
+		A46513381A96FA5700E9D725 /* PAM_u50.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u50.json; sourceTree = "<group>"; };
+		A46513391A96FA5700E9D725 /* PAM_u51.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u51.json; sourceTree = "<group>"; };
+		A465133A1A96FA5700E9D725 /* PAM_u52.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u52.json; sourceTree = "<group>"; };
+		A465133B1A96FA5700E9D725 /* PAM_u53.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u53.json; sourceTree = "<group>"; };
+		A465133C1A96FA5700E9D725 /* PAM_u54.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u54.json; sourceTree = "<group>"; };
+		A465133D1A96FA5700E9D725 /* PAM_u56.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u56.json; sourceTree = "<group>"; };
+		A465133E1A96FA5700E9D725 /* PAM_u57.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u57.json; sourceTree = "<group>"; };
+		A465133F1A96FA5700E9D725 /* PAM_u58.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u58.json; sourceTree = "<group>"; };
+		A46513401A96FA5700E9D725 /* PAM_u59.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PAM_u59.json; sourceTree = "<group>"; };
 		A47DEEED1A92C1DA00D1B5DE /* voicing_parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = voicing_parameters.h; sourceTree = "<group>"; };
 		A47DEEEE1A92C24500D1B5DE /* mvnpdf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mvnpdf.c; sourceTree = "<group>"; };
 		A47DEEEF1A92C24500D1B5DE /* mvnpdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mvnpdf.h; sourceTree = "<group>"; };
@@ -172,6 +272,10 @@
 		A47DEEFF1A92C2CF00D1B5DE /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A47DEF011A92C2F300D1B5DE /* AccelerometerTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerTracker.h; sourceTree = "<group>"; };
 		A47DEF021A92C2F300D1B5DE /* AccelerometerTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerTracker.m; sourceTree = "<group>"; };
+		A499A16F1A9A7C2400AE5D05 /* CampusDaily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusDaily.h; sourceTree = "<group>"; };
+		A499A1701A9A7C2400AE5D05 /* CampusDaily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusDaily.m; sourceTree = "<group>"; };
+		A49E03261A96C458000C793B /* PAM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAM.h; sourceTree = "<group>"; };
+		A49E03271A96C458000C793B /* PAM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PAM.m; path = "/Users/Arvind/Documents/DALI/Student Life/AudioLocationTestApp/Location/PAM.m"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +437,8 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				A465130F1A96FA5700E9D725 /* PAM_files */,
+				A49E03251A96C43E000C793B /* ParseJSON */,
 				A45E5EBD1A91D9210048FEB5 /* StudentLifeBluetooth */,
 				A45E5EBC1A91D8FC0048FEB5 /* StudentLifeCoreData */,
 				A45E5EB51A91D8C00048FEB5 /* StudentLifeAccelerometer */,
@@ -429,6 +535,73 @@
 			name = StudentLifeBluetooth;
 			sourceTree = "<group>";
 		};
+		A465130F1A96FA5700E9D725 /* PAM_files */ = {
+			isa = PBXGroup;
+			children = (
+				A46513101A96FA5700E9D725 /* PAM_u00.json */,
+				A46513111A96FA5700E9D725 /* PAM_u01.json */,
+				A46513121A96FA5700E9D725 /* PAM_u02.json */,
+				A46513131A96FA5700E9D725 /* PAM_u03.json */,
+				A46513141A96FA5700E9D725 /* PAM_u04.json */,
+				A46513151A96FA5700E9D725 /* PAM_u05.json */,
+				A46513161A96FA5700E9D725 /* PAM_u07.json */,
+				A46513171A96FA5700E9D725 /* PAM_u08.json */,
+				A46513181A96FA5700E9D725 /* PAM_u09.json */,
+				A46513191A96FA5700E9D725 /* PAM_u10.json */,
+				A465131A1A96FA5700E9D725 /* PAM_u12.json */,
+				A465131B1A96FA5700E9D725 /* PAM_u13.json */,
+				A465131C1A96FA5700E9D725 /* PAM_u14.json */,
+				A465131D1A96FA5700E9D725 /* PAM_u15.json */,
+				A465131E1A96FA5700E9D725 /* PAM_u16.json */,
+				A465131F1A96FA5700E9D725 /* PAM_u17.json */,
+				A46513201A96FA5700E9D725 /* PAM_u18.json */,
+				A46513211A96FA5700E9D725 /* PAM_u19.json */,
+				A46513221A96FA5700E9D725 /* PAM_u20.json */,
+				A46513231A96FA5700E9D725 /* PAM_u22.json */,
+				A46513241A96FA5700E9D725 /* PAM_u23.json */,
+				A46513251A96FA5700E9D725 /* PAM_u24.json */,
+				A46513261A96FA5700E9D725 /* PAM_u25.json */,
+				A46513271A96FA5700E9D725 /* PAM_u27.json */,
+				A46513281A96FA5700E9D725 /* PAM_u30.json */,
+				A46513291A96FA5700E9D725 /* PAM_u31.json */,
+				A465132A1A96FA5700E9D725 /* PAM_u32.json */,
+				A465132B1A96FA5700E9D725 /* PAM_u33.json */,
+				A465132C1A96FA5700E9D725 /* PAM_u34.json */,
+				A465132D1A96FA5700E9D725 /* PAM_u35.json */,
+				A465132E1A96FA5700E9D725 /* PAM_u36.json */,
+				A465132F1A96FA5700E9D725 /* PAM_u39.json */,
+				A46513301A96FA5700E9D725 /* PAM_u41.json */,
+				A46513311A96FA5700E9D725 /* PAM_u42.json */,
+				A46513321A96FA5700E9D725 /* PAM_u43.json */,
+				A46513331A96FA5700E9D725 /* PAM_u44.json */,
+				A46513341A96FA5700E9D725 /* PAM_u45.json */,
+				A46513351A96FA5700E9D725 /* PAM_u46.json */,
+				A46513361A96FA5700E9D725 /* PAM_u47.json */,
+				A46513371A96FA5700E9D725 /* PAM_u49.json */,
+				A46513381A96FA5700E9D725 /* PAM_u50.json */,
+				A46513391A96FA5700E9D725 /* PAM_u51.json */,
+				A465133A1A96FA5700E9D725 /* PAM_u52.json */,
+				A465133B1A96FA5700E9D725 /* PAM_u53.json */,
+				A465133C1A96FA5700E9D725 /* PAM_u54.json */,
+				A465133D1A96FA5700E9D725 /* PAM_u56.json */,
+				A465133E1A96FA5700E9D725 /* PAM_u57.json */,
+				A465133F1A96FA5700E9D725 /* PAM_u58.json */,
+				A46513401A96FA5700E9D725 /* PAM_u59.json */,
+			);
+			path = PAM_files;
+			sourceTree = "<group>";
+		};
+		A49E03251A96C43E000C793B /* ParseJSON */ = {
+			isa = PBXGroup;
+			children = (
+				A49E03261A96C458000C793B /* PAM.h */,
+				A49E03271A96C458000C793B /* PAM.m */,
+				A499A16F1A9A7C2400AE5D05 /* CampusDaily.h */,
+				A499A1701A9A7C2400AE5D05 /* CampusDaily.m */,
+			);
+			name = ParseJSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -514,11 +687,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46513531A96FA5700E9D725 /* PAM_u20.json in Resources */,
+				A46513601A96FA5700E9D725 /* PAM_u39.json in Resources */,
+				A46513661A96FA5700E9D725 /* PAM_u46.json in Resources */,
+				A46513551A96FA5700E9D725 /* PAM_u23.json in Resources */,
+				A46513501A96FA5700E9D725 /* PAM_u17.json in Resources */,
+				A46513581A96FA5700E9D725 /* PAM_u27.json in Resources */,
+				A46513441A96FA5700E9D725 /* PAM_u03.json in Resources */,
+				A46513461A96FA5700E9D725 /* PAM_u05.json in Resources */,
+				A46513431A96FA5700E9D725 /* PAM_u02.json in Resources */,
+				A46513681A96FA5700E9D725 /* PAM_u49.json in Resources */,
+				A46513641A96FA5700E9D725 /* PAM_u44.json in Resources */,
+				A46513411A96FA5700E9D725 /* PAM_u00.json in Resources */,
+				A46513621A96FA5700E9D725 /* PAM_u42.json in Resources */,
+				A465134C1A96FA5700E9D725 /* PAM_u13.json in Resources */,
+				A46513591A96FA5700E9D725 /* PAM_u30.json in Resources */,
 				5C9090A818B3A66A00510153 /* Images.xcassets in Resources */,
+				A465135B1A96FA5700E9D725 /* PAM_u32.json in Resources */,
+				A46513611A96FA5700E9D725 /* PAM_u41.json in Resources */,
+				A46513711A96FA5700E9D725 /* PAM_u59.json in Resources */,
+				A46513451A96FA5700E9D725 /* PAM_u04.json in Resources */,
+				A46513691A96FA5700E9D725 /* PAM_u50.json in Resources */,
+				A465135A1A96FA5700E9D725 /* PAM_u31.json in Resources */,
+				A465136E1A96FA5700E9D725 /* PAM_u56.json in Resources */,
 				3FDA7CF61A86CF8700A4EE58 /* CHANGELOG in Resources */,
+				A46513701A96FA5700E9D725 /* PAM_u58.json in Resources */,
+				A46513481A96FA5700E9D725 /* PAM_u08.json in Resources */,
+				A465134F1A96FA5700E9D725 /* PAM_u16.json in Resources */,
+				A465134D1A96FA5700E9D725 /* PAM_u14.json in Resources */,
+				A46513421A96FA5700E9D725 /* PAM_u01.json in Resources */,
+				A46513541A96FA5700E9D725 /* PAM_u22.json in Resources */,
+				A465134B1A96FA5700E9D725 /* PAM_u12.json in Resources */,
+				A465135D1A96FA5700E9D725 /* PAM_u34.json in Resources */,
+				A465135C1A96FA5700E9D725 /* PAM_u33.json in Resources */,
+				A46513651A96FA5700E9D725 /* PAM_u45.json in Resources */,
+				A46513571A96FA5700E9D725 /* PAM_u25.json in Resources */,
+				A465134A1A96FA5700E9D725 /* PAM_u10.json in Resources */,
+				A465136A1A96FA5700E9D725 /* PAM_u51.json in Resources */,
+				A46513561A96FA5700E9D725 /* PAM_u24.json in Resources */,
+				A46513631A96FA5700E9D725 /* PAM_u43.json in Resources */,
+				A46513511A96FA5700E9D725 /* PAM_u18.json in Resources */,
+				A465136C1A96FA5700E9D725 /* PAM_u53.json in Resources */,
+				A465135F1A96FA5700E9D725 /* PAM_u36.json in Resources */,
+				A46513521A96FA5700E9D725 /* PAM_u19.json in Resources */,
+				A465134E1A96FA5700E9D725 /* PAM_u15.json in Resources */,
+				A465136F1A96FA5700E9D725 /* PAM_u57.json in Resources */,
+				A46513671A96FA5700E9D725 /* PAM_u47.json in Resources */,
+				A465135E1A96FA5700E9D725 /* PAM_u35.json in Resources */,
 				5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */,
+				A46513471A96FA5700E9D725 /* PAM_u07.json in Resources */,
+				A46513491A96FA5700E9D725 /* PAM_u09.json in Resources */,
+				A465136B1A96FA5700E9D725 /* PAM_u52.json in Resources */,
 				3FDA7CF71A86CF8700A4EE58 /* VERSION in Resources */,
 				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
+				A465136D1A96FA5700E9D725 /* PAM_u54.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,12 +780,14 @@
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
 				3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */,
+				A49E03281A96C458000C793B /* PAM.m in Sources */,
 				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
 				3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */,
 				A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */,
 				A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */,
 				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,
 				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
+				A499A1711A9A7C2400AE5D05 /* CampusDaily.m in Sources */,
 				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
 				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,

@@ -71,7 +71,14 @@ static void displayStatusChanged(CFNotificationCenterRef center,
  * "hasBlankedScreen" : when screen is black, system sends out the notification
  */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
+    
+    
+    //parse json
+    self.pam=[[PAM alloc]init];
+    [self.pam startParsingPAM];
+    [self.pam computeCampusDaily];
+    [self.pam computeUserWeekly];
     //---------------------------------------
     // Setup sensors
     setupSensors = [SetupSensors sharedSetupSensors];
