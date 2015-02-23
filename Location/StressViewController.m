@@ -23,14 +23,21 @@ typedef NS_ENUM(NSInteger, JBLineChartLine){
 };
 
 // Numerics
-CGFloat const kJBLineChartViewControllerChartHeight = 250.0f;
+//CGFloat const kJBLineChartViewControllerChartHeight = 250.0f;
+CGFloat const kJBLineChartViewControllerChartPortraitHeight = 100.0f;
+CGFloat const kJBLineChartViewControllerChartLandScapeHeight = 250.0f;
+
 CGFloat const kJBLineChartViewControllerChartPadding = 10.0f;
+
 CGFloat const kJBLineChartViewControllerChartHeaderHeight = 75.0f;
 CGFloat const kJBLineChartViewControllerChartHeaderPadding = 20.0f;
 CGFloat const kJBLineChartViewControllerChartFooterHeight = 20.0f;
 CGFloat const kJBLineChartViewControllerChartSolidLineWidth = 6.0f;
 CGFloat const kJBLineChartViewControllerChartDashedLineWidth = 2.0f;
-NSInteger const kJBLineChartViewControllerMaxNumChartPoints = 7;
+//NSInteger const kJBLineChartViewControllerMaxNumChartPoints = 7;
+NSInteger const kJBLineChartViewControllerPortraitMaxNumChartPoints = 13;
+NSInteger const kJBLineChartViewControllerLandscapeMaxNumChartPoints = 7;
+
 
 // Strings
 NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
@@ -62,6 +69,9 @@ static int mutableChartData_1 = {1, 2, 3, 4, 5, 6, 7};
 
 static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
 
+static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
+
+
 #pragma mark - Alloc/Init
 
 - (id)init
@@ -69,7 +79,7 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
     self = [super init];
     if (self)
     {
-        [self initFakeData];
+//        [self initFakeData];
     }
     return self;
 }
@@ -79,7 +89,7 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        [self initFakeData];
+//        [self initFakeData];
     }
     return self;
 }
@@ -89,7 +99,7 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        [self initFakeData];
+//        [self initFakeData];
     }
     return self;
 }
@@ -99,19 +109,53 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
 - (void)initFakeData
 {
     NSMutableArray *mutableLineCharts = [NSMutableArray array];
-    for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
-    {
-        NSMutableArray *mutableChartData = [NSMutableArray array];
-        for (int i=0; i<kJBLineChartViewControllerMaxNumChartPoints; i++)
-        {
-            [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
-        }
-        [mutableLineCharts addObject:mutableChartData];
-    }
+//    for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
+//    {
+//        NSMutableArray *mutableChartData = [NSMutableArray array];
+//        for (int i=0; i<kJBLineChartViewControllerMaxNumChartPoints; i++)
+//        {
+//            [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
+//        }
+//        [mutableLineCharts addObject:mutableChartData];
+//    }
     
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation))
+    {
+        for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
+                {
+                    NSMutableArray *mutableChartData = [NSMutableArray array];
+                    for (int i=0; i<kJBLineChartViewControllerLandscapeMaxNumChartPoints; i++)
+                    {
+                        [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
+                    }
+                    [mutableLineCharts addObject:mutableChartData];
+                }
+    }
+    else if (UIDeviceOrientationIsPortrait(deviceOrientation))
+    {
+        
+        for (int lineIndex=0; lineIndex<1; lineIndex++)
+        {
+            NSMutableArray *mutableChartData = [NSMutableArray array];
+            for (int i=0; i<kJBLineChartViewControllerPortraitMaxNumChartPoints; i++)
+            {
+                [mutableChartData addObject:[NSNumber numberWithInt:mutableChartData_3[i]]]; // random number between 0 and 1
+            }
+            
+            [mutableLineCharts addObject:mutableChartData];
+        }
+        
+
+    }
+
+
+
     
     _chartData = [NSArray arrayWithArray:mutableLineCharts];
-    _daysOfWeek = [[[NSDateFormatter alloc] init] shortWeekdaySymbols];
+//    _daysOfWeek = [[[NSDateFormatter alloc] init] shortWeekdaySymbols];
+    
+    _daysOfWeek = [NSArray arrayWithObjects:@"Week 1", @"Week 2", @"Week 3", @"Week 4", @"Week 5", @"Week 6", @"Week 7", nil];
 }
 
 - (NSArray *)largestLineData
@@ -143,49 +187,17 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
 {
     [super loadView];
     
-    self.view.backgroundColor = kJBColorLineChartControllerBackground;
-    self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
-    
+    // By default populate portrait view
     self.lineChartView = [[JBLineChartView alloc] init];
-    self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeight);
-    self.lineChartView.delegate = self;
-    self.lineChartView.dataSource = self;
-    self.lineChartView.headerPadding = kJBLineChartViewControllerChartHeaderPadding;
-    self.lineChartView.backgroundColor = kJBColorLineChartBackground;
-    
-    JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBLineChartViewControllerChartHeaderHeight * 0.5), self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeaderHeight)];
-    headerView.titleLabel.text = [NSString stringWithFormat:@"%@ %@", [termWinter uppercaseString], year2015];
-    headerView.titleLabel.textColor = kJBColorLineChartHeader;
-    headerView.titleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
-    headerView.titleLabel.shadowOffset = CGSizeMake(0, 1);
-//    headerView.subtitleLabel.text = kJBStringLabel2013;
-//    headerView.subtitleLabel.textColor = kJBColorLineChartHeader;
-//    headerView.subtitleLabel.shadowColor = [UIColor colorWithWhite:1.0 alpha:0.25];
-//    headerView.subtitleLabel.shadowOffset = CGSizeMake(0, 1);
-    headerView.separatorColor = kJBColorLineChartHeaderSeparatorColor;
-    self.lineChartView.headerView = headerView;
-    
-    JBLineChartFooterView *footerView = [[JBLineChartFooterView alloc] initWithFrame:CGRectMake(kJBLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBLineChartViewControllerChartFooterHeight * 0.5), self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartFooterHeight)];
-    footerView.backgroundColor = [UIColor clearColor];
-    footerView.leftLabel.text = [[self.daysOfWeek firstObject] uppercaseString];
-    footerView.leftLabel.textColor = [UIColor whiteColor];
-    footerView.rightLabel.text = [[self.daysOfWeek lastObject] uppercaseString];;
-    footerView.rightLabel.textColor = [UIColor whiteColor];
-    footerView.sectionCount = [[self largestLineData] count];
-    self.lineChartView.footerView = footerView;
-    
-    [self.view addSubview:self.lineChartView];
-    
-    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.lineChartView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.lineChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
-    [self.informationView setValueAndUnitTextColor:[UIColor colorWithWhite:1.0 alpha:0.75]];
-    [self.informationView setTitleTextColor:kJBColorLineChartHeader];
-    [self.informationView setTextShadowColor:nil];
-    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
-    [self.view addSubview:self.informationView];
-    
-    [self.lineChartView reloadData];
-    
-    //Add Swipe gesture recognizer
+
+    [self populatePortraitView];
+ 
+
+    [self addSwipeGestureRecognizer];
+
+}
+
+- (void)addSwipeGestureRecognizer{
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
@@ -193,17 +205,42 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
     UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
     [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:swipeRight];
-    
-    
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
+- (void)populatePortraitView{
     self.view.backgroundColor = kJBColorLineChartControllerBackground;
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
     
-    self.lineChartView = [[JBLineChartView alloc] init];
-    self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeight);
+    
+//    self.lineChartView = [[JBLineChartView alloc] init];
+    [self initFakeData];
+
+    self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding+200, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartPortraitHeight);
+    self.lineChartView.delegate = self;
+    self.lineChartView.dataSource = self;
+    self.lineChartView.headerPadding = kJBLineChartViewControllerChartHeaderPadding;
+    self.lineChartView.backgroundColor = kJBColorLineChartBackground;
+    
+    JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBLineChartViewControllerChartHeaderHeight * 0.5), self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeaderHeight)];
+
+    self.lineChartView.headerView = headerView;
+    self.lineChartView.headerView = nil;
+    
+    self.lineChartView.footerView = nil;
+    
+    [self.view addSubview:self.lineChartView];
+    
+
+    [self.lineChartView reloadData];
+}
+
+- (void)populateLandscapeView{
+    self.view.backgroundColor = kJBColorLineChartControllerBackground;
+    self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
+    
+//    self.lineChartView = [[JBLineChartView alloc] init];
+    [self initFakeData];
+    self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartLandScapeHeight);
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
     self.lineChartView.headerPadding = kJBLineChartViewControllerChartHeaderPadding;
@@ -232,15 +269,41 @@ static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
     
     [self.view addSubview:self.lineChartView];
     
-    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, CGRectGetMaxY(self.lineChartView.frame), self.view.bounds.size.width, self.view.bounds.size.height - CGRectGetMaxY(self.lineChartView.frame) - CGRectGetMaxY(self.navigationController.navigationBar.frame))];
-    [self.informationView setValueAndUnitTextColor:[UIColor colorWithWhite:1.0 alpha:0.75]];
-    [self.informationView setTitleTextColor:kJBColorLineChartHeader];
-    [self.informationView setTextShadowColor:nil];
-    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
-    [self.view addSubview:self.informationView];
+//    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 9  ), kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding * 8, kJBLineChartViewControllerChartLandScapeHeight)];
+//    [self.informationView setValueAndUnitTextColor:[UIColor colorWithWhite:1.0 alpha:0.75]];
+//    [self.informationView setTitleTextColor:kJBColorLineChartHeader];
+//    [self.informationView setTextShadowColor:nil];
+//    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
+//    [self.view addSubview:self.informationView];
     
     [self.lineChartView reloadData];
+    
+}
 
+/**
+ Handle the device rotation action
+ Portrait: only plot instant value
+ Landscape: plot campus trailing values and user value
+ */
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
+    
+   
+//    [self.tabBarController.view removeFromSuperview];
+    
+//    [self.view removeFromSuperview];
+        
+    
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation))
+    {
+        [self populateLandscapeView];
+    }
+    else if (UIDeviceOrientationIsPortrait(deviceOrientation))
+    {
+
+        [self populatePortraitView];
+    }
     
 }
 

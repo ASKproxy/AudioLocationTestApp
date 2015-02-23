@@ -36,6 +36,9 @@
                                              selector:@selector(applicationEnteredForeground:)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
+//    CGRect tabFrame =  self.tabBar.frame;
+//    tabFrame.size.height = 20;
+//    self.tabBar.frame = tabFrame;
 
   
 }

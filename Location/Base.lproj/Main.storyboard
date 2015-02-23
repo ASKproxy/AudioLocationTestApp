@@ -43,7 +43,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sleep" id="w0v-8m-JHg"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Sleep" id="w0v-8m-JHg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzc-EZ-KvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -328,6 +328,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9c0-2n-2yg"/>
-        <segue reference="Hpr-2l-afU"/>
+        <segue reference="apa-fb-VfT"/>
     </inferredMetricsTieBreakers>
 </document>
