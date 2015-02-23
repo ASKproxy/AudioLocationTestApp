@@ -226,11 +226,10 @@ int deadlineCounter=0;
     
 }
 
-//-(float) computeCampusWeekly
-//{
-//    
-//    
-//}
+-(float) computeCampusWeekly
+{
+    return 0.0;
+}
 
 #pragma mark - Weekly
 

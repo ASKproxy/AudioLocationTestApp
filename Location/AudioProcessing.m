@@ -7,7 +7,9 @@
 //
 
 #import "AudioProcessing.h"
+#import <Parse/Parse.h>
 #include "viterbi.h"
+
 
 #define FRAME_LENGTH 256
 #define HALF_FRAME_LENGTH 128
@@ -202,9 +204,25 @@ int inferenceResult;
         case 0:
             break;
         case 1:
+        {
             NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+            
+            dispatch_queue_t queue = dispatch_queue_create("com.yourdomain.yourappname.audio", NULL);
+            dispatch_async(queue, ^{
+                PFObject *player = [PFObject objectWithClassName:@"Audio"];//1
+                [player setObject:@"Talking!!" forKey:@"Inference"];
+                [player setObject:[NSDate date] forKey:@"timestamp"];//2
+                [player save];//3
+                
+            });
+
+            break;
+        }
         case 2:
+        {
             NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+            break;
+        }
         default:
             break;
     }

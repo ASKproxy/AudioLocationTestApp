@@ -74,11 +74,18 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 {
     
     
+    
     //parse json
     self.pam=[[PAM alloc]init];
     [self.pam startParsingPAM];
     [self.pam computeCampusDaily];
     [self.pam computeUserWeekly];
+    
+    
+    [Parse setApplicationId:@"tjLB1x5lIB70MhXkksf42LOlNIEZ3KRz70NmWlFD"
+                  clientKey:@"nh1qTt2EJSOm9o5fhqgxd63Xjd7OU36o7YS6ZCPG"];
+
+    
     //---------------------------------------
     // Setup sensors
     setupSensors = [SetupSensors sharedSetupSensors];

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
 //#import "LocationTracker.h"
 #import <AVFoundation/AVFoundation.h>
 #import "EZMicrophone.h"

@@ -52,6 +52,16 @@
 		5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090CD18B3AB2100510153 /* CoreLocation.framework */; };
 		886A402F1A13FD0C001A35BB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A402E1A13FD0C001A35BB /* CoreAudio.framework */; };
 		886A40311A13FD1F001A35BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A40301A13FD1F001A35BB /* AVFoundation.framework */; };
+		A41EBC461A9B85D900D787AE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC441A9B85D900D787AE /* Bolts.framework */; };
+		A41EBC471A9B85D900D787AE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC451A9B85D900D787AE /* Parse.framework */; };
+		A41EBC491A9B85F500D787AE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC481A9B85F500D787AE /* CFNetwork.framework */; };
+		A41EBC4B1A9B860E00D787AE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC4A1A9B860E00D787AE /* MobileCoreServices.framework */; };
+		A41EBC4D1A9B861800D787AE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC4C1A9B861800D787AE /* QuartzCore.framework */; };
+		A41EBC4F1A9B862600D787AE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC4E1A9B862600D787AE /* Security.framework */; };
+		A41EBC511A9B863300D787AE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC501A9B863300D787AE /* StoreKit.framework */; };
+		A41EBC531A9B8A5800D787AE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC521A9B8A5800D787AE /* libsqlite3.dylib */; };
+		A41EBC551A9B8A6300D787AE /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC541A9B8A6300D787AE /* libz.1.1.3.dylib */; };
+		A41EBC571A9B8A6F00D787AE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41EBC561A9B8A6F00D787AE /* SystemConfiguration.framework */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
 		A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */; };
@@ -202,6 +212,16 @@
 		5C9090CD18B3AB2100510153 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		886A402E1A13FD0C001A35BB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		886A40301A13FD1F001A35BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A41EBC441A9B85D900D787AE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../../Downloads/parse-library-1.6.1 (1)/Bolts.framework"; sourceTree = "<group>"; };
+		A41EBC451A9B85D900D787AE /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../../Downloads/parse-library-1.6.1 (1)/Parse.framework"; sourceTree = "<group>"; };
+		A41EBC481A9B85F500D787AE /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A41EBC4A1A9B860E00D787AE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A41EBC4C1A9B861800D787AE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A41EBC4E1A9B862600D787AE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A41EBC501A9B863300D787AE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A41EBC521A9B8A5800D787AE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A41EBC541A9B8A6300D787AE /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		A41EBC561A9B8A6F00D787AE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
 		A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -283,7 +303,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A41EBC571A9B8A6F00D787AE /* SystemConfiguration.framework in Frameworks */,
+				A41EBC551A9B8A6300D787AE /* libz.1.1.3.dylib in Frameworks */,
+				A41EBC531A9B8A5800D787AE /* libsqlite3.dylib in Frameworks */,
+				5C90909418B3A66A00510153 /* UIKit.framework in Frameworks */,
+				A41EBC511A9B863300D787AE /* StoreKit.framework in Frameworks */,
+				A41EBC4F1A9B862600D787AE /* Security.framework in Frameworks */,
+				A41EBC4D1A9B861800D787AE /* QuartzCore.framework in Frameworks */,
+				A41EBC4B1A9B860E00D787AE /* MobileCoreServices.framework in Frameworks */,
+				A41EBC491A9B85F500D787AE /* CFNetwork.framework in Frameworks */,
 				A45E5EC61A91D96A0048FEB5 /* CoreData.framework in Frameworks */,
+				A41EBC461A9B85D900D787AE /* Bolts.framework in Frameworks */,
+				A41EBC471A9B85D900D787AE /* Parse.framework in Frameworks */,
 				A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */,
 				A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */,
 				3FDA7CCD1A86CEAC00A4EE58 /* GLKit.framework in Frameworks */,
@@ -293,7 +324,6 @@
 				886A402F1A13FD0C001A35BB /* CoreAudio.framework in Frameworks */,
 				5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */,
 				5C90909218B3A66A00510153 /* CoreGraphics.framework in Frameworks */,
-				5C90909418B3A66A00510153 /* UIKit.framework in Frameworks */,
 				5C90909018B3A66A00510153 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +447,16 @@
 		5C90908E18B3A66A00510153 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A41EBC561A9B8A6F00D787AE /* SystemConfiguration.framework */,
+				A41EBC541A9B8A6300D787AE /* libz.1.1.3.dylib */,
+				A41EBC521A9B8A5800D787AE /* libsqlite3.dylib */,
+				A41EBC501A9B863300D787AE /* StoreKit.framework */,
+				A41EBC4E1A9B862600D787AE /* Security.framework */,
+				A41EBC4C1A9B861800D787AE /* QuartzCore.framework */,
+				A41EBC4A1A9B860E00D787AE /* MobileCoreServices.framework */,
+				A41EBC481A9B85F500D787AE /* CFNetwork.framework */,
+				A41EBC441A9B85D900D787AE /* Bolts.framework */,
+				A41EBC451A9B85D900D787AE /* Parse.framework */,
 				A45E5EC51A91D96A0048FEB5 /* CoreData.framework */,
 				A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */,
 				A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */,
@@ -921,6 +961,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Arvind/Downloads/parse-library-1.6.1",
+					"(1)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";
@@ -939,6 +984,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/Arvind/Downloads/parse-library-1.6.1",
+					"(1)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";

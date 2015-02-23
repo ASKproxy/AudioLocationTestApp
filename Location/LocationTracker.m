@@ -7,6 +7,7 @@
 //
 
 #import "LocationTracker.h"
+#import <Parse/Parse.h>
 
 @implementation LocationTracker
 
@@ -150,6 +151,17 @@
                 NSLog(@"Unable to save managed object context.");
                 NSLog(@"%@, %@", error, error.localizedDescription);
             }
+            
+            
+            dispatch_queue_t queue = dispatch_queue_create("com.yourdomain.yourappname", NULL);
+            dispatch_async(queue, ^{
+                PFObject *player = [PFObject objectWithClassName:@"Location"];//1
+                [player setObject:[NSNumber numberWithFloat:theLocation.latitude] forKey:@"latitude"];
+                [player setObject: [NSNumber numberWithFloat:theLocation.longitude] forKey:@"longitude"];
+                [player setObject:[newLocation timestamp] forKey:@"timestamp"];//2
+                [player save];//3
+
+            });
             
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
             
