@@ -3,16 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "circle1.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x",
       "filename" : "circle5.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "2x",
+      "filename" : "circle5-1.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "circle5-2.png"
     }
   ],
   "info" : {
