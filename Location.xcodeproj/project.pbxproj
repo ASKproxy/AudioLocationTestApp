@@ -490,8 +490,8 @@
 				3FB8ABAA1A9978B500E432DF /* StressViewController.h */,
 				3FB8ABAB1A9978B500E432DF /* StressViewController.m */,
 				3FDECA8D1A998D0500B52EE4 /* SleepViewController.h */,
-				3FDECA8E1A998D0500B52EE4 /* SleepViewController.m */,
 				3FDECA901A998D6300B52EE4 /* ActivityViewController.h */,
+				3FDECA8E1A998D0500B52EE4 /* SleepViewController.m */,
 				3FDECA911A998D6300B52EE4 /* ActivityViewController.m */,
 			);
 			name = TabBatView;

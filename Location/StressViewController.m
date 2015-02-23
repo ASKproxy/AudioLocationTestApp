@@ -133,7 +133,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
                     [mutableLineCharts addObject:mutableChartData];
                 }
     }
-    else if (UIDeviceOrientationIsPortrait(deviceOrientation))
+    else
     {
         
         for (int lineIndex=0; lineIndex<1; lineIndex++)
@@ -194,7 +194,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     [self populatePortraitView];
  
 
-    [self addSwipeGestureRecognizer];
+//    [self addSwipeGestureRecognizer];
 
 }
 
@@ -230,11 +230,13 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     self.lineChartView.footerView = nil;
     
     [self.view addSubview:self.lineChartView];
-//    [self.view willRemoveSubview:self.informationView];
-//    [self.informationView removeFromSuperview];
-    
+
+
 
     [self.lineChartView reloadData];
+    
+    [self addAnimalImage];
+
 }
 
 - (void)populateLandscapeView{
@@ -270,6 +272,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     footerView.sectionCount = [[self largestLineData] count];
     self.lineChartView.footerView = footerView;
     
+    
     [self.view addSubview:self.lineChartView];
     
 //    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 9  ), kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding * 8, kJBLineChartViewControllerChartLandScapeHeight)];
@@ -278,9 +281,17 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 //    [self.informationView setTextShadowColor:nil];
 //    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
 //    [self.view addSubview:self.informationView];
-    
+
     [self.lineChartView reloadData];
     
+}
+
+
+- (void)addAnimalImage{
+//    UIImage *image = [[UIImage alloc] init];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
+    [iv setImage:[UIImage imageNamed:@"Stressed3"]];
+    [self.view addSubview:iv];
 }
 
 /**
@@ -353,7 +364,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 - (NSUInteger)numberOfLinesInLineChartView:(JBLineChartView *)lineChartView
 {
     
-    NSLog(@"chartData length: %d", [self.chartData count]);
+//    NSLog(@"chartData length: %d", [self.chartData count]);
     return [self.chartData count];
     
     
@@ -362,7 +373,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 - (NSUInteger)lineChartView:(JBLineChartView *)lineChartView numberOfVerticalValuesAtLineIndex:(NSUInteger)lineIndex
 {
     
-    NSLog(@"chartData at %d length: %d", lineIndex, [[self.chartData objectAtIndex: lineIndex ]count]);
+//    NSLog(@"chartData at %d length: %d", lineIndex, [[self.chartData objectAtIndex: lineIndex ]count]);
     return [[self.chartData objectAtIndex:lineIndex] count];
 }
 
@@ -385,12 +396,21 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 
 - (void)lineChartView:(JBLineChartView *)lineChartView didSelectLineAtIndex:(NSUInteger)lineIndex horizontalIndex:(NSUInteger)horizontalIndex touchPoint:(CGPoint)touchPoint
 {
-    NSNumber *valueNumber = [[self.chartData objectAtIndex:lineIndex] objectAtIndex:horizontalIndex];
-    [self.informationView setValueText:[NSString stringWithFormat:@"%.2f", [valueNumber floatValue]] unitText:kJBStringLabelMm];
-    [self.informationView setTitleText:lineIndex == JBLineChartLineSolid ? kJBStringLabelMetropolitanAverage : kJBStringLabelNationalAverage];
-    [self.informationView setHidden:NO animated:YES];
-    [self setTooltipVisible:YES animated:YES atTouchPoint:touchPoint];
-    [self.tooltipView setText:[[self.daysOfWeek objectAtIndex:horizontalIndex] uppercaseString]];
+    
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation)){
+
+        NSNumber *valueNumber = [[self.chartData objectAtIndex:lineIndex] objectAtIndex:horizontalIndex];
+        [self.informationView setValueText:[NSString stringWithFormat:@"%.2f", [valueNumber floatValue]] unitText:kJBStringLabelMm];
+        [self.informationView setTitleText:lineIndex == JBLineChartLineSolid ? kJBStringLabelMetropolitanAverage : kJBStringLabelNationalAverage];
+        [self.informationView setHidden:NO animated:YES];
+        [self setTooltipVisible:YES animated:YES atTouchPoint:touchPoint];
+        [self.tooltipView setText:[[self.daysOfWeek objectAtIndex:horizontalIndex] uppercaseString]];
+    }else if (UIDeviceOrientationIsPortrait(deviceOrientation)){
+        [self.informationView setHidden:YES animated:NO];
+        [self setTooltipVisible:NO animated:NO];
+
+    }
 }
 
 - (void)didDeselectLineInLineChartView:(JBLineChartView *)lineChartView
