@@ -29,6 +29,21 @@
 }
 
 
+/**
+ Only allow portrait view in this view
+ */
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+/**
+ Only allow portrait view in this view
+ */
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 
 #pragma mark - Navigation
 /**

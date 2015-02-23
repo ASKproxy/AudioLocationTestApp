@@ -17,6 +17,7 @@
 
 @implementation PamSurveyViewController
 
+#pragma mark - Setup View
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -28,6 +29,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/**
+ Only allow portrait view in this view
+ */
+-(BOOL)shouldAutorotate
+{
+    return NO;
+}
+
+/**
+ Only allow portrait view in this view
+ */
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 /*

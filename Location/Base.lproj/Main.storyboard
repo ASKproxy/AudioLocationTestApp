@@ -15,18 +15,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abs-Nu-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3412.5" y="-218.66197183098589"/>
+            <point key="canvasLocation" x="3412.5" y="-218.66197183098586"/>
         </scene>
         <!--Sleep-->
         <scene sceneID="qAt-f6-DG1">
             <objects>
                 <viewController id="nHb-tM-Dmo" customClass="SleepViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZT2-Zf-1J3"/>
-                        <viewControllerLayoutGuide type="bottom" id="EAl-kg-mYt"/>
+                        <viewControllerLayoutGuide type="top" id="gzk-sA-yYR"/>
+                        <viewControllerLayoutGuide type="bottom" id="PaL-LE-ZCF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rx0-aa-mFw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUK-iD-wSZ">
@@ -54,11 +54,11 @@
             <objects>
                 <viewController storyboardIdentifier="SocialViewController" id="ziJ-Zz-Xds" customClass="ActivityViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Shf-cI-hPD"/>
-                        <viewControllerLayoutGuide type="bottom" id="fdN-WV-2kb"/>
+                        <viewControllerLayoutGuide type="top" id="nsq-j0-YoB"/>
+                        <viewControllerLayoutGuide type="bottom" id="vAQ-iE-ftv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mDq-xc-Jn0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfX-nK-eDk">
@@ -86,11 +86,11 @@
             <objects>
                 <viewController id="cfS-bo-sB5" customClass="SocialViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RMl-ii-KuY"/>
-                        <viewControllerLayoutGuide type="bottom" id="7B3-qo-7Qj"/>
+                        <viewControllerLayoutGuide type="top" id="Ml5-Qs-0tb"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZLL-FJ-zvI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="95I-Wk-KE6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-F8-Tj4">
@@ -118,11 +118,11 @@
             <objects>
                 <viewController id="cah-g1-nH2" customClass="StressViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U2a-iC-kHq"/>
-                        <viewControllerLayoutGuide type="bottom" id="5BS-1B-2mg"/>
+                        <viewControllerLayoutGuide type="top" id="evR-XY-C8D"/>
+                        <viewControllerLayoutGuide type="bottom" id="xWX-hq-Ttb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O6b-4w-eBP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67D-VO-SnW">
@@ -150,68 +150,105 @@
             <objects>
                 <viewController id="DZV-ce-TmA" customClass="LandingViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6Cz-an-Nvd"/>
-                        <viewControllerLayoutGuide type="bottom" id="rlh-3O-Vhe"/>
+                        <viewControllerLayoutGuide type="top" id="3P2-tn-v3J"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dr0-3N-ZHi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pXH-Dj-a31">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="SocialButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8t-E0-il3">
-                                <rect key="frame" x="46" y="55" width="86" height="96"/>
-                                <state key="normal">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="SocialButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8t-E0-il3">
+                                <rect key="frame" x="-23" y="-9" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="r8t-E0-il3" secondAttribute="height" multiplier="1:1" id="Wfz-QL-Uwr"/>
+                                    <constraint firstAttribute="width" secondItem="r8t-E0-il3" secondAttribute="height" multiplier="1:1" id="XEg-4N-byv"/>
+                                </constraints>
+                                <state key="normal" image="LandingSocial">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Wfz-QL-Uwr"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueSocial" id="Hhc-aD-AmN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="ActivityButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-gO-RcO">
-                                <rect key="frame" x="172" y="162" width="86" height="96"/>
-                                <state key="normal">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="ActivityButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-gO-RcO">
+                                <rect key="frame" x="120" y="106" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pr1-gO-RcO" secondAttribute="height" multiplier="1:1" id="1SK-fg-NHK"/>
+                                    <constraint firstAttribute="width" secondItem="pr1-gO-RcO" secondAttribute="height" multiplier="1:1" id="nAN-9E-FBX"/>
+                                </constraints>
+                                <state key="normal" image="LandingActivity">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="nAN-9E-FBX"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueActivity" id="gM9-Vw-su5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="StressButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0t-Qx-MGm">
-                                <rect key="frame" x="172" y="384" width="86" height="96"/>
-                                <state key="normal">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="StressButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0t-Qx-MGm">
+                                <rect key="frame" x="120" y="360" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="D0t-Qx-MGm" secondAttribute="height" multiplier="1:1" id="Fz0-KZ-nXF"/>
+                                    <constraint firstAttribute="width" secondItem="D0t-Qx-MGm" secondAttribute="height" multiplier="1:1" id="ROp-Ff-qq1"/>
+                                </constraints>
+                                <state key="normal" image="LandingStress">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ROp-Ff-qq1"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueStress" id="9c0-2n-2yg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="SleepButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-xz-nQN">
-                                <rect key="frame" x="46" y="277" width="86" height="96"/>
-                                <state key="normal">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="SleepButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-xz-nQN">
+                                <rect key="frame" x="-15" y="231" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pp9-xz-nQN" secondAttribute="height" multiplier="1:1" id="ELf-BH-YOj"/>
+                                    <constraint firstAttribute="width" secondItem="Pp9-xz-nQN" secondAttribute="height" multiplier="1:1" id="LXw-ne-6fg"/>
+                                </constraints>
+                                <state key="normal" image="LandingSleep">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LXw-ne-6fg"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueSleep" id="XJP-ql-8Dj"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Landing" translatesAutoresizingMaskIntoConstraints="NO" id="1uc-JT-lnz">
-                                <rect key="frame" x="68" y="34" width="488" height="481"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1uc-JT-lnz" secondAttribute="height" multiplier="488:481" id="dge-Ux-Vaw"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.090196080505847931" green="0.77647066116333008" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.68627452850341797" green="0.91764712333679199" blue="0.94117653369903564" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
-                            <constraint firstItem="1uc-JT-lnz" firstAttribute="top" secondItem="6Cz-an-Nvd" secondAttribute="bottom" id="8mo-cW-Tfk"/>
-                            <constraint firstItem="rlh-3O-Vhe" firstAttribute="top" secondItem="1uc-JT-lnz" secondAttribute="bottom" id="PBx-4X-COC"/>
-                            <constraint firstItem="1uc-JT-lnz" firstAttribute="leading" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" id="zGV-gs-xbR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1uc-JT-lnz" secondAttribute="trailing" id="zh8-7G-tGK"/>
+                            <constraint firstItem="Dr0-3N-ZHi" firstAttribute="top" secondItem="D0t-Qx-MGm" secondAttribute="bottom" constant="-5" id="56a-yV-10e"/>
+                            <constraint firstItem="Pp9-xz-nQN" firstAttribute="top" secondItem="r8t-E0-il3" secondAttribute="top" constant="200" id="P2T-nv-uJh"/>
+                            <constraint firstItem="Dr0-3N-ZHi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Pp9-xz-nQN" secondAttribute="bottom" id="W8I-j5-Mwe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D0t-Qx-MGm" secondAttribute="trailing" constant="-10" id="aix-oq-4PX"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="pr1-gO-RcO" secondAttribute="trailing" constant="-15" id="dLj-59-iVF"/>
+                            <constraint firstItem="r8t-E0-il3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="-30" id="dNx-6J-DiL"/>
+                            <constraint firstItem="r8t-E0-il3" firstAttribute="top" secondItem="pXH-Dj-a31" secondAttribute="topMargin" constant="-5" id="gAp-EZ-tmR"/>
+                            <constraint firstItem="Pp9-xz-nQN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="-25" id="hao-ec-XXA"/>
+                            <constraint firstItem="D0t-Qx-MGm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pr1-gO-RcO" secondAttribute="bottom" constant="10" id="i3P-bh-5IB"/>
+                            <constraint firstItem="pr1-gO-RcO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3P2-tn-v3J" secondAttribute="bottom" id="llf-aA-xW7"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfz-0b-WPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="672" y="89"/>
+            <point key="canvasLocation" x="672" y="88.999999999999986"/>
         </scene>
         <!--Data Tab View Controller-->
         <scene sceneID="6Xu-Te-5k8">
@@ -232,15 +269,15 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ma3-Qc-brg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2078" y="89"/>
+            <point key="canvasLocation" x="2078" y="88.999999999999986"/>
         </scene>
         <!--Pam Survey View Controller-->
         <scene sceneID="zMo-ac-5LE">
             <objects>
                 <viewController storyboardIdentifier="PamSurveyViewController" id="FQM-Rd-FFh" customClass="PamSurveyViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="s6I-YI-eko"/>
-                        <viewControllerLayoutGuide type="bottom" id="alU-Qe-KzL"/>
+                        <viewControllerLayoutGuide type="top" id="ch1-Bv-5Ou"/>
+                        <viewControllerLayoutGuide type="bottom" id="SbT-UH-b7g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="G6D-xu-0Vp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -324,10 +361,13 @@
         <image name="Circle3" width="220" height="221"/>
         <image name="Circle4" width="220" height="221"/>
         <image name="Circle5" width="220" height="221"/>
-        <image name="Landing" width="640" height="960"/>
+        <image name="LandingActivity" width="400" height="400"/>
+        <image name="LandingSleep" width="400" height="400"/>
+        <image name="LandingSocial" width="400" height="400"/>
+        <image name="LandingStress" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9c0-2n-2yg"/>
-        <segue reference="apa-fb-VfT"/>
+        <segue reference="ZVU-xl-we2"/>
     </inferredMetricsTieBreakers>
 </document>
