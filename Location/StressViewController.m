@@ -76,6 +76,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 
 - (id)init
 {
+    
     self = [super init];
     if (self)
     {
