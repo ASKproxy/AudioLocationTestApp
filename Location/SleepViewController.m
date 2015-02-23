@@ -69,7 +69,7 @@ static int mutableChartData_1 = {1, 2, 3, 4, 5, 6, 7};
 
 static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
 
-static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
+static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 
 
 #pragma mark - Alloc/Init
@@ -289,8 +289,8 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 
 - (void)addAnimalImage{
     //    UIImage *image = [[UIImage alloc] init];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
-    [iv setImage:[UIImage imageNamed:@"Stressed3"]];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 150, 150)];
+    [iv setImage:[UIImage imageNamed:@"TabAsleep"]];
     [self.view addSubview:iv];
 }
 

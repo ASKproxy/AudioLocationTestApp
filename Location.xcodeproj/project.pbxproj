@@ -490,8 +490,8 @@
 				3FB8ABAA1A9978B500E432DF /* StressViewController.h */,
 				3FB8ABAB1A9978B500E432DF /* StressViewController.m */,
 				3FDECA8D1A998D0500B52EE4 /* SleepViewController.h */,
-				3FDECA901A998D6300B52EE4 /* ActivityViewController.h */,
 				3FDECA8E1A998D0500B52EE4 /* SleepViewController.m */,
+				3FDECA901A998D6300B52EE4 /* ActivityViewController.h */,
 				3FDECA911A998D6300B52EE4 /* ActivityViewController.m */,
 			);
 			name = TabBatView;
@@ -951,7 +951,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -969,7 +969,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Location/Location-Prefix.pch";
 				INFOPLIST_FILE = "Location/Location-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

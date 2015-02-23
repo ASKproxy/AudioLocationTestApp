@@ -289,7 +289,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 
 - (void)addAnimalImage{
 //    UIImage *image = [[UIImage alloc] init];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(200, 100, 100, 100)];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
     [iv setImage:[UIImage imageNamed:@"Stressed3"]];
     [self.view addSubview:iv];
 }
