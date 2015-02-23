@@ -119,7 +119,7 @@ int deadlineCounter=0;
                 count+=1;
                 [weeklyStats setValue:[NSNumber numberWithInt:count] forKey:@"count"];
 
-                sum+=[[daily valueForKey:@"average"] floatValue];
+                sum+=[[[daily valueForKey:day] valueForKey:@"average"] floatValue];
                 [weeklyStats setValue:[NSNumber numberWithInt:sum] forKey:@"sum"];
 
                 
@@ -132,9 +132,9 @@ int deadlineCounter=0;
             {
                 NSMutableDictionary *weeklyStats=[NSMutableDictionary new];
                 //find the average of all the daily averages
-                [weeklyStats setValue:[daily valueForKey:@"average"] forKey:@"sum"];
+                [weeklyStats setValue:[[daily valueForKey:day]  valueForKey:@"average"] forKey:@"sum"];
                 [weeklyStats setValue:[NSNumber numberWithInt:1] forKey:@"count"];
-                [weeklyStats setValue:[daily valueForKey:@"average"] forKey:@"average"];
+                [weeklyStats setValue:[[daily valueForKey:day] valueForKey:@"average"] forKey:@"average"];
                 [self.userWeeklyDictionary setValue:weeklyStats forKey:week];
             }
             
@@ -237,35 +237,32 @@ int deadlineCounter=0;
 -(NSString *) determineWeek:(NSString *)timestamp
 {
     
-    NSTimeInterval epoch = [timestamp doubleValue];
-    NSDate *bar =[NSDate dateWithTimeIntervalSince1970:epoch];
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSString *strDate = [dateFormatter stringFromDate: bar];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+
     
-    NSDate *userDate = [dateFormatter dateFromString:strDate];
+    NSDate *userDate = [dateFormatter dateFromString:timestamp];
     
-    NSDate *week1_start = [dateFormatter dateFromString:@"2013-03-24"];
-    NSDate *week1_end = [dateFormatter dateFromString:@"2013-03-30"];
+    NSDate *week1_start = [dateFormatter dateFromString:@"24-03-2013"];
+    NSDate *week1_end = [dateFormatter dateFromString:@"30-03-2013"];
     
-    NSDate *week2_start = [dateFormatter dateFromString:@"2013-03-31"];
-    NSDate *week2_end = [dateFormatter dateFromString:@"2013-04-06"];
+    NSDate *week2_start = [dateFormatter dateFromString:@"31-03-2013"];
+    NSDate *week2_end = [dateFormatter dateFromString:@"06-04-2013"];
     
-    NSDate *week3_start = [dateFormatter dateFromString:@"2013-04-07"];
-    NSDate *week3_end = [dateFormatter dateFromString:@"2013-04-13"];
+    NSDate *week3_start = [dateFormatter dateFromString:@"07-04-2013"];
+    NSDate *week3_end = [dateFormatter dateFromString:@"13-04-2013"];
     
-    NSDate *week4_start = [dateFormatter dateFromString:@"2013-04-14"];
-    NSDate *week4_end = [dateFormatter dateFromString:@"2013-04-20"];
+    NSDate *week4_start = [dateFormatter dateFromString:@"14-04-2013"];
+    NSDate *week4_end = [dateFormatter dateFromString:@"20-04-2013"];
     
-    NSDate *week5_start = [dateFormatter dateFromString:@"2013-04-21"];
-    NSDate *week5_end = [dateFormatter dateFromString:@"2013-04-27"];
+    NSDate *week5_start = [dateFormatter dateFromString:@"21-04-2013"];
+    NSDate *week5_end = [dateFormatter dateFromString:@"27-04-2013"];
     
-    NSDate *week6_start = [dateFormatter dateFromString:@"2013-04-28"];
-    NSDate *week6_end = [dateFormatter dateFromString:@"2013-05-04"];
+    NSDate *week6_start = [dateFormatter dateFromString:@"28-04-2013"];
+    NSDate *week6_end = [dateFormatter dateFromString:@"04-05-2013"];
     
-    NSDate *week7_start = [dateFormatter dateFromString:@"2013-05-05"];
-    NSDate *week7_end = [dateFormatter dateFromString:@"2013-05-11"];
+    NSDate *week7_start = [dateFormatter dateFromString:@"05-05-2013"];
+    NSDate *week7_end = [dateFormatter dateFromString:@"11-05-2013"];
     
     
     
