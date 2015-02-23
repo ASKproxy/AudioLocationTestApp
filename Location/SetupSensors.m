@@ -25,7 +25,7 @@
 
 
 static int _NotificationFireTimeOfDay[] = {00, 21, 23};
-static int _NotificationFireMinOfDay[] = {03,05, 06};
+static int _NotificationFireMinOfDay[] = {32,30};
 float frame_buffer[FRAME_LENGTH];
 
 

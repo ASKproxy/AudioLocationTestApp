@@ -229,6 +229,8 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     self.lineChartView.footerView = nil;
     
     [self.view addSubview:self.lineChartView];
+//    [self.view willRemoveSubview:self.informationView];
+//    [self.informationView removeFromSuperview];
     
 
     [self.lineChartView reloadData];

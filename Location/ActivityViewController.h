@@ -7,6 +7,7 @@
 //
 
 #import "JBBaseChartViewController.h"
+#import "StudentLifeConstant.h"
 
 @interface ActivityViewController : JBBaseChartViewController
 

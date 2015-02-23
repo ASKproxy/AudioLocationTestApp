@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LocationTracker.h"
 #import "JBBaseChartViewController.h"
+#import "StudentLifeConstant.h"
 
 
 #pragma mark - EZMicrophoneDelegate
