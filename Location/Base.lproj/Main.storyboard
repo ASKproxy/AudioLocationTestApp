@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DZV-ce-TmA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DZV-ce-TmA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -200,7 +200,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.090196080505847931" green="0.77647066116333008" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.62745098039215685" green="0.90196078431372551" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="1uc-JT-lnz" firstAttribute="top" secondItem="6Cz-an-Nvd" secondAttribute="bottom" id="8mo-cW-Tfk"/>
                             <constraint firstItem="rlh-3O-Vhe" firstAttribute="top" secondItem="1uc-JT-lnz" secondAttribute="bottom" id="PBx-4X-COC"/>
@@ -246,8 +246,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
-                                <rect key="frame" x="120" y="30" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
+                                <rect key="frame" x="352" y="116" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Happy">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -256,8 +256,8 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="U7a-Vw-WeZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
-                                <rect key="frame" x="50" y="110" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
+                                <rect key="frame" x="245" y="146" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Neutral">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -266,8 +266,8 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="MsJ-PG-XZV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAH-ox-Dy5">
-                                <rect key="frame" x="15" y="200" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Stressed" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAH-ox-Dy5">
+                                <rect key="frame" x="187" y="237" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Stressed">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -276,8 +276,8 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="ZVU-xl-we2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
-                                <rect key="frame" x="50" y="290" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
+                                <rect key="frame" x="217" y="339" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Stressed2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -286,8 +286,13 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="IUi-q0-vcN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
-                                <rect key="frame" x="120" y="380" width="100" height="100"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="HOW STRESSED ARE YOU?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-Hw-OFz">
+                                <rect key="frame" x="312" y="254" width="181" height="88"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
+                                <rect key="frame" x="352" y="375" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Stressed3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -296,14 +301,22 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="VpW-Kf-vEN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOW STRESSED ARE YOU?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-Hw-OFz">
-                                <rect key="frame" x="123" y="224" width="141" height="52"/>
-                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3bY-Hw-OFz" firstAttribute="leading" secondItem="oAH-ox-Dy5" secondAttribute="trailing" constant="25" id="1Yv-Tg-Vh5"/>
+                            <constraint firstItem="3bY-Hw-OFz" firstAttribute="leading" secondItem="e0M-4y-W5N" secondAttribute="trailing" constant="-5" id="1iE-O4-qgC"/>
+                            <constraint firstItem="alU-Qe-KzL" firstAttribute="top" secondItem="3bY-Hw-OFz" secondAttribute="bottom" constant="282" id="3rF-Yp-p2p"/>
+                            <constraint firstItem="e0M-4y-W5N" firstAttribute="top" secondItem="3bY-Hw-OFz" secondAttribute="bottom" constant="-3" id="7xI-Tt-aO8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lsk-8m-c6Q" secondAttribute="trailing" constant="132" id="90e-7V-KAE"/>
+                            <constraint firstItem="9NF-Bz-8ZV" firstAttribute="top" secondItem="3bY-Hw-OFz" secondAttribute="bottom" constant="33" id="IeV-bg-PVG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TK3-86-vUt" secondAttribute="trailing" constant="239" id="K97-1R-NpM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3bY-Hw-OFz" secondAttribute="trailing" constant="193" id="S2C-WE-zcz"/>
+                            <constraint firstItem="alU-Qe-KzL" firstAttribute="top" secondItem="oAH-ox-Dy5" secondAttribute="bottom" constant="263" id="m4S-g4-2mj"/>
+                            <constraint firstItem="3bY-Hw-OFz" firstAttribute="top" secondItem="lsk-8m-c6Q" secondAttribute="bottom" constant="38" id="ob5-WU-Y2G"/>
+                            <constraint firstItem="3bY-Hw-OFz" firstAttribute="top" secondItem="TK3-86-vUt" secondAttribute="bottom" constant="8" id="qBy-pl-OgS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9NF-Bz-8ZV" secondAttribute="trailing" constant="132" id="uqT-XL-9A6"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outletCollection property="PamStressButtons" destination="lsk-8m-c6Q" id="zct-Vg-RXO"/>
@@ -328,6 +341,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9c0-2n-2yg"/>
-        <segue reference="Hpr-2l-afU"/>
+        <segue reference="ZVU-xl-we2"/>
     </inferredMetricsTieBreakers>
 </document>
