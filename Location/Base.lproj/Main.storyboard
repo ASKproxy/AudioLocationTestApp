@@ -283,8 +283,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
-                                <rect key="frame" x="130" y="12" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
+                                <rect key="frame" x="145" y="12" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -293,8 +293,8 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="U7a-Vw-WeZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
-                                <rect key="frame" x="50" y="92" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
+                                <rect key="frame" x="67" y="92" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -313,8 +313,8 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="ZVU-xl-we2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
-                                <rect key="frame" x="50" y="290" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
+                                <rect key="frame" x="67" y="293" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -323,14 +323,8 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="IUi-q0-vcN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="HOW STRESSED ARE YOU?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-Hw-OFz">
-                                <rect key="frame" x="138" y="200" width="181" height="93"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
-                                <rect key="frame" x="130" y="372" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
+                                <rect key="frame" x="145" y="372" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -339,30 +333,27 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="VpW-Kf-vEN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="HOW STRESSED ARE YOU?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-Hw-OFz">
+                                <rect key="frame" x="139" y="194" width="181" height="93"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9NF-Bz-8ZV" firstAttribute="top" secondItem="3bY-Hw-OFz" secondAttribute="bottom" constant="80" id="47q-Ff-nZM"/>
                             <constraint firstItem="3bY-Hw-OFz" firstAttribute="top" secondItem="lsk-8m-c6Q" secondAttribute="bottom" constant="87" id="62O-AE-5fO"/>
-                            <constraint firstAttribute="centerY" secondItem="3bY-Hw-OFz" secondAttribute="centerY" id="DGW-N6-aRb"/>
-                            <constraint firstItem="TK3-86-vUt" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="35" id="Kxc-PW-5Ic"/>
-                            <constraint firstItem="e0M-4y-W5N" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="35" id="N4g-Sl-yLJ"/>
+                            <constraint firstItem="TK3-86-vUt" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="50" id="6el-i1-EJd"/>
+                            <constraint firstItem="e0M-4y-W5N" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="50" id="N4g-Sl-yLJ"/>
                             <constraint firstItem="3bY-Hw-OFz" firstAttribute="top" secondItem="TK3-86-vUt" secondAttribute="bottom" constant="10" id="Pof-Hk-BHt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3bY-Hw-OFz" secondAttribute="trailing" constant="-14" id="YBN-71-iw2"/>
-                            <constraint firstItem="9NF-Bz-8ZV" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="115" id="aIJ-lF-AhL"/>
-                            <constraint firstItem="TK3-86-vUt" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="35" id="dQe-W9-gxn"/>
-                            <constraint firstItem="e0M-4y-W5N" firstAttribute="top" secondItem="TK3-86-vUt" secondAttribute="top" constant="100" id="nY0-HE-8zg"/>
+                            <constraint firstItem="9NF-Bz-8ZV" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="130" id="aIJ-lF-AhL"/>
+                            <constraint firstItem="e0M-4y-W5N" firstAttribute="top" secondItem="TK3-86-vUt" secondAttribute="top" constant="200" id="nY0-HE-8zg"/>
                             <constraint firstItem="oAH-ox-Dy5" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" id="oX4-ry-LIE"/>
-                            <constraint firstItem="lsk-8m-c6Q" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="115" id="teL-J2-vcU"/>
-                            <constraint firstItem="e0M-4y-W5N" firstAttribute="leading" secondItem="TK3-86-vUt" secondAttribute="leading" constant="150" id="x0t-mq-ueK"/>
+                            <constraint firstItem="lsk-8m-c6Q" firstAttribute="leading" secondItem="G6D-xu-0Vp" secondAttribute="leadingMargin" constant="130" id="teL-J2-vcU"/>
                             <constraint firstAttribute="centerY" secondItem="oAH-ox-Dy5" secondAttribute="centerY" id="xeB-TB-6MV"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="dQe-W9-gxn"/>
-                                <exclude reference="x0t-mq-ueK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
