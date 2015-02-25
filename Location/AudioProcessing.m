@@ -206,9 +206,15 @@ int inferenceResult;
         case 0:
             break;
         case 1:
+        {
             NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+            break;
+        }
         case 2:
+        {
             NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+            break;
+        }
         default:
             break;
     }
