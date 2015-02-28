@@ -132,5 +132,29 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
++(NSArray *)retrieveFromLocal:(NSString *)entityName withManager:(DataManager*)dataManager
+{
+    
+    NSError *error = nil;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:dataManager.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSArray *result = [dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (error) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+        
+    } else {
+        if(result.count > 0 )
+        {
+            
+            return result;
+            
+        }
+    }
+    return nil;
+}
 
 @end

@@ -103,6 +103,7 @@
     
     NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    
     if (error) {
         NSLog(@"Unable to execute fetch request.");
         NSLog(@"%@, %@", error, error.localizedDescription);

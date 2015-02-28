@@ -78,6 +78,7 @@
 		5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090CD18B3AB2100510153 /* CoreLocation.framework */; };
 		886A402F1A13FD0C001A35BB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A402E1A13FD0C001A35BB /* CoreAudio.framework */; };
 		886A40311A13FD1F001A35BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A40301A13FD1F001A35BB /* AVFoundation.framework */; };
+		A432BA121AA0F19D008E941E /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A432BA111AA0F19D008E941E /* Server.m */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
 		A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */; };
@@ -224,6 +225,8 @@
 		5C9090CD18B3AB2100510153 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		886A402E1A13FD0C001A35BB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		886A40301A13FD1F001A35BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A432BA101AA0F19D008E941E /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		A432BA111AA0F19D008E941E /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
 		A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -553,6 +556,7 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				A432BA131AA0F1A4008E941E /* Server */,
 				3FB8AB461A995A8900E432DF /* StudentLifeConstant */,
 				3F699A7E1A98018200F81471 /* Libraries */,
 				A45E5EBD1A91D9210048FEB5 /* StudentLifeBluetooth */,
@@ -601,6 +605,15 @@
 				5C9090B718B3A66A00510153 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A432BA131AA0F1A4008E941E /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				A432BA101AA0F19D008E941E /* Server.h */,
+				A432BA111AA0F19D008E941E /* Server.m */,
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 		A45E5EB11A91CCA40048FEB5 /* StudentLifeAudioProcessing */ = {
@@ -812,6 +825,7 @@
 				A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */,
 				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,
 				3FB8AB9B1A99609000E432DF /* JBChartTooltipTipView.m in Sources */,
+				A432BA121AA0F19D008E941E /* Server.m in Sources */,
 				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
 				3FB8AB8C1A99609000E432DF /* JBBaseTableViewController.m in Sources */,
 				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,
