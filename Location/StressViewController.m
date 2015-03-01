@@ -35,8 +35,8 @@ CGFloat const kJBLineChartViewControllerChartFooterHeight = 20.0f;
 CGFloat const kJBLineChartViewControllerChartSolidLineWidth = 6.0f;
 CGFloat const kJBLineChartViewControllerChartDashedLineWidth = 2.0f;
 //NSInteger const kJBLineChartViewControllerMaxNumChartPoints = 7;
-NSInteger const kJBLineChartViewControllerPortraitMaxNumChartPoints = 13;
-NSInteger const kJBLineChartViewControllerLandscapeMaxNumChartPoints = 7;
+NSInteger const kJBLineChartStressViewControllerPortraitMaxNumChartPoints = 13;
+NSInteger const kJBLineChartStressViewControllerLandscapeMaxNumChartPoints = 7;
 
 
 // Strings
@@ -48,6 +48,9 @@ NSString * const kJBLineChartViewControllerNavButtonViewKey = @"view";
 @property (nonatomic, strong) JBChartInformationView *informationView;
 @property (nonatomic, strong) NSArray *chartData;
 @property (nonatomic, strong) NSArray *daysOfWeek;
+
+@property (nonatomic, strong) NSMutableArray *mutableLineChartsLandscape;
+@property (nonatomic, strong) NSMutableArray *mutableLineChartsPortrait;
 
 
 
@@ -69,7 +72,9 @@ static int mutableChartData_1 = {1, 2, 3, 4, 5, 6, 7};
 
 static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
 
-static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
+//static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
+static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+
 
 
 #pragma mark - Alloc/Init
@@ -91,7 +96,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-//        [self initFakeData];
+        [self initFakeData];
     }
     return self;
 }
@@ -101,7 +106,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-//        [self initFakeData];
+        [self initFakeData];
     }
     return self;
 }
@@ -110,52 +115,31 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 
 - (void)initFakeData
 {
-    NSMutableArray *mutableLineCharts = [NSMutableArray array];
-//    for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
-//    {
-//        NSMutableArray *mutableChartData = [NSMutableArray array];
-//        for (int i=0; i<kJBLineChartViewControllerMaxNumChartPoints; i++)
-//        {
-//            [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
-//        }
-//        [mutableLineCharts addObject:mutableChartData];
-//    }
+    _mutableLineChartsLandscape = [NSMutableArray array];
+    _mutableLineChartsPortrait = [NSMutableArray array];
     
-    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-    if (UIDeviceOrientationIsLandscape(deviceOrientation))
+    // Init data for landscape
+    for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
     {
-        for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
-                {
-                    NSMutableArray *mutableChartData = [NSMutableArray array];
-                    for (int i=0; i<kJBLineChartViewControllerLandscapeMaxNumChartPoints; i++)
-                    {
-                        [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
-                    }
-                    [mutableLineCharts addObject:mutableChartData];
-                }
-    }
-    else
-    {
-        
-        for (int lineIndex=0; lineIndex<1; lineIndex++)
+        NSMutableArray *mutableChartData = [NSMutableArray array];
+        for (int i=0; i<kJBLineChartStressViewControllerLandscapeMaxNumChartPoints; i++)
         {
-            NSMutableArray *mutableChartData = [NSMutableArray array];
-            for (int i=0; i<kJBLineChartViewControllerPortraitMaxNumChartPoints; i++)
-            {
-                [mutableChartData addObject:[NSNumber numberWithInt:mutableChartData_3[i]]]; // random number between 0 and 1
-            }
-            
-            [mutableLineCharts addObject:mutableChartData];
+            [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
+        }
+        [_mutableLineChartsLandscape addObject:mutableChartData];
+    }
+    
+    // Init data for portrait
+    for (int lineIndex=0; lineIndex<1; lineIndex++)
+    {
+        NSMutableArray *mutableChartData = [NSMutableArray array];
+        for (int i=0; i<kJBLineChartStressViewControllerPortraitMaxNumChartPoints; i++)
+        {
+            [mutableChartData addObject:[NSNumber numberWithInt:mutableChartData_3[i]]]; // random number between 0 and 1
         }
         
-
+        [_mutableLineChartsPortrait addObject:mutableChartData];
     }
-
-
-
-    
-    _chartData = [NSArray arrayWithArray:mutableLineCharts];
-//    _daysOfWeek = [[[NSDateFormatter alloc] init] shortWeekdaySymbols];
     
     _daysOfWeek = [NSArray arrayWithObjects:@"Week 1", @"Week 2", @"Week 3", @"Week 4", @"Week 5", @"Week 6", @"Week 7", nil];
 }
@@ -197,6 +181,8 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     // Do any additional setup after loading the view.
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -205,6 +191,10 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 - (void)loadView
 {
     [super loadView];
+    
+    
+    // Singleton object of device orientation
+    self.deviceOrientation = [DeviceOrientation sharedDeviceOrientation];
     
     // By default populate portrait view
     self.lineChartView = [[JBLineChartView alloc] init];
@@ -216,6 +206,76 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 
 }
 
+/**
+ Handle the device rotation action
+ Portrait: only plot instant value
+ Landscape: plot campus trailing values and user value
+ */
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
+    
+   
+//    [self.tabBarController.view removeFromSuperview];
+    
+//    [self.view removeFromSuperview];
+        
+    
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation))
+    {
+        [self.deviceOrientation setOrientation:deviceOrientation];
+        [self populateLandscapeView];
+    }
+    else if (UIDeviceOrientationIsPortrait(deviceOrientation))
+    {
+        [self.deviceOrientation setOrientation:deviceOrientation];
+        [self populatePortraitView];
+    }
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    
+    if (UIDeviceOrientationIsLandscape(self.deviceOrientation.orientation)){
+        
+        [self populateLandscapeView];
+    }else if (UIDeviceOrientationIsPortrait(self.deviceOrientation.orientation)){
+        [self populatePortraitView];
+        
+    }
+
+    [self.lineChartView setState:JBChartViewStateExpanded];
+}
+
+
+
+#pragma mark - Gesture
+
+/**
+ Callback action of swipe gesture
+ */
+- (void)didSwipe: (UISwipeGestureRecognizer *) sender{
+    
+    UISwipeGestureRecognizerDirection direction = sender.direction;
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    switch (direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            [self.tabBarController setSelectedIndex:selectedIndex + 1];
+            break;
+            
+        case UISwipeGestureRecognizerDirectionRight:
+            [self.tabBarController setSelectedIndex:selectedIndex - 1];
+            break;
+    }
+}
+
+
 - (void)addSwipeGestureRecognizer{
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
@@ -226,43 +286,46 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     [self.view addGestureRecognizer:swipeRight];
 }
 
+
+#pragma mark - Populate View
 - (void)populatePortraitView{
     self.view.backgroundColor = kJBColorLineChartControllerBackground;
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
     
     
-//    self.lineChartView = [[JBLineChartView alloc] init];
-    [self initFakeData];
-
-    self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding+200, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartPortraitHeight);
+    // Data
+    _chartData = [NSArray arrayWithArray:_mutableLineChartsPortrait];
+    
+    self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding+100, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartPortraitHeight);
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
     self.lineChartView.headerPadding = kJBLineChartViewControllerChartHeaderPadding;
     self.lineChartView.backgroundColor = kJBColorLineChartBackground;
     
     JBChartHeaderView *headerView = [[JBChartHeaderView alloc] initWithFrame:CGRectMake(kJBLineChartViewControllerChartPadding, ceil(self.view.bounds.size.height * 0.5) - ceil(kJBLineChartViewControllerChartHeaderHeight * 0.5), self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartHeaderHeight)];
-
+    
     self.lineChartView.headerView = headerView;
     self.lineChartView.headerView = nil;
     
     self.lineChartView.footerView = nil;
     
     [self.view addSubview:self.lineChartView];
-
-
-
+    
+    
+    
     [self.lineChartView reloadData];
     
     [self addAnimalImage];
-
+    
 }
 
 - (void)populateLandscapeView{
     self.view.backgroundColor = kJBColorLineChartControllerBackground;
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
     
-//    self.lineChartView = [[JBLineChartView alloc] init];
-    [self initFakeData];
+    // Data
+    _chartData = [NSArray arrayWithArray:_mutableLineChartsLandscape];
+    
     self.lineChartView.frame = CGRectMake(kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding, self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 2), kJBLineChartViewControllerChartLandScapeHeight);
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
@@ -293,77 +356,25 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     
     [self.view addSubview:self.lineChartView];
     
-//    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 9  ), kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding * 8, kJBLineChartViewControllerChartLandScapeHeight)];
-//    [self.informationView setValueAndUnitTextColor:[UIColor colorWithWhite:1.0 alpha:0.75]];
-//    [self.informationView setTitleTextColor:kJBColorLineChartHeader];
-//    [self.informationView setTextShadowColor:nil];
-//    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
-//    [self.view addSubview:self.informationView];
-
+    //    self.informationView = [[JBChartInformationView alloc] initWithFrame:CGRectMake(self.view.bounds.size.width - (kJBLineChartViewControllerChartPadding * 9  ), kJBLineChartViewControllerChartPadding, kJBLineChartViewControllerChartPadding * 8, kJBLineChartViewControllerChartLandScapeHeight)];
+    //    [self.informationView setValueAndUnitTextColor:[UIColor colorWithWhite:1.0 alpha:0.75]];
+    //    [self.informationView setTitleTextColor:kJBColorLineChartHeader];
+    //    [self.informationView setTextShadowColor:nil];
+    //    [self.informationView setSeparatorColor:kJBColorLineChartHeaderSeparatorColor];
+    //    [self.view addSubview:self.informationView];
+    
     [self.lineChartView reloadData];
     
 }
 
 
 - (void)addAnimalImage{
-//    UIImage *image = [[UIImage alloc] init];
+    //    UIImage *image = [[UIImage alloc] init];
     UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
     [iv setImage:[UIImage imageNamed:@"Stressed3"]];
     [self.view addSubview:iv];
 }
 
-/**
- Handle the device rotation action
- Portrait: only plot instant value
- Landscape: plot campus trailing values and user value
- */
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
-    
-   
-//    [self.tabBarController.view removeFromSuperview];
-    
-//    [self.view removeFromSuperview];
-        
-    
-    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-    if (UIDeviceOrientationIsLandscape(deviceOrientation))
-    {
-        [self populateLandscapeView];
-    }
-    else if (UIDeviceOrientationIsPortrait(deviceOrientation))
-    {
-
-        [self populatePortraitView];
-    }
-    
-}
-
-
-/**
- Callback action of swipe gesture
- */
-- (void)didSwipe: (UISwipeGestureRecognizer *) sender{
-    
-    UISwipeGestureRecognizerDirection direction = sender.direction;
-    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
-    
-    switch (direction) {
-        case UISwipeGestureRecognizerDirectionLeft:
-            [self.tabBarController setSelectedIndex:selectedIndex + 1];
-            break;
-            
-        case UISwipeGestureRecognizerDirectionRight:
-            [self.tabBarController setSelectedIndex:selectedIndex - 1];
-            break;
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.lineChartView setState:JBChartViewStateExpanded];
-}
 
 #pragma mark - JBChartViewDataSource
 

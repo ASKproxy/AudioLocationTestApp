@@ -122,7 +122,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Social" id="6tz-QZ-PhF"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Social" id="6tz-QZ-PhF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QR-cP-Vp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,7 +235,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.68627452850341797" green="0.91764712333679199" blue="0.94117653369903564" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.13553371966917413" green="0.86600501130711494" blue="0.94850127551020402" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Pp9-xz-nQN" firstAttribute="leading" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="-16" id="0HR-Fe-0gG"/>
                             <constraint firstItem="Dr0-3N-ZHi" firstAttribute="top" secondItem="Pp9-xz-nQN" secondAttribute="bottom" constant="129" id="4hu-nq-F9B"/>

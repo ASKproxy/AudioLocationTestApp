@@ -51,6 +51,8 @@ NSString * const kJBLineChartActivityViewControllerNavButtonViewKey = @"view";
 @property (nonatomic, strong) JBChartInformationView *informationView;
 @property (nonatomic, strong) NSArray *chartData;
 @property (nonatomic, strong) NSArray *daysOfWeek;
+@property (nonatomic, strong) NSMutableArray *mutableLineChartsLandscape;
+@property (nonatomic, strong) NSMutableArray *mutableLineChartsPortrait;
 
 
 
@@ -82,7 +84,7 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
     self = [super init];
     if (self)
     {
-        //        [self initFakeData];
+                [self initFakeData];
     }
     return self;
 }
@@ -92,7 +94,7 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        //        [self initFakeData];
+                [self initFakeData];
     }
     return self;
 }
@@ -102,7 +104,7 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
     {
-        //        [self initFakeData];
+                [self initFakeData];
     }
     return self;
 }
@@ -111,52 +113,31 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 
 - (void)initFakeData
 {
-    NSMutableArray *mutableLineCharts = [NSMutableArray array];
-    //    for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
-    //    {
-    //        NSMutableArray *mutableChartData = [NSMutableArray array];
-    //        for (int i=0; i<kJBLineChartViewControllerMaxNumChartPoints; i++)
-    //        {
-    //            [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
-    //        }
-    //        [mutableLineCharts addObject:mutableChartData];
-    //    }
+    _mutableLineChartsLandscape = [NSMutableArray array];
+    _mutableLineChartsPortrait = [NSMutableArray array];
     
-    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-    if (UIDeviceOrientationIsLandscape(deviceOrientation))
+    // Init data for landscape
+    for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
     {
-        for (int lineIndex=0; lineIndex<JBLineChartLineCount; lineIndex++)
+        NSMutableArray *mutableChartData = [NSMutableArray array];
+        for (int i=0; i<kJBLineChartActivityViewControllerLandscapeMaxNumChartPoints; i++)
         {
-            NSMutableArray *mutableChartData = [NSMutableArray array];
-            for (int i=0; i<kJBLineChartActivityViewControllerLandscapeMaxNumChartPoints; i++)
-            {
-                [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
-            }
-            [mutableLineCharts addObject:mutableChartData];
+            [mutableChartData addObject:[NSNumber numberWithFloat:((double)arc4random() / ARC4RANDOM_MAX)]]; // random number between 0 and 1
         }
-    }
-    else
-    {
-        
-        for (int lineIndex=0; lineIndex<1; lineIndex++)
-        {
-            NSMutableArray *mutableChartData = [NSMutableArray array];
-            for (int i=0; i<kJBLineChartActivityViewControllerPortraitMaxNumChartPoints; i++)
-            {
-                [mutableChartData addObject:[NSNumber numberWithInt:mutableChartData_3[i]]]; // random number between 0 and 1
-            }
-            
-            [mutableLineCharts addObject:mutableChartData];
-        }
-        
-        
+        [_mutableLineChartsLandscape addObject:mutableChartData];
     }
     
-    
-    
-    
-    _chartData = [NSArray arrayWithArray:mutableLineCharts];
-    //    _daysOfWeek = [[[NSDateFormatter alloc] init] shortWeekdaySymbols];
+    // Init data for portrait
+    for (int lineIndex=0; lineIndex<1; lineIndex++)
+    {
+        NSMutableArray *mutableChartData = [NSMutableArray array];
+        for (int i=0; i<kJBLineChartActivityViewControllerPortraitMaxNumChartPoints; i++)
+        {
+            [mutableChartData addObject:[NSNumber numberWithInt:mutableChartData_3[i]]]; // random number between 0 and 1
+        }
+        
+        [_mutableLineChartsPortrait addObject:mutableChartData];
+    }
     
     _daysOfWeek = [NSArray arrayWithObjects:@"Week 1", @"Week 2", @"Week 3", @"Week 4", @"Week 5", @"Week 6", @"Week 7", nil];
 }
@@ -197,16 +178,75 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 {
     [super loadView];
     
+    // Singleton object of device orientation
+    self.deviceOrientation = [DeviceOrientation sharedDeviceOrientation];
+
     // By default populate portrait view
     self.lineChartView = [[JBLineChartView alloc] init];
     
     [self populatePortraitView];
     
-    
     //    [self addSwipeGestureRecognizer];
     
 }
 
+/**
+ Handle the device rotation action
+ Portrait: only plot instant value
+ Landscape: plot campus trailing values and user value
+ */
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
+    
+    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+    if (UIDeviceOrientationIsLandscape(deviceOrientation))
+    {
+        [self.deviceOrientation setOrientation:deviceOrientation];
+        [self populateLandscapeView];
+    }
+    else if (UIDeviceOrientationIsPortrait(deviceOrientation))
+    {
+        [self.deviceOrientation setOrientation:deviceOrientation];
+        [self populatePortraitView];
+    }
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+//    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
+//    
+//    if (UIDeviceOrientationIsLandscape(deviceOrientation)){
+//        
+//        [self populateLandscapeView];
+//    }else if (UIDeviceOrientationIsPortrait(deviceOrientation)){
+//        
+//        [self populatePortraitView];
+//    }else if (deviceOrientation == UIDeviceOrientationFaceUp && self.deviceOrientation.orientation == UIDeviceOrientationPortrait){
+//        [self populatePortraitView];
+//
+//    }else if(deviceOrientation == UIDeviceOrientationFaceUp && self.deviceOrientation.orientation == UIDeviceOrientationLandscapeRight){
+//        [self populateLandscapeView];
+//
+//    }
+    
+    
+    if (UIDeviceOrientationIsLandscape(self.deviceOrientation.orientation)){
+        
+        [self populateLandscapeView];
+    }else if (UIDeviceOrientationIsPortrait(self.deviceOrientation.orientation)){
+        [self populatePortraitView];
+
+    }
+    
+    [self.lineChartView setState:JBChartViewStateExpanded];
+}
+
+
+#pragma mark - Gesture
 - (void)addSwipeGestureRecognizer{
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipe:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
@@ -217,13 +257,34 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
     [self.view addGestureRecognizer:swipeRight];
 }
 
+
+
+/**
+ Callback action of swipe gesture
+ */
+- (void)didSwipe: (UISwipeGestureRecognizer *) sender{
+    
+    UISwipeGestureRecognizerDirection direction = sender.direction;
+    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
+    
+    switch (direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            [self.tabBarController setSelectedIndex:selectedIndex + 1];
+            break;
+            
+        case UISwipeGestureRecognizerDirectionRight:
+            [self.tabBarController setSelectedIndex:selectedIndex - 1];
+            break;
+    }
+}
+
+#pragma mark - Populate View
 - (void)populatePortraitView{
     self.view.backgroundColor = kJBColorLineChartControllerBackground;
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
     
-    
-    //    self.lineChartView = [[JBLineChartView alloc] init];
-    [self initFakeData];
+    // Data
+    _chartData = [NSArray arrayWithArray:_mutableLineChartsPortrait];
     
     self.lineChartView.frame = CGRectMake(kJBLineChartActivityViewControllerChartPadding, kJBLineChartActivityViewControllerChartPadding+50, self.view.bounds.size.width - (kJBLineChartActivityViewControllerChartPadding * 2), kJBLineChartActivityViewControllerChartPortraitHeight);
     self.lineChartView.delegate = self;
@@ -253,7 +314,12 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
     self.navigationItem.rightBarButtonItem = [self chartToggleButtonWithTarget:self action:@selector(chartToggleButtonPressed:)];
     
     //    self.lineChartView = [[JBLineChartView alloc] init];
-    [self initFakeData];
+//    [self initFakeData];
+    
+    // Data
+    _chartData = [NSArray arrayWithArray:_mutableLineChartsLandscape];
+
+    
     self.lineChartView.frame = CGRectMake(kJBLineChartActivityViewControllerChartPadding, kJBLineChartActivityViewControllerChartPadding, self.view.bounds.size.width - (kJBLineChartActivityViewControllerChartPadding * 2), kJBLineChartActivityViewControllerChartLandScapeHeight);
     self.lineChartView.delegate = self;
     self.lineChartView.dataSource = self;
@@ -304,58 +370,6 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
     [self.view addSubview:iv];
 }
 
-/**
- Handle the device rotation action
- Portrait: only plot instant value
- Landscape: plot campus trailing values and user value
- */
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    [super didRotateFromInterfaceOrientation: fromInterfaceOrientation];
-    
-    
-    //    [self.tabBarController.view removeFromSuperview];
-    
-    //    [self.view removeFromSuperview];
-    
-    
-    UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;
-    if (UIDeviceOrientationIsLandscape(deviceOrientation))
-    {
-        [self populateLandscapeView];
-    }
-    else if (UIDeviceOrientationIsPortrait(deviceOrientation))
-    {
-        
-        [self populatePortraitView];
-    }
-    
-}
-
-
-/**
- Callback action of swipe gesture
- */
-- (void)didSwipe: (UISwipeGestureRecognizer *) sender{
-    
-    UISwipeGestureRecognizerDirection direction = sender.direction;
-    NSUInteger selectedIndex = [self.tabBarController selectedIndex];
-    
-    switch (direction) {
-        case UISwipeGestureRecognizerDirectionLeft:
-            [self.tabBarController setSelectedIndex:selectedIndex + 1];
-            break;
-            
-        case UISwipeGestureRecognizerDirectionRight:
-            [self.tabBarController setSelectedIndex:selectedIndex - 1];
-            break;
-    }
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.lineChartView setState:JBChartViewStateExpanded];
-}
 
 #pragma mark - JBChartViewDataSource
 

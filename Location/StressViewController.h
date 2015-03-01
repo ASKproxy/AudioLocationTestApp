@@ -8,6 +8,7 @@
 
 #import "JBBaseChartViewController.h"
 #import "StudentLifeConstant.h"
+#import "DeviceOrientation.h"
 
 @interface StressViewController : JBBaseChartViewController
 @property (weak, nonatomic) IBOutlet UITabBarItem *StressButton;

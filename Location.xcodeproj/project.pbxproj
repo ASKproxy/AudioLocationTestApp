@@ -13,6 +13,7 @@
 		3F699A861A9816F200F81471 /* JBBarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F699A811A9816F200F81471 /* JBBarChartView.m */; };
 		3F699A871A9816F200F81471 /* JBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F699A831A9816F200F81471 /* JBChartView.m */; };
 		3F699A881A9816F200F81471 /* JBLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F699A851A9816F200F81471 /* JBLineChartView.m */; };
+		3F8A05021A9D0BE5008DDBC1 /* DeviceOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A05011A9D0BE5008DDBC1 /* DeviceOrientation.m */; };
 		3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */; };
 		3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5310A1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m */; };
 		3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB531151A80BA1000E1B62C /* FormatFile.m */; };
@@ -115,6 +116,8 @@
 		3F699A831A9816F200F81471 /* JBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBChartView.m; sourceTree = "<group>"; };
 		3F699A841A9816F200F81471 /* JBLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBLineChartView.h; sourceTree = "<group>"; };
 		3F699A851A9816F200F81471 /* JBLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBLineChartView.m; sourceTree = "<group>"; };
+		3F8A05001A9D0BE5008DDBC1 /* DeviceOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceOrientation.h; sourceTree = "<group>"; };
+		3F8A05011A9D0BE5008DDBC1 /* DeviceOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceOrientation.m; sourceTree = "<group>"; };
 		3FB531001A7DB99700E1B62C /* StudentLifeBackgroundAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentLifeBackgroundAudio.h; sourceTree = "<group>"; };
 		3FB531011A7DB99700E1B62C /* StudentLifeBackgroundAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentLifeBackgroundAudio.m; sourceTree = "<group>"; };
 		3FB531031A7FDD9000E1B62C /* audiofile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audiofile.mp3; path = "../../ios-audio-player/AudioPlayerTemplate/audiofile.mp3"; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 				3FB531151A80BA1000E1B62C /* FormatFile.m */,
 				3FF1C8B71A87F50300E4FA6F /* SetupSensors.h */,
 				3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */,
+				3F8A05001A9D0BE5008DDBC1 /* DeviceOrientation.h */,
+				3F8A05011A9D0BE5008DDBC1 /* DeviceOrientation.m */,
 			);
 			name = StudentLifeUtilities;
 			sourceTree = "<group>";
@@ -808,6 +813,7 @@
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
 				3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */,
+				3F8A05021A9D0BE5008DDBC1 /* DeviceOrientation.m in Sources */,
 				3FB8AB891A99609000E432DF /* JBChartTableCell.m in Sources */,
 				3F699A861A9816F200F81471 /* JBBarChartView.m in Sources */,
 				3FB8AB941A99609000E432DF /* JBBarChartFooterView.m in Sources */,

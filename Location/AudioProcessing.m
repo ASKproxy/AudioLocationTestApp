@@ -135,12 +135,19 @@ int inferenceResult;
 
 @implementation AudioProcessing
 
+@synthesize consecutiveConCount = _consecutiveConCount;
+@synthesize consecutiveSilCount = _consecutiveSilCount;
+@synthesize previousState = _previousState;
+@synthesize isConversation = _isConversation;
 -(instancetype)init
 {
     self=[super init];
     
     [self initVoicedFeaturesFunction];
     [self viterbiInitialize];
+    [self initConversationCount];
+    
+    self.dataManager = [DataManager sharedInstance];
 
 //    static dispatch_once_t onceToken;                 NEED TO DECIDE IF WE SHOULD CALL IT ONLY ONCE !!
 //    dispatch_once(&onceToken, ^{
@@ -202,16 +209,21 @@ int inferenceResult;
 //(*env)->SetDoubleArrayRegion( env, featureVector, 0, 6 + numAcorrPeaks*2 + 2 + LOOK_BACK_LENGTH, (const jdouble*)featuresValuesTemp );
  
     //Log of audio class
-    switch ((NSInteger)featuresValuesTemp[8]) {
-        case 0:
-            break;
-        case 1:
-            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
-        case 2:
-            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
-        default:
-            break;
-    }
+//    switch ((NSInteger)featuresValuesTemp[8]) {
+//        case 0:
+//            break;
+//        case 1:
+//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+//            break;
+//        case 2:
+//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+//            break;
+//        default:
+//            break;
+//    }
+    
+    
+    [self toStoreAudioConversation: featuresValuesTemp[8]];
 }
 
 
@@ -335,6 +347,255 @@ int inferenceResult;
 {
     viterbiInitialize();
 }
+
+/**
+ Counting the conversation or silence frequency
+ */
+- (void) initConversationCount{
+    
+    _consecutiveConCount = 0;
+    _consecutiveSilCount = 0;
+    _isConversation = FALSE;
+    _previousState = FALSE;
+}
+
+#pragma mark - ConversationCount Setter and Getter
+/**
+ Update convecutive conversation count
+ if the featuresValuesTemp[8] is 1 then increment _consecutiveConCount
+ else
+ */
+-(void)incrementConsecutiveConCount{
+    //Keep incrementing _consecutive conversation count on if previous
+    //state is conversation as well.
+    //If _isConversation is false and previousState is false but current
+    //state is true, then reset consecutive count and start counting from 1
+    if (_isConversation || _previousState) {
+        _consecutiveConCount++;
+    }else{
+        [self resetConsecutiveConCount];
+        _consecutiveConCount++;
+    }
+   
+    //Change conversation state to conversation
+    if(!_isConversation && _consecutiveConCount >= ConsecutiveConversationLength){
+        _isConversation = TRUE;
+
+    }
+}
+
+/**
+ Return consecutive conversation count
+ */
+-(NSInteger)getConsecutiveConCount{
+
+    return _consecutiveConCount;
+}
+
+/**
+ Reset consecutive conversation count
+ When featuresValuesTemp[8] changes from 1 to 0, reset it
+ */
+-(void)resetConsecutiveConCount{
+    if (_consecutiveConCount >= ConsecutiveConversationLength) {
+        //Store start and end time to database, otherwise do nothing
+//        [self storeConversationDuration];
+        
+    }
+    
+    _consecutiveConCount = 0;
+    _isConversation = FALSE;
+}
+
+/**
+ Update convecutive silence count
+ if the featuresValuesTemp[8] is 0 then increment _consecutiveSilCount
+ else
+ */
+-(void)incrementConsecutiveSilCount{
+    //Keep incrementing _consecutive silence count on if previous
+    //state is silence as well.
+    //If _isConversation is True and previousState is True but current
+    //state is False, then reset consecutive count and start counting from 1
+    if (!_isConversation || !_previousState) {
+        _consecutiveSilCount++;
+    }else{
+        [self resetConsecutiveSilCount];
+        _consecutiveSilCount++;
+    }
+    
+    //Change conversation state to conversation
+    if(_isConversation && _consecutiveSilCount >= ConsecutiveNonConversationLength){
+        _isConversation = FALSE;
+        
+    }
+}
+
+/**
+ Return consecutive silence count
+ */
+-(NSInteger)getConsecutiveSilCount{
+    
+    return _consecutiveSilCount;
+}
+
+/**
+ Reset consecutive silence count
+ When featuresValuesTemp[8] changes from 0 to 1, reset it
+ */
+-(void)resetConsecutiveSilCount{
+    if (_consecutiveConCount >= ConsecutiveNonConversationLength) {
+        //Store start and end time to database, otherwise do nothing
+        
+    }
+    
+    _consecutiveSilCount = 0;
+    _isConversation = TRUE;
+}
+
+#pragma mark - Database
+
+/**
+ This method gets called whenever there is a new audio classification result
+ provdied by the method "processAudio". It detects the audio classfication :
+ 0 or 1 and does corresponding operation. If there is 20 consecutive 1, then 
+ it is considered as a conversation and the starting and ending timestamp is 
+ stored to database. If there is 20 consecutive 0 then it is either considered 
+ the end of the conversation or just silence
+ */
+- (void) toStoreAudioConversation: (NSInteger)featuresValuesTemp{
+    
+//    [self storeConversationClassification: featuresValuesTemp];
+    
+    switch (featuresValuesTemp) {
+        case 0:
+            [self incrementConsecutiveSilCount];
+
+            break;
+            
+        case 1:
+            [self incrementConsecutiveConCount];
+            break;
+            
+        default:
+            break;
+    }
+ 
+}
+
+- (void) storeConversationClassification : (NSInteger)featuresValuesTemp{
+    
+    //create the entity over here
+    NSEntityDescription *entityDescriptionAudio = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+    
+    NSManagedObject *latestAudioClassfication = [[NSManagedObject alloc] initWithEntity:entityDescriptionAudio insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
+    
+    [latestAudioClassfication setValue:[NSNumber numberWithInt:featuresValuesTemp] forKey:@"has_conversation"];
+//    [latestAudioClassfication setValue:[newLocation timestamp] forKey:@"timestamp"];
+    
+    NSError *error = nil;
+    
+    if (![latestAudioClassfication.managedObjectContext save:&error]) {
+        NSLog(@"Unable to save managed object context.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error2 = nil;
+    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
+    
+    if (error) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error2, error2.localizedDescription);
+        
+    } else {
+        if(result.count > 0 )
+        {
+            
+            NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
+            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"has_conversation"]);
+            
+        }
+    }
+}
+
+///**
+// Store recent conversation duration to database
+// if there was at least 20 consecutive conversation
+// */
+//-(void) storeConversationDuration
+//{
+//    //create the entity over here and save it
+//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+//    
+//    NSManagedObject *latestConverDuration = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
+//    
+//    //Get start and time from database of Audio
+//    NSError *error = nil;
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+//    [fetchRequest setEntity:entity];
+//    
+//    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//    
+//    if (error) {
+//        NSLog(@"Unable to execute fetch request.");
+//        NSLog(@"%@, %@", error, error.localizedDescription);
+//        
+//    } else {
+//        if(result.count > 0 )
+//        {
+//            
+//            NSManagedObject *rStart = (NSManagedObject *)[result objectAtIndex:result.count - _consecutiveConCount];
+//            NSManagedObject *rEnd = (NSManagedObject *)[result objectAtIndex:result.count - 1];
+//
+////            NSLog(@"start_time : %@", [r valueForKey:@"start_time"]);
+////            //Store start and end time
+////            [latestConverDuration setValue:[NSNumber numberWithDouble:[rStart valueForKey:@"time_stamp"]] forKey:@"start_time"];
+////            [latestConverDuration setValue:[NSNumber numberWithDouble:[rEnd valueForKey:@"time_stamp"]] forKey:@"end_time"];
+////           
+//        
+//            NSError *error1 = nil;
+//            
+//            if (![latestConverDuration.managedObjectContext save:&error1]) {
+//                NSLog(@"Unable to save managed object context.");
+//                NSLog(@"%@, %@", error1, error1.localizedDescription);
+//            }
+//            
+//            NSLog(@"Stored the accelerometer data");
+//        }
+//    
+//    }
+//    //retreive the data and print it in the log
+//    NSError *error_2 = nil;
+//    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
+//    
+//    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+//    [fetchRequest_2 setEntity:entity_2];
+//    
+//    NSArray *result_2 = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
+//    
+//    if (error_2) {
+//        NSLog(@"Unable to execute fetch request.");
+//        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
+//        
+//    } else {
+//        if(result_2.count > 0 )
+//        {
+//            
+//            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
+//            
+//            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
+//        }
+//    }
+//}
+
+
 
 #pragma mark - Compute
 //**********************************************************************************

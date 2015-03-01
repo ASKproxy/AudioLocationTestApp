@@ -30,3 +30,8 @@
 #define SegueSleep @"SegueSleep"
 #define SegueActivity @"SegueActivity"
 #define SegueSocial @"SegueSocial"
+
+
+#pragma mark - Conversation Count
+#define ConsecutiveConversationLength 20
+#define ConsecutiveNonConversationLength 30
