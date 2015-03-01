@@ -177,6 +177,13 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_SleepButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIFont fontWithName:@"GillSans-Light" size:20.0f], UITextAttributeFont,
+                                           [UIColor blackColor], UITextAttributeTextColor,
+                                           [UIColor grayColor], UITextAttributeTextShadowColor,
+                                           [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
+                                           nil]
+                                 forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

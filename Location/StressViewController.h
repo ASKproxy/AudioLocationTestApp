@@ -10,5 +10,7 @@
 #import "StudentLifeConstant.h"
 
 @interface StressViewController : JBBaseChartViewController
+@property (weak, nonatomic) IBOutlet UITabBarItem *StressButton;
+
 
 @end

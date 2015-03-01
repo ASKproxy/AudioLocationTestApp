@@ -10,5 +10,6 @@
 #import "StudentLifeConstant.h"
 
 @interface SleepViewController : JBBaseChartViewController
+@property (weak, nonatomic) IBOutlet UITabBarItem *SleepButton;
 
 @end

@@ -10,5 +10,6 @@
 #import "StudentLifeConstant.h"
 
 @interface ActivityViewController : JBBaseChartViewController
+@property (weak, nonatomic) IBOutlet UITabBarItem *ActivityButton;
 
 @end

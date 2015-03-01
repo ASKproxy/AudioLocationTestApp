@@ -80,6 +80,7 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
     self = [super init];
     if (self)
     {
+        
 //        [self initFakeData];
     }
     return self;
@@ -176,6 +177,23 @@ static int mutableChartData_3[] = {1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1};
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [_StressButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIFont fontWithName:@"GillSans-Light" size:20.0f], UITextAttributeFont,
+                                           [UIColor blackColor], UITextAttributeTextColor,
+                                           [UIColor grayColor], UITextAttributeTextShadowColor,
+                                           [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
+                                           nil]
+                                 forState:UIControlStateNormal];
+    
+//
+//    [[_StressButton appearance] setTitleTextAttributes:forState:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                             [UIFont fontWithName:@"AmericanTypewriter" size:20.0f], UITextAttributeFont,
+//                                             [UIColor blackColor], UITextAttributeTextColor,
+//                                             [UIColor grayColor], UITextAttributeTextShadowColor,
+//                                             [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
+//                                             nil]];
+//    
     // Do any additional setup after loading the view.
 }
 

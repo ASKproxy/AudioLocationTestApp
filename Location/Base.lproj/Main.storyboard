@@ -32,7 +32,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PaL-LE-ZCF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rx0-aa-mFw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUK-iD-wSZ">
@@ -51,6 +51,9 @@
                         <gestureRecognizers/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Sleep" id="w0v-8m-JHg"/>
+                    <connections>
+                        <outlet property="SleepButton" destination="w0v-8m-JHg" id="WDi-sG-7xq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzc-EZ-KvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -65,7 +68,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vAQ-iE-ftv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mDq-xc-Jn0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfX-nK-eDk">
@@ -84,6 +87,9 @@
                         <gestureRecognizers/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Activity" id="EaU-7Q-vjE"/>
+                    <connections>
+                        <outlet property="ActivityButton" destination="EaU-7Q-vjE" id="ubP-Df-Mu0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21m-kV-Vev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,7 +104,7 @@
                         <viewControllerLayoutGuide type="bottom" id="ZLL-FJ-zvI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="95I-Wk-KE6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-F8-Tj4">
@@ -131,7 +137,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xWX-hq-Ttb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O6b-4w-eBP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67D-VO-SnW">
@@ -150,6 +156,9 @@
                         <gestureRecognizers/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stress" id="qeY-Bo-6e9"/>
+                    <connections>
+                        <outlet property="StressButton" destination="qeY-Bo-6e9" id="KgM-UP-Nk4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-ez-b1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -256,10 +265,12 @@
             <objects>
                 <tabBarController id="RcF-qT-jan" customClass="DataTabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="lPj-0i-JeR">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="centered" id="lPj-0i-JeR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35151451810000001" green="1" blue="0.98268178959999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                        <color key="selectedImageTintColor" red="0.35151451810000001" green="1" blue="0.98268178959999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="cah-g1-nH2" kind="relationship" relationship="viewControllers" id="yYf-bA-XVP"/>
