@@ -23,8 +23,8 @@
 
 #pragma mark - Line Chart
 
-#define kJBColorLineChartControllerBackground UIColorFromHex(0xb7e3e4)
-#define kJBColorLineChartBackground UIColorFromHex(0xb7e3e4)
+#define kJBColorLineChartControllerBackground UIColorFromHex(0x30DFF2)
+#define kJBColorLineChartBackground UIColorFromHex(0x30DFF2)
 #define kJBColorLineChartHeader UIColorFromHex(0x1c474e)
 #define kJBColorLineChartHeaderSeparatorColor UIColorFromHex(0x8eb6b7)
 #define kJBColorLineChartDefaultSolidLineColor [UIColor colorWithWhite:1.0 alpha:0.5]

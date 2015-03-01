@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #include "kiss_fftr.h"
+#import "StudentLifeConstant.h"
+#import "DataManager.h"
+
 
 
 
 @interface AudioProcessing : NSObject
+
+@property (strong,nonatomic) DataManager * dataManager;
+@property(nonatomic) NSInteger consecutiveConCount;
+@property(nonatomic) NSInteger consecutiveSilCount;
+@property(nonatomic) BOOL previousState;
+@property(nonatomic) BOOL isConversation;
 
 
 #pragma mark - singleton 

@@ -82,6 +82,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+//#pragma mark - Singleton Object
+//
+///**
+// Setup methond which calls all the individual helper
+// method to initialize sensors
+// */
+//- (UIDeviceOrientation)sharedDeviceOrientation{
+//    static UIDeviceOrientation deviceOrientation;
+//    
+//    //New thread for deviceOrientation object
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        deviceOrientation = [UIDevice currentDevice].orientation;
+//        
+//    });
+//    
+//    
+//    return deviceOrientation;
+//}
+
 /*
 #pragma mark - Navigation
 

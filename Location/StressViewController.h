@@ -8,7 +8,9 @@
 
 #import "JBBaseChartViewController.h"
 #import "StudentLifeConstant.h"
+#import "DeviceOrientation.h"
 
 @interface StressViewController : JBBaseChartViewController
+@property (strong, nonatomic) DeviceOrientation *deviceOrientation;
 
 @end
