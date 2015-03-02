@@ -11,6 +11,7 @@
 #import "DeviceOrientation.h"
 
 @interface ActivityViewController : JBBaseChartViewController
+@property (weak, nonatomic) IBOutlet UITabBarItem *ActivityButton;
 
 @property (strong, nonatomic) DeviceOrientation *deviceOrientation;
 
