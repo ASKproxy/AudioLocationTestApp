@@ -15,6 +15,16 @@
 #import "Server.h"
 
 
+/**
+LOCK  & UNLOCK
+ When lock is pressed, it is store along with a timestamp in database. 
+ When unlock is pressed, the last entry in database is retrieved. If it 
+ is a lock, then the unlock timestamp is added to the that entry. 
+ 
+ 
+
+**/
+
 NSInteger gLockComplete, gLockState;
 //EZMicrophone *ezMicrophone;
 SetupSensors *setupSensors;

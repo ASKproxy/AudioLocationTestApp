@@ -57,7 +57,7 @@
         NSLog(@"%@, %@", error1, error1.localizedDescription);
     }
     
-    NSLog(@"Stored the accelerometer data");
+//    NSLog(@"Stored the accelerometer data");
    
     
     //retreive the data and print it in the log
@@ -79,9 +79,8 @@
             
             NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
             
-            NSLog(@"x-axis : %@", [r valueForKey:@"x_axis"]);
+//            NSLog(@"x-axis : %@", [r valueForKey:@"x_axis"]);
             
-//            NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
         }
     }
 }

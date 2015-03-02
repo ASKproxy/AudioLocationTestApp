@@ -90,6 +90,7 @@
 		A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEFC1A92C2B100D1B5DE /* BluetoothTracker.m */; };
 		A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEFF1A92C2CF00D1B5DE /* DataManager.m */; };
 		A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEF021A92C2F300D1B5DE /* AccelerometerTracker.m */; };
+		A4A97DD71AA3948300927356 /* ActivityClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A97DD61AA3948300927356 /* ActivityClassifier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +249,8 @@
 		A47DEEFF1A92C2CF00D1B5DE /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A47DEF011A92C2F300D1B5DE /* AccelerometerTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerTracker.h; sourceTree = "<group>"; };
 		A47DEF021A92C2F300D1B5DE /* AccelerometerTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerTracker.m; sourceTree = "<group>"; };
+		A4A97DD51AA3948300927356 /* ActivityClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityClassifier.h; sourceTree = "<group>"; };
+		A4A97DD61AA3948300927356 /* ActivityClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityClassifier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +330,8 @@
 				3FB531151A80BA1000E1B62C /* FormatFile.m */,
 				3FF1C8B71A87F50300E4FA6F /* SetupSensors.h */,
 				3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */,
+				A4A97DD51AA3948300927356 /* ActivityClassifier.h */,
+				A4A97DD61AA3948300927356 /* ActivityClassifier.m */,
 			);
 			name = StudentLifeUtilities;
 			sourceTree = "<group>";
@@ -798,6 +803,7 @@
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
+				A4A97DD71AA3948300927356 /* ActivityClassifier.m in Sources */,
 				5C9090A618B3A66A00510153 /* MainViewController.m in Sources */,
 				3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */,
 				3FDA7CEF1A86CF8700A4EE58 /* EZAudioPlotGL.m in Sources */,

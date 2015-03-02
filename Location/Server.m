@@ -10,7 +10,7 @@
 
 #define safeSet(d,k,v) if (v) d[k] = v;
 
-static NSString* const serverURL = @"http://192.168.1.102:3000/";
+static NSString* const serverURL = @"http://10.31.250.160:3000/";
 static NSString* const collectionName = @"pam";
 static NSString* const kFiles = @"files";
 
