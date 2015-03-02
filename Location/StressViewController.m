@@ -88,9 +88,7 @@ CGFloat screenHeight;
     if (self)
     {
         [self initFakeData];
-        screenRect = [[UIScreen mainScreen] bounds];
-        screenWidth = screenRect.size.width;
-        screenHeight = screenRect.size.height;
+     
 
     }
     return self;
@@ -120,6 +118,10 @@ CGFloat screenHeight;
 
 - (void)initFakeData
 {
+    screenRect = [[UIScreen mainScreen] bounds];
+    screenWidth = screenRect.size.width;
+    screenHeight = screenRect.size.height;
+    
     _mutableLineChartsLandscape = [NSMutableArray array];
     _mutableLineChartsPortrait = [NSMutableArray array];
     
@@ -167,13 +169,7 @@ CGFloat screenHeight;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_StressButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                           [UIFont fontWithName:@"GillSans-Light" size:20.0f], UITextAttributeFont,
-                                           [UIColor blackColor], UITextAttributeTextColor,
-                                           [UIColor grayColor], UITextAttributeTextShadowColor,
-                                           [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
-                                           nil]
-                                 forState:UIControlStateNormal];
+  
     
 //
 //    [[_StressButton appearance] setTitleTextAttributes:forState:[NSDictionary dictionaryWithObjectsAndKeys:
@@ -182,7 +178,7 @@ CGFloat screenHeight;
 //                                             [UIColor grayColor], UITextAttributeTextShadowColor,
 //                                             [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 1.0f)], UITextAttributeTextShadowOffset,
 //                                             nil]];
-//    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -197,6 +193,13 @@ CGFloat screenHeight;
 {
     [super loadView];
     
+    [_StressButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                           [UIFont fontWithName:@"GillSans-Light" size:20.0f], UITextAttributeFont,
+                                           [UIColor blackColor], UITextAttributeTextColor,
+                                           [UIColor grayColor], UITextAttributeTextShadowColor,
+                                           [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
+                                           nil]
+                                 forState:UIControlStateNormal];
     
     // Singleton object of device orientation
     self.deviceOrientation = [DeviceOrientation sharedDeviceOrientation];
@@ -395,8 +398,9 @@ CGFloat screenHeight;
             NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
             
             NSLog(@"stress_level : %@ at StressViewController", [r valueForKey:@"stress_level"]);
-            
-            return (NSInteger)[r valueForKey:@"stress_level"];
+            NSNumber *height = [r valueForKey:@"stress_level"];
+            int h = [height intValue];
+            return h;
         }
     }
     return 5;
@@ -407,7 +411,7 @@ CGFloat screenHeight;
     //    UIImage *image = [[UIImage alloc] init];
     NSInteger level = [self getStressHeight];
     //UIImageView *iv;
-    NSInteger temp = ((5-level)*screenHeight/5);
+    NSInteger temp = ((level+1)*screenHeight/7) - 50;
     UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
     //NSInteger height = (level+1)*screenHeight/
     

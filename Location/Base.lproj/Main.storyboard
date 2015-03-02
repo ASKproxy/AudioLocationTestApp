@@ -184,7 +184,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Stress" id="qeY-Bo-6e9"/>
                     <connections>
-                        <outlet property="StressButton" destination="qeY-Bo-6e9" id="KgM-UP-Nk4"/>
+                        <outlet property="StressButton" destination="qeY-Bo-6e9" id="Is3-8f-pvt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-ez-b1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -409,6 +409,6 @@ How are you?</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Hhc-aD-AmN"/>
-        <segue reference="apa-fb-VfT"/>
+        <segue reference="asA-uU-fJ1"/>
     </inferredMetricsTieBreakers>
 </document>

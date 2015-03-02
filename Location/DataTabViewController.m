@@ -8,6 +8,7 @@
 //  The DataTabViewController is the tab bar view which contains four sub tab showing Stress, Sleep, Social, and Activity. It is the landing view of the app, and it also sets up sensor instances including GPS, Bluetooth, Microphone,Accelerameter, and other house keeping instances including Lock&Unlock state, database, server,and PAM study. It automatically starts all event in the background once the app is launched. The app continuously senses in the background and check each instance every certain time period. For audio input, the App does the realtime processing and only store the classifier results with are integer values. Every time when the user charges the phone, it pushes all the data to the cloud.
 
 #import "DataTabViewController.h"
+#import "SocialViewController.h"
 
 @interface DataTabViewController (){
 
@@ -17,6 +18,22 @@
 
 @implementation DataTabViewController
 
+
+- (void)loadView
+{
+    [super loadView];
+//    
+//    SocialViewController *viewC = [[SocialViewController alloc]init];
+//    // Do any additional setup after loading the view.
+//    [viewC.SocialButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+//                                           [UIFont fontWithName:@"GillSans-Light" size:20.0f], UITextAttributeFont,
+//                                           [UIColor blackColor], UITextAttributeTextColor,
+//                                           [UIColor grayColor], UITextAttributeTextShadowColor,
+//                                           [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
+//                                           nil]
+//                                 forState:UIControlStateNormal];
+//  
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
