@@ -46,8 +46,15 @@
 
 -(void) initVoicedFeaturesFunction;
 
+
+/**
+ Return the ratio of total conversation duration in the past x hours
+ */
 +(double) conversationDuration;
 
+/**
+ Return the conversation frequency score in the past x hours
+ */
 +(double) conversationFreq;
 
 @end
