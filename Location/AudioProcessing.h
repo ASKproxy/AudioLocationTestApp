@@ -32,4 +32,9 @@
 -(void) processAudio:(float *)frameBuffer;
 
 -(void) initVoicedFeaturesFunction;
+
++(double) conversationDuration;
+
++(double) conversationFreq;
+
 @end

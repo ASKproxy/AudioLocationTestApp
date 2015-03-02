@@ -139,6 +139,12 @@ int inferenceResult;
 @synthesize consecutiveSilCount = _consecutiveSilCount;
 @synthesize previousState = _previousState;
 @synthesize isConversation = _isConversation;
+
+int count_zero;
+int count_one;
+
+
+
 -(instancetype)init
 {
     self=[super init];
@@ -357,6 +363,9 @@ int inferenceResult;
     _consecutiveSilCount = 0;
     _isConversation = FALSE;
     _previousState = FALSE;
+    
+    count_one = 0;
+    count_zero = 0;
 }
 
 #pragma mark - ConversationCount Setter and Getter
@@ -465,7 +474,7 @@ int inferenceResult;
  */
 - (void) toStoreAudioConversation: (NSInteger)featuresValuesTemp{
     
-//    [self storeConversationClassification: featuresValuesTemp];
+    [self storeConversationClassification: featuresValuesTemp];
     
     switch (featuresValuesTemp) {
         case 0:
@@ -483,6 +492,11 @@ int inferenceResult;
  
 }
 
+/**
+ Store audio classification result to the database table
+ two attributes need to be stored: classification result
+ and timestamp
+ */
 - (void) storeConversationClassification : (NSInteger)featuresValuesTemp{
     
     //create the entity over here
@@ -490,8 +504,8 @@ int inferenceResult;
     
     NSManagedObject *latestAudioClassfication = [[NSManagedObject alloc] initWithEntity:entityDescriptionAudio insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     
-    [latestAudioClassfication setValue:[NSNumber numberWithInt:featuresValuesTemp] forKey:@"has_conversation"];
-//    [latestAudioClassfication setValue:[newLocation timestamp] forKey:@"timestamp"];
+    [latestAudioClassfication setValue:[NSNumber numberWithInteger:featuresValuesTemp] forKey:@"has_conversation"];
+    [latestAudioClassfication setValue:[NSDate date] forKey:@"timestamp"];
     
     NSError *error = nil;
     
@@ -500,27 +514,37 @@ int inferenceResult;
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    NSError *error2 = nil;
-    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
-    
-    if (error) {
-        NSLog(@"Unable to execute fetch request.");
-        NSLog(@"%@, %@", error2, error2.localizedDescription);
-        
-    } else {
-        if(result.count > 0 )
-        {
-            
-            NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
-            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"has_conversation"]);
-            
-        }
-    }
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+//    [fetchRequest setEntity:entity];
+//    
+//    NSError *error2 = nil;
+//    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
+//    
+//    
+//    if (featuresValuesTemp==1) {
+//        count_one ++;
+//        NSLog(@"count_one: %d", count_one);
+//        
+//    }else if (featuresValuesTemp==0){
+////        count_zero++;
+////        NSLog(@"count_zero: %d", count_zero);
+//    }
+//    if (error) {
+//        NSLog(@"Unable to execute fetch request.");
+//        NSLog(@"%@, %@", error2, error2.localizedDescription);
+//        
+//    } else {
+//        if(result.count > 0 )
+//        {
+//            
+//            NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
+//            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"has_conversation"]);
+//            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"timestamp"]);
+//            
+//        }
+//    }
 }
 
 ///**
@@ -554,11 +578,11 @@ int inferenceResult;
 //            NSManagedObject *rStart = (NSManagedObject *)[result objectAtIndex:result.count - _consecutiveConCount];
 //            NSManagedObject *rEnd = (NSManagedObject *)[result objectAtIndex:result.count - 1];
 //
-////            NSLog(@"start_time : %@", [r valueForKey:@"start_time"]);
-////            //Store start and end time
-////            [latestConverDuration setValue:[NSNumber numberWithDouble:[rStart valueForKey:@"time_stamp"]] forKey:@"start_time"];
-////            [latestConverDuration setValue:[NSNumber numberWithDouble:[rEnd valueForKey:@"time_stamp"]] forKey:@"end_time"];
-////           
+//            NSLog(@"start_time : %@", [r valueForKey:@"start_time"]);
+//            //Store start and end time
+//            [latestConverDuration setValue:[NSNumber numberWithDouble:[rStart valueForKey:@"time_stamp"]] forKey:@"start_time"];
+//            [latestConverDuration setValue:[NSNumber numberWithDouble:[rEnd valueForKey:@"time_stamp"]] forKey:@"end_time"];
+//           
 //        
 //            NSError *error1 = nil;
 //            
@@ -596,6 +620,16 @@ int inferenceResult;
 //}
 
 
+#pragma mark - Feed data to Social Classifier
+
+//+(double) conversationDuration{
+//    
+//    
+//}
+//
+//+(double) conversationFreq{
+//    
+//}
 
 #pragma mark - Compute
 //**********************************************************************************
