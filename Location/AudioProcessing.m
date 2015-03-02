@@ -139,6 +139,9 @@ int inferenceResult;
 @synthesize consecutiveSilCount = _consecutiveSilCount;
 @synthesize previousState = _previousState;
 @synthesize isConversation = _isConversation;
+@synthesize tempAudioClassification = _tempAudioClassification;
+@synthesize tempAudioTimestamp = _tempAudioTimestamp;
+@synthesize startTimer = _startTimer;
 
 int count_zero;
 int count_one;
@@ -160,76 +163,6 @@ int count_one;
 //        [self initVoicedFeaturesFunction];
 //    });
     return self;
-}
-
-
--(void) processAudio:(float *)frameBuffer
-{
-    [self normalizeData:frameBuffer];
-    //apply window
-    [self computeHamming];
-    
-    //compute FwdFFT
-    kiss_fftr(cfgFwd, normalizedData, fftx);
-    
-    //compute Power Spectrum
-    computePowerSpec(fftx, powerSpec, FFT_LENGTH);
-    computeMagnitudeSpec(powerSpec, magnitudeSpec, FFT_LENGTH);
-
-    // compute total energy
-    energy = computeEnergy(powerSpec,FFT_LENGTH) / FFT_LENGTH;
-    
-    //compute Spectral Entropy
-    computeSpectralEntropy2(magnitudeSpec, FFT_LENGTH);
-
-    //compute auto-correlation peaks
-    computeAutoCorrelationPeaks2(powerSpec, powerSpecCpx, NOISE_LEVEL, FFT_LENGTH);
-
-    ////return data as variable size array caused by variable autocorrelation information.
-//    jdoubleArray featureVector = (*env)->NewDoubleArray(env,6 + 2*numAcorrPeaks + 2 + LOOK_BACK_LENGTH);
-    featuresValuesTemp[0] = numAcorrPeaks; //autocorrelation values
-    featuresValuesTemp[1] = maxAcorrPeakVal;
-    featuresValuesTemp[2] = maxAcorrPeakLag;
-    featuresValuesTemp[3] = spectral_entropy;
-    featuresValuesTemp[4] = rel_spectral_entropy;
-    featuresValuesTemp[5] = energy;
-
-    
-    //gaussian distribution
-    //test the gaussian distribution with some dummy values first
-    x[0] = maxAcorrPeakVal;
-    x[1] = numAcorrPeaks;
-    x[2] = rel_spectral_entropy;
-    
-    
-    inferenceResult = getViterbiInference(x,featureAndInference);
-    memcpy( featuresValuesTemp+6, featureAndInference, (2+LOOK_BACK_LENGTH)*sizeof(double) ); //observation probabilities, inferences
-    
-
-    
-    // NOT SURE NEED TO ASK RUI ABOUT THIS PART. MIGHT NOT BE NEEDED!!!
-    
-//    //put auto correlation values in the string
-    memcpy( featuresValuesTemp+6+2+LOOK_BACK_LENGTH, acorrPeakValueArray, numAcorrPeaks*sizeof(double) );
-    memcpy( featuresValuesTemp+6+numAcorrPeaks+2+LOOK_BACK_LENGTH, acorrPeakLagValueArray, numAcorrPeaks*sizeof(double) );
-//(*env)->SetDoubleArrayRegion( env, featureVector, 0, 6 + numAcorrPeaks*2 + 2 + LOOK_BACK_LENGTH, (const jdouble*)featuresValuesTemp );
- 
-    //Log of audio class
-//    switch ((NSInteger)featuresValuesTemp[8]) {
-//        case 0:
-//            break;
-//        case 1:
-//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
-//            break;
-//        case 2:
-//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
-//            break;
-//        default:
-//            break;
-//    }
-    
-    
-    [self toStoreAudioConversation: featuresValuesTemp[8]];
 }
 
 
@@ -363,12 +296,93 @@ int count_one;
     _consecutiveSilCount = 0;
     _isConversation = FALSE;
     _previousState = FALSE;
+    _startTimer = FALSE;
+    
+    self.ezMicrophone = [EZMicrophone sharedMicrophone];
+    
+    _tempAudioClassification = [NSMutableArray array];
+    _tempAudioTimestamp = [NSMutableArray array];
     
     count_one = 0;
     count_zero = 0;
 }
 
-#pragma mark - ConversationCount Setter and Getter
+
+#pragma mark - ConversationCount
+
+/**
+ Audio classification
+ */
+-(void) processAudio:(float *)frameBuffer
+{
+    [self normalizeData:frameBuffer];
+    //apply window
+    [self computeHamming];
+    
+    //compute FwdFFT
+    kiss_fftr(cfgFwd, normalizedData, fftx);
+    
+    //compute Power Spectrum
+    computePowerSpec(fftx, powerSpec, FFT_LENGTH);
+    computeMagnitudeSpec(powerSpec, magnitudeSpec, FFT_LENGTH);
+    
+    // compute total energy
+    energy = computeEnergy(powerSpec,FFT_LENGTH) / FFT_LENGTH;
+    
+    //compute Spectral Entropy
+    computeSpectralEntropy2(magnitudeSpec, FFT_LENGTH);
+    
+    //compute auto-correlation peaks
+    computeAutoCorrelationPeaks2(powerSpec, powerSpecCpx, NOISE_LEVEL, FFT_LENGTH);
+    
+    ////return data as variable size array caused by variable autocorrelation information.
+    //    jdoubleArray featureVector = (*env)->NewDoubleArray(env,6 + 2*numAcorrPeaks + 2 + LOOK_BACK_LENGTH);
+    featuresValuesTemp[0] = numAcorrPeaks; //autocorrelation values
+    featuresValuesTemp[1] = maxAcorrPeakVal;
+    featuresValuesTemp[2] = maxAcorrPeakLag;
+    featuresValuesTemp[3] = spectral_entropy;
+    featuresValuesTemp[4] = rel_spectral_entropy;
+    featuresValuesTemp[5] = energy;
+    
+    
+    //gaussian distribution
+    //test the gaussian distribution with some dummy values first
+    x[0] = maxAcorrPeakVal;
+    x[1] = numAcorrPeaks;
+    x[2] = rel_spectral_entropy;
+    
+    
+    inferenceResult = getViterbiInference(x,featureAndInference);
+    memcpy( featuresValuesTemp+6, featureAndInference, (2+LOOK_BACK_LENGTH)*sizeof(double) ); //observation probabilities, inferences
+    
+    
+    
+    // NOT SURE NEED TO ASK RUI ABOUT THIS PART. MIGHT NOT BE NEEDED!!!
+    
+    //    //put auto correlation values in the string
+    memcpy( featuresValuesTemp+6+2+LOOK_BACK_LENGTH, acorrPeakValueArray, numAcorrPeaks*sizeof(double) );
+    memcpy( featuresValuesTemp+6+numAcorrPeaks+2+LOOK_BACK_LENGTH, acorrPeakLagValueArray, numAcorrPeaks*sizeof(double) );
+    //(*env)->SetDoubleArrayRegion( env, featureVector, 0, 6 + numAcorrPeaks*2 + 2 + LOOK_BACK_LENGTH, (const jdouble*)featuresValuesTemp );
+//    
+//    //Log of audio class
+//    switch ((NSInteger)featuresValuesTemp[8]) {
+//        case 0:
+//            break;
+//        case 1:
+//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+//            break;
+//        case 2:
+//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+//            break;
+//        default:
+//            break;
+//    }
+    
+    
+    [self toStoreAudioConversation: featuresValuesTemp[8]];
+}
+
+
 /**
  Update convecutive conversation count
  if the featuresValuesTemp[8] is 1 then increment _consecutiveConCount
@@ -471,42 +485,93 @@ int count_one;
  it is considered as a conversation and the starting and ending timestamp is 
  stored to database. If there is 20 consecutive 0 then it is either considered 
  the end of the conversation or just silence
+ Store audio classification results to the temp mutable array for the past minute
  */
 - (void) toStoreAudioConversation: (NSInteger)featuresValuesTemp{
     
-    [self storeConversationClassification: featuresValuesTemp];
-    
-    switch (featuresValuesTemp) {
-        case 0:
-            [self incrementConsecutiveSilCount];
-
-            break;
-            
-        case 1:
-            [self incrementConsecutiveConCount];
-            break;
-            
-        default:
-            break;
+    //Every 60 seconds check the past audio classfication and decide if there
+    //is a conversation
+    if (!_startTimer) {
+        
+        _startTimer = TRUE;
+        
+        [NSTimer scheduledTimerWithTimeInterval:60 target:self
+                selector:@selector(hasConvesation)
+                userInfo:nil
+                repeats:NO];
     }
+    
+    [_tempAudioClassification addObject: [NSNumber numberWithInteger: featuresValuesTemp]];
+    [_tempAudioTimestamp addObject:[NSDate date]];
+    
+    if (featuresValuesTemp == 1) {
+        _consecutiveConCount++;
+    }
+    
+//    [self storeConversationClassificationToArray: featuresValuesTemp];
+//    switch (featuresValuesTemp) {
+//        case 0:
+////            [self incrementConsecutiveSilCount];
+//
+//            break;
+//            
+//        case 1:
+////            [self incrementConsecutiveConCount];
+//            break;
+//            
+//        default:
+//            break;
+//    }
  
 }
 
+
+
+/**
+ Reset audio classification temp mutable array to empty before next minute
+ */
+- (void) resetConversationClassificationArray{
+    
+    _consecutiveConCount = 0;
+    [_tempAudioClassification removeAllObjects];
+    [_tempAudioTimestamp removeAllObjects];
+    
+    _startTimer = FALSE;
+}
+
+/**
  
+ */
+- (void)hasConvesation{
+    
+    [self storeConversationClassification];
+    
+    if (_consecutiveConCount >= 10) {
+        [self storeConversationDuration];
+    }
+    
+    [self resetConversationClassificationArray];
+    
+}
+
+
 /**
  Store audio classification result to the database table
  two attributes need to be stored: classification result
  and timestamp
  */
-- (void) storeConversationClassification : (NSInteger)featuresValuesTemp{
+- (void) storeConversationClassification {
     
     //create the entity over here
     NSEntityDescription *entityDescriptionAudio = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
     
     NSManagedObject *latestAudioClassfication = [[NSManagedObject alloc] initWithEntity:entityDescriptionAudio insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     
-    [latestAudioClassfication setValue:[NSNumber numberWithInteger:featuresValuesTemp] forKey:@"has_conversation"];
-    [latestAudioClassfication setValue:[NSDate date] forKey:@"timestamp"];
+    int length = [_tempAudioClassification count];
+    for (int i = 0; i < length; i++) {
+        [latestAudioClassfication setValue:_tempAudioClassification[i] forKey:@"has_conversation"];
+        [latestAudioClassfication setValue:_tempAudioTimestamp[i] forKey:@"timestamp"];
+    }
     
     NSError *error = nil;
     
@@ -523,7 +588,7 @@ int count_one;
 //    NSError *error2 = nil;
 //    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
 //    
-//    
+//
 //    if (featuresValuesTemp==1) {
 //        count_one ++;
 //        NSLog(@"count_one: %d", count_one);
@@ -532,7 +597,7 @@ int count_one;
 ////        count_zero++;
 ////        NSLog(@"count_zero: %d", count_zero);
 //    }
-//    if (error) {
+//    if (error2) {
 //        NSLog(@"Unable to execute fetch request.");
 //        NSLog(@"%@, %@", error2, error2.localizedDescription);
 //        
@@ -548,17 +613,28 @@ int count_one;
 //    }
 }
 
-///**
-// Store recent conversation duration to database
-// if there was at least 20 consecutive conversation
-// */
-//-(void) storeConversationDuration
-//{
-//    //create the entity over here and save it
-//    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
-//    
-//    NSManagedObject *latestConverDuration = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
-//    
+/**
+ Store recent conversation duration to database
+ if there was at least 20 consecutive conversation
+ */
+-(void) storeConversationDuration
+{
+    //create the entity over here and save it
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+    
+    NSManagedObject *latestConverDuration = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
+    
+    [latestConverDuration setValue:[_tempAudioTimestamp firstObject] forKey:@"start_time"];
+    [latestConverDuration setValue:[_tempAudioTimestamp lastObject] forKey:@"end_time"];
+
+    NSError *error = nil;
+    
+    if (![latestConverDuration.managedObjectContext save:&error]) {
+        NSLog(@"Unable to save managed object context.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    }
+
+    
 //    //Get start and time from database of Audio
 //    NSError *error = nil;
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -596,29 +672,30 @@ int count_one;
 //        }
 //    
 //    }
-//    //retreive the data and print it in the log
-//    NSError *error_2 = nil;
-//    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
-//    
-//    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
-//    [fetchRequest_2 setEntity:entity_2];
-//    
-//    NSArray *result_2 = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
-//    
-//    if (error_2) {
-//        NSLog(@"Unable to execute fetch request.");
-//        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
-//        
-//    } else {
-//        if(result_2.count > 0 )
-//        {
-//            
-//            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
-//            
-//            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
-//        }
-//    }
-//}
+    //retreive the data and print it in the log
+    NSError *error_2 = nil;
+    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+    [fetchRequest_2 setEntity:entity_2];
+    
+    NSArray *result_2 = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
+    
+    if (error_2) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
+        
+    } else {
+        if(result_2.count > 0 )
+        {
+            
+            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
+            
+            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
+        }
+    }
+}
+
 
 
 #pragma mark - Feed data to Social Classifier
