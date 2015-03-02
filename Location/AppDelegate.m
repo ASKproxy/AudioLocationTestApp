@@ -64,6 +64,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     
 }
 
+
 /*
  * Add notification observer to listen for system notification of 
  * "lockstate" : when lock or unlock phone, system sends out the notification
@@ -71,7 +72,21 @@ static void displayStatusChanged(CFNotificationCenterRef center,
  * "hasBlankedScreen" : when screen is black, system sends out the notification
  */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
+    
+    // are you running on iOS8?
+    if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeAlert|UIUserNotificationTypeSound) categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    else // iOS 7 or earlier
+    {
+        UIRemoteNotificationType myTypes = UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound;
+        [application registerForRemoteNotificationTypes:myTypes];
+    }
+    
+    
     //---------------------------------------
     // Setup sensors
     setupSensors = [SetupSensors sharedSetupSensors];
@@ -178,6 +193,11 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     application.applicationIconBadgeNumber = 0;
 //    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
+
+//#ifdef __IPHONE_8_0
+//- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+//    [application registerForRemoteNotifications];
+//}
 
 
 @end
