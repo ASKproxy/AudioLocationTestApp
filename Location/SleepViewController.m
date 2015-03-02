@@ -360,7 +360,7 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 
 - (void)addAnimalImage{
     //    UIImage *image = [[UIImage alloc] init];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 150, 150)];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
     [iv setImage:[UIImage imageNamed:@"TabAsleep"]];
     [self.view addSubview:iv];
 }

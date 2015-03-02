@@ -11,6 +11,7 @@
 #import "DeviceOrientation.h"   
 
 @interface SleepViewController : JBBaseChartViewController
+@property (strong, nonatomic) DeviceOrientation *deviceOrientation;
 @property (weak, nonatomic) IBOutlet UITabBarItem *SleepButton;
 
 @end
