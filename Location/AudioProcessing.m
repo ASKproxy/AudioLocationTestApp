@@ -699,46 +699,51 @@ int count_one;
 
 
 #pragma mark - Feed data to Social Classifier
-//
-//+(double) conversationDuration{
-//    double result = 0;
-//    
-//    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - 3600 * 3];
-//    
-//    
-//    
-//    //retreive the data and print it in the log
-//    NSError *error_2 = nil;
-//    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
-//    
-//    DataManager *tempManager = [DataManager sharedInstance];
-//    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:tempManager.managedObjectContext];
-//    [fetchRequest_2 setEntity:entity_2];
-//    
-//    NSArray *result_2 = [tempManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
-//    
-//    if (error_2) {
-//        NSLog(@"Unable to execute fetch request.");
-//        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
-//        
-//    } else {
-//        if(result_2.count > 0 )
-//        {
-//            
-//            int i = (int)result_2.count;
-//            
-//            while ( ) {
-//                <#statements#>
-//            }
-//            
-//            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
-//            
-//            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
-//        }
-//    }
-//    
-//    return result;
-//}
+
++(double) conversationDuration{
+    double result = 0;
+    
+    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - 3600 * 3];
+    
+    
+    
+    //retreive the data and print it in the log
+    NSError *error_2 = nil;
+    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
+    
+    DataManager *tempManager = [DataManager sharedInstance];
+    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:tempManager.managedObjectContext];
+    [fetchRequest_2 setEntity:entity_2];
+    
+    NSArray *result_2 = [tempManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
+    
+    if (error_2) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
+        
+    } else {
+        if(result_2.count > 0 )
+        {
+            
+            int i = (int)result_2.count - 1;
+            
+            
+            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+            NSDate *oldDate = [r_2 valueForKey:@"start_time"];
+            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
+            
+            while ( [self currentTime:currentDate isEarlierThanOrEqualTo:oldDate]) {
+                result++;
+                i--;
+                r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+                oldDate = [r_2 valueForKey:@"start_time"];
+            }
+
+        }
+    }
+    
+    return result;
+}
 
 +(double) conversationFreq{
     double result = 0;
@@ -746,7 +751,7 @@ int count_one;
     return result;
 }
 
--(BOOL) currentTime:(NSDate*)curDate isEarlierThanOrEqualTo:(NSDate*)date {
++(BOOL) currentTime:(NSDate*)curDate isEarlierThanOrEqualTo:(NSDate*)date {
     return !([curDate compare:date] == NSOrderedDescending);
 }
 
