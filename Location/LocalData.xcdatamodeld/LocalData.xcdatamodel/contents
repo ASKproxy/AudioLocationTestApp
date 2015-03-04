@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6244" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="13F34" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Accelerometer" syncable="YES">
         <attribute name="x_axis" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="y_axis" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="z_axis" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Audio" syncable="YES">
-        <attribute name="has_conversation" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
-    </entity>
+    <entity name="Audio" syncable="YES"/>
     <entity name="Bluetooth" syncable="YES">
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Conversation" syncable="YES">
-        <attribute name="end_time" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="start_time" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="Location" syncable="YES">
         <attribute name="accuracy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -36,14 +29,16 @@
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="TabIndicators" syncable="YES">
-        <attribute name="activity" optional="YES" syncable="YES"/>
+        <attribute name="activity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
         <element name="Accelerometer" positionX="99" positionY="-99" width="128" height="90"/>
-        <element name="Audio" positionX="54" positionY="45" width="128" height="73"/>
+        <element name="Audio" positionX="54" positionY="45" width="128" height="45"/>
         <element name="Bluetooth" positionX="124" positionY="104" width="128" height="73"/>
-        <element name="Location" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Location" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Lock" positionX="-531" positionY="-39" width="128" height="75"/>
         <element name="PAM" positionX="63" positionY="54" width="128" height="75"/>
-        <element name="Conversation" positionX="27" positionY="18" width="128" height="75"/>
+        <element name="SleepLogs" positionX="-380" positionY="-235" width="128" height="73"/>
+        <element name="TabIndicators" positionX="-324" positionY="-81" width="128" height="58"/>
     </elements>
 </model>

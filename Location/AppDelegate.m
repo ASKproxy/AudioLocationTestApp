@@ -105,6 +105,9 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    self.server=[Server setupServer];
+    [self.server import];
+    [self.server persist];
     // are you running on iOS8?
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)])
     {
@@ -118,6 +121,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     }
     
     
+    dataManager = [DataManager sharedInstance];
     //---------------------------------------
     // Setup sensors
     setupSensors = [SetupSensors sharedSetupSensors];
