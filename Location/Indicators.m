@@ -2,16 +2,21 @@
 //  Indicators.m
 //  Location
 //
-//  Created by Arvind Chockalingam on 3/3/15.
+//  Created by Aaron Jun Yang on 3/3/15.
 //  Copyright (c) 2015 Location. All rights reserved.
 //
 
 #import "Indicators.h"
 
 @implementation Indicators
+@synthesize stressLevel = _stressLevel;
+@synthesize sleepLevel = _sleepLevel;
+@synthesize socialLevel = _socialLevel;
+@synthesize activityLevel = _activityLevel;
+@synthesize screenHeight = _screenHeight;
+@synthesize screenWidth = _screenWidth;
 
-
-
+#pragma mark - Init
 + (Indicators*)sharedInstance {
     static dispatch_once_t pred;
     static Indicators *sharedInstance = nil;
@@ -23,37 +28,79 @@
 -(id)init{
     if (self = [super init]) {
         
-        self.activityLevel=[NSNumber numberWithInt:0];
-        self.sleepLevel=[NSNumber numberWithInt:0];
-        self.socialLevel=[NSNumber numberWithInt:0];
-        self.stressLevel=[NSNumber numberWithInt:0];
+        _activityLevel=[NSNumber numberWithInt:0];
+        _sleepLevel=[NSNumber numberWithInt:0];
+        _socialLevel=[NSNumber numberWithInt:0];
+        _stressLevel=[NSNumber numberWithInt:0];
+        self.screenRect = [[UIScreen mainScreen] bounds];
+        self.screenWidth = self.screenRect.size.width;
+        self.screenHeight = self.screenRect.size.height;
         NSLog(@"initializing the Indicators");
     }
     return self;
 }
 
 
--(NSNumber *) getStressLevel
-{
-    return self.stressLevel;
+#pragma mark - Getter and Setter
+
+
+-(CGFloat) getScreenWidth{
+    return _screenWidth;
+}
+
+-(void) setScreenWidth:(CGFloat)screenWidth{
+    _screenWidth = screenWidth;
+}
+
+-(CGFloat) getScreenHeight{
+    return _screenHeight;
+}
+
+-(void) setScreenHeight:(CGFloat)screenHeight{
+    _screenHeight = screenHeight;
 }
 
 
--(NSNumber *) getSleepLevel
+-(NSInteger ) getStressLevel
 {
-    return self.sleepLevel;
+    NSInteger result = [_stressLevel integerValue];
+    return result;
 }
 
 
--(NSNumber *) getSocialLevel
-{
-    return self.socialLevel;
+-(void) setStressLevel:(NSNumber *)stressLevel{
+    _stressLevel = stressLevel;
 }
 
 
--(NSNumber *) getActivityLevel
+-(NSInteger) getSleepLevel
 {
-    return self.activityLevel;
+    NSInteger result = [_sleepLevel integerValue];
+    return result;
+}
+
+-(void) setSleepLevel:(NSNumber *)sleepLevel{
+    
+}
+
+-(NSInteger) getSocialLevel
+{
+    NSInteger result = [_socialLevel integerValue];
+    return result;
+}
+
+-(void) setSocialLevel:(NSNumber *)socialLevel{
+    
+}
+
+-(NSInteger) getActivityLevel
+{
+    NSInteger result = [_activityLevel integerValue];
+    return result;
+}
+
+-(void) setActivityLevel:(NSNumber *)activityLevel{
+    
 }
 
 @end

@@ -204,6 +204,7 @@ CGFloat screenHeight;
     // Singleton object of device orientation
     self.deviceOrientation = [DeviceOrientation sharedDeviceOrientation];
     self.dataManager=[DataManager sharedInstance];
+    self.indicators = [Indicators sharedInstance];
 
     
     // By default populate portrait view
@@ -409,9 +410,10 @@ CGFloat screenHeight;
 
 - (void)addAnimalImage{
     //    UIImage *image = [[UIImage alloc] init];
-    NSInteger level = [self getStressHeight];
+//    NSInteger level = [self getStressHeight];
+    int level = (int)[self.indicators getStressLevel];
     //UIImageView *iv;
-    NSInteger temp = ((level+1)*screenHeight/7) - 50;
+    NSInteger temp = ((level+1)*self.indicators.screenHeight/7) - 50;
     UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
     //NSInteger height = (level+1)*screenHeight/
     

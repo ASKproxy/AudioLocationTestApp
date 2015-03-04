@@ -74,7 +74,9 @@ static int mutableChartData_1 = {1, 2, 3, 4, 5, 6, 7};
 static int mutableChartData_2 = {7, 6, 5, 4, 3, 2, 1};
 
 static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
-
+CGRect screenRect;
+CGFloat screenWidth;
+CGFloat screenHeight;
 
 #pragma mark - Alloc/Init
 
@@ -113,6 +115,10 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 
 - (void)initFakeData
 {
+    screenRect = [[UIScreen mainScreen] bounds];
+    screenWidth = screenRect.size.width;
+    screenHeight = screenRect.size.height;
+
     _mutableLineChartsLandscape = [NSMutableArray array];
     _mutableLineChartsPortrait = [NSMutableArray array];
     
@@ -178,8 +184,9 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 {
     [super loadView];
     
-    // Singleton object of device orientation
+    // Singleton object
     self.deviceOrientation = [DeviceOrientation sharedDeviceOrientation];
+    self.indicator = [Indicators sharedInstance];
 
     // By default populate portrait view
     self.lineChartView = [[JBLineChartView alloc] init];
@@ -363,11 +370,58 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 }
 
 
+//- (void)addAnimalImage{
+//    //    UIImage *image = [[UIImage alloc] init];
+//    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 80, 200, 200)];
+//    [iv setImage:[UIImage imageNamed:@"TabActivityHigh"]];
+//    [self.view addSubview:iv];
+//}
+
 - (void)addAnimalImage{
     //    UIImage *image = [[UIImage alloc] init];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 80, 200, 200)];
-    [iv setImage:[UIImage imageNamed:@"TabActivityHigh"]];
-    [self.view addSubview:iv];
+    //    NSInteger level = [self getStressHeight];
+    int level = (int)[self.indicator getActivityLevel];
+    //UIImageView *iv;
+    NSInteger temp = ((level+1)*self.indicator.screenHeight/7) - 50;
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
+    //NSInteger height = (level+1)*screenHeight/
+    
+    switch (level) {
+        case 0:
+            //temp = ((5-level)*screenHeight/5)-50;
+            //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
+            [iv setImage:[UIImage imageNamed:@"Happy"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 1:
+            //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
+            [iv setImage:[UIImage imageNamed:@"Neutral"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 2:
+            [iv setImage:[UIImage imageNamed:@"Stressed"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 3:
+            [iv setImage:[UIImage imageNamed:@"Stressed2"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 4:
+            [iv setImage:[UIImage imageNamed:@"Stressed3"]];
+            [self.view addSubview:iv];
+            break;
+            
+        default:
+            break;
+    }
+    
+    //    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
+    //    [iv setImage:[UIImage imageNamed:@"Stressed3"]];
+    //    [self.view addSubview:iv];
 }
 
 

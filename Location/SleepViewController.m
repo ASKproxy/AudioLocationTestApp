@@ -178,8 +178,9 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 {
     [super loadView];
     
-    // Singleton object of device orientation
+    // Singleton object
     self.deviceOrientation = [DeviceOrientation sharedDeviceOrientation];
+    self.indicator = [Indicators sharedInstance];
     
     // By default populate portrait view
     self.lineChartView = [[JBLineChartView alloc] init];
@@ -358,11 +359,59 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 }
 
 
+//- (void)addAnimalImage{
+//    //    UIImage *image = [[UIImage alloc] init];
+//    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+//    [iv setImage:[UIImage imageNamed:@"TabAsleep"]];
+//    [self.view addSubview:iv];
+//}
+
+
 - (void)addAnimalImage{
     //    UIImage *image = [[UIImage alloc] init];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
-    [iv setImage:[UIImage imageNamed:@"TabAsleep"]];
-    [self.view addSubview:iv];
+    //    NSInteger level = [self getStressHeight];
+    int level = (int)[self.indicator getSleepLevel];
+    //UIImageView *iv;
+    NSInteger temp = ((level+1)*self.indicator.screenHeight/7) - 50;
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
+    //NSInteger height = (level+1)*screenHeight/
+    
+    switch (level) {
+        case 0:
+            //temp = ((5-level)*screenHeight/5)-50;
+            //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
+            [iv setImage:[UIImage imageNamed:@"Happy"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 1:
+            //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
+            [iv setImage:[UIImage imageNamed:@"Neutral"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 2:
+            [iv setImage:[UIImage imageNamed:@"Stressed"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 3:
+            [iv setImage:[UIImage imageNamed:@"Stressed2"]];
+            [self.view addSubview:iv];
+            break;
+            
+        case 4:
+            [iv setImage:[UIImage imageNamed:@"Stressed3"]];
+            [self.view addSubview:iv];
+            break;
+            
+        default:
+            break;
+    }
+    
+    //    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
+    //    [iv setImage:[UIImage imageNamed:@"Stressed3"]];
+    //    [self.view addSubview:iv];
 }
 
 

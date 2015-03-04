@@ -9,10 +9,11 @@
 #import "JBBaseChartViewController.h"
 #import "StudentLifeConstant.h"
 #import "DeviceOrientation.h"
+#import "Indicators.h"
 
 @interface ActivityViewController : JBBaseChartViewController
 @property (weak, nonatomic) IBOutlet UITabBarItem *ActivityButton;
-
+@property (strong, nonatomic) Indicators *indicator;
 @property (strong, nonatomic) DeviceOrientation *deviceOrientation;
 
 

@@ -49,8 +49,8 @@ The sleep data is stored in Core Data in the following format :
 
 
 static int sleepIndicator=0;
-static int _NotificationFireTimeOfDay[] = {15};
-static int _NotificationFireMinOfDay[] = {26};
+static int _NotificationFireTimeOfDay[] = {12};
+static int _NotificationFireMinOfDay[] = {38, 40};
 float frame_buffer[FRAME_LENGTH];
 
 static int intervalCounter=0;

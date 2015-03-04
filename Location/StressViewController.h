@@ -10,15 +10,17 @@
 #import "StudentLifeConstant.h"
 #import "DeviceOrientation.h"
 #import "DataManager.h"
+#import "Indicators.h"
 
 @interface StressViewController : JBBaseChartViewController
 @property (strong, nonatomic) DeviceOrientation *deviceOrientation;
 @property (weak, nonatomic) IBOutlet UITabBarItem *StressButton;
 @property (strong,nonatomic) DataManager * dataManager;
+@property (strong, nonatomic) Indicators *indicators;
 
 //extern NSInteger MYGlobalVariable;
 
-- (NSInteger) getStressHeight;
+//- (NSInteger) getStressHeight;
 
 
 @end

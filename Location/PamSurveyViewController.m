@@ -67,6 +67,10 @@
     
     int stressLevel = (int)[self.PamStressButtons indexOfObject:sender];
     
+    //Initiate Indicator singleton object
+    self.indicator = [Indicators sharedInstance];
+    [self.indicator setStressLevel:[NSNumber numberWithInt:stressLevel]];
+    
     //Initiate the DataManager singleton object to store the data
     self.dataManager=[DataManager sharedInstance];
     [self storeToDatabase:stressLevel];

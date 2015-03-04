@@ -9,9 +9,11 @@
 #import "JBBaseChartViewController.h"
 #import "StudentLifeConstant.h"
 #import "DeviceOrientation.h"   
+#import "Indicators.h"
 
 @interface SleepViewController : JBBaseChartViewController
 @property (strong, nonatomic) DeviceOrientation *deviceOrientation;
 @property (weak, nonatomic) IBOutlet UITabBarItem *SleepButton;
+@property (strong, nonatomic) Indicators *indicator;
 
 @end

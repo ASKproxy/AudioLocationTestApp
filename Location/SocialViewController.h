@@ -11,7 +11,7 @@
 #import "JBBaseChartViewController.h"
 #import "StudentLifeConstant.h"
 #import "DeviceOrientation.h"
-
+#import "Indicators.h"
 
 
 
@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *GPSLon;
 @property (strong, nonatomic) DeviceOrientation *deviceOrientation;
 @property (weak, nonatomic) IBOutlet UITabBarItem *SocialButton;
+@property (strong, nonatomic) Indicators *indicator;
 
 
 @end
