@@ -65,7 +65,6 @@
 		5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C90909818B3A66A00510153 /* InfoPlist.strings */; };
 		5C90909C18B3A66A00510153 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909B18B3A66A00510153 /* main.m */; };
 		5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C90909F18B3A66A00510153 /* AppDelegate.m */; };
-		5C9090A318B3A66A00510153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C9090A118B3A66A00510153 /* Main.storyboard */; };
 		5C9090A618B3A66A00510153 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9090A518B3A66A00510153 /* MainViewController.m */; };
 		5C9090A818B3A66A00510153 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C9090A718B3A66A00510153 /* Images.xcassets */; };
 		5C9090AF18B3A66A00510153 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090AE18B3A66A00510153 /* XCTest.framework */; };
@@ -79,9 +78,9 @@
 		5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090CD18B3AB2100510153 /* CoreLocation.framework */; };
 		886A402F1A13FD0C001A35BB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A402E1A13FD0C001A35BB /* CoreAudio.framework */; };
 		886A40311A13FD1F001A35BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A40301A13FD1F001A35BB /* AVFoundation.framework */; };
-		A432BA121AA0F19D008E941E /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A432BA111AA0F19D008E941E /* Server.m */; };
 		972670EF1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		972670F01AA271010062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
+		A432BA121AA0F19D008E941E /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A432BA111AA0F19D008E941E /* Server.m */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D51B21AA686D100F74DC6 /* Indicators.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
@@ -232,9 +231,9 @@
 		5C9090CD18B3AB2100510153 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		886A402E1A13FD0C001A35BB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		886A40301A13FD1F001A35BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiekka Graphics - Savu Condensed.ttf"; sourceTree = "<group>"; };
 		A432BA101AA0F19D008E941E /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		A432BA111AA0F19D008E941E /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
-		972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiekka Graphics - Savu Condensed.ttf"; sourceTree = "<group>"; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
 		A45D51B11AA686D100F74DC6 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indicators.h; sourceTree = "<group>"; };
@@ -783,7 +782,6 @@
 				5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */,
 				3FB8ABA11A99609000E432DF /* icon-bar-chart.png in Resources */,
 				3FDA7CF71A86CF8700A4EE58 /* VERSION in Resources */,
-				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
 				972670EF1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */,
 				3FB8ABA01A99609000E432DF /* icon-arrow@2x.png in Resources */,
 				3FB8ABA41A99609000E432DF /* icon-jawbone-logo@2x.png in Resources */,
@@ -806,60 +804,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */,
+				A4A97DD71AA3948300927356 /* ActivityClassifier.m in Sources */,
+				3FDECA921A998D6300B52EE4 /* ActivityViewController.m in Sources */,
 				A47DEEF01A92C24500D1B5DE /* mvnpdf.c in Sources */,
 				3F699A871A9816F200F81471 /* JBChartView.m in Sources */,
-				A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */,
+				3F699A861A9816F200F81471 /* JBBarChartView.m in Sources */,
+				3FB8AB961A99609000E432DF /* JBChartHeaderView.m in Sources */,
+				3FB8AB951A99609000E432DF /* JBLineChartFooterView.m in Sources */,
+				3FB8AB9A1A99609000E432DF /* JBChartInformationView.m in Sources */,
+				3FB8AB9B1A99609000E432DF /* JBChartTooltipTipView.m in Sources */,
+				3FB8AB9C1A99609000E432DF /* JBChartTooltipView.m in Sources */,
+				3F699A881A9816F200F81471 /* JBLineChartView.m in Sources */,
+				3FB8AB8D1A99609000E432DF /* JBBaseViewController.m in Sources */,
+				3FB8AB8A1A99609000E432DF /* JBBaseChartViewController.m in Sources */,
+				3FB8AB8C1A99609000E432DF /* JBBaseTableViewController.m in Sources */,
+				3FB8AB891A99609000E432DF /* JBChartTableCell.m in Sources */,
+				3FB8AB941A99609000E432DF /* JBBarChartFooterView.m in Sources */,
 				3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */,
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
-				3FB8AB8D1A99609000E432DF /* JBBaseViewController.m in Sources */,
 				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,
 				A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */,
-				3FB8AB8A1A99609000E432DF /* JBBaseChartViewController.m in Sources */,
 				3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */,
-				3F699A881A9816F200F81471 /* JBLineChartView.m in Sources */,
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,
+				3FDA7CF31A86CF8700A4EE58 /* EZPlot.m in Sources */,
+				3FDA7CEB1A86CF8700A4EE58 /* EZAudio.m in Sources */,
+				3FDA7CEF1A86CF8700A4EE58 /* EZAudioPlotGL.m in Sources */,
+				3FDA7CF01A86CF8700A4EE58 /* EZAudioPlotGLKViewController.m in Sources */,
+				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
+				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
+				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
+				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
-				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
-				A4A97DD71AA3948300927356 /* ActivityClassifier.m in Sources */,
 				5C9090A618B3A66A00510153 /* MainViewController.m in Sources */,
 				3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */,
-				3FDA7CEF1A86CF8700A4EE58 /* EZAudioPlotGL.m in Sources */,
 				A47DEEFA1A92C27200D1B5DE /* viterbi.c in Sources */,
 				A47DEEF61A92C25000D1B5DE /* kiss_fftr.c in Sources */,
-				3FB8AB961A99609000E432DF /* JBChartHeaderView.m in Sources */,
-				3FDECA921A998D6300B52EE4 /* ActivityViewController.m in Sources */,
+				A47DEEF51A92C25000D1B5DE /* kiss_fft.c in Sources */,
 				3FDECA8F1A998D0500B52EE4 /* SleepViewController.m in Sources */,
-				3FDA7CF01A86CF8700A4EE58 /* EZAudioPlotGLKViewController.m in Sources */,
 				3FDA7CEA1A86CF8700A4EE58 /* AEFloatConverter.m in Sources */,
-				3FB8AB9A1A99609000E432DF /* JBChartInformationView.m in Sources */,
+				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,
+				5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */,
+				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
-				3FB8AB951A99609000E432DF /* JBLineChartFooterView.m in Sources */,
-				3FDA7CEB1A86CF8700A4EE58 /* EZAudio.m in Sources */,
-				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
-				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
 				3F2EE7BB1A92C9B8002C0054 /* LocalData.xcdatamodeld in Sources */,
-				3F8A05021A9D0BE5008DDBC1 /* DeviceOrientation.m in Sources */,
-				3FB8AB891A99609000E432DF /* JBChartTableCell.m in Sources */,
-				3F699A861A9816F200F81471 /* JBBarChartView.m in Sources */,
-				3FB8AB941A99609000E432DF /* JBBarChartFooterView.m in Sources */,
-				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
 				3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */,
+				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */,
-				3FB8AB9C1A99609000E432DF /* JBChartTooltipView.m in Sources */,
+				3F8A05021A9D0BE5008DDBC1 /* DeviceOrientation.m in Sources */,
 				A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */,
 				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,
-				3FB8AB9B1A99609000E432DF /* JBChartTooltipTipView.m in Sources */,
 				A432BA121AA0F19D008E941E /* Server.m in Sources */,
-				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
-				3FB8AB8C1A99609000E432DF /* JBBaseTableViewController.m in Sources */,
-				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
-				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,
-				3FDA7CF31A86CF8700A4EE58 /* EZPlot.m in Sources */,
 				3F2EE7C11A93132C002C0054 /* SocialViewController.m in Sources */,
-				A47DEEF51A92C25000D1B5DE /* kiss_fft.c in Sources */,
 				3FB8ABAC1A9978B500E432DF /* StressViewController.m in Sources */,
-				5C9090A018B3A66A00510153 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
