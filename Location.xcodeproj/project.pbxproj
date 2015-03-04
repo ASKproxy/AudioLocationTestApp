@@ -82,6 +82,7 @@
 		972670EF1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		972670F01AA271010062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
+		A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D51B21AA686D100F74DC6 /* Indicators.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
 		A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */; };
 		A45E5EC61A91D96A0048FEB5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC51A91D96A0048FEB5 /* CoreData.framework */; };
@@ -92,6 +93,7 @@
 		A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEFC1A92C2B100D1B5DE /* BluetoothTracker.m */; };
 		A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEEFF1A92C2CF00D1B5DE /* DataManager.m */; };
 		A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A47DEF021A92C2F300D1B5DE /* AccelerometerTracker.m */; };
+		A4A97DD71AA3948300927356 /* ActivityClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A97DD61AA3948300927356 /* ActivityClassifier.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +234,8 @@
 		972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiekka Graphics - Savu Condensed.ttf"; sourceTree = "<group>"; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
+		A45D51B11AA686D100F74DC6 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indicators.h; sourceTree = "<group>"; };
+		A45D51B21AA686D100F74DC6 /* Indicators.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Indicators.m; sourceTree = "<group>"; };
 		A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A45E5EC51A91D96A0048FEB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -251,6 +255,8 @@
 		A47DEEFF1A92C2CF00D1B5DE /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A47DEF011A92C2F300D1B5DE /* AccelerometerTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerTracker.h; sourceTree = "<group>"; };
 		A47DEF021A92C2F300D1B5DE /* AccelerometerTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerTracker.m; sourceTree = "<group>"; };
+		A4A97DD51AA3948300927356 /* ActivityClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityClassifier.h; sourceTree = "<group>"; };
+		A4A97DD61AA3948300927356 /* ActivityClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityClassifier.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -562,6 +568,9 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				A45D51B11AA686D100F74DC6 /* Indicators.h */,
+				A45D51B21AA686D100F74DC6 /* Indicators.m */,
+				A432BA131AA0F1A4008E941E /* Server */,
 				3FB8AB461A995A8900E432DF /* StudentLifeConstant */,
 				3F699A7E1A98018200F81471 /* Libraries */,
 				A45E5EBD1A91D9210048FEB5 /* StudentLifeBluetooth */,
@@ -610,6 +619,15 @@
 				5C9090B718B3A66A00510153 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A432BA131AA0F1A4008E941E /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				A432BA101AA0F19D008E941E /* Server.h */,
+				A432BA111AA0F19D008E941E /* Server.m */,
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 		A45E5EB11A91CCA40048FEB5 /* StudentLifeAudioProcessing */ = {
@@ -790,12 +808,14 @@
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
 				3FB8AB8D1A99609000E432DF /* JBBaseViewController.m in Sources */,
 				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,
+				A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */,
 				3FB8AB8A1A99609000E432DF /* JBBaseChartViewController.m in Sources */,
 				3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */,
 				3F699A881A9816F200F81471 /* JBLineChartView.m in Sources */,
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,
 				5C90909C18B3A66A00510153 /* main.m in Sources */,
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
+				A4A97DD71AA3948300927356 /* ActivityClassifier.m in Sources */,
 				5C9090A618B3A66A00510153 /* MainViewController.m in Sources */,
 				3FB531021A7DB99700E1B62C /* StudentLifeBackgroundAudio.m in Sources */,
 				3FDA7CEF1A86CF8700A4EE58 /* EZAudioPlotGL.m in Sources */,
@@ -824,6 +844,7 @@
 				A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */,
 				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,
 				3FB8AB9B1A99609000E432DF /* JBChartTooltipTipView.m in Sources */,
+				A432BA121AA0F19D008E941E /* Server.m in Sources */,
 				3FDA7CEE1A86CF8700A4EE58 /* EZAudioPlot.m in Sources */,
 				3FB8AB8C1A99609000E432DF /* JBBaseTableViewController.m in Sources */,
 				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,

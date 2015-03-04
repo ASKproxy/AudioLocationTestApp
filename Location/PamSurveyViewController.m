@@ -78,12 +78,20 @@
  Stores PAM survey result to the database
  */
 - (void)storeToDatabase:(int)stressLevel{
+
+    
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+
+    
     //create the entity over here and save it
     NSEntityDescription *entityDecription = [NSEntityDescription entityForName:@"PAM" inManagedObjectContext:self.dataManager.managedObjectContext];
     
     NSManagedObject *latestPam = [[NSManagedObject alloc] initWithEntity:entityDecription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     [latestPam setValue:[NSNumber numberWithInt:stressLevel] forKey:@"stress_level"];
     
+    NSString *dateString = [df stringFromDate:[NSDate date]];
+    [latestPam setValue:dateString forKey:@"timestamp"];
     NSError *error1 = nil;
     
     if (![latestPam.managedObjectContext save:&error1]) {
@@ -103,6 +111,7 @@
     
     NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    
     if (error) {
         NSLog(@"Unable to execute fetch request.");
         NSLog(@"%@, %@", error, error.localizedDescription);
@@ -112,9 +121,7 @@
         {
             
             NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
-            
             NSLog(@"stress_level : %@", [r valueForKey:@"stress_level"]);
-            
         }
     }
 

@@ -17,7 +17,8 @@
 #import "AudioProcessing.h"
 #import "AccelerometerTracker.h"
 #import "BluetoothTracker.h"
-
+#import "DataManager.h"
+#import "ActivityClassifier.h"
 @interface SetupSensors : NSObject<EZMicrophoneDelegate, UIApplicationDelegate>
 
 #pragma mark - Properties
@@ -56,12 +57,25 @@
 @property BluetoothTracker *bluetoothTracker;
 
 
+/**
+ Activity Classifier. Used to read CMMotionActivity data
+ 
+ */
+
+@property ActivityClassifier *activityTracker;
+
+@property DataManager *dataManager;
+
+
 #pragma mark -
 /**
  Class method to setup all signelton objects to perform
  background sensing
  */
 + (SetupSensors *)sharedSetupSensors;
+
+
+-(void) storeIntoSleepLogs:(int)intervalCounter withState:(NSString *)state forDuration:(double)duration;
 
 
 @end

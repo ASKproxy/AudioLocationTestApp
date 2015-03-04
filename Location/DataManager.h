@@ -26,6 +26,7 @@ extern NSString * const DataManagerDidSaveFailedNotification;
 
 + (DataManager*)sharedInstance;
 - (void)save;
++(NSArray *)retrieveFromLocal:(NSString *)entityName withManager:(DataManager*)dataManager;
 //-(void) saveLockData;
 
 
