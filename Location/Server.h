@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "DataManager.h"
+#import "ActivityJson.h"
+#import "WrapperJson.h"
 
 @interface Server : NSObject
 
@@ -21,6 +23,8 @@
 
 - (void)import;
 - (void) persist;
+-(void) storeDummyData;
+
 
 -(void) parseAndAddLocations:(NSArray *)responseArray toArray:(NSMutableArray*)objects;
 

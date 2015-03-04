@@ -79,6 +79,8 @@
 		886A402F1A13FD0C001A35BB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A402E1A13FD0C001A35BB /* CoreAudio.framework */; };
 		886A40311A13FD1F001A35BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A40301A13FD1F001A35BB /* AVFoundation.framework */; };
 		A432BA121AA0F19D008E941E /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A432BA111AA0F19D008E941E /* Server.m */; };
+		A432C1A61AA7161500E45901 /* ActivityJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A51AA7161500E45901 /* ActivityJson.m */; };
+		A432C1A91AA7800700E45901 /* WrapperJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A81AA7800700E45901 /* WrapperJson.m */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D51B21AA686D100F74DC6 /* Indicators.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
@@ -229,6 +231,10 @@
 		886A40301A13FD1F001A35BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A432BA101AA0F19D008E941E /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		A432BA111AA0F19D008E941E /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		A432C1A41AA7161500E45901 /* ActivityJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityJson.h; sourceTree = "<group>"; };
+		A432C1A51AA7161500E45901 /* ActivityJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityJson.m; sourceTree = "<group>"; };
+		A432C1A71AA7800700E45901 /* WrapperJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrapperJson.h; sourceTree = "<group>"; };
+		A432C1A81AA7800700E45901 /* WrapperJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrapperJson.m; sourceTree = "<group>"; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
 		A45D51B11AA686D100F74DC6 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indicators.h; sourceTree = "<group>"; };
@@ -622,6 +628,10 @@
 			children = (
 				A432BA101AA0F19D008E941E /* Server.h */,
 				A432BA111AA0F19D008E941E /* Server.m */,
+				A432C1A71AA7800700E45901 /* WrapperJson.h */,
+				A432C1A81AA7800700E45901 /* WrapperJson.m */,
+				A432C1A41AA7161500E45901 /* ActivityJson.h */,
+				A432C1A51AA7161500E45901 /* ActivityJson.m */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -802,6 +812,7 @@
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
 				3FB8AB8D1A99609000E432DF /* JBBaseViewController.m in Sources */,
 				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,
+				A432C1A91AA7800700E45901 /* WrapperJson.m in Sources */,
 				A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */,
 				3FB8AB8A1A99609000E432DF /* JBBaseChartViewController.m in Sources */,
 				3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */,
@@ -833,6 +844,7 @@
 				3FDA7CF11A86CF8700A4EE58 /* EZMicrophone.m in Sources */,
 				3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */,
 				A47DEEFD1A92C2B100D1B5DE /* BluetoothTracker.m in Sources */,
+				A432C1A61AA7161500E45901 /* ActivityJson.m in Sources */,
 				3FB8AB9C1A99609000E432DF /* JBChartTooltipView.m in Sources */,
 				A47DEF001A92C2CF00D1B5DE /* DataManager.m in Sources */,
 				3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */,

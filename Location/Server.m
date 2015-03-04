@@ -10,7 +10,7 @@
 
 #define safeSet(d,k,v) if (v) d[k] = v;
 
-static NSString* const serverURL = @"http://10.31.250.246:3000/";
+static NSString* const serverURL = @"http://10.31.250.103:3000/";
 static NSString* const userName = @"arvind";
 static NSString* const collectionName = @"pam";
 static NSString* const kFiles = @"files";
@@ -85,6 +85,37 @@ static NSString* const kFiles = @"files";
 }
 
 
+-(void) storeDummyData
+{
+   
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    
+    //create the entity over here
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Activity" inManagedObjectContext:self.dataManager.managedObjectContext];
+    
+    NSManagedObject *latestValue;
+    
+    for(int i=1;i<8;i++)
+    {
+        latestValue = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
+        [latestValue setValue:[NSNumber numberWithInt:i*5] forKey:@"activity"];
+        [latestValue setValue:[df stringFromDate:[NSDate date]] forKey:@"timestamp"];
+        [latestValue setValue:[NSNumber numberWithInt:i] forKey:@"period"];
+    
+        NSError *saveError = nil;
+    
+        if (![latestValue.managedObjectContext save:&saveError]) {
+            NSLog(@"Unable to save managed object context.");
+            NSLog(@"%@, %@", saveError, saveError.localizedDescription);
+        }
+    
+    }
+    
+    
+    
+}
+
 -(void) persist
 {
     
@@ -100,24 +131,57 @@ static NSString* const kFiles = @"files";
     [df setDateFormat:@"yyyy/MM/dd"];
     
     
+//
+//    NSMutableDictionary *innerjsonDictionary = [NSMutableDictionary new];
+//
+//    for(NSObject* entry in result)
+//    {
+//        NSMutableDictionary *inner=[NSMutableDictionary new];
+//        
+//        [inner setValue:[entry valueForKey:@"activity"] forKey:@"activity"];
+//
+//        period=[[entry valueForKey:@"period"]intValue];
+//        [innerjsonDictionary setValue:inner forKey:[@(period)stringValue]];
+//    }
+//    
+//    NSString *dateString = [df stringFromDate:[NSDate date]];
+//    NSMutableDictionary *jsonDictionary = [NSMutableDictionary new];
+//    [jsonDictionary setValue:innerjsonDictionary forKey:@"dummy"];
     
-    NSArray *result = [DataManager retrieveFromLocal:@"PAM" withManager:self.dataManager];
-    NSMutableDictionary *jsonDictionary = [NSMutableDictionary new];
+//    NSData *jsonData ;
+//    NSString *jsonString;
+//    if([NSJSONSerialization isValidJSONObject:jsonDictionary])
+//    {
+//        jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:nil];
+//        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+//    }
 
-    for(NSDictionary* entry in result)
-    {
-        NSString *dateString = [df stringFromDate:[entry valueForKey:@"timestamp"]];
-        [jsonDictionary setValue:[entry valueForKey:@"stress_level"] forKey:dateString];
+    WrapperJson *jsonObject=[self customJSON];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization
+                        dataWithJSONObject:[jsonObject toNSDictionary]
+                        options:NSJSONWritingPrettyPrinted
+                        error:&error];
+    
+
+    if ([jsonData length] > 0 &&
+        error == nil){
+        NSLog(@"Successfully serialized the dictionary into data = %@", jsonData);
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData
+                                                     encoding:NSUTF8StringEncoding];
+        NSLog(@"JSON String = %@", jsonString);
+    }
+    else if ([jsonData length] == 0 &&
+             error == nil){
+        NSLog(@"No data was returned after serialization.");
+    }
+    else if (error != nil){
+        NSLog(@"An error happened = %@", error);
     }
     
+    //    NSData *body = [NSKeyedArchiver archivedDataWithRootObject:jsonObject];
     
-    NSData *jsonData ;
-    NSString *jsonString;
-    if([NSJSONSerialization isValidJSONObject:jsonDictionary])
-    {
-        jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:nil];
-        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
     
     
     
@@ -141,6 +205,50 @@ static NSString* const kFiles = @"files";
     [dataTask resume];
     
 }
+
+
+
+/**
+ CustomJSON
+Creates a customized JSON object to send to the server. The built in 
+NSJSONSERIALIZATION class created a JSON that wasn't readable by 
+ the nodejs script. This class converts the dictionary to a readable
+ json object. 
+ 
+ The method for creating this JSON element is referenced from :
+ http://www.mysamplecode.com/2013/04/convert-custom-ios-object-to-json-string.html
+ 
+ 
+ */
+
+-(WrapperJson *) customJSON
+{
+    
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    NSString *dateString = [df stringFromDate:[NSDate date]];
+
+    
+    NSMutableArray *dataList = [[NSMutableArray alloc]init];
+    NSArray *result = [DataManager retrieveFromLocal:@"Activity" withManager:self.dataManager];
+    
+    for(NSObject* entry in result)
+    {
+        
+        ActivityJson* activity=[[ActivityJson alloc]initWithCode:[[entry valueForKey:@"activity"]intValue] period:[[entry valueForKey:@"period"]intValue] userName:@"xyz"];
+        
+        [dataList addObject:activity];
+        
+    }
+    
+    WrapperJson* wrapper=[[WrapperJson alloc]init];
+    wrapper.timestamp=dateString;
+    wrapper.dataList=dataList;
+    
+    return wrapper;
+    
+}
+
 
 // we dont need to worry about updating any of the
 //records since we will only be posting and retrieving
