@@ -27,6 +27,10 @@ The sleep data is stored in Core Data in the following format :
  and so on.
  
  **/
+
+
+
+
 #import "SetupSensors.h"
 #define FRAME_LENGTH 256
 #define ONE_MINUTE 60
@@ -38,21 +42,17 @@ The sleep data is stored in Core Data in the following format :
 @interface SetupSensors(){
 
 }
-
-
 @end
 
 
 @implementation SetupSensors
 
 
-static int _NotificationFireTimeOfDay[] = { 10};
-static int _NotificationFireMinOfDay[] = {46,45};
+static int _NotificationFireTimeOfDay[] = {14};
+static int _NotificationFireMinOfDay[] = {15,16,17,18};
 static int sleepIndicator=0;
 
 static int intervalCounter=0;
-
-
 
 #pragma mark - Main Method
 -(id)init {
@@ -75,7 +75,7 @@ static int intervalCounter=0;
         _setupSensors = [[SetupSensors alloc] init];
     
         
-        //Singleton objects
+        //setup
         [_setupSensors setupCoreData];
         [_setupSensors setupAudioMicrophone];
         [_setupSensors setupLocationGPS];
@@ -84,13 +84,14 @@ static int intervalCounter=0;
         [_setupSensors setupAccelerometer];
         [_setupSensors setupActivityClassifier];
         [_setupSensors shortTimer];
+        [_setupSensors dailyTimer];
     });
     
     
     return _setupSensors;
 }
 
-#pragma mark - Timer
+#pragma mark - Short Timer
 
 //timer is called every 3 hours
 -(void) shortTimer
@@ -101,6 +102,8 @@ static int intervalCounter=0;
     timer = [NSTimer scheduledTimerWithTimeInterval:ONE_MINUTE*1 target:self
                                            selector:@selector(updateActivityAndSocial:) userInfo:nil repeats:YES];
 }
+
+
 
 - (void) updateActivityAndSocial:(NSTimer *)incomingTimer
 {
@@ -118,8 +121,8 @@ static int intervalCounter=0;
     
     
     
-    //retrieve data from all tables in Core Data using an NSPredicate
-    //process them individually since the process can not be generalized due to
+    //retrieve data from all tables in Core Data using an NSPredicate.
+    //Process them individually since the process can not be generalized due to
     //different attributes for each table.
     
     //------------------------------------------------
@@ -131,23 +134,33 @@ static int intervalCounter=0;
     
     [self.activityTracker getTrackingAcitivity];
     
-    
     //------------------------------------------------
-
-    //3. Stress - PAM
-    //4. Social - Conversation
+    //3. Social -
     
     
-    
-    
-    
-    
-    
-    
-
 }
 
 
+#pragma mark - 24-Hour Timer
+
+/**
+Set up a 24 hour timer that will be used to compute the following :
+ 1. Sleep - every 24 hours, the 8 intervals that were labelled using the short timers are averaged 
+            to determine the level of sleep for the user. The data is also is sent to the server and
+            the campus average is obtained from the server
+ 
+ 2. Activity - Campus average is obtained from the server. Local data is sent up to the server
+ 
+ 3. Social - Campus average is obtained from the server. Local data is sent up to the server
+ 
+ 4. Stress - Campus average is obtained from the server. Local data is sent up to the server
+ 
+ **/
+
+-(void) dailyTimer
+{
+    
+}
 
 
 #pragma mark - Lock

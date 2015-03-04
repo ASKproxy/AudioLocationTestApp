@@ -11,4 +11,6 @@
 
 @interface ActivityViewController : JBBaseChartViewController
 
+
+
 @end

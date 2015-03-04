@@ -10,7 +10,8 @@
 
 #define safeSet(d,k,v) if (v) d[k] = v;
 
-static NSString* const serverURL = @"http://10.31.250.160:3000/";
+static NSString* const serverURL = @"http://10.31.250.246:3000/";
+static NSString* const userName = @"arvind";
 static NSString* const collectionName = @"pam";
 static NSString* const kFiles = @"files";
 
@@ -20,11 +21,6 @@ static NSString* const kFiles = @"files";
 {
     NSMutableDictionary* jsonable = [NSMutableDictionary dictionary];
     safeSet(jsonable, @"name", [object valueForKey:@"stress_level"]);
-//    safeSet(jsonable, @"placename", self.placeName);
-//    safeSet(jsonable, @"location", self.location);
-//    safeSet(jsonable, @"details", self.details);
-//    safeSet(jsonable, @"imageId", self.imageId);
-//    safeSet(jsonable, @"categories", self.categories);
     return jsonable;
 }
 -(id) init
@@ -33,7 +29,6 @@ static NSString* const kFiles = @"files";
     {
     _objects=[[NSMutableArray alloc] init];
     self.dataManager=[DataManager sharedInstance];
-        
     }
     return self;
 }
@@ -90,11 +85,67 @@ static NSString* const kFiles = @"files";
 }
 
 
+-(void) persist
+{
+    
+    NSString* destination = [serverURL stringByAppendingPathComponent:@"pam"];
+//    destination = [destination stringByAppendingPathComponent:collectionName];
+    
+    
+    NSURL *url= [NSURL URLWithString:destination];
+    
+    //make sure this is the same as the format in which the
+    //the timestamp was stored in core data
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    
+    
+    
+    NSArray *result = [DataManager retrieveFromLocal:@"PAM" withManager:self.dataManager];
+    NSMutableDictionary *jsonDictionary = [NSMutableDictionary new];
+
+    for(NSDictionary* entry in result)
+    {
+        NSString *dateString = [df stringFromDate:[entry valueForKey:@"timestamp"]];
+        [jsonDictionary setValue:[entry valueForKey:@"stress_level"] forKey:dateString];
+    }
+    
+    
+    NSData *jsonData ;
+    NSString *jsonString;
+    if([NSJSONSerialization isValidJSONObject:jsonDictionary])
+    {
+        jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:nil];
+        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    
+    
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody: jsonData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        if (!error) {
+            
+            NSLog(@"pushed to %@",collectionName);
+        }
+    }];
+    [dataTask resume];
+    
+}
 
 // we dont need to worry about updating any of the
 //records since we will only be posting and retrieving
 //values
-- (void) persist
+- (void) persistTest
 {
     
     NSString* destination = [serverURL stringByAppendingPathComponent:collectionName];

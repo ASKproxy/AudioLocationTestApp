@@ -22,11 +22,14 @@
     </entity>
     <entity name="PAM" syncable="YES">
         <attribute name="stress_level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="SleepLogs" syncable="YES">
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TabIndicators" syncable="YES">
+        <attribute name="activity" optional="YES" syncable="YES"/>
     </entity>
     <elements>
         <element name="Accelerometer" positionX="99" positionY="-99" width="128" height="90"/>
@@ -36,5 +39,6 @@
         <element name="Lock" positionX="-531" positionY="-39" width="128" height="75"/>
         <element name="PAM" positionX="63" positionY="54" width="128" height="75"/>
         <element name="SleepLogs" positionX="-380" positionY="-235" width="128" height="73"/>
+        <element name="TabIndicators" positionX="-324" positionY="-81" width="128" height="60"/>
     </elements>
 </model>
