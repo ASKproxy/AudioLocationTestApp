@@ -46,6 +46,23 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 
         NSLog(@"📀LockState: %li, LockComplete: %li📀", (long)gLockState, (long)gLockComplete);
 
+        //create the entity over here
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Lock" inManagedObjectContext:dataManager.managedObjectContext];
+        
+        NSManagedObject *latestLock = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:dataManager.managedObjectContext];
+        
+        [latestLock setValue:@"lock" forKey:@"state"];
+        [latestLock setValue:[NSDate date] forKey:@"timestamp"];
+
+
+        
+        NSError *error = nil;
+        
+        if (![latestLock.managedObjectContext save:&error]) {
+            NSLog(@"Unable to save managed object context.");
+            NSLog(@"%@, %@", error, error.localizedDescription);
+        }
+        
         // Restore states value
         gLockComplete = 0;
         gLockState = 0;
@@ -58,6 +75,20 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         
         NSLog(@"📀LockState: %li, LockComplete: %li📀", (long)gLockState, (long)gLockComplete);
         
+        //create the entity over here
+        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Lock" inManagedObjectContext:dataManager.managedObjectContext];
+        
+        NSManagedObject *latestLock = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:dataManager.managedObjectContext];
+        
+        [latestLock setValue:@"unlock" forKey:@"state"];
+        [latestLock setValue:[NSDate date] forKey:@"timestamp"];
+        
+        NSError *error = nil;
+        
+        if (![latestLock.managedObjectContext save:&error]) {
+            NSLog(@"Unable to save managed object context.");
+            NSLog(@"%@, %@", error, error.localizedDescription);
+        }
         // Restore states value
         gLockState = 0;
     }
@@ -71,7 +102,14 @@ static void displayStatusChanged(CFNotificationCenterRef center,
  * "hasBlankedScreen" : when screen is black, system sends out the notification
  */
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+{
+    
+    self.server=[Server setupServer];
+    [self.server import];
+    [self.server persist];
+    
+    
+    dataManager = [DataManager sharedInstance];
     //---------------------------------------
     // Setup sensors
     setupSensors = [SetupSensors sharedSetupSensors];

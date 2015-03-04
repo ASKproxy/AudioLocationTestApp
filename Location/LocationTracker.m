@@ -151,14 +151,14 @@
                 NSLog(@"%@, %@", error, error.localizedDescription);
             }
             
+            
+            
+            
             NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
             
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataManager.managedObjectContext];
             [fetchRequest setEntity:entity];
             
-            
-//            NSError *error3 = nil;
-//            NSUInteger count = [self.dataManager.managedObjectContext countForFetchRequest: fetchRequest error: &error3];
             
             NSError *error2 = nil;
             NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
@@ -172,7 +172,7 @@
                 {
                     
                     NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
-                    NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
+//                    NSLog(@"result count : %lu  LATITUDE : %@", (unsigned long)[result count],[r valueForKey:@"latitude"]);
                     
                     //-----------------------------------------------------------------
                     //Test code to pass location data to viewController

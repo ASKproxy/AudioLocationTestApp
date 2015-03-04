@@ -83,6 +83,7 @@
     
     NSManagedObject *latestPam = [[NSManagedObject alloc] initWithEntity:entityDecription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     [latestPam setValue:[NSNumber numberWithInt:stressLevel] forKey:@"stress_level"];
+    [latestPam setValue:[NSDate date] forKey:@"timestamp"];
     
     NSError *error1 = nil;
     
@@ -103,6 +104,7 @@
     
     NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+    
     if (error) {
         NSLog(@"Unable to execute fetch request.");
         NSLog(@"%@, %@", error, error.localizedDescription);
@@ -112,9 +114,7 @@
         {
             
             NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
-            
             NSLog(@"stress_level : %@", [r valueForKey:@"stress_level"]);
-            
         }
     }
 
