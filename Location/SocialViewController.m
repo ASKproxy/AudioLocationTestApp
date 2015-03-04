@@ -215,6 +215,13 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [_SocialButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                          [UIFont fontWithName:@"GillSans-Light" size:20.0f], UITextAttributeFont,
+                                          [UIColor blackColor], UITextAttributeTextColor,
+                                          [UIColor grayColor], UITextAttributeTextShadowColor,
+                                          [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)], UITextAttributeTextShadowOffset,
+                                          nil]
+                                forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -411,7 +418,7 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
 
 - (void)addAnimalImage{
     //    UIImage *image = [[UIImage alloc] init];
-    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 280, 200, 200)];
+    UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(100, 280, 250, 250)];
     [iv setImage:[UIImage imageNamed:@"TabSocial"]];
     [self.view addSubview:iv];
 }

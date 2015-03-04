@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DZV-ce-TmA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DZV-ce-TmA">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Hiekka Graphics - Savu Condensed.ttf">
+            <string>Savu-Condensed</string>
+            <string>Savu-Condensed</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="oXd-bS-j9m">
@@ -26,14 +32,20 @@
                         <viewControllerLayoutGuide type="bottom" id="PaL-LE-ZCF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rx0-aa-mFw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SLEEP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTY-Yn-2Jn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUK-iD-wSZ">
-                                <rect key="frame" x="15" y="10" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="5" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="◀︎">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -44,11 +56,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Sleep" id="w0v-8m-JHg"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Sleep" id="w0v-8m-JHg"/>
+                    <connections>
+                        <outlet property="SleepButton" destination="w0v-8m-JHg" id="WDi-sG-7xq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzc-EZ-KvA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.5" y="1616.1971830985915"/>
+            <point key="canvasLocation" x="592" y="1616"/>
         </scene>
         <!--Activity-->
         <scene sceneID="tAr-An-IEq">
@@ -59,14 +74,20 @@
                         <viewControllerLayoutGuide type="bottom" id="vAQ-iE-ftv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mDq-xc-Jn0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ACTIVITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lil-QP-QhI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfX-nK-eDk">
-                                <rect key="frame" x="15" y="10" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="5" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="◀︎">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -77,11 +98,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Activity" id="EaU-7Q-vjE"/>
+                    <tabBarItem key="tabBarItem" title="Activity" id="EaU-7Q-vjE"/>
+                    <connections>
+                        <outlet property="ActivityButton" destination="EaU-7Q-vjE" id="ubP-Df-Mu0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="21m-kV-Vev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1273.125" y="1616.1971830985915"/>
+            <point key="canvasLocation" x="1274" y="1616"/>
         </scene>
         <!--Social-->
         <scene sceneID="gY2-7A-31Y">
@@ -92,14 +116,20 @@
                         <viewControllerLayoutGuide type="bottom" id="ZLL-FJ-zvI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="95I-Wk-KE6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SOCIAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKc-05-h8M">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQg-F8-Tj4">
-                                <rect key="frame" x="15" y="10" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="5" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="◀︎">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -111,10 +141,13 @@
                         <gestureRecognizers/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="Social" id="6tz-QZ-PhF"/>
+                    <connections>
+                        <outlet property="SocialButton" destination="6tz-QZ-PhF" id="hI8-xf-sIs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QR-cP-Vp7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1953.75" y="1616.1971830985915"/>
+            <point key="canvasLocation" x="1953" y="1616"/>
         </scene>
         <!--Stress-->
         <scene sceneID="VEz-dr-B1S">
@@ -125,14 +158,20 @@
                         <viewControllerLayoutGuide type="bottom" id="xWX-hq-Ttb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="O6b-4w-eBP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="STRESS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHA-gy-oh9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67D-VO-SnW">
-                                <rect key="frame" x="15" y="10" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="5" width="50" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="◀︎">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -144,10 +183,13 @@
                         <gestureRecognizers/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stress" id="qeY-Bo-6e9"/>
+                    <connections>
+                        <outlet property="StressButton" destination="qeY-Bo-6e9" id="Is3-8f-pvt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ByQ-ez-b1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="1616.1971830985915"/>
+            <point key="canvasLocation" x="-60" y="1616"/>
         </scene>
         <!--Landing View Controller-->
         <scene sceneID="KMr-E5-yvp">
@@ -161,108 +203,102 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="SocialButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8t-E0-il3">
-                                <rect key="frame" x="-23" y="-9" width="200" height="200"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="StressButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0t-Qx-MGm" userLabel="Stress Button">
+                                <rect key="frame" x="112" y="364" width="172" height="172"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="r8t-E0-il3" secondAttribute="height" multiplier="1:1" id="Wfz-QL-Uwr"/>
-                                    <constraint firstAttribute="width" secondItem="r8t-E0-il3" secondAttribute="height" multiplier="1:1" id="XEg-4N-byv"/>
-                                </constraints>
-                                <state key="normal" image="LandingSocial">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Wfz-QL-Uwr"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueSocial" id="Hhc-aD-AmN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="ActivityButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-gO-RcO">
-                                <rect key="frame" x="120" y="106" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="pr1-gO-RcO" secondAttribute="height" multiplier="1:1" id="1SK-fg-NHK"/>
-                                    <constraint firstAttribute="width" secondItem="pr1-gO-RcO" secondAttribute="height" multiplier="1:1" id="nAN-9E-FBX"/>
-                                </constraints>
-                                <state key="normal" image="LandingActivity">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="nAN-9E-FBX"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueActivity" id="gM9-Vw-su5"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="StressButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0t-Qx-MGm">
-                                <rect key="frame" x="120" y="360" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="D0t-Qx-MGm" secondAttribute="height" multiplier="1:1" id="Fz0-KZ-nXF"/>
-                                    <constraint firstAttribute="width" secondItem="D0t-Qx-MGm" secondAttribute="height" multiplier="1:1" id="ROp-Ff-qq1"/>
+                                    <constraint firstAttribute="width" secondItem="D0t-Qx-MGm" secondAttribute="height" multiplier="1:1" id="2LW-fp-0oE"/>
                                 </constraints>
                                 <state key="normal" image="LandingStress">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ROp-Ff-qq1"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueStress" id="9c0-2n-2yg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="SleepButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-xz-nQN">
-                                <rect key="frame" x="-15" y="231" width="200" height="200"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="SleepButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pp9-xz-nQN" userLabel="Sleep Button">
+                                <rect key="frame" x="0.0" y="277" width="162" height="162"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Pp9-xz-nQN" secondAttribute="height" multiplier="1:1" id="ELf-BH-YOj"/>
-                                    <constraint firstAttribute="width" secondItem="Pp9-xz-nQN" secondAttribute="height" multiplier="1:1" id="LXw-ne-6fg"/>
+                                    <constraint firstAttribute="width" secondItem="Pp9-xz-nQN" secondAttribute="height" multiplier="1:1" id="5lA-ZM-Zou"/>
                                 </constraints>
                                 <state key="normal" image="LandingSleep">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="LXw-ne-6fg"/>
-                                    </mask>
-                                </variation>
                                 <connections>
                                     <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueSleep" id="XJP-ql-8Dj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="SocialButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r8t-E0-il3" userLabel="Social Button">
+                                <rect key="frame" x="0.0" y="82" width="193" height="193"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="r8t-E0-il3" secondAttribute="height" multiplier="1:1" id="vhG-kL-0gg"/>
+                                </constraints>
+                                <state key="normal" image="LandingSocial">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueSocial" id="Hhc-aD-AmN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="ActivityButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pr1-gO-RcO" userLabel="Exercise Button">
+                                <rect key="frame" x="126" y="173" width="178" height="178"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pr1-gO-RcO" secondAttribute="height" multiplier="1:1" id="O3h-tx-0kn"/>
+                                </constraints>
+                                <state key="normal" image="LandingActivity">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RcF-qT-jan" kind="presentation" identifier="SegueActivity" id="gM9-Vw-su5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qy-Oo-iix">
+                                <rect key="frame" x="44" y="28" width="173" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8qy-Oo-iix" secondAttribute="height" multiplier="173:60" id="YcJ-c6-1Ak"/>
+                                </constraints>
+                                <string key="text">Hi Andrew, 
+How are you?</string>
+                                <fontDescription key="fontDescription" name="Savu-Condensed" family="Savu" pointSize="26"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.13553371966917413" green="0.86600501130711494" blue="0.94850127551020402" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Dr0-3N-ZHi" firstAttribute="top" secondItem="D0t-Qx-MGm" secondAttribute="bottom" constant="-5" id="56a-yV-10e"/>
-                            <constraint firstItem="Pp9-xz-nQN" firstAttribute="top" secondItem="r8t-E0-il3" secondAttribute="top" constant="200" id="P2T-nv-uJh"/>
-                            <constraint firstItem="Dr0-3N-ZHi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Pp9-xz-nQN" secondAttribute="bottom" id="W8I-j5-Mwe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="D0t-Qx-MGm" secondAttribute="trailing" constant="-10" id="aix-oq-4PX"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="pr1-gO-RcO" secondAttribute="trailing" constant="-15" id="dLj-59-iVF"/>
-                            <constraint firstItem="r8t-E0-il3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="-30" id="dNx-6J-DiL"/>
-                            <constraint firstItem="r8t-E0-il3" firstAttribute="top" secondItem="pXH-Dj-a31" secondAttribute="topMargin" constant="-5" id="gAp-EZ-tmR"/>
-                            <constraint firstItem="Pp9-xz-nQN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="-25" id="hao-ec-XXA"/>
-                            <constraint firstItem="D0t-Qx-MGm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pr1-gO-RcO" secondAttribute="bottom" constant="10" id="i3P-bh-5IB"/>
-                            <constraint firstItem="pr1-gO-RcO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="3P2-tn-v3J" secondAttribute="bottom" id="llf-aA-xW7"/>
+                            <constraint firstItem="Pp9-xz-nQN" firstAttribute="leading" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="-16" id="0HR-Fe-0gG"/>
+                            <constraint firstItem="Dr0-3N-ZHi" firstAttribute="top" secondItem="Pp9-xz-nQN" secondAttribute="bottom" constant="129" id="4hu-nq-F9B"/>
+                            <constraint firstItem="pr1-gO-RcO" firstAttribute="trailing" secondItem="pXH-Dj-a31" secondAttribute="trailingMargin" id="B7c-SM-6an"/>
+                            <constraint firstItem="Dr0-3N-ZHi" firstAttribute="top" secondItem="D0t-Qx-MGm" secondAttribute="bottom" constant="10" id="Cr5-3j-2qH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D0t-Qx-MGm" secondAttribute="trailing" constant="20" id="PFY-mc-uTu"/>
+                            <constraint firstItem="8qy-Oo-iix" firstAttribute="leading" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="20" id="T5T-fZ-f0U"/>
+                            <constraint firstItem="8qy-Oo-iix" firstAttribute="top" secondItem="3P2-tn-v3J" secondAttribute="bottom" constant="10" id="est-qa-tAN"/>
+                            <constraint firstItem="D0t-Qx-MGm" firstAttribute="leading" secondItem="Pp9-xz-nQN" secondAttribute="trailing" constant="-50" id="hHS-F1-1bv"/>
+                            <constraint firstItem="Pp9-xz-nQN" firstAttribute="top" secondItem="r8t-E0-il3" secondAttribute="bottom" constant="2" id="hpb-pn-deE"/>
+                            <constraint firstItem="r8t-E0-il3" firstAttribute="leading" secondItem="pXH-Dj-a31" secondAttribute="leadingMargin" constant="-16" id="kmQ-FG-4Qo"/>
+                            <constraint firstItem="pr1-gO-RcO" firstAttribute="top" secondItem="8qy-Oo-iix" secondAttribute="bottom" constant="85" id="ktx-eV-e2B"/>
+                            <constraint firstItem="D0t-Qx-MGm" firstAttribute="top" secondItem="pr1-gO-RcO" secondAttribute="bottom" constant="8" id="sUi-i9-HID"/>
+                            <constraint firstItem="r8t-E0-il3" firstAttribute="top" secondItem="8qy-Oo-iix" secondAttribute="bottom" constant="1" id="ueS-GZ-zSz"/>
+                            <constraint firstItem="pr1-gO-RcO" firstAttribute="leading" secondItem="r8t-E0-il3" secondAttribute="trailing" constant="-50" id="vX8-6f-6jc"/>
+                            <constraint firstItem="pr1-gO-RcO" firstAttribute="leading" secondItem="Pp9-xz-nQN" secondAttribute="trailing" constant="-30" id="w6g-VX-sVz"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfz-0b-WPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="67"/>
+            <point key="canvasLocation" x="672" y="89"/>
         </scene>
         <!--Data Tab View Controller-->
         <scene sceneID="6Xu-Te-5k8">
             <objects>
                 <tabBarController id="RcF-qT-jan" customClass="DataTabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="lPj-0i-JeR">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" itemPositioning="centered" id="lPj-0i-JeR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35151451810000001" green="1" blue="0.98268178959999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                        <color key="selectedImageTintColor" red="0.35151451810000001" green="1" blue="0.98268178959999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="cah-g1-nH2" kind="relationship" relationship="viewControllers" id="yYf-bA-XVP"/>
@@ -287,18 +323,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
-                                <rect key="frame" x="169" y="28" width="100" height="100"/>
-                                <state key="normal" backgroundImage="Circle1">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="DLB-bi-qH5"/>
-                                    <segue destination="DZV-ce-TmA" kind="presentation" id="U7a-Vw-WeZ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Neutral" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TK3-86-vUt">
-                                <rect key="frame" x="68" y="83" width="100" height="100"/>
+                                <rect key="frame" x="26" y="119" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -308,7 +334,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAH-ox-Dy5">
-                                <rect key="frame" x="15" y="191" width="100" height="100"/>
+                                <rect key="frame" x="16" y="232" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -318,7 +344,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NF-Bz-8ZV">
-                                <rect key="frame" x="169" y="350" width="100" height="100"/>
+                                <rect key="frame" x="211" y="252" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -327,20 +353,30 @@
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="VpW-Kf-vEN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOW STRESSED ARE YOU?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-Hw-OFz">
-                                <rect key="frame" x="139" y="194" width="181" height="93"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HOW STRESSED ARE YOU?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-Hw-OFz">
+                                <rect key="frame" x="118" y="193" width="181" height="93"/>
+                                <fontDescription key="fontDescription" name="Savu-Condensed" family="Savu" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Stressed2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0M-4y-W5N">
-                                <rect key="frame" x="68" y="289" width="100" height="100"/>
+                                <rect key="frame" x="108" y="303" width="100" height="100"/>
                                 <state key="normal" backgroundImage="Circle4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="YMw-wk-Ba9"/>
                                     <segue destination="DZV-ce-TmA" kind="presentation" id="IUi-q0-vcN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="Happy" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsk-8m-c6Q">
+                                <rect key="frame" x="134" y="83" width="100" height="100"/>
+                                <state key="normal" backgroundImage="Circle1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="PamStressButton:" destination="FQM-Rd-FFh" eventType="touchUpInside" id="DLB-bi-qH5"/>
+                                    <segue destination="DZV-ce-TmA" kind="presentation" id="U7a-Vw-WeZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -372,7 +408,7 @@
         <image name="LandingStress" width="400" height="400"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9c0-2n-2yg"/>
+        <segue reference="Hhc-aD-AmN"/>
         <segue reference="asA-uU-fJ1"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *GPSLat;
 @property (strong, nonatomic) IBOutlet UILabel *GPSLon;
 @property (strong, nonatomic) DeviceOrientation *deviceOrientation;
+@property (weak, nonatomic) IBOutlet UITabBarItem *SocialButton;
 
 
 @end

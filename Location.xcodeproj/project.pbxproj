@@ -79,6 +79,8 @@
 		5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090CD18B3AB2100510153 /* CoreLocation.framework */; };
 		886A402F1A13FD0C001A35BB /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A402E1A13FD0C001A35BB /* CoreAudio.framework */; };
 		886A40311A13FD1F001A35BB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886A40301A13FD1F001A35BB /* AVFoundation.framework */; };
+		972670EF1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
+		972670F01AA271010062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
 		A45E5EC41A91D95D0048FEB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC31A91D95D0048FEB5 /* CoreMotion.framework */; };
@@ -227,6 +229,7 @@
 		5C9090CD18B3AB2100510153 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		886A402E1A13FD0C001A35BB /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		886A40301A13FD1F001A35BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiekka Graphics - Savu Condensed.ttf"; sourceTree = "<group>"; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
 		A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -519,6 +522,7 @@
 		5C90908318B3A66A00510153 = {
 			isa = PBXGroup;
 			children = (
+				972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */,
 				5C90909518B3A66A00510153 /* Location */,
 				5C9090B418B3A66A00510153 /* LocationTests */,
 				5C90908E18B3A66A00510153 /* Frameworks */,
@@ -757,6 +761,7 @@
 				3FB8ABA11A99609000E432DF /* icon-bar-chart.png in Resources */,
 				3FDA7CF71A86CF8700A4EE58 /* VERSION in Resources */,
 				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
+				972670EF1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */,
 				3FB8ABA01A99609000E432DF /* icon-arrow@2x.png in Resources */,
 				3FB8ABA41A99609000E432DF /* icon-jawbone-logo@2x.png in Resources */,
 			);
@@ -767,6 +772,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C9090B918B3A66A00510153 /* InfoPlist.strings in Resources */,
+				972670F01AA271010062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
