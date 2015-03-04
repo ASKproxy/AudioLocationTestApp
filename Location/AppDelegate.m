@@ -134,7 +134,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    [setupSensors.ezMicrophone stopFetchingAudio];
+//    [setupSensors.ezMicrophone stopFetchingAudio];
     NSLog(@"********Microphone is %i in applicationWillResignActive*****************", setupSensors.ezMicrophone.microphoneOn);
 
     NSLog(@"locked! @applicationWillResignActive");
