@@ -552,6 +552,10 @@ int count_one;
 }
 
 
+
+
+
+
 /**
  Store audio classification result to the database table
  two attributes need to be stored: classification result
@@ -632,6 +636,7 @@ int count_one;
         NSLog(@"Unable to save managed object context.");
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
+
     
     
     //    //Get start and time from database of Audio
