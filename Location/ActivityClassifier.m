@@ -37,6 +37,9 @@
 }
 
 
+/**
+Function is called every 3 hours and the average activty value is computed. 
+ **/
 -(void)getTrackingAcitivity
 {
     if([CMMotionActivityManager isActivityAvailable])
@@ -49,6 +52,12 @@
                                        int activeCount=0;
                                        int inactiveCount=0;
                                        float sum=0,count=0,average=0;
+                                       
+                                       
+                                       NSDateFormatter* df = [[NSDateFormatter alloc]init];
+                                       [df setDateFormat:@"yyyy/MM/dd"];
+                                       
+                                       
                                        
                                        for(int i=0;i<activities.count-1;i++)
                                        {
@@ -73,9 +82,10 @@
                                        NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"TabIndicators" inManagedObjectContext:self.dataManager.managedObjectContext];
                                        
                                        NSManagedObject *latestValue = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
+
                                        
-                                       [latestValue setValue:self.previousActivity forKey:@"activity"];
-                                       [latestValue setValue:[NSDate date] forKey:@"timestamp"];
+                                       [latestValue setValue:[self.previousActivity valueForKey:@"average"] forKey:@"activity"];
+                                       [latestValue setValue:[df stringFromDate:[NSDate date]] forKey:@"timestamp"];
                                        
                                        NSError *saveError = nil;
                                        

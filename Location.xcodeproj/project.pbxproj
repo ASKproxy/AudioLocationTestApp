@@ -83,6 +83,10 @@
 		972670EF1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		972670F01AA271010062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		A432BA121AA0F19D008E941E /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A432BA111AA0F19D008E941E /* Server.m */; };
+		A432C1A61AA7161500E45901 /* ActivityJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A51AA7161500E45901 /* ActivityJson.m */; };
+		A432C1A91AA7800700E45901 /* WrapperJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A81AA7800700E45901 /* WrapperJson.m */; };
+		A432C1AC1AA7BB0800E45901 /* StressJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1AB1AA7BB0800E45901 /* StressJSON.m */; };
+		A432C1AF1AA7BEF000E45901 /* SleepJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1AE1AA7BEF000E45901 /* SleepJSON.m */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D51B21AA686D100F74DC6 /* Indicators.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
@@ -239,6 +243,14 @@
 		972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Hiekka Graphics - Savu Condensed.ttf"; sourceTree = "<group>"; };
 		A432BA101AA0F19D008E941E /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		A432BA111AA0F19D008E941E /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		A432C1A41AA7161500E45901 /* ActivityJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityJson.h; sourceTree = "<group>"; };
+		A432C1A51AA7161500E45901 /* ActivityJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityJson.m; sourceTree = "<group>"; };
+		A432C1A71AA7800700E45901 /* WrapperJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrapperJson.h; sourceTree = "<group>"; };
+		A432C1A81AA7800700E45901 /* WrapperJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrapperJson.m; sourceTree = "<group>"; };
+		A432C1AA1AA7BB0800E45901 /* StressJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StressJSON.h; sourceTree = "<group>"; };
+		A432C1AB1AA7BB0800E45901 /* StressJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StressJSON.m; sourceTree = "<group>"; };
+		A432C1AD1AA7BEF000E45901 /* SleepJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepJSON.h; sourceTree = "<group>"; };
+		A432C1AE1AA7BEF000E45901 /* SleepJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepJSON.m; sourceTree = "<group>"; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
 		A45D51B11AA686D100F74DC6 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indicators.h; sourceTree = "<group>"; };
@@ -645,6 +657,14 @@
 			children = (
 				A432BA101AA0F19D008E941E /* Server.h */,
 				A432BA111AA0F19D008E941E /* Server.m */,
+				A432C1AD1AA7BEF000E45901 /* SleepJSON.h */,
+				A432C1AE1AA7BEF000E45901 /* SleepJSON.m */,
+				A432C1AA1AA7BB0800E45901 /* StressJSON.h */,
+				A432C1AB1AA7BB0800E45901 /* StressJSON.m */,
+				A432C1A71AA7800700E45901 /* WrapperJson.h */,
+				A432C1A81AA7800700E45901 /* WrapperJson.m */,
+				A432C1A41AA7161500E45901 /* ActivityJson.h */,
+				A432C1A51AA7161500E45901 /* ActivityJson.m */,
 			);
 			name = Server;
 			sourceTree = "<group>";
@@ -841,6 +861,7 @@
 				3FCA58541AA89D56006A7EE2 /* SetupTimers.m in Sources */,
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
 				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,
+				A432C1A91AA7800700E45901 /* WrapperJson.m in Sources */,
 				A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */,
 				3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */,
 				3FDA7CF21A86CF8700A4EE58 /* EZOutput.m in Sources */,

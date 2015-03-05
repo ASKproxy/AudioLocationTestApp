@@ -78,6 +78,7 @@ static int intervalCounter=0;
         
         //setup
         [_setupSensors setupCoreData];
+        [_setupSensors setupServer];
         [_setupSensors setupAudioMicrophone];
         [_setupSensors setupLocationGPS];
         [_setupSensors setupNotifications];
@@ -87,10 +88,18 @@ static int intervalCounter=0;
 //        [_setupSensors shortTimer];
 //        [_setupSensors dailyTimer];
     });
-    
-    
     return _setupSensors;
 }
+
+
+
+#pragma Server
+
+-(void) setupServer
+{
+    self.server = [Server setupServer];
+}
+
 
 #pragma mark - Short Timer
 
@@ -116,7 +125,7 @@ static int intervalCounter=0;
         intervalCounter++;
     
     NSLog(@"going to update classifiers");
-    NSDate *startInterval = [[NSDate alloc] initWithTimeInterval:-ONE_MINUTE*1
+    NSDate *startInterval = [[NSDate alloc] initWithTimeInterval:-ONE_HOUR*3   //  ***************************************************
                                                   sinceDate:[NSDate date]];
     NSDate *endInterval = [NSDate date];
     
@@ -133,7 +142,7 @@ static int intervalCounter=0;
     //------------------------------------------------
     //2. Activity - Gets latest activity value and stores it into CoreData
     
-    [self.activityTracker getTrackingAcitivity];
+//    [self.activityTracker getTrackingAcitivity];
     
     //------------------------------------------------
     //3. Social -
@@ -146,9 +155,8 @@ static int intervalCounter=0;
 
 /**
 Set up a 24 hour timer that will be used to compute the following :
- 1. Sleep - every 24 hours, the 8 intervals that were labelled using the short timers are averaged 
-            to determine the level of sleep for the user. The data is also is sent to the server and
-            the campus average is obtained from the server
+ 
+ 1. Sleep - every 24 hours, the 8 intervals that were labelled using the short timers are averaged to determine the level of sleep for the user. The data is also is sent to the server and the campus average is obtained from the server
  
  2. Activity - Campus average is obtained from the server. Local data is sent up to the server
  
@@ -160,9 +168,114 @@ Set up a 24 hour timer that will be used to compute the following :
 
 -(void) dailyTimer
 {
+    NSTimer *timer;
+    // Create the timer object
+    timer = [NSTimer scheduledTimerWithTimeInterval:ONE_HOUR*24 target:self
+                                           selector:@selector(dailyUpdates:) userInfo:nil repeats:YES];
+    
     
 }
 
+
+- (void) dailyUpdates:(NSTimer *)incomingTimer
+{
+    [self pushStressRecords];
+    [self sleepAverage];
+    [self activityAverage];
+
+}
+
+#pragma mark - Averages
+
+-(void) activityAverage
+{
+    double average= [[self.activityTracker.previousActivity valueForKey:@"average"] doubleValue];
+    [self.server pushActivityAverage:average];
+}
+
+-(void) sleepAverage
+{
+    
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"SleepLogs" inManagedObjectContext:self.dataManager.managedObjectContext];
+    
+//get today's records from SleepLog
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy/MM/dd"];
+    NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];
+    NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
+    
+    [fetchRequest setEntity:entityDescription];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"date==%@",strDate]];
+    NSError *error;
+    
+    NSArray * array = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    if (array == nil) {
+        NSLog(@"Testing: No results found");
+        
+    }else {
+        
+        NSLog(@"Testing: %lu Results found.", (unsigned long)[array count]);
+        
+    }
+    // NSData to NSDictionary
+    NSData * data = [[array objectAtIndex:0] data];
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    NSMutableDictionary *dictionary = [unarchiver decodeObjectForKey:@"interval_dictionary"];
+    [unarchiver finishDecoding];
+
+    int duration=0;
+    for(id key in dictionary)
+    {
+        NSMutableDictionary *inner=[NSMutableDictionary new];
+        inner=dictionary[key];
+        if([[inner valueForKey:@"state"] isEqual:@"sleeping"])
+        {
+            duration+=[[inner valueForKey:@"duration"] intValue];
+        }
+    }
+    //duration is in seconds, remember to convert to minutes
+    [self.server pushSleepAverage:(duration/60)];
+}
+
+#pragma mark - Records
+-(void) pushStressRecords
+{
+    
+    NSArray *results = [self fetchTodaysRecords:@"PAM"];
+    [self.server pushStress:results];
+    
+}
+
+
+//should move this to DataManager.m
+-(NSArray *) fetchTodaysRecords:(NSString*)tableName
+{
+    
+    NSDate *startInterval = [[NSDate alloc] initWithTimeInterval:-ONE_HOUR*24
+                                                       sinceDate:[NSDate date]];
+    NSDate *endInterval = [NSDate date];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(timestamp >= %@) AND (timestamp <= %@)", startInterval, endInterval];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:tableName inManagedObjectContext:self.dataManager.managedObjectContext]];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    
+    //results array has all the records stored in the last interval
+    NSArray *results = [self.dataManager.managedObjectContext executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+    }
+    else{
+        return results;
+    }
+
+    return nil;
+}
 
 #pragma mark - Lock
 -(int) checkLockRecords:(NSDate *)startInterval upUntil:(NSDate *)endInterval inTimeInterval:(int)intervalCounter
@@ -207,7 +320,7 @@ Set up a 24 hour timer that will be used to compute the following :
             //check if phone has been locked for more than 2 hours
             //and if it has been unlocked less than 3 times
             //then the person is assumed to be asleep
-            if(lockedDuration>1 && numberOfLocks<5)   // CHANGE BACK WHEN DONE TESTING
+            if(lockedDuration>1 && numberOfLocks<5)   // CHANGE BACK WHEN DONE TESTING  ******************************************
             {
                 [self storeIntoSleepLogs:intervalCounter withState:@"sleeping" forDuration:lockedDuration];
             }
@@ -243,7 +356,7 @@ Set up a 24 hour timer that will be used to compute the following :
     {
 
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+        [dateFormatter setDateFormat:@"yyyy/MM/dd"];
         NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];
         
         //first set the date for the object and then create the associated dictionary to store in Core Data
@@ -276,7 +389,7 @@ Set up a 24 hour timer that will be used to compute the following :
     {
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+        [dateFormatter setDateFormat:@"yyyy/MM/dd"];
         NSString *strDate = [dateFormatter stringFromDate:[NSDate date]];
         
         NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];

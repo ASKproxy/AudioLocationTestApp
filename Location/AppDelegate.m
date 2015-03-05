@@ -106,6 +106,8 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 {
     
     self.server=[Server setupServer];
+    
+    
     [self.server import];
     [self.server persist];
     // are you running on iOS8?
