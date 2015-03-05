@@ -52,14 +52,14 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         NSManagedObject *latestLock = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:dataManager.managedObjectContext];
         
         [latestLock setValue:@"lock" forKey:@"state"];
-        [latestLock setValue:[NSDate date] forKey:@"timestamp"];
+        [latestLock setValue:[NSDate date] forKey:DatabaseTimeStamp];
 
 
         
         NSError *error = nil;
         
         if (![latestLock.managedObjectContext save:&error]) {
-            NSLog(@"Unable to save managed object context.");
+            NSLog(DatabaseSaveError);
             NSLog(@"%@, %@", error, error.localizedDescription);
         }
         
@@ -81,12 +81,12 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         NSManagedObject *latestLock = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:dataManager.managedObjectContext];
         
         [latestLock setValue:@"unlock" forKey:@"state"];
-        [latestLock setValue:[NSDate date] forKey:@"timestamp"];
+        [latestLock setValue:[NSDate date] forKey:DatabaseTimeStamp];
         
         NSError *error = nil;
         
         if (![latestLock.managedObjectContext save:&error]) {
-            NSLog(@"Unable to save managed object context.");
+            NSLog(DatabaseSaveError);
             NSLog(@"%@, %@", error, error.localizedDescription);
         }
         // Restore states value
@@ -120,11 +120,11 @@ static void displayStatusChanged(CFNotificationCenterRef center,
         [application registerForRemoteNotificationTypes:myTypes];
     }
     
-    
-    dataManager = [DataManager sharedInstance];
     //---------------------------------------
-    // Setup sensors
+    //Shared Instances
+    dataManager = [DataManager sharedInstance];
     setupSensors = [SetupSensors sharedSetupSensors];
+    setupTimers = [SetupTimers sharedSetupTimers];
     //---------------------------------------
     
     //---------------------------------------

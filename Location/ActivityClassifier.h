@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import "DataManager.h"
+#import "StudentLifeConstant.h"
 
 
 @interface ActivityClassifier : NSObject
@@ -18,7 +19,7 @@
 
 @property (strong, nonatomic) NSMutableDictionary *previousActivity;
 
-+(ActivityClassifier *) setup;
++(ActivityClassifier *) sharedActivityClassifier;
 -(void)getTrackingAcitivity;
 
 

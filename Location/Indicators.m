@@ -80,7 +80,7 @@
 }
 
 -(void) setSleepLevel:(NSNumber *)sleepLevel{
-    
+    _sleepLevel = sleepLevel;
 }
 
 -(NSInteger) getSocialLevel
@@ -90,7 +90,7 @@
 }
 
 -(void) setSocialLevel:(NSNumber *)socialLevel{
-    
+    _socialLevel = socialLevel;
 }
 
 -(NSInteger) getActivityLevel
@@ -100,7 +100,7 @@
 }
 
 -(void) setActivityLevel:(NSNumber *)activityLevel{
-    
+    _activityLevel = activityLevel;
 }
 
 @end

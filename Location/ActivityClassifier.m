@@ -30,7 +30,7 @@
     return self;
 }
 
-+(ActivityClassifier *) setup
++(ActivityClassifier *) sharedActivityClassifier
 {
     ActivityClassifier* n= [[ActivityClassifier alloc]init];
     return n;
@@ -80,7 +80,7 @@
                                        NSError *saveError = nil;
                                        
                                        if (![latestValue.managedObjectContext save:&saveError]) {
-                                           NSLog(@"Unable to save managed object context.");
+                                           NSLog(DatabaseSaveError);
                                            NSLog(@"%@, %@", saveError, saveError.localizedDescription);
                                        }
 

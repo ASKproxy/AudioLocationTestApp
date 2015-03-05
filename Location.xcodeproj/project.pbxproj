@@ -38,6 +38,7 @@
 		3FB8ABA51A99609000E432DF /* icon-line-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB871A99609000E432DF /* icon-line-chart.png */; };
 		3FB8ABA61A99609000E432DF /* icon-line-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB8AB881A99609000E432DF /* icon-line-chart@2x.png */; };
 		3FB8ABAC1A9978B500E432DF /* StressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB8ABAB1A9978B500E432DF /* StressViewController.m */; };
+		3FCA58541AA89D56006A7EE2 /* SetupTimers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FCA58531AA89D56006A7EE2 /* SetupTimers.m */; };
 		3FDA7CC91A86CE9A00A4EE58 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDA7CC81A86CE9A00A4EE58 /* Accelerate.framework */; };
 		3FDA7CCB1A86CEA300A4EE58 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDA7CCA1A86CEA300A4EE58 /* AudioToolbox.framework */; };
 		3FDA7CCD1A86CEAC00A4EE58 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDA7CCC1A86CEAC00A4EE58 /* GLKit.framework */; };
@@ -166,6 +167,8 @@
 		3FB8AB881A99609000E432DF /* icon-line-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-line-chart@2x.png"; sourceTree = "<group>"; };
 		3FB8ABAA1A9978B500E432DF /* StressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StressViewController.h; sourceTree = "<group>"; };
 		3FB8ABAB1A9978B500E432DF /* StressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StressViewController.m; sourceTree = "<group>"; };
+		3FCA58521AA89D56006A7EE2 /* SetupTimers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupTimers.h; sourceTree = "<group>"; };
+		3FCA58531AA89D56006A7EE2 /* SetupTimers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupTimers.m; sourceTree = "<group>"; };
 		3FDA7CC81A86CE9A00A4EE58 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		3FDA7CCA1A86CEA300A4EE58 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3FDA7CCC1A86CEAC00A4EE58 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -338,10 +341,10 @@
 				3FB531151A80BA1000E1B62C /* FormatFile.m */,
 				3FF1C8B71A87F50300E4FA6F /* SetupSensors.h */,
 				3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */,
-				A4A97DD51AA3948300927356 /* ActivityClassifier.h */,
-				A4A97DD61AA3948300927356 /* ActivityClassifier.m */,
 				3F8A05001A9D0BE5008DDBC1 /* DeviceOrientation.h */,
 				3F8A05011A9D0BE5008DDBC1 /* DeviceOrientation.m */,
+				3FCA58521AA89D56006A7EE2 /* SetupTimers.h */,
+				3FCA58531AA89D56006A7EE2 /* SetupTimers.m */,
 			);
 			name = StudentLifeUtilities;
 			sourceTree = "<group>";
@@ -459,6 +462,17 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		3FCA58511AA89B04006A7EE2 /* Classifier */ = {
+			isa = PBXGroup;
+			children = (
+				A4A97DD51AA3948300927356 /* ActivityClassifier.h */,
+				A4A97DD61AA3948300927356 /* ActivityClassifier.m */,
+				A45D51B11AA686D100F74DC6 /* Indicators.h */,
+				A45D51B21AA686D100F74DC6 /* Indicators.m */,
+			);
+			name = Classifier;
+			sourceTree = "<group>";
+		};
 		3FDA7CCE1A86CF8700A4EE58 /* EZAudio */ = {
 			isa = PBXGroup;
 			children = (
@@ -572,8 +586,7 @@
 		5C90909518B3A66A00510153 /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				A45D51B11AA686D100F74DC6 /* Indicators.h */,
-				A45D51B21AA686D100F74DC6 /* Indicators.m */,
+				3FCA58511AA89B04006A7EE2 /* Classifier */,
 				A432BA131AA0F1A4008E941E /* Server */,
 				3FB8AB461A995A8900E432DF /* StudentLifeConstant */,
 				3F699A7E1A98018200F81471 /* Libraries */,
@@ -822,6 +835,7 @@
 				3FB8AB891A99609000E432DF /* JBChartTableCell.m in Sources */,
 				3FB8AB941A99609000E432DF /* JBBarChartFooterView.m in Sources */,
 				3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */,
+				3FCA58541AA89D56006A7EE2 /* SetupTimers.m in Sources */,
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
 				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,
 				A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */,

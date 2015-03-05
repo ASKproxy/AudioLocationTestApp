@@ -421,28 +421,28 @@ CGFloat screenHeight;
         case 0:
             //temp = ((5-level)*screenHeight/5)-50;
             //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
-            [iv setImage:[UIImage imageNamed:@"Happy"]];
+            [iv setImage:[UIImage imageNamed:Stress_0]];
             [self.view addSubview:iv];
             break;
             
         case 1:
             //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
-            [iv setImage:[UIImage imageNamed:@"Neutral"]];
+            [iv setImage:[UIImage imageNamed:Stress_1]];
             [self.view addSubview:iv];
             break;
             
         case 2:
-            [iv setImage:[UIImage imageNamed:@"Stressed"]];
+            [iv setImage:[UIImage imageNamed:Stress_2]];
             [self.view addSubview:iv];
             break;
             
         case 3:
-            [iv setImage:[UIImage imageNamed:@"Stressed2"]];
+            [iv setImage:[UIImage imageNamed:Stress_3]];
             [self.view addSubview:iv];
             break;
             
         case 4:
-            [iv setImage:[UIImage imageNamed:@"Stressed3"]];
+            [iv setImage:[UIImage imageNamed:Stress_4]];
             [self.view addSubview:iv];
             break;
             
