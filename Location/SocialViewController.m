@@ -437,28 +437,28 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
         case 0:
             //temp = ((5-level)*screenHeight/5)-50;
             //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
-            [iv setImage:[UIImage imageNamed:@"TabSocial"]];
+            [iv setImage:[UIImage imageNamed:SocialHigh]];
             [self.view addSubview:iv];
             break;
             
         case 1:
             //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
-            [iv setImage:[UIImage imageNamed:@"TabSocial"]];
+            [iv setImage:[UIImage imageNamed:SocialMed]];
             [self.view addSubview:iv];
             break;
             
         case 2:
-            [iv setImage:[UIImage imageNamed:@"TabSocial"]];
+            [iv setImage:[UIImage imageNamed:SocialMed]];
             [self.view addSubview:iv];
             break;
             
         case 3:
-            [iv setImage:[UIImage imageNamed:@"TabSocial"]];
+            [iv setImage:[UIImage imageNamed:SocialLow]];
             [self.view addSubview:iv];
             break;
             
         case 4:
-            [iv setImage:[UIImage imageNamed:@"TabSocial"]];
+            [iv setImage:[UIImage imageNamed:SocialLow]];
             [self.view addSubview:iv];
             break;
             

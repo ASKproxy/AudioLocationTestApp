@@ -390,28 +390,28 @@ CGFloat screenHeight;
         case 0:
             //temp = ((5-level)*screenHeight/5)-50;
             //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, temp, 150, 150)];
-            [iv setImage:[UIImage imageNamed:@"TabActivityHigh"]];
+            [iv setImage:[UIImage imageNamed:ActivityHigh]];
             [self.view addSubview:iv];
             break;
             
         case 1:
             //iv = [[UIImageView alloc] initWithFrame:CGRectMake(150, 50, 150, 150)];
-            [iv setImage:[UIImage imageNamed:@"TabActivityHigh"]];
+            [iv setImage:[UIImage imageNamed:ActivityMed]];
             [self.view addSubview:iv];
             break;
             
         case 2:
-            [iv setImage:[UIImage imageNamed:@"TabActivityMed"]];
+            [iv setImage:[UIImage imageNamed:ActivityMed]];
             [self.view addSubview:iv];
             break;
             
         case 3:
-            [iv setImage:[UIImage imageNamed:@"TabActivityLow"]];
+            [iv setImage:[UIImage imageNamed:ActivityLow]];
             [self.view addSubview:iv];
             break;
             
         case 4:
-            [iv setImage:[UIImage imageNamed:@"TabActivityLow"]];
+            [iv setImage:[UIImage imageNamed:ActivityLow]];
             [self.view addSubview:iv];
             break;
             

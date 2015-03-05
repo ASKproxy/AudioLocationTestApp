@@ -35,7 +35,6 @@
 #pragma mark - Conversation Count
 //--------------------------------------------------
 #define ConsecutiveConversationLength 10
-#define ConsecutiveNonConversationLength 30
 
 
 //--------------------------------------------------
@@ -112,3 +111,4 @@
 
 
 
+#define ConsecutiveNonConversationLength 30
