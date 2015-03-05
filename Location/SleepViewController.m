@@ -391,16 +391,6 @@ static int mutableChartData_3[] = {3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
             break;
             
         case 2:
-            [iv setImage:[UIImage imageNamed:SleepMed]];
-            [self.view addSubview:iv];
-            break;
-            
-        case 3:
-            [iv setImage:[UIImage imageNamed:SleepLow]];
-            [self.view addSubview:iv];
-            break;
-            
-        case 4:
             [iv setImage:[UIImage imageNamed:SleepLow]];
             [self.view addSubview:iv];
             break;

@@ -2,7 +2,7 @@
 //  SetupTimers.m
 //  Location
 //
-//  Created by Student student on 3/5/15.
+//  Created by Aaron Jun Yang on 3/5/15.
 //  Copyright (c) 2015 Location. All rights reserved.
 //
 
@@ -49,6 +49,7 @@ static int intervalCounter=0;
         
         //setup
         [_setupTimers setupActivityClassifier];
+        [_setupTimers setupIndicators];
         [_setupTimers shortTimer];
         [_setupTimers dailyTimer];
     });
@@ -231,7 +232,7 @@ static int intervalCounter=0;
         NSError *saveError = nil;
         
         if (![latestValue.managedObjectContext save:&saveError]) {
-            NSLog(@"Unable to save managed object context.");
+            NSLog(DatabaseSaveError);
             NSLog(@"%@, %@", saveError, saveError.localizedDescription);
         }
         
@@ -288,13 +289,15 @@ static int intervalCounter=0;
                 NSError *saveError = nil;
                 
                 if (![latestValue.managedObjectContext save:&saveError]) {
-                    NSLog(@"Unable to save managed object context.");
+                    NSLog(DatabaseSaveError);
                     NSLog(@"%@, %@", saveError, saveError.localizedDescription);
                 }
                 
             }
         }
     }
+    
+//    [self setSleepLevel];
     
 }
 
@@ -310,7 +313,31 @@ static int intervalCounter=0;
 // allows us to read all the history of activity.
 -(void)setupActivityClassifier
 {
-    self.activityTracker= [ActivityClassifier sharedActivityClassifier];
+    self.activityTracker = [ActivityClassifier sharedActivityClassifier];
+}
+
+#pragma mark - Setup Indicators
+/**
+ Singleton object of Indicators
+ */
+-(void)setupIndicators{
+    self.indicators = [Indicators sharedInstance];
+}
+
+/**
+ SetSleepLevel very 10am in the morning according to the sleep duration
+ */
+-(void)setSleepLevel: (NSNumber*) sleepDuration{
+    NSInteger duration = [sleepDuration integerValue];
+    
+    if (duration < SleepDurationLow) {
+        [self.indicators setSleepLevel:[NSNumber numberWithInt:SleepLevelLow]];
+    }else if (duration >= SleepDurationLow && duration <= SleepDurationMed){
+        [self.indicators setSleepLevel:[NSNumber numberWithInt:SleepLevelMed]];
+    }else if (duration >SleepDurationHigh){
+        [self.indicators setSleepLevel:[NSNumber numberWithInt:SleepLevelHigh]];
+    }
+    
 }
 
 @end

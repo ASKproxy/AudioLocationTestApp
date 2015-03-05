@@ -2,7 +2,7 @@
 //  SetupTimers.h
 //  Location
 //
-//  Created by Student student on 3/5/15.
+//  Created by Aaron Jun Yang on 3/5/15.
 //  Copyright (c) 2015 Location. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 @property ActivityClassifier *activityTracker;
 
 @property DataManager *dataManager;
-
+@property Indicators *indicators;
 
 #pragma mark -
 /**

@@ -70,6 +70,12 @@
 #pragma mark - Sleep Classifier
 //--------------------------------------------------
 #define SleepDetectionInterval 12*3600
+#define SleepDurationHigh 10*3600
+#define SleepDurationMed 8*3600
+#define SleepDurationLow 6*3600
+#define SleepLevelHigh 0
+#define SleepLevelMed 1
+#define SleepLevelLow 2
 
 
 //--------------------------------------------------
