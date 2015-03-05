@@ -10,9 +10,9 @@
 
 #define safeSet(d,k,v) if (v) d[k] = v;
 
-static NSString* const serverURL = @"http://10.31.250.103:3000/";
+static NSString* const serverURL = @"http://192.168.1.102:3000/";
 static NSString* const userName = @"arvind";
-static NSString* const collectionName = @"pam";
+static NSString* const collectionName = @"act_level";
 static NSString* const kFiles = @"files";
 
 
@@ -23,6 +23,9 @@ static NSString* const kFiles = @"files";
     safeSet(jsonable, @"name", [object valueForKey:@"stress_level"]);
     return jsonable;
 }
+
+
+
 -(id) init
 {
     if(self == [super init])
@@ -54,7 +57,13 @@ static NSString* const kFiles = @"files";
 
 - (void)import
 {
-    NSURL* url = [NSURL URLWithString:[serverURL stringByAppendingPathComponent:collectionName]]; //1
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    NSString *strDate=[df stringFromDate:[NSDate date]];
+    
+    NSString* parameters=[NSString stringWithFormat:@"campus_activity?date=%@",strDate];
+    NSString* requestUrl=[serverURL stringByAppendingString:parameters];
+    NSURL* url = [NSURL URLWithString:requestUrl]; //1
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"GET"; //2
@@ -66,6 +75,7 @@ static NSString* const kFiles = @"files";
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
             NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
+            
             [self parseAndAddLocations:responseArray toArray:self.objects]; //7
         }
     }];
@@ -75,11 +85,12 @@ static NSString* const kFiles = @"files";
 
 -(void) parseAndAddLocations:(NSArray *)locations toArray:(NSMutableArray*)destinationArray
 {
-    for (NSDictionary* item in locations) {
+    for (NSObject* item in locations) {
 
-        NSMutableDictionary *locations = [NSMutableDictionary new];
-        [locations setValue:item[@"longitude"] forKey:@"longitude"];
-        NSLog(@"longitude : %@",locations);
+        NSLog(@"average : %@",item);
+//        NSMutableDictionary *locations = [NSMutableDictionary new];
+//        [locations setValue:item[@"longitude"] forKey:@"longitude"];
+//        NSLog(@"longitude : %@",locations);
     }
     
 }
@@ -116,60 +127,34 @@ static NSString* const kFiles = @"files";
     
 }
 
--(void) persist
+
+
+
+
+
+#pragma mark - RESTFUL API
+
+
+-(void) getCampusAverageActivity
 {
     
-    NSString* destination = [serverURL stringByAppendingPathComponent:@"pam"];
-//    destination = [destination stringByAppendingPathComponent:collectionName];
-    
-    
+    NSString* destination = [serverURL stringByAppendingPathComponent:@"campus_activity"];
     NSURL *url= [NSURL URLWithString:destination];
-    
-    //make sure this is the same as the format in which the
-    //the timestamp was stored in core data
+
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
     [df setDateFormat:@"yyyy/MM/dd"];
-    
-    
-//
-//    NSMutableDictionary *innerjsonDictionary = [NSMutableDictionary new];
-//
-//    for(NSObject* entry in result)
-//    {
-//        NSMutableDictionary *inner=[NSMutableDictionary new];
-//        
-//        [inner setValue:[entry valueForKey:@"activity"] forKey:@"activity"];
-//
-//        period=[[entry valueForKey:@"period"]intValue];
-//        [innerjsonDictionary setValue:inner forKey:[@(period)stringValue]];
-//    }
-//    
-//    NSString *dateString = [df stringFromDate:[NSDate date]];
-//    NSMutableDictionary *jsonDictionary = [NSMutableDictionary new];
-//    [jsonDictionary setValue:innerjsonDictionary forKey:@"dummy"];
-    
-//    NSData *jsonData ;
-//    NSString *jsonString;
-//    if([NSJSONSerialization isValidJSONObject:jsonDictionary])
-//    {
-//        jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:nil];
-//        jsonString = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    }
-
-    WrapperJson *jsonObject=[self customJSON];
-    
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+    [dictionary setValue:[df stringFromDate:[NSDate date]] forKey:@"timestamp"];
     NSError *error = nil;
+    
     NSData *jsonData = [NSJSONSerialization
-                        dataWithJSONObject:[jsonObject toNSDictionary]
+                        dataWithJSONObject:dictionary
                         options:NSJSONWritingPrettyPrinted
                         error:&error];
     
-
     if ([jsonData length] > 0 &&
         error == nil){
-        NSLog(@"Successfully serialized the dictionary into data = %@", jsonData);
-        NSString *jsonString = [[NSString alloc] initWithData:jsonData
-                                                     encoding:NSUTF8StringEncoding];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         NSLog(@"JSON String = %@", jsonString);
     }
     else if ([jsonData length] == 0 &&
@@ -180,9 +165,229 @@ static NSString* const kFiles = @"files";
         NSLog(@"An error happened = %@", error);
     }
     
-    //    NSData *body = [NSKeyedArchiver archivedDataWithRootObject:jsonObject];
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody: jsonData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
     
     
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        if (!error) {
+            
+            NSLog(@"pushed to %@",collectionName);
+        }
+    }];
+    [dataTask resume];
+    
+}
+//Used to send the daily averages to the server
+-(void) httpPostRequestAverage:(double)average to:(NSURL *)url
+{
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    
+    NSMutableDictionary *dictionary = [NSMutableDictionary new];
+    [dictionary setValue:[NSNumber numberWithDouble:average] forKey:@"average"];
+    [dictionary setValue:[df stringFromDate:[NSDate date]] forKey:@"timestamp"];
+    [dictionary setValue:@"arvind" forKey:@"user"];
+ 
+    NSError *error = nil;
+
+    
+    //its because of the dictionary object we have to create differently that we have two different post methods
+    NSData *jsonData = [NSJSONSerialization
+                        dataWithJSONObject:dictionary
+                        options:NSJSONWritingPrettyPrinted
+                        error:&error];
+    
+    if ([jsonData length] > 0 &&
+        error == nil){
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"JSON String = %@", jsonString);
+    }
+    else if ([jsonData length] == 0 &&
+             error == nil){
+        NSLog(@"No data was returned after serialization.");
+    }
+    else if (error != nil){
+        NSLog(@"An error happened = %@", error);
+    }
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody: jsonData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        if (!error) {
+            
+            NSLog(@"pushed to %@",collectionName);
+        }
+    }];
+    [dataTask resume];
+}
+
+
+
+// Create the NSData from the Wrapper object and send the POST request to the server. Used to send all the logs to the server
+-(void) httpPostRequestLogs:(WrapperJson *)jsonObject to:(NSURL *)url
+{
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization
+                        dataWithJSONObject:[jsonObject toNSDictionary]
+                        options:NSJSONWritingPrettyPrinted
+                        error:&error];
+    
+    if ([jsonData length] > 0 &&
+        error == nil){
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"JSON String = %@", jsonString);
+    }
+    else if ([jsonData length] == 0 &&
+             error == nil){
+        NSLog(@"No data was returned after serialization.");
+    }
+    else if (error != nil){
+        NSLog(@"An error happened = %@", error);
+    }
+
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody: jsonData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    
+    
+    NSURLSessionConfiguration* config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession* session = [NSURLSession sessionWithConfiguration:config];
+    
+    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
+        if (!error) {
+            
+            NSLog(@"pushed to %@",collectionName);
+        }
+    }];
+    [dataTask resume];
+
+}
+
+
+#pragma mark - Sleep
+
+-(void) pushSleepAverage:(int) average
+{
+    
+    NSString* destination = [serverURL stringByAppendingPathComponent:@"sleep_average"];
+    NSURL *url= [NSURL URLWithString:destination];
+    [self httpPostRequestAverage:average to:url];
+    
+}
+
+
+#pragma mark - Stress
+
+-(void) pushStress:(NSArray *)records
+{
+    NSString* destination = [serverURL stringByAppendingPathComponent:@"stress_level"];
+    NSURL *url= [NSURL URLWithString:destination];
+
+    //make sure this is the same as the format in which the
+    //the timestamp was stored in core data
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    
+    WrapperJson *jsonObject=[self customJSONforStress:records];
+    
+    //setup POST request
+    [self httpPostRequestLogs:jsonObject to:url];
+}
+
+
+-(WrapperJson *) customJSONforStress:(NSArray *)records
+{
+  
+    int i=1;
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    NSString *dateString = [df stringFromDate:[NSDate date]];
+    
+    
+    NSMutableArray *dataList = [[NSMutableArray alloc]init];
+    
+    for(NSObject* entry in records)
+    {
+        StressJSON *stress=[[StressJSON alloc]initWithCode:[[entry valueForKey:@"stress_level"]intValue] period:i userName:@"arvind"];
+        
+        [dataList addObject:stress];
+    }
+    
+    WrapperJson* wrapper=[[WrapperJson alloc]init];
+    wrapper.timestamp=dateString;
+    wrapper.dataList=dataList;
+    
+    return wrapper;
+    
+}
+
+
+#pragma mark - Activity
+
+-(void) pushActivityAverage:(double) average
+{
+    
+    NSString* destination = [serverURL stringByAppendingPathComponent:@"activity_average"];
+    NSURL *url= [NSURL URLWithString:destination];
+    [self httpPostRequestAverage:average to:url];
+
+}
+
+-(void) persist
+{
+    
+    NSString* destination = [serverURL stringByAppendingPathComponent:@"act_level"];
+    NSURL *url= [NSURL URLWithString:destination];
+    
+    //make sure this is the same as the format in which the
+    //the timestamp was stored in core data
+    NSDateFormatter* df = [[NSDateFormatter alloc]init];
+    [df setDateFormat:@"yyyy/MM/dd"];
+    
+    
+    WrapperJson *jsonObject=[self customJSONforActivity];
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization
+                        dataWithJSONObject:[jsonObject toNSDictionary]
+                        options:NSJSONWritingPrettyPrinted
+                        error:&error];
+    
+
+    if ([jsonData length] > 0 &&
+        error == nil){
+//        NSString *jsonString = [[NSString alloc] initWithData:jsonData
+//                                                     encoding:NSUTF8StringEncoding];
+//        NSLog(@"JSON String = %@", jsonString);
+    }
+    else if ([jsonData length] == 0 &&
+             error == nil){
+        NSLog(@"No data was returned after serialization.");
+    }
+    else if (error != nil){
+        NSLog(@"An error happened = %@", error);
+    }
     
     
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:url];
@@ -218,10 +423,9 @@ NSJSONSERIALIZATION class created a JSON that wasn't readable by
  The method for creating this JSON element is referenced from :
  http://www.mysamplecode.com/2013/04/convert-custom-ios-object-to-json-string.html
  
- 
  */
 
--(WrapperJson *) customJSON
+-(WrapperJson *) customJSONforActivity
 {
     
     NSDateFormatter* df = [[NSDateFormatter alloc]init];
@@ -238,7 +442,6 @@ NSJSONSERIALIZATION class created a JSON that wasn't readable by
         ActivityJson* activity=[[ActivityJson alloc]initWithCode:[[entry valueForKey:@"activity"]intValue] period:[[entry valueForKey:@"period"]intValue] userName:@"xyz"];
         
         [dataList addObject:activity];
-        
     }
     
     WrapperJson* wrapper=[[WrapperJson alloc]init];

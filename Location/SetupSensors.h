@@ -19,6 +19,8 @@
 #import "BluetoothTracker.h"
 #import "DataManager.h"
 #import "ActivityClassifier.h"
+#import "Server.h"
+
 @interface SetupSensors : NSObject<EZMicrophoneDelegate, UIApplicationDelegate>
 
 #pragma mark - Properties
@@ -61,10 +63,15 @@
  Activity Classifier. Used to read CMMotionActivity data
  
  */
-
 @property ActivityClassifier *activityTracker;
 
+
+// Used for Core Data
 @property DataManager *dataManager;
+
+//Used to load data into server
+@property Server *server;
+
 
 
 #pragma mark -

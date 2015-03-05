@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Location/Server.m"
-            timestampString = "447147362.181361"
+            filePath = "Location/SetupSensors.m"
+            timestampString = "447238159.46681"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-storeDummyData"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-sleepAverage"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,29 +25,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Location/Server.m"
-            timestampString = "447188722.541641"
+            filePath = "Location/SetupSensors.m"
+            timestampString = "447235062.717455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "-customJSON"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "-updateActivityAndSocial:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Location/Server.m"
-            timestampString = "447188715.470359"
+            timestampString = "447241466.281743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-persist"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "-parseAndAddLocations:toArray:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

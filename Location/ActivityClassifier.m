@@ -37,6 +37,9 @@
 }
 
 
+/**
+Function is called every 3 hours and the average activty value is computed. 
+ **/
 -(void)getTrackingAcitivity
 {
     if([CMMotionActivityManager isActivityAvailable])

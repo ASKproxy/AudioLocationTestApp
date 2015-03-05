@@ -81,6 +81,8 @@
 		A432BA121AA0F19D008E941E /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A432BA111AA0F19D008E941E /* Server.m */; };
 		A432C1A61AA7161500E45901 /* ActivityJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A51AA7161500E45901 /* ActivityJson.m */; };
 		A432C1A91AA7800700E45901 /* WrapperJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A81AA7800700E45901 /* WrapperJson.m */; };
+		A432C1AC1AA7BB0800E45901 /* StressJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1AB1AA7BB0800E45901 /* StressJSON.m */; };
+		A432C1AF1AA7BEF000E45901 /* SleepJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1AE1AA7BEF000E45901 /* SleepJSON.m */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D51B21AA686D100F74DC6 /* Indicators.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
@@ -235,6 +237,10 @@
 		A432C1A51AA7161500E45901 /* ActivityJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityJson.m; sourceTree = "<group>"; };
 		A432C1A71AA7800700E45901 /* WrapperJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrapperJson.h; sourceTree = "<group>"; };
 		A432C1A81AA7800700E45901 /* WrapperJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrapperJson.m; sourceTree = "<group>"; };
+		A432C1AA1AA7BB0800E45901 /* StressJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StressJSON.h; sourceTree = "<group>"; };
+		A432C1AB1AA7BB0800E45901 /* StressJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StressJSON.m; sourceTree = "<group>"; };
+		A432C1AD1AA7BEF000E45901 /* SleepJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepJSON.h; sourceTree = "<group>"; };
+		A432C1AE1AA7BEF000E45901 /* SleepJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepJSON.m; sourceTree = "<group>"; };
 		A45D14471A906CD1002AEAD9 /* AudioProcessing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessing.h; sourceTree = "<group>"; };
 		A45D14481A906CD1002AEAD9 /* AudioProcessing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioProcessing.m; sourceTree = "<group>"; };
 		A45D51B11AA686D100F74DC6 /* Indicators.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Indicators.h; sourceTree = "<group>"; };
@@ -628,6 +634,10 @@
 			children = (
 				A432BA101AA0F19D008E941E /* Server.h */,
 				A432BA111AA0F19D008E941E /* Server.m */,
+				A432C1AD1AA7BEF000E45901 /* SleepJSON.h */,
+				A432C1AE1AA7BEF000E45901 /* SleepJSON.m */,
+				A432C1AA1AA7BB0800E45901 /* StressJSON.h */,
+				A432C1AB1AA7BB0800E45901 /* StressJSON.m */,
 				A432C1A71AA7800700E45901 /* WrapperJson.h */,
 				A432C1A81AA7800700E45901 /* WrapperJson.m */,
 				A432C1A41AA7161500E45901 /* ActivityJson.h */,
@@ -834,6 +844,7 @@
 				3FB8AB9A1A99609000E432DF /* JBChartInformationView.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
 				3FB8AB951A99609000E432DF /* JBLineChartFooterView.m in Sources */,
+				A432C1AC1AA7BB0800E45901 /* StressJSON.m in Sources */,
 				3FDA7CEB1A86CF8700A4EE58 /* EZAudio.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				3FDA7CEC1A86CF8700A4EE58 /* EZAudioFile.m in Sources */,
@@ -854,6 +865,7 @@
 				3FB8AB8C1A99609000E432DF /* JBBaseTableViewController.m in Sources */,
 				A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */,
 				3FB5310B1A7FEB5800E1B62C /* StudentLifeBackgroundAudioRecorder.m in Sources */,
+				A432C1AF1AA7BEF000E45901 /* SleepJSON.m in Sources */,
 				3FDA7CF41A86CF8700A4EE58 /* EZRecorder.m in Sources */,
 				3FDA7CF31A86CF8700A4EE58 /* EZPlot.m in Sources */,
 				3F2EE7C11A93132C002C0054 /* SocialViewController.m in Sources */,

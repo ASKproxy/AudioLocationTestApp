@@ -6,6 +6,13 @@
 //  Copyright (c) 2015 Location. All rights reserved.
 //
 
+
+/**
+Generic Wrapper class that can encapsulate any type of data. Used to store a list of
+ other jsons such as stress or activity.
+ **/
+
+
 #import "WrapperJson.h"
 
 @implementation WrapperJson
@@ -34,7 +41,8 @@
 
 
 /**
- The following two functions are implemented as part of the 
+ (might not be required - arvind )
+ The following two functions are implemented as part of the
  NSCoding protocol. They are required to convert the 
  JSON we have created into NSData objects. The reason for this conversion 
  is that the setHTTPbody parameter of NSMUtableURL accepts only 

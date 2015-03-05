@@ -6,6 +6,14 @@
 //  Copyright (c) 2015 Location. All rights reserved.
 //
 
+
+
+/**
+ 
+ This class is used to encapsulate the ACTIVITY data stored in Core Data
+ into a JSON object so that it can be sent to the server through a HTTP
+ request
+ **/
 #import "ActivityJson.h"
 
 @implementation ActivityJson

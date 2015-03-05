@@ -105,16 +105,17 @@ static void displayStatusChanged(CFNotificationCenterRef center,
 {
     
     self.server=[Server setupServer];
-//    [self.server import];
-    [self.server storeDummyData];
     
-    [self.server persist];
+    
+    [self.server import];
+//    [self.server storeDummyData];
+//    [self.server persist];
     
     
     dataManager = [DataManager sharedInstance];
     //---------------------------------------
     // Setup sensors
-//    setupSensors = [SetupSensors sharedSetupSensors];
+    setupSensors = [SetupSensors sharedSetupSensors];
     //---------------------------------------
     
     //---------------------------------------

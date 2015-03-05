@@ -90,8 +90,10 @@
     NSManagedObject *latestPam = [[NSManagedObject alloc] initWithEntity:entityDecription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     [latestPam setValue:[NSNumber numberWithInt:stressLevel] forKey:@"stress_level"];
     
-    NSString *dateString = [df stringFromDate:[NSDate date]];
-    [latestPam setValue:dateString forKey:@"timestamp"];
+//    NSString *dateString = [df stringFromDate:[NSDate date]];
+//    [latestPam setValue:dateString forKey:@"timestamp"];
+    
+    [latestPam setValue:[NSDate date] forKey:@"timestamp"];
     NSError *error1 = nil;
     
     if (![latestPam.managedObjectContext save:&error1]) {
