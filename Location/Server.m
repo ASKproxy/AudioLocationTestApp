@@ -10,7 +10,7 @@
 
 #define safeSet(d,k,v) if (v) d[k] = v;
 
-static NSString* const serverURL = @"http://192.168.1.102:3000/";
+static NSString* const serverURL = @"http://10.31.251.188:3000/";
 static NSString* const userName = @"arvind";
 static NSString* const collectionName = @"act_level";
 static NSString* const kFiles = @"files";
@@ -74,7 +74,7 @@ static NSString* const kFiles = @"files";
     
     NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) { //5
         if (error == nil) {
-            NSArray* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
+            NSObject* responseArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL]; //6
             
             [self parseAndAddLocations:responseArray toArray:self.objects]; //7
         }
@@ -83,15 +83,9 @@ static NSString* const kFiles = @"files";
     [dataTask resume]; //8
 }
 
--(void) parseAndAddLocations:(NSArray *)locations toArray:(NSMutableArray*)destinationArray
+-(void) parseAndAddLocations:(NSObject *)locations toArray:(NSMutableArray*)destinationArray
 {
-    for (NSObject* item in locations) {
-
-        NSLog(@"average : %@",item);
-//        NSMutableDictionary *locations = [NSMutableDictionary new];
-//        [locations setValue:item[@"longitude"] forKey:@"longitude"];
-//        NSLog(@"longitude : %@",locations);
-    }
+    NSLog(@"%@",locations);
     
 }
 

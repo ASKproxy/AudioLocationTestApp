@@ -173,9 +173,28 @@ Set up a 24 hour timer that will be used to compute the following :
     timer = [NSTimer scheduledTimerWithTimeInterval:ONE_HOUR*24 target:self
                                            selector:@selector(dailyUpdates:) userInfo:nil repeats:YES];
     
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:06];
+    [comps setMonth:03];
+    [comps setYear:2015];
+    NSDate *d = [[NSCalendar currentCalendar] dateFromComponents:comps];
+    
+    NSTimer *t = [[NSTimer alloc] initWithFireDate: d
+                                          interval: 24
+                                            target: self
+                                          selector:@selector(getCampusAverages:)
+                                          userInfo:nil repeats:YES];
     
 }
 
+
+-(void) getCampusAverages:(NSTimer *)incomingTimer
+{
+    //gets campus activity average
+    [self.server import];
+    
+    
+}
 
 - (void) dailyUpdates:(NSTimer *)incomingTimer
 {
@@ -236,6 +255,7 @@ Set up a 24 hour timer that will be used to compute the following :
     }
     //duration is in seconds, remember to convert to minutes
     [self.server pushSleepAverage:(duration/60)];
+    
 }
 
 #pragma mark - Records

@@ -35,6 +35,6 @@
 
 
 
--(void) parseAndAddLocations:(NSArray *)responseArray toArray:(NSMutableArray*)objects;
+-(void) parseAndAddLocations:(NSObject *)responseArray toArray:(NSMutableArray*)objects;
 
 @end
