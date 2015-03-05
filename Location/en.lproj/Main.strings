@@ -1,0 +1,42 @@
+
+/* Class = "IBUILabel"; text = "HOW STRESSED ARE YOU?"; ObjectID = "3bY-Hw-OFz"; */
+"3bY-Hw-OFz.text" = "HOW STRESSED ARE YOU?";
+
+/* Class = "IBUIButton"; normalTitle = "◀︎"; ObjectID = "67D-VO-SnW"; */
+"67D-VO-SnW.normalTitle" = "◀︎";
+
+/* Class = "IBUITabBarItem"; title = "Social"; ObjectID = "6tz-QZ-PhF"; */
+"6tz-QZ-PhF.title" = "Social";
+
+/* Class = "IBUILabel"; text = "Hi Andrew, \nHow are you?"; ObjectID = "8qy-Oo-iix"; */
+"8qy-Oo-iix.text" = "Hi Andrew, \nHow are you?";
+
+/* Class = "IBUITabBarItem"; title = "Activity"; ObjectID = "EaU-7Q-vjE"; */
+"EaU-7Q-vjE.title" = "Activity";
+
+/* Class = "IBUILabel"; text = "ACTIVITY"; ObjectID = "Lil-QP-QhI"; */
+"Lil-QP-QhI.text" = "ACTIVITY";
+
+/* Class = "IBUIButton"; normalTitle = "◀︎"; ObjectID = "WfX-nK-eDk"; */
+"WfX-nK-eDk.normalTitle" = "◀︎";
+
+/* Class = "IBUILabel"; text = "SLEEP"; ObjectID = "aTY-Yn-2Jn"; */
+"aTY-Yn-2Jn.text" = "SLEEP";
+
+/* Class = "IBUIButton"; normalTitle = "◀︎"; ObjectID = "hQg-F8-Tj4"; */
+"hQg-F8-Tj4.normalTitle" = "◀︎";
+
+/* Class = "IBUILabel"; text = "STRESS"; ObjectID = "iHA-gy-oh9"; */
+"iHA-gy-oh9.text" = "STRESS";
+
+/* Class = "IBUILabel"; text = "SOCIAL"; ObjectID = "oKc-05-h8M"; */
+"oKc-05-h8M.text" = "SOCIAL";
+
+/* Class = "IBUITabBarItem"; title = "Stress"; ObjectID = "qeY-Bo-6e9"; */
+"qeY-Bo-6e9.title" = "Stress";
+
+/* Class = "IBUITabBarItem"; title = "Sleep"; ObjectID = "w0v-8m-JHg"; */
+"w0v-8m-JHg.title" = "Sleep";
+
+/* Class = "IBUIButton"; normalTitle = "◀︎"; ObjectID = "xUK-iD-wSZ"; */
+"xUK-iD-wSZ.normalTitle" = "◀︎";
