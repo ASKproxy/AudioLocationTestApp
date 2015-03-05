@@ -13,6 +13,7 @@
 #import "SetupSensors.h"
 #import "DataManager.h"
 #import "Server.h"
+#import "SetupTimers.h"
 
 
 /**
@@ -28,6 +29,7 @@ LOCK  & UNLOCK
 NSInteger gLockComplete, gLockState;
 //EZMicrophone *ezMicrophone;
 SetupSensors *setupSensors;
+SetupTimers *setupTimers;
 DataManager * dataManager;
 
 

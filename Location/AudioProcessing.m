@@ -157,11 +157,11 @@ int count_one;
     [self initConversationCount];
     
     self.dataManager = [DataManager sharedInstance];
-
-//    static dispatch_once_t onceToken;                 NEED TO DECIDE IF WE SHOULD CALL IT ONLY ONCE !!
-//    dispatch_once(&onceToken, ^{
-//        [self initVoicedFeaturesFunction];
-//    });
+    
+    //    static dispatch_once_t onceToken;                 NEED TO DECIDE IF WE SHOULD CALL IT ONLY ONCE !!
+    //    dispatch_once(&onceToken, ^{
+    //        [self initVoicedFeaturesFunction];
+    //    });
     return self;
 }
 
@@ -363,26 +363,28 @@ int count_one;
     memcpy( featuresValuesTemp+6+2+LOOK_BACK_LENGTH, acorrPeakValueArray, numAcorrPeaks*sizeof(double) );
     memcpy( featuresValuesTemp+6+numAcorrPeaks+2+LOOK_BACK_LENGTH, acorrPeakLagValueArray, numAcorrPeaks*sizeof(double) );
     //(*env)->SetDoubleArrayRegion( env, featureVector, 0, 6 + numAcorrPeaks*2 + 2 + LOOK_BACK_LENGTH, (const jdouble*)featuresValuesTemp );
-//    
-//    //Log of audio class
-//    switch ((NSInteger)featuresValuesTemp[8]) {
-//        case 0:
-//            break;
-//        case 1:
-//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
-//            break;
-//        case 2:
-//            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
-//            break;
-//        default:
-//            break;
-//    }
+    //
+    //    //Log of audio class
+    //    switch ((NSInteger)featuresValuesTemp[8]) {
+    //        case 0:
+    //            break;
+    //        case 1:
+    //            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+    //            break;
+    //        case 2:
+    //            NSLog(@"We succeeded in getting audio : %f", featuresValuesTemp[8]);
+    //            break;
+    //        default:
+    //            break;
+    //    }
     
     
     [self toStoreAudioConversation: featuresValuesTemp[8]];
 }
 
 
+
+#pragma mark - Setter and Getter
 /**
  Update convecutive conversation count
  if the featuresValuesTemp[8] is 1 then increment _consecutiveConCount
@@ -399,11 +401,11 @@ int count_one;
         [self resetConsecutiveConCount];
         _consecutiveConCount++;
     }
-   
+    
     //Change conversation state to conversation
     if(!_isConversation && _consecutiveConCount >= ConsecutiveConversationLength){
         _isConversation = TRUE;
-
+        
     }
 }
 
@@ -411,7 +413,7 @@ int count_one;
  Return consecutive conversation count
  */
 -(NSInteger)getConsecutiveConCount{
-
+    
     return _consecutiveConCount;
 }
 
@@ -422,7 +424,7 @@ int count_one;
 -(void)resetConsecutiveConCount{
     if (_consecutiveConCount >= ConsecutiveConversationLength) {
         //Store start and end time to database, otherwise do nothing
-//        [self storeConversationDuration];
+        //        [self storeConversationDuration];
         
     }
     
@@ -481,10 +483,12 @@ int count_one;
 /**
  This method gets called whenever there is a new audio classification result
  provdied by the method "processAudio". It detects the audio classfication :
- 0 or 1 and does corresponding operation. If there is 20 consecutive 1, then 
- it is considered as a conversation and the starting and ending timestamp is 
- stored to database. If there is 20 consecutive 0 then it is either considered 
- the end of the conversation or just silence
+ 0 or 1 and does corresponding operation. If there is x number of consecutive 1,
+ it is considered as a conversation and the starting and ending timestamp is
+ stored to database. Else it is considered no conversation
+ 
+ However in order to determine a full conversation, more logics need to be considered
+ 
  Store audio classification results to the temp mutable array for the past minute
  */
 - (void) toStoreAudioConversation: (NSInteger)featuresValuesTemp{
@@ -496,9 +500,9 @@ int count_one;
         _startTimer = TRUE;
         
         [NSTimer scheduledTimerWithTimeInterval:60 target:self
-                selector:@selector(hasConvesation)
-                userInfo:nil
-                repeats:NO];
+                                       selector:@selector(hasConvesation)
+                                       userInfo:nil
+                                        repeats:NO];
     }
     
     [_tempAudioClassification addObject: [NSNumber numberWithInteger: featuresValuesTemp]];
@@ -506,53 +510,50 @@ int count_one;
     
     if (featuresValuesTemp == 1) {
         _consecutiveConCount++;
+    }else if (featuresValuesTemp == 0){
+        _consecutiveSilCount++;
     }
     
-//    [self storeConversationClassificationToArray: featuresValuesTemp];
-//    switch (featuresValuesTemp) {
-//        case 0:
-////            [self incrementConsecutiveSilCount];
-//
-//            break;
-//            
-//        case 1:
-////            [self incrementConsecutiveConCount];
-//            break;
-//            
-//        default:
-//            break;
-//    }
- 
+    //    [self storeConversationClassificationToArray: featuresValuesTemp];
+    //    switch (featuresValuesTemp) {
+    //        case 0:
+    ////            [self incrementConsecutiveSilCount];
+    //
+    //            break;
+    //
+    //        case 1:
+    ////            [self incrementConsecutiveConCount];
+    //            break;
+    //
+    //        default:
+    //            break;
+    //    }
+    
 }
 
 
 
-/**
- Reset audio classification temp mutable array to empty before next minute
- */
-- (void) resetConversationClassificationArray{
-    
-    _consecutiveConCount = 0;
-    [_tempAudioClassification removeAllObjects];
-    [_tempAudioTimestamp removeAllObjects];
-    
-    _startTimer = FALSE;
-}
 
 /**
- 
+ Call back method for NSTimer
  */
 - (void)hasConvesation{
     
     [self storeConversationClassification];
     
-    if (_consecutiveConCount >= 10) {
+    //If the past minute has a conversation then store the
+    //duration, which is one minute
+    if (_consecutiveConCount >= ConsecutiveConversationLength) {
         [self storeConversationDuration];
     }
     
     [self resetConversationClassificationArray];
     
 }
+
+
+
+
 
 
 /**
@@ -563,54 +564,56 @@ int count_one;
 - (void) storeConversationClassification {
     
     //create the entity over here
-    NSEntityDescription *entityDescriptionAudio = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+    NSEntityDescription *entityDescriptionAudio = [NSEntityDescription entityForName:AudioDataTable inManagedObjectContext:self.dataManager.managedObjectContext];
     
     NSManagedObject *latestAudioClassfication = [[NSManagedObject alloc] initWithEntity:entityDescriptionAudio insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     
-    int length = [_tempAudioClassification count];
+    int length = (int)[_tempAudioClassification count];
     for (int i = 0; i < length; i++) {
-        [latestAudioClassfication setValue:_tempAudioClassification[i] forKey:@"has_conversation"];
-        [latestAudioClassfication setValue:_tempAudioTimestamp[i] forKey:@"timestamp"];
+        [latestAudioClassfication setValue:_tempAudioClassification[i] forKey:AudioHasConversation];
+        [latestAudioClassfication setValue:_tempAudioTimestamp[i] forKey:AudioClassificationTimeStamp];
     }
     
     NSError *error = nil;
     
     if (![latestAudioClassfication.managedObjectContext save:&error]) {
-        NSLog(@"Unable to save managed object context.");
+        NSLog(DatabaseSaveError);
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
     
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-//    
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
-//    [fetchRequest setEntity:entity];
-//    
-//    NSError *error2 = nil;
-//    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
-//    
-//
-//    if (featuresValuesTemp==1) {
-//        count_one ++;
-//        NSLog(@"count_one: %d", count_one);
-//        
-//    }else if (featuresValuesTemp==0){
-////        count_zero++;
-////        NSLog(@"count_zero: %d", count_zero);
-//    }
-//    if (error2) {
-//        NSLog(@"Unable to execute fetch request.");
-//        NSLog(@"%@, %@", error2, error2.localizedDescription);
-//        
-//    } else {
-//        if(result.count > 0 )
-//        {
-//            
-//            NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
-//            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"has_conversation"]);
-//            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"timestamp"]);
-//            
-//        }
-//    }
+    NSLog(@"The past minute has %ld ones", (long)_consecutiveConCount);
+    
+    //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    //
+    //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+    //    [fetchRequest setEntity:entity];
+    //
+    //    NSError *error2 = nil;
+    //    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error2];
+    //
+    //
+    //    if (featuresValuesTemp==1) {
+    //        count_one ++;
+    //        NSLog(@"count_one: %d", count_one);
+    //
+    //    }else if (featuresValuesTemp==0){
+    ////        count_zero++;
+    ////        NSLog(@"count_zero: %d", count_zero);
+    //    }
+    //    if (error2) {
+    //        NSLog(@"Unable to execute fetch request.");
+    //        NSLog(@"%@, %@", error2, error2.localizedDescription);
+    //
+    //    } else {
+    //        if(result.count > 0 )
+    //        {
+    //
+    //            NSManagedObject *r = (NSManagedObject *)[result objectAtIndex:result.count - 1];
+    //            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"has_conversation"]);
+    //            NSLog(@"result count : %lu  conversation Classification : %@", (unsigned long)[result count],[r valueForKey:@"timestamp"]);
+    //
+    //        }
+    //    }
 }
 
 /**
@@ -620,90 +623,111 @@ int count_one;
 -(void) storeConversationDuration
 {
     //create the entity over here and save it
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:ConversationDataTable inManagedObjectContext:self.dataManager.managedObjectContext];
     
     NSManagedObject *latestConverDuration = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     
-    [latestConverDuration setValue:[_tempAudioTimestamp firstObject] forKey:@"start_time"];
-    [latestConverDuration setValue:[_tempAudioTimestamp lastObject] forKey:@"end_time"];
-
+    [latestConverDuration setValue:[_tempAudioTimestamp firstObject] forKey:ConversationStartTime];
+    [latestConverDuration setValue:[_tempAudioTimestamp lastObject] forKey:ConversationEndTime];
+    
     NSError *error = nil;
     
     if (![latestConverDuration.managedObjectContext save:&error]) {
-        NSLog(@"Unable to save managed object context.");
+        NSLog(DatabaseSaveError);
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
 
     
-//    //Get start and time from database of Audio
-//    NSError *error = nil;
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //    //Get start and time from database of Audio
+    //    NSError *error = nil;
+    //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    //
+    //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+    //    [fetchRequest setEntity:entity];
+    //
+    //    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    //
+    //    if (error) {
+    //        NSLog(@"Unable to execute fetch request.");
+    //        NSLog(@"%@, %@", error, error.localizedDescription);
+    //
+    //    } else {
+    //        if(result.count > 0 )
+    //        {
+    //
+    //            NSManagedObject *rStart = (NSManagedObject *)[result objectAtIndex:result.count - _consecutiveConCount];
+    //            NSManagedObject *rEnd = (NSManagedObject *)[result objectAtIndex:result.count - 1];
+    //
+    //            NSLog(@"start_time : %@", [r valueForKey:@"start_time"]);
+    //            //Store start and end time
+    //            [latestConverDuration setValue:[NSNumber numberWithDouble:[rStart valueForKey:@"time_stamp"]] forKey:@"start_time"];
+    //            [latestConverDuration setValue:[NSNumber numberWithDouble:[rEnd valueForKey:@"time_stamp"]] forKey:@"end_time"];
+    //
+    //
+    //            NSError *error1 = nil;
+    //
+    //            if (![latestConverDuration.managedObjectContext save:&error1]) {
+    //                NSLog(@"Unable to save managed object context.");
+    //                NSLog(@"%@, %@", error1, error1.localizedDescription);
+    //            }
+    //
+    //            NSLog(@"Stored the accelerometer data");
+    //        }
+    //
+    //    }
+    //retreive the data and print it in the log
+//    NSError *error_2 = nil;
+//    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
 //    
-//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
-//    [fetchRequest setEntity:entity];
+//    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+//    [fetchRequest_2 setEntity:entity_2];
 //    
-//    NSArray *result = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//    NSArray *result_2 = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
 //    
-//    if (error) {
+//    if (error_2) {
 //        NSLog(@"Unable to execute fetch request.");
-//        NSLog(@"%@, %@", error, error.localizedDescription);
+//        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
 //        
 //    } else {
-//        if(result.count > 0 )
+//        if(result_2.count > 0 )
 //        {
 //            
-//            NSManagedObject *rStart = (NSManagedObject *)[result objectAtIndex:result.count - _consecutiveConCount];
-//            NSManagedObject *rEnd = (NSManagedObject *)[result objectAtIndex:result.count - 1];
-//
-//            NSLog(@"start_time : %@", [r valueForKey:@"start_time"]);
-//            //Store start and end time
-//            [latestConverDuration setValue:[NSNumber numberWithDouble:[rStart valueForKey:@"time_stamp"]] forKey:@"start_time"];
-//            [latestConverDuration setValue:[NSNumber numberWithDouble:[rEnd valueForKey:@"time_stamp"]] forKey:@"end_time"];
-//           
-//        
-//            NSError *error1 = nil;
+//            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
 //            
-//            if (![latestConverDuration.managedObjectContext save:&error1]) {
-//                NSLog(@"Unable to save managed object context.");
-//                NSLog(@"%@, %@", error1, error1.localizedDescription);
-//            }
-//            
-//            NSLog(@"Stored the accelerometer data");
+//            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
 //        }
-//    
 //    }
-    //retreive the data and print it in the log
-    NSError *error_2 = nil;
-    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
-    [fetchRequest_2 setEntity:entity_2];
-    
-    NSArray *result_2 = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
-    
-    if (error_2) {
-        NSLog(@"Unable to execute fetch request.");
-        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
-        
-    } else {
-        if(result_2.count > 0 )
-        {
-            
-            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
-            
-            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
-        }
-    }
 }
 
 
 
+/**
+ Reset audio classification temp mutable array to empty before next minute
+ */
+- (void) resetConversationClassificationArray{
+    _consecutiveConCount = 0;
+    _consecutiveSilCount = 0;
+    
+    [_tempAudioClassification removeAllObjects];
+    [_tempAudioTimestamp removeAllObjects];
+    
+    _startTimer = FALSE;
+}
+
+
 #pragma mark - Feed data to Social Classifier
 
+/**
+ Return the conversation total duration in the past x interval
+ 
+ return in minutes
+ */
 +(double) conversationDuration{
+    //Total conversation in minutes
     double result = 0;
     
-    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - 3600 * 3];
+    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - SocialConversationInterval];
     
     
     
@@ -712,41 +736,98 @@ int count_one;
     NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
     
     DataManager *tempManager = [DataManager sharedInstance];
-    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:tempManager.managedObjectContext];
+    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:ConversationDataTable inManagedObjectContext:tempManager.managedObjectContext];
     [fetchRequest_2 setEntity:entity_2];
     
     NSArray *result_2 = [tempManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
     
     if (error_2) {
-        NSLog(@"Unable to execute fetch request.");
+        NSLog(DatabaseFetchError);
         NSLog(@"%@, %@", error_2, error_2.localizedDescription);
         
     } else {
         if(result_2.count > 0 )
         {
-            
             int i = (int)result_2.count - 1;
             
-            
             NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
-            NSDate *oldDate = [r_2 valueForKey:@"start_time"];
-            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
+            NSDate *oldDate = [r_2 valueForKey:ConversationStartTime];
+            i--;
+//            NSLog(@"start_time : %@", [r_2 valueForKey:ConversationStartTime]);
             
-            while ( [self currentTime:currentDate isEarlierThanOrEqualTo:oldDate]) {
+            while ( [self currentTime:currentDate isEarlierThanOrEqualTo:oldDate] && (i >= 0)) {
                 result++;
-                i--;
                 r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
-                oldDate = [r_2 valueForKey:@"start_time"];
+                oldDate = [r_2 valueForKey:ConversationStartTime];
+                i--;
             }
-
+            
         }
     }
     
     return result;
 }
 
+/**
+ Return the number of conversation in the past x interval
+ */
 +(double) conversationFreq{
     double result = 0;
+    
+    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - SocialConversationInterval];
+    
+    //retreive the data and print it in the log
+    NSError *error_2 = nil;
+    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
+    
+    DataManager *tempManager = [DataManager sharedInstance];
+    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:ConversationDataTable inManagedObjectContext:tempManager.managedObjectContext];
+    [fetchRequest_2 setEntity:entity_2];
+    
+    NSArray *result_2 = [tempManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
+    
+    if (error_2) {
+        NSLog(DatabaseFetchError);
+        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
+        
+    } else {
+        if(result_2.count > 0 )
+        {
+            int i = (int)result_2.count - 1;
+            
+            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+            NSDate *oldDate = [r_2 valueForKey:ConversationStartTime];
+            i--;
+            //            NSLog(@"start_time : %@", [r_2 valueForKey:ConversationStartTime]);
+            
+            if ([self currentTime:currentDate isEarlierThanOrEqualTo:oldDate]) {
+                result++;
+                i--;
+            }
+            
+            if(i >=0){
+                NSManagedObject *r_2_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+                NSDate *olderDate = [r_2_2 valueForKey:ConversationStartTime];
+                NSCalendar *calendar = [NSCalendar currentCalendar];
+                NSInteger interval = 0;
+                
+                while ( [self currentTime:currentDate isEarlierThanOrEqualTo:olderDate] && (i >= 0)) {
+                    
+                    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
+                                                               fromDate:olderDate toDate:oldDate options:0];
+                    interval = [difference minute];
+                    if (interval > SocialConversationFrequencyConstraint && i>0) {
+                       result++;
+                    }
+                    oldDate = olderDate;
+                    i--;
+                    r_2_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+                    olderDate = [r_2_2 valueForKey:ConversationStartTime];
+
+                }
+            }
+        }
+    }
     
     return result;
 }
@@ -754,6 +835,7 @@ int count_one;
 +(BOOL) currentTime:(NSDate*)curDate isEarlierThanOrEqualTo:(NSDate*)date {
     return !([curDate compare:date] == NSOrderedDescending);
 }
+
 
 
 #pragma mark - Compute
@@ -888,7 +970,7 @@ void computeSpectralEntropy2(kiss_fft_scalar* magnitudeSpec_l,int len)
             rel_spectral_entropy = rel_spectral_entropy + norm_spec[i]*(log( norm_spec[i]) - log(normed_mean_spec[i]));
     }
     
-
+    
 }
 
 

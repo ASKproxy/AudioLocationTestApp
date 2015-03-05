@@ -23,15 +23,22 @@
 #pragma mark - Shared instance
 + (Indicators*)sharedInstance;
 
-#pragma mark - Setter and Getter
 
+#pragma mark - Setter and Getter
+/**
+ Return current device screen width
+ */
 -(CGFloat) getScreenWidth;
 
 -(void) setScreenWidth:(CGFloat)screenWidth;
 
+/**
+ Return current device screen height
+ */
 -(CGFloat) getScreenHeight;
 
 -(void) setScreenHeight:(CGFloat)screenHeight;
+
 
 /**
  Get stress level for ploting puffer fish in the portrait view
