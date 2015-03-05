@@ -543,7 +543,7 @@ int count_one;
     
     //If the past minute has a conversation then store the
     //duration, which is one minute
-    if (_consecutiveConCount >= 10) {
+    if (_consecutiveConCount >= ConsecutiveConversationLength) {
         [self storeConversationDuration];
     }
     
@@ -564,20 +564,20 @@ int count_one;
 - (void) storeConversationClassification {
     
     //create the entity over here
-    NSEntityDescription *entityDescriptionAudio = [NSEntityDescription entityForName:@"Audio" inManagedObjectContext:self.dataManager.managedObjectContext];
+    NSEntityDescription *entityDescriptionAudio = [NSEntityDescription entityForName:AudioDataTable inManagedObjectContext:self.dataManager.managedObjectContext];
     
     NSManagedObject *latestAudioClassfication = [[NSManagedObject alloc] initWithEntity:entityDescriptionAudio insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     
     int length = (int)[_tempAudioClassification count];
     for (int i = 0; i < length; i++) {
-        [latestAudioClassfication setValue:_tempAudioClassification[i] forKey:@"has_conversation"];
-        [latestAudioClassfication setValue:_tempAudioTimestamp[i] forKey:@"timestamp"];
+        [latestAudioClassfication setValue:_tempAudioClassification[i] forKey:AudioHasConversation];
+        [latestAudioClassfication setValue:_tempAudioTimestamp[i] forKey:AudioClassificationTimeStamp];
     }
     
     NSError *error = nil;
     
     if (![latestAudioClassfication.managedObjectContext save:&error]) {
-        NSLog(@"Unable to save managed object context.");
+        NSLog(DatabaseSaveError);
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
     
@@ -623,17 +623,17 @@ int count_one;
 -(void) storeConversationDuration
 {
     //create the entity over here and save it
-    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:ConversationDataTable inManagedObjectContext:self.dataManager.managedObjectContext];
     
     NSManagedObject *latestConverDuration = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.dataManager.managedObjectContext];
     
-    [latestConverDuration setValue:[_tempAudioTimestamp firstObject] forKey:@"start_time"];
-    [latestConverDuration setValue:[_tempAudioTimestamp lastObject] forKey:@"end_time"];
+    [latestConverDuration setValue:[_tempAudioTimestamp firstObject] forKey:ConversationStartTime];
+    [latestConverDuration setValue:[_tempAudioTimestamp lastObject] forKey:ConversationEndTime];
     
     NSError *error = nil;
     
     if (![latestConverDuration.managedObjectContext save:&error]) {
-        NSLog(@"Unable to save managed object context.");
+        NSLog(DatabaseSaveError);
         NSLog(@"%@, %@", error, error.localizedDescription);
     }
 
@@ -677,27 +677,27 @@ int count_one;
     //
     //    }
     //retreive the data and print it in the log
-    NSError *error_2 = nil;
-    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
-    [fetchRequest_2 setEntity:entity_2];
-    
-    NSArray *result_2 = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
-    
-    if (error_2) {
-        NSLog(@"Unable to execute fetch request.");
-        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
-        
-    } else {
-        if(result_2.count > 0 )
-        {
-            
-            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
-            
-            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
-        }
-    }
+//    NSError *error_2 = nil;
+//    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
+//    
+//    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.dataManager.managedObjectContext];
+//    [fetchRequest_2 setEntity:entity_2];
+//    
+//    NSArray *result_2 = [self.dataManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
+//    
+//    if (error_2) {
+//        NSLog(@"Unable to execute fetch request.");
+//        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
+//        
+//    } else {
+//        if(result_2.count > 0 )
+//        {
+//            
+//            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:result_2.count - 1];
+//            
+//            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
+//        }
+//    }
 }
 
 
@@ -706,9 +706,9 @@ int count_one;
  Reset audio classification temp mutable array to empty before next minute
  */
 - (void) resetConversationClassificationArray{
-    
     _consecutiveConCount = 0;
     _consecutiveSilCount = 0;
+    
     [_tempAudioClassification removeAllObjects];
     [_tempAudioTimestamp removeAllObjects];
     
@@ -718,10 +718,16 @@ int count_one;
 
 #pragma mark - Feed data to Social Classifier
 
+/**
+ Return the conversation total duration in the past x interval
+ 
+ return in minutes
+ */
 +(double) conversationDuration{
+    //Total conversation in minutes
     double result = 0;
     
-    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - 3600 * 3];
+    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - SocialConversationInterval];
     
     
     
@@ -730,31 +736,30 @@ int count_one;
     NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
     
     DataManager *tempManager = [DataManager sharedInstance];
-    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:tempManager.managedObjectContext];
+    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:ConversationDataTable inManagedObjectContext:tempManager.managedObjectContext];
     [fetchRequest_2 setEntity:entity_2];
     
     NSArray *result_2 = [tempManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
     
     if (error_2) {
-        NSLog(@"Unable to execute fetch request.");
+        NSLog(DatabaseFetchError);
         NSLog(@"%@, %@", error_2, error_2.localizedDescription);
         
     } else {
         if(result_2.count > 0 )
         {
-            
             int i = (int)result_2.count - 1;
             
-            
             NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
-            NSDate *oldDate = [r_2 valueForKey:@"start_time"];
-            NSLog(@"start_time : %@", [r_2 valueForKey:@"start_time"]);
+            NSDate *oldDate = [r_2 valueForKey:ConversationStartTime];
+            i--;
+//            NSLog(@"start_time : %@", [r_2 valueForKey:ConversationStartTime]);
             
-            while ( [self currentTime:currentDate isEarlierThanOrEqualTo:oldDate]) {
+            while ( [self currentTime:currentDate isEarlierThanOrEqualTo:oldDate] && (i >= 0)) {
                 result++;
-                i--;
                 r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
-                oldDate = [r_2 valueForKey:@"start_time"];
+                oldDate = [r_2 valueForKey:ConversationStartTime];
+                i--;
             }
             
         }
@@ -763,8 +768,66 @@ int count_one;
     return result;
 }
 
+/**
+ Return the number of conversation in the past x interval
+ */
 +(double) conversationFreq{
     double result = 0;
+    
+    NSDate *currentDate = [[NSDate date] dateByAddingTimeInterval: - SocialConversationInterval];
+    
+    //retreive the data and print it in the log
+    NSError *error_2 = nil;
+    NSFetchRequest *fetchRequest_2 = [[NSFetchRequest alloc] init];
+    
+    DataManager *tempManager = [DataManager sharedInstance];
+    NSEntityDescription *entity_2 = [NSEntityDescription entityForName:ConversationDataTable inManagedObjectContext:tempManager.managedObjectContext];
+    [fetchRequest_2 setEntity:entity_2];
+    
+    NSArray *result_2 = [tempManager.managedObjectContext executeFetchRequest:fetchRequest_2 error:&error_2];
+    
+    if (error_2) {
+        NSLog(DatabaseFetchError);
+        NSLog(@"%@, %@", error_2, error_2.localizedDescription);
+        
+    } else {
+        if(result_2.count > 0 )
+        {
+            int i = (int)result_2.count - 1;
+            
+            NSManagedObject *r_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+            NSDate *oldDate = [r_2 valueForKey:ConversationStartTime];
+            i--;
+            //            NSLog(@"start_time : %@", [r_2 valueForKey:ConversationStartTime]);
+            
+            if ([self currentTime:currentDate isEarlierThanOrEqualTo:oldDate]) {
+                result++;
+                i--;
+            }
+            
+            if(i >=0){
+                NSManagedObject *r_2_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+                NSDate *olderDate = [r_2_2 valueForKey:ConversationStartTime];
+                NSCalendar *calendar = [NSCalendar currentCalendar];
+                NSInteger interval = 0;
+                
+                while ( [self currentTime:currentDate isEarlierThanOrEqualTo:olderDate] && (i >= 0)) {
+                    
+                    NSDateComponents *difference = [calendar components:NSCalendarUnitDay
+                                                               fromDate:olderDate toDate:oldDate options:0];
+                    interval = [difference minute];
+                    if (interval > SocialConversationFrequencyConstraint && i>0) {
+                       result++;
+                    }
+                    oldDate = olderDate;
+                    i--;
+                    r_2_2 = (NSManagedObject *)[result_2 objectAtIndex:i];
+                    olderDate = [r_2_2 valueForKey:ConversationStartTime];
+
+                }
+            }
+        }
+    }
     
     return result;
 }
