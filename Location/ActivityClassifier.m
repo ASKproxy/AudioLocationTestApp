@@ -55,7 +55,7 @@ Function is called every 3 hours and the average activty value is computed.
                                        
                                        
                                        NSDateFormatter* df = [[NSDateFormatter alloc]init];
-                                       [df setDateFormat:@"yyyy/MM/dd"];
+                                       [df setDateFormat:YearMonthDay];
                                        
                                        
                                        
@@ -85,7 +85,7 @@ Function is called every 3 hours and the average activty value is computed.
 
                                        
                                        [latestValue setValue:[self.previousActivity valueForKey:@"average"] forKey:@"activity"];
-                                       [latestValue setValue:[df stringFromDate:[NSDate date]] forKey:@"timestamp"];
+                                       [latestValue setValue:[df stringFromDate:[NSDate date]] forKey:DatabaseTimeStamp];
                                        
                                        NSError *saveError = nil;
                                        

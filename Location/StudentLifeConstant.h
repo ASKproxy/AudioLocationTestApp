@@ -69,12 +69,15 @@
 #pragma mark - Sleep Classifier
 //--------------------------------------------------
 #define SleepDetectionInterval 12*3600
-#define SleepDurationHigh 10*3600
+#define SleepDurationHigh 9*3600
 #define SleepDurationMed 8*3600
-#define SleepDurationLow 6*3600
+#define SleepDurationLow 7*3600
 #define SleepLevelHigh 0
 #define SleepLevelMed 1
 #define SleepLevelLow 2
+#define SleepInterceptCoefficient 0.234775977
+#define SleepConversationCoefficient 0.02338608
+#define SleepNumberTalksCoefficient 0.525909625
 
 
 //--------------------------------------------------
@@ -109,6 +112,10 @@
 #define SleepLow @"TabAwake"
 
 
+//--------------------------------------------------
+#pragma mark - Date Format
+//--------------------------------------------------
+#define YearMonthDay @"yyyy/MM/dd"
 
 
 #define ConsecutiveNonConversationLength 30

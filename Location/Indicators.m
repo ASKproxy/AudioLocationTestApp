@@ -15,6 +15,10 @@
 @synthesize activityLevel = _activityLevel;
 @synthesize screenHeight = _screenHeight;
 @synthesize screenWidth = _screenWidth;
+@synthesize campusActivity = _campusActivity;
+@synthesize campusSleep = _campusSleep;
+@synthesize campusSocial = _campusSocial;
+@synthesize campusStress = _campusStress;
 
 #pragma mark - Init
 + (Indicators*)sharedInstance {
@@ -28,13 +32,21 @@
 -(id)init{
     if (self = [super init]) {
         
-        _activityLevel=[NSNumber numberWithInt:0];
-        _sleepLevel=[NSNumber numberWithInt:0];
-        _socialLevel=[NSNumber numberWithInt:0];
-        _stressLevel=[NSNumber numberWithInt:0];
+        _activityLevel = [NSNumber numberWithInt:0];
+        _sleepLevel = [NSNumber numberWithInt:0];
+        _socialLevel = [NSNumber numberWithInt:0];
+        _stressLevel = [NSNumber numberWithInt:0];
+        
+        _campusStress = [NSNumber numberWithInt:0];
+        _campusSleep = [NSNumber numberWithInt:0];
+        _campusSocial = [NSNumber numberWithInt:0];
+        _campusActivity = [NSNumber numberWithInt:0];
+        
+        
         self.screenRect = [[UIScreen mainScreen] bounds];
         self.screenWidth = self.screenRect.size.width;
         self.screenHeight = self.screenRect.size.height;
+        
         NSLog(@"initializing the Indicators");
     }
     return self;
@@ -102,5 +114,45 @@
 -(void) setActivityLevel:(NSNumber *)activityLevel{
     _activityLevel = activityLevel;
 }
+
+
+-(NSInteger) getCampusActivity{
+    NSInteger result = [_campusActivity integerValue];
+    return result;
+}
+
+-(void) setCampusActivity:(NSNumber *)campusActivity{
+    _campusActivity = campusActivity;
+}
+
+
+-(NSInteger) getCampusSleep{
+    NSInteger result = [_campusSleep integerValue];
+    return result;
+}
+
+-(void) setCampusSleep:(NSNumber *)campusSleep{
+    _campusSleep = campusSleep;
+}
+
+
+-(NSInteger) getCampusSocial{
+    NSInteger result = [_campusSocial integerValue];
+    return result;
+}
+
+-(void) setCampusSocial:(NSNumber *)campusSocial{
+    _campusSocial = campusSocial;
+}
+
+-(NSInteger) getCampusStress{
+    NSInteger result = [_campusStress integerValue];
+    return result;
+}
+
+-(void) setCampusStress:(NSNumber *)campusStress{
+    _campusStress = campusStress;
+}
+
 
 @end

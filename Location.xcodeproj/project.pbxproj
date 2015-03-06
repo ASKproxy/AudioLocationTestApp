@@ -60,6 +60,9 @@
 		3FDECA921A998D6300B52EE4 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDECA911A998D6300B52EE4 /* ActivityViewController.m */; };
 		3FE0FD541A8AC1A500A8B992 /* PamSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0FD531A8AC1A500A8B992 /* PamSurveyViewController.m */; };
 		3FE0FD581A8C28A700A8B992 /* DataTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE0FD571A8C28A700A8B992 /* DataTabViewController.m */; };
+		3FEE39821AA92B720070C921 /* SleepClassifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEE39811AA92B720070C921 /* SleepClassifier.m */; };
+		3FEE39831AA92CC10070C921 /* ActivityJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A51AA7161500E45901 /* ActivityJson.m */; };
+		3FEE39841AA92CCC0070C921 /* StressJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1AB1AA7BB0800E45901 /* StressJSON.m */; };
 		3FF1C8B91A87F50300E4FA6F /* SetupSensors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */; };
 		5C90909018B3A66A00510153 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90908F18B3A66A00510153 /* Foundation.framework */; };
 		5C90909218B3A66A00510153 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90909118B3A66A00510153 /* CoreGraphics.framework */; };
@@ -83,10 +86,7 @@
 		972670EF1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		972670F01AA271010062F909 /* Hiekka Graphics - Savu Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 972670EE1AA271000062F909 /* Hiekka Graphics - Savu Condensed.ttf */; };
 		A432BA121AA0F19D008E941E /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = A432BA111AA0F19D008E941E /* Server.m */; };
-		A432C1A61AA7161500E45901 /* ActivityJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A51AA7161500E45901 /* ActivityJson.m */; };
 		A432C1A91AA7800700E45901 /* WrapperJson.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1A81AA7800700E45901 /* WrapperJson.m */; };
-		A432C1AC1AA7BB0800E45901 /* StressJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1AB1AA7BB0800E45901 /* StressJSON.m */; };
-		A432C1AF1AA7BEF000E45901 /* SleepJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A432C1AE1AA7BEF000E45901 /* SleepJSON.m */; };
 		A45D14491A906CD1002AEAD9 /* AudioProcessing.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D14481A906CD1002AEAD9 /* AudioProcessing.m */; };
 		A45D51B31AA686D100F74DC6 /* Indicators.m in Sources */ = {isa = PBXBuildFile; fileRef = A45D51B21AA686D100F74DC6 /* Indicators.m */; };
 		A45E5EC21A91D9510048FEB5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A45E5EC11A91D9510048FEB5 /* CoreBluetooth.framework */; };
@@ -210,6 +210,8 @@
 		3FE0FD531A8AC1A500A8B992 /* PamSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PamSurveyViewController.m; sourceTree = "<group>"; };
 		3FE0FD561A8C28A700A8B992 /* DataTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTabViewController.h; sourceTree = "<group>"; };
 		3FE0FD571A8C28A700A8B992 /* DataTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTabViewController.m; sourceTree = "<group>"; };
+		3FEE39801AA92B720070C921 /* SleepClassifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepClassifier.h; sourceTree = "<group>"; };
+		3FEE39811AA92B720070C921 /* SleepClassifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepClassifier.m; sourceTree = "<group>"; };
 		3FF1C8B71A87F50300E4FA6F /* SetupSensors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupSensors.h; sourceTree = "<group>"; };
 		3FF1C8B81A87F50300E4FA6F /* SetupSensors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupSensors.m; sourceTree = "<group>"; };
 		5C90908C18B3A66A00510153 /* Location.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Location.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -483,6 +485,8 @@
 				A4A97DD61AA3948300927356 /* ActivityClassifier.m */,
 				A45D51B11AA686D100F74DC6 /* Indicators.h */,
 				A45D51B21AA686D100F74DC6 /* Indicators.m */,
+				3FEE39801AA92B720070C921 /* SleepClassifier.h */,
+				3FEE39811AA92B720070C921 /* SleepClassifier.m */,
 			);
 			name = Classifier;
 			sourceTree = "<group>";
@@ -840,6 +844,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEE39841AA92CCC0070C921 /* StressJSON.m in Sources */,
+				3FEE39831AA92CC10070C921 /* ActivityJson.m in Sources */,
 				A47DEF031A92C2F300D1B5DE /* AccelerometerTracker.m in Sources */,
 				A4A97DD71AA3948300927356 /* ActivityClassifier.m in Sources */,
 				3FDECA921A998D6300B52EE4 /* ActivityViewController.m in Sources */,
@@ -858,6 +864,7 @@
 				3FB8AB891A99609000E432DF /* JBChartTableCell.m in Sources */,
 				3FB8AB941A99609000E432DF /* JBBarChartFooterView.m in Sources */,
 				3FDA7CF51A86CF8700A4EE58 /* TPCircularBuffer.c in Sources */,
+				3FEE39821AA92B720070C921 /* SleepClassifier.m in Sources */,
 				3FCA58541AA89D56006A7EE2 /* SetupTimers.m in Sources */,
 				3FB531161A80BA1000E1B62C /* FormatFile.m in Sources */,
 				3F2EE7BE1A930AF5002C0054 /* LandingViewController.m in Sources */,

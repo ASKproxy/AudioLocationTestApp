@@ -16,6 +16,11 @@
 @property (strong,nonatomic)NSNumber *socialLevel;
 @property (strong,nonatomic)NSNumber *stressLevel;
 
+@property (strong,nonatomic)NSNumber *campusActivity;
+@property (strong,nonatomic)NSNumber *campusSleep;
+@property (strong,nonatomic)NSNumber *campusSocial;
+@property (strong,nonatomic)NSNumber *campusStress;
+
 @property (nonatomic)CGRect screenRect;
 @property (nonatomic)CGFloat screenWidth;
 @property (nonatomic)CGFloat screenHeight;
@@ -84,5 +89,52 @@
  Set activity level
  */
 -(void) setActivityLevel:(NSNumber *)activityLevel;
+
+
+/**
+ Get campus activity average
+ return NSInteger
+ */
+-(NSInteger) getCampusActivity;
+
+/**
+ Set campus activity average
+ */
+-(void) setCampusActivity:(NSNumber *)campusActivity;
+
+
+/**
+ Get campus sleep average
+ return NSInteger
+ */
+-(NSInteger) getCampusSleep;
+
+/**
+ Set campus sleep average
+ */
+-(void) setCampusSleep:(NSNumber *)campusSleep;
+
+/**
+ Get campus social average
+ return NSInteger
+ */
+-(NSInteger) getCampusSocial;
+
+/**
+ Set campus social average
+ */
+-(void) setCampusSocial:(NSNumber *)campusSocial;
+
+
+/**
+ Get campus stress average
+ return NSInteger
+ */
+-(NSInteger) getCampusStress;
+
+/**
+ Set campus stress average
+ */
+-(void) setCampusStress:(NSNumber *)campusStress;
 
 @end

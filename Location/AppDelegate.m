@@ -126,7 +126,7 @@ static void displayStatusChanged(CFNotificationCenterRef center,
     //Shared Instances
     dataManager = [DataManager sharedInstance];
     setupSensors = [SetupSensors sharedSetupSensors];
-    setupTimers = [SetupTimers sharedSetupTimers];
+//    setupTimers = [SetupTimers sharedSetupTimers];
     //---------------------------------------
     
     //---------------------------------------
