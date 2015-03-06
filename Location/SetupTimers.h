@@ -11,6 +11,7 @@
 #import "ActivityClassifier.h"
 #import "StudentLifeConstant.h"
 #import "Indicators.h"
+#import "SleepClassifier.h"
 
 
 @interface SetupTimers : NSObject
@@ -18,7 +19,7 @@
 
 #pragma mark - Property
 @property ActivityClassifier *activityTracker;
-
+@property SleepClassifier *sleepClassifier;
 @property DataManager *dataManager;
 @property Indicators *indicators;
 

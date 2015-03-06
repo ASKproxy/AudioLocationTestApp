@@ -24,9 +24,9 @@
         self.dataManager=[DataManager sharedInstance];
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            self.previousActivity=[[NSMutableDictionary alloc]initWithObjectsAndKeys:[NSNumber numberWithFloat:0],@"sum",[NSNumber numberWithFloat:0],@"count",[NSNumber numberWithFloat:0],@"average", nil];
             
-        });    }
+        });
+    }
     return self;
 }
 

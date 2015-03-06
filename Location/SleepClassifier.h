@@ -7,7 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DataManager.h"
+#import "StudentLifeConstant.h"
+#import "Indicators.h"
 
 @interface SleepClassifier : NSObject
+
+#pragma mark - Property
+@property (strong,nonatomic) DataManager * dataManager;
+@property Indicators *indicators;
+
+
+#pragma mark - Shared Instance;
++(SleepClassifier *) sharedSleepClassifier;
+
+-(int) checkLockRecords:(NSDate *)startInterval upUntil:(NSDate *)endInterval inTimeInterval:(int)intervalCounter;
 
 @end

@@ -35,7 +35,7 @@
 #pragma mark - Conversation Count
 //--------------------------------------------------
 #define ConsecutiveConversationLength 10
-
+#define ConsecutiveNonConversationLength 30
 
 //--------------------------------------------------
 #pragma mark - Database Attributes
@@ -116,6 +116,11 @@
 #pragma mark - Date Format
 //--------------------------------------------------
 #define YearMonthDay @"yyyy/MM/dd"
+#define FRAME_LENGTH 256
+#define ONE_MINUTE 60
+#define ONE_HOUR 3600
+#define INTERVAL_LENGTH 10800 // 3 hours : 3600 seconds*3=10800
+#define LOCKTIME_THRESHOLD 7200 //2 hours : 120 minutes*60=2400 seconds
+#define LOCKCOUNT_THRESHOLD 3
 
 
-#define ConsecutiveNonConversationLength 30

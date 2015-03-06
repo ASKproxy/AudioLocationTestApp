@@ -59,6 +59,18 @@ static int intervalCounter=0;
 -(id)init {
     self = [super init];
     NSLog(@"sharedSetupSensors initialized!");
+    //setup
+    [self setupCoreData];
+    [self setupServer];
+    [self setupAudioMicrophone];
+    [self setupLocationGPS];
+    [self setupNotifications];
+    [self setupBluetooth];
+    [self setupAccelerometer];
+    //        [_setupSensors setupActivityClassifier];
+    //        [_setupSensors shortTimer];
+    //        [_setupSensors dailyTimer];
+    
     return self;
 }
 
@@ -73,20 +85,7 @@ static int intervalCounter=0;
     //New thread for SetupSensors object
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _setupSensors = [[SetupSensors alloc] init];
-    
-        
-        //setup
-        [_setupSensors setupCoreData];
-        [_setupSensors setupServer];
-        [_setupSensors setupAudioMicrophone];
-        [_setupSensors setupLocationGPS];
-        [_setupSensors setupNotifications];
-        [_setupSensors setupBluetooth];
-        [_setupSensors setupAccelerometer];
-//        [_setupSensors setupActivityClassifier];
-//        [_setupSensors shortTimer];
-//        [_setupSensors dailyTimer];
+        _setupSensors = [[SetupSensors alloc] init];       
     });
     return _setupSensors;
 }
